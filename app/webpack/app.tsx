@@ -1,42 +1,33 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
+import { Navbar } from "./components/navbar";
+import { ProtectedRoute } from "./routing /protectedRoute";
+import { Dashboard } from "./pages/dashboard";
+import { STOForm } from "./pages/stoform";
+import { NotFound } from "./pages/notfound";
+
 const Title = styled.h1`
-color: blue;
+  color: inherit;
 `;
 
-const App = () => {
+const Router = () => {
   return (
     <BrowserRouter>
-      <div className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/2">Page 2</Link>
-      </div>
-
+      <Navbar />
       <Switch>
-
-        <Route exact path="/">
-          <Title>Page one!</Title>
-        </Route>
-
-        <Route exact path="/2">
-          <Title>Page two!</Title>
-        </Route>
-
-        <Route>
-          <Title>404 Not Found</Title>
-        </Route>
-
+        <Route exact path="/" component={STOForm} />
+        <ProtectedRoute isAuthenticated={true} authenticationPath="/" exact path="/dashboard" component={Dashboard} />
+        <Route component={NotFound} />
       </Switch>
-
     </BrowserRouter>
   )
 }
 
 const RootComponent = () => {
-  return <App />
+  return <Router />
 }
 
 const entry = document.getElementById("app-root");
