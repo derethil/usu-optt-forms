@@ -7,10 +7,11 @@ const BoxButton = styled.div<{ selected: boolean, num: number }>`
   background-color: ${props => props.selected ? "#00a6e9" : "white"};
   color: ${props => props.selected ? "white" : "black"};
 
-  width: 2.5em;
-  height: 2.5em;
+  min-width: 2em;
+  height: 2em;
+  padding: 0.5em;
   border: 2px solid gray;
-  border-left: ${props => props.num === 1 ? "2px solid gray" : "none"};
+  border-left: ${props => props.num === 0 ? "2px solid gray" : "none"};
 
   display: flex;
   align-items: center;
@@ -25,16 +26,16 @@ const BoxButton = styled.div<{ selected: boolean, num: number }>`
 `;
 
 type SelectButtonProps = {
-  num: number,
+  id: number,
+  content: string,
   selected: boolean,
-  field: string
-  setSelection: (updatedValues: Partial<FormInfo>) => void
+  updateSelection: (newSelection: string) => void
 };
 
-export const SelectButton = ({ num, selected, field, setSelection }: SelectButtonProps) => {
+export const SelectButton = ({ id, content, selected, updateSelection }: SelectButtonProps) => {
   return <BoxButton
-    num={num}
+    num={id}
     selected={selected}
-    onClick={() => setSelection({ [field]: num })}
-  >{num}</BoxButton>
+    onClick={() => updateSelection(content)}
+  >{content}</BoxButton>
 }

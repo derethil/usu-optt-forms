@@ -10,38 +10,35 @@ const ButtonsRow = styled.div`
   justify-content: center;
 `;
 
-type ObservationSelectProps = {
-  range: number,
-  currSelection: number,
-  setSelection: (updatedValues: Partial<FormInfo>) => void
-}
+interface OptionRowProps {
+  title: string
+  currSelection: string,
+  options: string[],
+  updateSelection: (newSelection: string) => void
+};
 
-
-
-export const ObservationSelect = ({ range, currSelection, setSelection }: ObservationSelectProps) => {
+export const OptionRow = ({ title, currSelection, options = [], updateSelection, }: OptionRowProps) => {
 
   const selectButtons: JSX.Element[] = [];
 
-  for (let i = 1; i <= range; i++) {
+
+  for (let i = 0; i < options.length; i++) {
+    const content = options[i]
     selectButtons.push(
       <SelectButton
-        num={i}
+        content={content}
+        id={i}
         key={i}
-        field={"observation"}
-        setSelection={setSelection}
-        selected={i === currSelection}
+        updateSelection={updateSelection}
+        selected={content === currSelection}
       />
     )
   }
 
-
-
-
-
   return <div className="observation-select-container">
-    <h3>Observation Number</h3>
+    <h3 style={{ textAlign: "center" }}>{title}</h3>
     <ButtonsRow className="observation-select">
       {selectButtons}
     </ButtonsRow>
-  </div>
+  </div >
 }
