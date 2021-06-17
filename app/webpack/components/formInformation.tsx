@@ -3,6 +3,7 @@ import React from "react";
 import { TextInput } from "./textInput";
 import { useDefaultObjState } from "../hooks";
 import { Label } from "../styledComponents/label";
+import { ObservationSelect } from "./observationSelect";
 
 
 export const FormInformation = () => {
@@ -43,6 +44,7 @@ export const FormInformation = () => {
         onChange={(e) => updateFormInfo({ "date": e.target.value })}
       />
 
+      <ObservationSelect range={5} currSelection={formInfo.observation} setSelection={updateFormInfo} />
     </div>
   )
 }
