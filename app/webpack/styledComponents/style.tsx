@@ -9,3 +9,9 @@ export const FormInfo = styled.div`
   display: inline-block;
   text-align: right;
 `;
+
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 21em;
+`;

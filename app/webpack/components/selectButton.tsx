@@ -2,33 +2,39 @@ import React from "react";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
-const BoxButton = styled.div<{ selected: boolean, num: number, minHeight?: number, minWidth?: number }>`
+const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean }>`
+
+
+  position: relative;
+  min-width: ${props => props.scoreBox ? 12.5 : 4}em;
+  max-width: ${props => props.scoreBox ? 12.5 : 8}em;
+  height: ${props => props.scoreBox ? 12.5 : 4}em;
+
+  margin-right: 1em;
+  padding: 0.5em;
+  border: 2px solid gray;
+  border-radius: 12%;
+
   background-color: ${props => props.selected ? "#00a6e9" : "white"};
   color: ${props => props.selected ? "white" : "black"};
 
-  min-width: ${props => props.minWidth ? props.minWidth : 4}em;
-  max-width: ${props => props.minWidth ? props.minWidth : 8}em;;
-  min-height: ${props => props.minHeight ? props.minHeight : 4}em;
-  padding: 0.5em;
-  margin-right: 1em;
-  border: 2px solid gray;
-
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
   font-size: 1rem;
   font-weight: bold;
-
-  border-radius: 12%;
 
   :hover {
     cursor: pointer;
   }
 
   transition: all 0.075s;
+`;
+
+const BoxButton = styled.div<{ selected: boolean, scoreBox?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
 `;
 
 const TooltipIcon = styled.i`
@@ -39,6 +45,7 @@ const TooltipIcon = styled.i`
 
 const ScoreValue = styled.div<{}>`
   font-size: 2rem;
+  margin-top: auto;
 `;
 
 type SelectButtonProps = {
@@ -47,27 +54,22 @@ type SelectButtonProps = {
   selected: boolean,
   updateSelection: (newSelection: string) => void
   score?: string,
-  minHeight?: number,
-  minWidth?: number
   tooltip?: string
 };
 
-export const SelectButton = ({ id, content, selected, score, minHeight, minWidth, updateSelection, tooltip }: SelectButtonProps) => {
+export const SelectButton = ({ id, content, selected, score, updateSelection, tooltip }: SelectButtonProps) => {
 
   const selectBy = score ? score : content;
 
-  return <div>
+  return <ButtonContainer scoreBox={Boolean(score)} selected={selected}>
     <BoxButton
-      num={id}
       selected={selected}
       onClick={() => updateSelection(selectBy)}
-      minHeight={minHeight}
-      minWidth={minWidth}
-      data-tip={tooltip}
+      data-tip={""}
+      scoreBox={Boolean(score)}
     >
       {tooltip !== "" && <TooltipIcon className="far fa-question-circle"></TooltipIcon>}
-      {content}
-      <br />
+      <p style={{ marginTop: "2.5em" }}>{content}</p>
       {score && <ScoreValue>{score}</ScoreValue>}
     </BoxButton>
     <ReactTooltip
@@ -76,6 +78,6 @@ export const SelectButton = ({ id, content, selected, score, minHeight, minWidth
       effect="solid"
       multiline={true}
     />
-  </div >
+  </ButtonContainer>
 
 }

@@ -1,11 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 
 import { TextInput } from "./textInput";
 import { OptionRow } from "./optionRow";
 import { useDefaultObjState } from "../hooks";
-import { Label } from "../styledComponents/style";
-import { FormInfo } from "../styledComponents/style";
-
+import { Label, FormInfo, InputContainer } from "../styledComponents/style";
 
 export const FormInformation = () => {
   const [formInfo, updateFormInfo, resetFormInfo] = useDefaultObjState({
@@ -38,21 +37,26 @@ export const FormInformation = () => {
         field="supervisor"
       />
 
-      <Label htmlFor="date">Date</Label>
+      <InputContainer>
+        <Label htmlFor="date">Date</Label>
 
-      <input
-        type="date"
-        name="data"
-        id="datepicker"
-        value={formInfo.date}
-        onChange={(e) => updateFormInfo({ "date": e.target.value })}
-      />
+        <input
+          type="date"
+          name="data"
+          id="datepicker"
+          value={formInfo.date}
+          onChange={(e) => updateFormInfo({ "date": e.target.value })}
+        />
+      </InputContainer>
+
+
 
       <TextInput
         value={formInfo.other}
         updateFormInfo={updateFormInfo}
         field="other"
       />
+
 
       <OptionRow
         title={"Observation Number"}

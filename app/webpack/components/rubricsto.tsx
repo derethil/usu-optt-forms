@@ -62,8 +62,6 @@ export const RubricSTO = () => {
         title={row.area}
         currSelection={String(scores[row.area])}
         updateSelection={newSelection => updateScores({ [row.area]: Number(newSelection) })}
-        minHeight={12}
-        minWidth={12}
       />);
     })
   })

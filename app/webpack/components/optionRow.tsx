@@ -15,8 +15,6 @@ interface OptionRowProps {
   contentOptions: string[],
   updateSelection: (newSelection: string) => void
   scoreOptions?: string[],
-  minHeight?: number,
-  minWidth?: number,
   tooltipOptions?: string[]
 };
 
@@ -26,8 +24,6 @@ export const OptionRow = ({
   contentOptions = [],
   scoreOptions,
   updateSelection,
-  minHeight,
-  minWidth,
   tooltipOptions
 }: OptionRowProps) => {
 
@@ -50,8 +46,6 @@ export const OptionRow = ({
         key={i}
         updateSelection={updateSelection}
         selected={compareTo === currSelection}
-        minHeight={minHeight}
-        minWidth={minWidth}
       />
     )
   }
