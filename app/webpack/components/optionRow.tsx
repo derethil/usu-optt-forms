@@ -56,9 +56,9 @@ export const OptionRow = ({
     )
   }
 
-  return <div className="observation-select-container">
+  return <div>
     <h3 style={{ textAlign: "left" }}>{title}</h3>
-    <ButtonsRow className="observation-select">
+    <ButtonsRow>
       {selectButtons}
     </ButtonsRow>
   </div >

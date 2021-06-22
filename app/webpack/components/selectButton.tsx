@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
-import { Partial, FormInfo } from "../types";
-
 const BoxButton = styled.div<{ selected: boolean, num: number, minHeight?: number, minWidth?: number }>`
   background-color: ${props => props.selected ? "#00a6e9" : "white"};
   color: ${props => props.selected ? "white" : "black"};
@@ -33,14 +31,14 @@ const BoxButton = styled.div<{ selected: boolean, num: number, minHeight?: numbe
   transition: all 0.075s;
 `;
 
-const ScoreValue = styled.div<{}>`
-  font-size: 2rem;
-`;
-
 const TooltipIcon = styled.i`
   position: absolute;
   top: 1em;
   left: 1em;
+`;
+
+const ScoreValue = styled.div<{}>`
+  font-size: 2rem;
 `;
 
 type SelectButtonProps = {
@@ -58,7 +56,7 @@ export const SelectButton = ({ id, content, selected, score, minHeight, minWidth
 
   const selectBy = score ? score : content;
 
-  return <div className="boxButton">
+  return <div>
     <BoxButton
       num={id}
       selected={selected}

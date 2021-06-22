@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Partial, FormInfo } from "../types";
-import { Label } from "../styledComponents/label";
+import { Label } from "../styledComponents/style";
 
 
 
@@ -20,10 +20,10 @@ export const TextInput = ({ value, updateFormInfo, field }: TextInputProps) => {
   const titleCased = spaced.charAt(0).toUpperCase() + spaced.slice(1);
 
   return (
-    <div className="text-input-container">
+    <div>
       <Label htmlFor={field}>{titleCased}</Label>
       <input
-        className={`text-input`}
+        // className={`text-input`}
         value={value}
         onChange={(e) => updateFormInfo({ [field]: e.target.value })}
       />

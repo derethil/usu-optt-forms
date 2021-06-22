@@ -18,7 +18,7 @@ const PageBaseDiv = styled.div`
 
 export const STOForm = () => {
   return (
-    <PageBaseDiv className="student-teaching-form">
+    <PageBaseDiv>
       <FormInformation />
       <RubricSTO />
     </PageBaseDiv>

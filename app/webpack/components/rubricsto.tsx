@@ -68,12 +68,6 @@ export const RubricSTO = () => {
     })
   })
 
-
-
-
-
-
-
   return (
     <div className="rubric">
       {rows}

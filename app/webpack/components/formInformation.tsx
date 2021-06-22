@@ -1,15 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 
 import { TextInput } from "./textInput";
-import { useDefaultObjState } from "../hooks";
-import { Label } from "../styledComponents/label";
 import { OptionRow } from "./optionRow";
-
-const FormInfo = styled.div`
-  display: inline-block;
-  text-align: right;
-`;
+import { useDefaultObjState } from "../hooks";
+import { Label } from "../styledComponents/style";
+import { FormInfo } from "../styledComponents/style";
 
 
 export const FormInformation = () => {
