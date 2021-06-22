@@ -2,20 +2,25 @@ import React from "react";
 import styled from "styled-components";
 
 import { FormInformation } from "../components/formInformation";
+import { RubricSTO } from "../components/rubricsto";
 
 const PageBaseDiv = styled.div`
   font-family: 'Poppins', sans-serif;
-  width: 50%;
+  width: 100%;
   margin: auto;
   text-align: center;
+
+  display: flex;
+  justify-content: space-around;
+
 `;
 
 
 export const STOForm = () => {
   return (
     <PageBaseDiv className="student-teaching-form">
-      <h1>Student Teaching Observation Form</h1>
       <FormInformation />
+      <RubricSTO />
     </PageBaseDiv>
   )
 }

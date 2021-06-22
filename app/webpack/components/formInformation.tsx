@@ -23,13 +23,10 @@ export const FormInformation = () => {
     program: "Mild/Moderate"
   });
 
-  const setObservation = (newSelection: string | number) => {
-    let num = newSelection as number;
-    updateFormInfo({ "observation": newSelection as number })
-  }
-
   return (
-    <FormInfo className="form-info-container">
+    <FormInfo>
+      <h1>Student Teaching Observation Form</h1>
+
       <TextInput
         value={formInfo.studentTeacher}
         updateFormInfo={updateFormInfo}
@@ -64,14 +61,14 @@ export const FormInformation = () => {
 
       <OptionRow
         title={"Observation Number"}
-        options={["1", "2", "3", "4", "5"]}
+        contentOptions={["1", "2", "3", "4", "5"]}
         currSelection={formInfo.observation.toString()}
         updateSelection={(newSelection: string) => updateFormInfo({ "observation": Number(newSelection) })}
       />
 
       <OptionRow
         title={"Program"}
-        options={["Mild/Moderate", "Severe", "Birth to 5"]}
+        contentOptions={["Mild/Moderate", "Severe", "Birth to 5"]}
         currSelection={formInfo.program}
         updateSelection={(newSelection: string) => updateFormInfo({ "program": newSelection })}
       />

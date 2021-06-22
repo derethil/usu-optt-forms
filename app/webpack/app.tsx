@@ -1,17 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
 
 import { Navbar } from "./components/navbar";
 import { ProtectedRoute } from "./routing /protectedRoute";
 import { Dashboard } from "./pages/dashboard";
 import { STOForm } from "./pages/stoform";
 import { NotFound } from "./pages/notfound";
-
-const Title = styled.h1`
-  color: inherit;
-`;
 
 const Router = () => {
   return (

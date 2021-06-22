@@ -1,0 +1,73 @@
+[
+  {
+    "sectionTitle": "Preparation and Planning",
+    "rows": [
+      {
+        "area": "Lesson Preparation",
+        "options": [
+          {
+            "content": "Complete lesson plan, addressed all phases of the effective teaching cycle",
+            "score": 1
+          },
+          {
+            "content": "Lesson plan unclear, incomplete, or unavailable",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Components",
+        "options": [
+          {
+            "content": "Lesson Plan includes all 4 components",
+            "tooltip": "Lesson Plan includes all 4: <br/>1. Linked to sequenced IEP goal/objectives/instructional units<br/>2. Appropriate relevant chunking<br/>3. Sufficient number of trials and items<br/>4. Scaffolding – includes reduction  of support",
+            "score": 6
+          },
+          {
+            "content": "Lesson plan includes 3 complete and accurate components",
+            "score": 3
+          },
+          {
+            "content": "Lesson plan includes 2 complete and accurate components or some components unrelated or insufficient",
+            "score": 1
+          },
+          {
+            "content": "0-1 componenents complete and accurate or most components unrelated or insufficient",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Individualization",
+        "options": [
+          {
+            "content": "Lesson plan includes all elements of individualization",
+            "tooltip": "Lesson Planning includes evidence of  <br/>1. Matching/adapting content to learners,  <br/>2. Accounting for diversity of learners, <br/>3. Purpose/rationale for teaching content, <br/>4. Age/developmentally appropriate",
+            "score": 6
+          },
+          {
+            "content": "Some evidence of individualization",
+            "score": 3
+          },
+          {
+            "content": "Little to no evidence of individualization",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Materials Preparation",
+        "options": [
+          {
+            "content": "Materials gathered and ready for use",
+            "score": 0
+          },
+          {
+            "content": "Materials not gathered or ready for use ",
+            "score": -1
+          }
+        ]
+      }
+    ]
+  }
+]

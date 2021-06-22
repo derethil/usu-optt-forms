@@ -34,7 +34,6 @@ export const useDefaultObjState = <T extends object>(initialValue: T) => {
     () => setValue(initialValue)
   ] as [T, (updatedValues: Partial<T>) => void, () => void]
 }
-
 // Boolean-only state
 export const useBoolState = (initialValue: boolean) => {
   const [value, setValue] = useState(initialValue);
