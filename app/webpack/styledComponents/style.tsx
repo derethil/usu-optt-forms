@@ -15,3 +15,8 @@ export const InputContainer = styled.div`
   justify-content: space-between;
   width: 21em;
 `;
+
+export const CenteredIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;

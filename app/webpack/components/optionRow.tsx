@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
 
 import { SelectButton } from "./selectButton";
+import { CenteredIconContainer } from "../styledComponents/style";
 
 const ButtonsRow = styled.div`
   display: flex;
@@ -15,7 +17,7 @@ interface OptionRowProps {
   contentOptions: string[],
   updateSelection: (newSelection: string) => void
   scoreOptions?: string[],
-  tooltipOptions?: string[]
+  tooltip?: string
 };
 
 export const OptionRow = ({
@@ -24,7 +26,7 @@ export const OptionRow = ({
   contentOptions = [],
   scoreOptions,
   updateSelection,
-  tooltipOptions
+  tooltip
 }: OptionRowProps) => {
 
   const selectButtons: JSX.Element[] = [];
@@ -33,7 +35,6 @@ export const OptionRow = ({
   for (let i = 0; i < contentOptions.length; i++) {
     const content = contentOptions[i];
     const score = scoreOptions ? scoreOptions[i] : "";
-    const tooltip = tooltipOptions ? tooltipOptions[i] : "";
 
     const compareTo = scoreOptions ? score : content;
 
@@ -41,7 +42,6 @@ export const OptionRow = ({
       <SelectButton
         content={content}
         score={score}
-        tooltip={tooltip}
         id={i}
         key={i}
         updateSelection={updateSelection}
@@ -51,7 +51,19 @@ export const OptionRow = ({
   }
 
   return <div>
-    <h3 style={{ textAlign: "left" }}>{title}</h3>
+    <div className="title" style={{ display: "flex" }}>
+      <h3 style={{ textAlign: "left", marginRight: "0.5em" }}>{title}</h3>
+      {tooltip && <CenteredIconContainer className="hover-icon" data-tip={tooltip}>
+        <i className="far fa-question-circle"></i>
+        <ReactTooltip
+          place="top"
+          type="dark"
+          effect="solid"
+          multiline={true}
+        />
+      </CenteredIconContainer>}
+    </div>
+
     <ButtonsRow>
       {selectButtons}
     </ButtonsRow>

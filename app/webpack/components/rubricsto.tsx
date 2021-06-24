@@ -9,10 +9,10 @@ interface Section {
   sectionTitle: string,
   rows: [{
     area: string,
+    tooltip?: string,
     options: [{
       content: string,
       score: number,
-      tooltip?: string
     }]
   }]
 }
@@ -41,7 +41,10 @@ export const RubricSTO = () => {
 
   rubricData.forEach(section => {
 
-    rows.push(<h2 style={{ textAlign: "left" }} key={Math.random()}>{section.sectionTitle}</h2>);
+
+    rows.push(<h2 style={{ textAlign: "left" }} key={rubricData.indexOf(section)}>{section.sectionTitle}</h2>);
+
+    let optionKey = 0;
 
     section.rows.forEach(row => {
       let currContentOptions: string[] = [];
@@ -51,18 +54,19 @@ export const RubricSTO = () => {
       row.options.forEach(option => {
         currContentOptions.push(String(option.content));
         currScoreOptions.push(String(option.score));
-        tooltipOptions.push(String(option.tooltip ? option.tooltip : ""));
       });
 
       rows.push(<OptionRow
-        key={Math.random()}
+        key={optionKey}
         contentOptions={currContentOptions}
         scoreOptions={currScoreOptions}
-        tooltipOptions={tooltipOptions}
+        tooltip={row.tooltip}
         title={row.area}
         currSelection={String(scores[row.area])}
         updateSelection={newSelection => updateScores({ [row.area]: Number(newSelection) })}
       />);
+
+      optionKey++;
     })
   })
 
