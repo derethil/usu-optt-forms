@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
-const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean }>`
-  min-width: ${props => props.scoreBox ? 12.5 : 4}em;
-  max-width: ${props => props.scoreBox ? 12.5 : 8}em;
-  height: ${props => props.scoreBox ? 12.5 : 4}em;
+const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABox?: boolean }>`
+  min-width: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};
+  max-width: ${props => props.scoreBox || props.NABox ? "200px" : "8em"};
+  height: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};
 
   margin-right: 1em;
-  padding: 0.5em;
+  padding: 5px;
   border: 2px solid #aba;
   border-radius: 15%;
 
@@ -17,7 +17,7 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean }>`
   //box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
-  font-size: 1rem;
+  font-size: ${props => props.NABox ? 1.5 : 1}rem;
   font-weight: bold;
 
   :hover {
@@ -47,18 +47,17 @@ const ScoreValue = styled.div<{}>`
 `;
 
 type SelectButtonProps = {
-  id: number,
   content: string,
   selected: boolean,
   updateSelection: (newSelection: string) => void
   score?: string
 };
 
-export const SelectButton = ({ id, content, selected, score, updateSelection }: SelectButtonProps) => {
+export const SelectButton = ({ content, selected, score, updateSelection }: SelectButtonProps) => {
 
   const selectBy = score ? score : content;
 
-  return <ButtonContainer scoreBox={Boolean(score)} selected={selected}>
+  return <ButtonContainer scoreBox={Boolean(score)} NABox={content === "N/A"} selected={selected}>
     <BoxButton onClick={() => updateSelection(selectBy)}>
       <p style={{ marginTop: Boolean(score) ? "2.5em" : "normal" }}>{content}</p>
       {score && <ScoreValue>{score}</ScoreValue>}

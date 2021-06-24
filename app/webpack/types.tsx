@@ -30,6 +30,6 @@ export interface Section {
 
 export interface ScoresState {
   [key: string]: {
-    [key: string]: number
+    [key: string]: string
   }
 }

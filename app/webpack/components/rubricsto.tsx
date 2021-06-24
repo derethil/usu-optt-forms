@@ -10,19 +10,10 @@ import { RecursivePartial, ScoresState, Section } from "../types";
 type RubricSTOProps = {
   scores: ScoresState,
   rubricData: Section[],
-  updateScores: (updatedValues: Partial<ScoresState>) => void
+  updateScore: (section: string, row: string, newSelection: string) => void
 }
 
-export const RubricSTO = ({ scores, rubricData, updateScores }: RubricSTOProps) => {
-
-  const updateScore = (section: string, row: string, updatedScore: number) => {
-    updateScores({
-      [section]: {
-        ...scores[section],
-        [row]: updatedScore
-      }
-    });
-  }
+export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) => {
 
   const rows: JSX.Element[] = [];
 
@@ -36,7 +27,7 @@ export const RubricSTO = ({ scores, rubricData, updateScores }: RubricSTOProps) 
       let currScoreOptions: string[] = [];
 
       row.options.forEach(option => {
-        currContentOptions.push(String(option.content));
+        currContentOptions.push(option.content);
         currScoreOptions.push(String(option.score));
       });
 
@@ -47,7 +38,7 @@ export const RubricSTO = ({ scores, rubricData, updateScores }: RubricSTOProps) 
         tooltip={row.tooltip}
         title={row.area}
         currSelection={String(scores[section.sectionTitle][row.area])}
-        updateSelection={newSelection => updateScore(section.sectionTitle, row.area, Number(newSelection))}
+        updateSelection={newSelection => updateScore(section.sectionTitle, row.area, newSelection)}
       />);
 
       optionRowKey++;

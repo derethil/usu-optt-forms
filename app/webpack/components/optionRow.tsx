@@ -42,13 +42,24 @@ export const OptionRow = ({
       <SelectButton
         content={content}
         score={score}
-        id={i}
         key={i}
         updateSelection={updateSelection}
         selected={compareTo === currSelection}
       />
     )
   }
+
+  if (scoreOptions) {
+    selectButtons.push(
+      <SelectButton
+        content={"N/A"}
+        key={contentOptions.length}
+        updateSelection={updateSelection}
+        selected={"N/A" === currSelection}
+      />
+    )
+  }
+
 
   return <div>
     <div className="title" style={{ display: "flex" }}>

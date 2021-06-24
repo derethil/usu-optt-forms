@@ -26,7 +26,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
   rubricData.forEach(section => {
     initialState[section.sectionTitle] = {};
     section.rows.forEach(row => {
-      initialState[section.sectionTitle][row.area] = 0;
+      initialState[section.sectionTitle][row.area] = "0";
     });
   });
 
@@ -34,30 +34,23 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 }
 
 
-
-
-
-
 export const STOForm = () => {
   const rubricData = _rubricData as Section[];
   const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
 
-  const getSubtotal = (section: string) => {
-    const sectionScores = scores[section];
-
-    let sectionTotal = 0;
-    Object.keys(sectionScores).map(row => {
-      sectionTotal += sectionScores[row];
+  const updateScore = (section: string, row: string, updatedScore: string) => {
+    updateScores({
+      [section]: {
+        ...scores[section],
+        [row]: updatedScore
+      }
     });
-    return sectionTotal;
   }
-
-
 
   return (
     <PageBaseDiv>
-      <FormInformation planningTotal={getSubtotal("Preparation and Planning")} />
-      <RubricSTO scores={scores} rubricData={rubricData} updateScores={updateScores} />
+      <FormInformation scores={scores} />
+      <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
     </PageBaseDiv>
   )
 }
