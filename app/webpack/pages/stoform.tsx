@@ -36,15 +36,27 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 
 
 
+
+
 export const STOForm = () => {
   const rubricData = _rubricData as Section[];
   const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
+
+  const getSubtotal = (section: string) => {
+    const sectionScores = scores[section];
+
+    let sectionTotal = 0;
+    Object.keys(sectionScores).map(row => {
+      sectionTotal += sectionScores[row];
+    });
+    return sectionTotal;
+  }
 
 
 
   return (
     <PageBaseDiv>
-      <FormInformation planningTotal={9} />
+      <FormInformation planningTotal={getSubtotal("Preparation and Planning")} />
       <RubricSTO scores={scores} rubricData={rubricData} updateScores={updateScores} />
     </PageBaseDiv>
   )

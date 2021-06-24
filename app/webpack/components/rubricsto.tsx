@@ -17,14 +17,12 @@ export const RubricSTO = ({ scores, rubricData, updateScores }: RubricSTOProps) 
 
   const updateScore = (section: string, row: string, updatedScore: number) => {
     updateScores({
-      ...scores,
       [section]: {
         ...scores[section],
         [row]: updatedScore
       }
-    })
+    });
   }
-
 
   const rows: JSX.Element[] = [];
 
