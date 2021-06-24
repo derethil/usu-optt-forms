@@ -6,7 +6,7 @@ import { OptionRow } from "./optionRow";
 import { useDefaultObjState } from "../hooks";
 import { Label, FormInfo, InputContainer } from "../styledComponents/style";
 
-export const FormInformation = () => {
+export const FormInformation = ({ planningTotal }: { planningTotal: number }) => {
   const [formInfo, updateFormInfo, resetFormInfo] = useDefaultObjState({
     studentTeacher: "",
     cooperatingTeacher: "",
@@ -71,6 +71,8 @@ export const FormInformation = () => {
         currSelection={formInfo.program}
         updateSelection={(newSelection: string) => updateFormInfo({ "program": newSelection })}
       />
+
+      <h3>Preparation and Planning Score: {planningTotal}</h3>
 
 
 

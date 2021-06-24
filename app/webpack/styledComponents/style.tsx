@@ -7,7 +7,7 @@ export const Label = styled.label`
 
 export const FormInfo = styled.div`
   display: inline-block;
-  text-align: right;
+  text-align: left;
 `;
 
 export const InputContainer = styled.div`

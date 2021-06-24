@@ -4,52 +4,38 @@ import { OptionRow } from "./optionRow";
 import { useDefaultObjState } from "../hooks";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
+import { RecursivePartial, ScoresState, Section } from "../types";
 
-interface Section {
-  sectionTitle: string,
-  rows: [{
-    area: string,
-    tooltip?: string,
-    options: [{
-      content: string,
-      score: number,
-    }]
-  }]
+
+type RubricSTOProps = {
+  scores: ScoresState,
+  rubricData: Section[],
+  updateScores: (updatedValues: Partial<ScoresState>) => void
 }
 
-interface ScoresState {
-  [key: string]: number
-}
+export const RubricSTO = ({ scores, rubricData, updateScores }: RubricSTOProps) => {
 
-const getInitialState = (rubricData: Section[]): ScoresState => {
-  let initialState: ScoresState = {};
-
-  rubricData.forEach(section => {
-    section.rows.forEach(row => {
-      initialState[row.area] = 0;
-    });
-  });
-
-  return initialState;
-}
+  const updateScore = (section: string, row: string, updatedScore: number) => {
+    updateScores({
+      ...scores,
+      [section]: {
+        ...scores[section],
+        [row]: updatedScore
+      }
+    })
+  }
 
 
-export const RubricSTO = () => {
-  const rubricData = _rubricData as Section[];
-  const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
   const rows: JSX.Element[] = [];
 
   rubricData.forEach(section => {
-
-
     rows.push(<h2 style={{ textAlign: "left" }} key={rubricData.indexOf(section)}>{section.sectionTitle}</h2>);
 
-    let optionKey = 0;
+    let optionRowKey = 1000;
 
     section.rows.forEach(row => {
       let currContentOptions: string[] = [];
       let currScoreOptions: string[] = [];
-      let tooltipOptions: string[] = [];
 
       row.options.forEach(option => {
         currContentOptions.push(String(option.content));
@@ -57,16 +43,16 @@ export const RubricSTO = () => {
       });
 
       rows.push(<OptionRow
-        key={optionKey}
+        key={optionRowKey}
         contentOptions={currContentOptions}
         scoreOptions={currScoreOptions}
         tooltip={row.tooltip}
         title={row.area}
-        currSelection={String(scores[row.area])}
-        updateSelection={newSelection => updateScores({ [row.area]: Number(newSelection) })}
+        currSelection={String(scores[section.sectionTitle][row.area])}
+        updateSelection={newSelection => updateScore(section.sectionTitle, row.area, Number(newSelection))}
       />);
 
-      optionKey++;
+      optionRowKey++;
     })
   })
 

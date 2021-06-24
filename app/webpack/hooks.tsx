@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-import { Partial } from "./types";
+import { Partial, RecursivePartial } from "./types";
 
 // Provide an additional function to reset state back to initial value
 export const useDefaultState = (initialValue: any) => {
@@ -21,8 +21,8 @@ export const useObjState = <T extends object>(initialValue: T) => {
 
   return [
     value,
-    (updatedValues: Partial<T>) => setValue({ ...value, ...updatedValues }),
-  ] as [T, (updatedValues: Partial<T>) => void]
+    (updatedValues: RecursivePartial<T>) => setValue({ ...value, ...updatedValues }),
+  ] as [T, (updatedValues: RecursivePartial<T>) => void]
 }
 
 export const useDefaultObjState = <T extends object>(initialValue: T) => {
@@ -30,10 +30,11 @@ export const useDefaultObjState = <T extends object>(initialValue: T) => {
 
   return [
     value,
-    (updatedValues: Partial<T>) => setValue({ ...value, ...updatedValues }),
+    (updatedValues: RecursivePartial<T>) => setValue({ ...value, ...updatedValues }),
     () => setValue(initialValue)
-  ] as [T, (updatedValues: Partial<T>) => void, () => void]
+  ] as [T, (updatedValues: RecursivePartial<T>) => void, () => void]
 }
+
 // Boolean-only state
 export const useBoolState = (initialValue: boolean) => {
   const [value, setValue] = useState(initialValue);
