@@ -19,6 +19,8 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABo
 
   font-size: ${props => props.NABox ? 1.5 : 1}rem;
   font-weight: bold;
+  text-align: center;
+  font-size: 0.85vh;
 
   :hover {
     cursor: pointer;
@@ -28,8 +30,6 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABo
 
   transition: all 0.12s ease-in-out;
   /* transform: translateY(${props => props.selected ? -0.5 : 0}em); */
-
-
 `;
 
 const BoxButton = styled.div`

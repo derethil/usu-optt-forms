@@ -6,7 +6,8 @@ export const Label = styled.label`
 `;
 
 export const FormInfo = styled.div`
-  display: inline-block;
+  position: fixed;
+  left: 3em;
   text-align: left;
 `;
 

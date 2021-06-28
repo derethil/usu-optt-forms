@@ -31,7 +31,7 @@ export const FormInformation = ({ scores }: { scores: ScoresState }) => {
     }, 0);
   }
 
-  const getMax = (section: string) => {
+  const getMaxSubtotal = (section: string) => {
     const sectionData = rubricData.find(el => el.sectionTitle === section);
     const sectionScores = scores[section];
 
@@ -43,6 +43,12 @@ export const FormInformation = ({ scores }: { scores: ScoresState }) => {
       return total! - sectionData?.rows.find(el => el.area === scoreArea)?.options[0].score!;
     }, maxBefore);
   }
+
+  const sections = rubricData.map(section => section.sectionTitle);
+
+  const totals = sections.map((section, index) => {
+    return <h3 key={index}>{section} Score: {getSubtotal(section)} / {getMaxSubtotal(section)}</h3>
+  })
 
   return (
     <FormInfo>
@@ -99,7 +105,7 @@ export const FormInformation = ({ scores }: { scores: ScoresState }) => {
         updateSelection={(newSelection: string) => updateFormInfo({ "program": newSelection })}
       />
 
-      <h3>Preparation and Planning Score: {getSubtotal("Preparation and Planning")} / {getMax("Preparation and Planning")}</h3>
+      {totals}
 
 
 

@@ -63,7 +63,7 @@ export const OptionRow = ({
 
   return <div>
     <div className="title" style={{ display: "flex" }}>
-      <h3 style={{ textAlign: "left", marginRight: "0.5em" }}>{title}</h3>
+      <h3 style={{ marginRight: "0.5em" }}>{title}</h3>
       {tooltip && <CenteredIconContainer className="hover-icon" data-tip={tooltip}>
         <i className="far fa-question-circle"></i>
         <ReactTooltip

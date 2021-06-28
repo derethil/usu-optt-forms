@@ -14,15 +14,17 @@ type RubricSTOProps = {
 }
 
 export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) => {
+  const sections: JSX.Element[] = [];
 
-  const rows: JSX.Element[] = [];
+  rubricData.forEach((section, sectionIdx) => {
+    const rows: JSX.Element[] = [];
 
-  rubricData.forEach(section => {
-    rows.push(<h2 style={{ textAlign: "left" }} key={rubricData.indexOf(section)}>{section.sectionTitle}</h2>);
+    const sectionDiv = <section key={sectionIdx}>
+      <h2 style={{ marginBottom: 0 }}>{section.sectionTitle}</h2>
+      {rows}
+    </section>
 
-    let optionRowKey = 1000;
-
-    section.rows.forEach(row => {
+    section.rows.forEach((row, rowIdx) => {
       let currContentOptions: string[] = [];
       let currScoreOptions: string[] = [];
 
@@ -32,7 +34,7 @@ export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) =
       });
 
       rows.push(<OptionRow
-        key={optionRowKey}
+        key={rowIdx}
         contentOptions={currContentOptions}
         scoreOptions={currScoreOptions}
         tooltip={row.tooltip}
@@ -40,14 +42,14 @@ export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) =
         currSelection={String(scores[section.sectionTitle][row.area])}
         updateSelection={newSelection => updateScore(section.sectionTitle, row.area, newSelection)}
       />);
-
-      optionRowKey++;
     })
+
+    sections.push(sectionDiv);
   })
 
   return (
     <div className="rubric">
-      {rows}
+      {sections}
     </div>
   )
 }

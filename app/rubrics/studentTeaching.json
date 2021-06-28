@@ -69,5 +69,327 @@
         ]
       }
     ]
+  },
+  {
+    "sectionTitle": "Presentation Delivery, Feedback, and Monitoring",
+    "rows": [
+      {
+        "area": "Format",
+        "options": [
+          {
+            "content": "Followed format or script in written program, adapted when needed",
+            "score": 3
+          },
+          {
+            "content": "Followed portions of script, format or plan of written program or was not fluent",
+            "score": 1
+          },
+          {
+            "content": "Did not follow format, script, or plan",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Opportunities to Respond",
+        "tooltip": "1. Includes relevant combination of individual, group and dispersed turns <br> 2. Provides sufficient opportunities to respond to keep pupils engaged <br> 3. Appropriate pacing",
+        "options": [
+          {
+            "content": "Includes all successful aspects of opportunities to respond",
+            "score": 8
+          },
+          {
+            "content": "Response opportunities are too few or too many, engages some students",
+            "score": 4
+          },
+          {
+            "content": "Teacher provides inadequate opportunities for pupils to respond and be engaged",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Scanning",
+        "options": [
+          {
+            "content": "Frequent eye contact and frequent scanning of group/classroom",
+            "score": 3
+          },
+          {
+            "content": "Some eye contact and/or infrequent scanning of group/classroom",
+            "score": 1
+          },
+          {
+            "content": "Little or no eye contact and/or no scanning of group/classroom",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Instruction",
+        "tooltip": "1. clear academic expectations/directions <br> 2.  New Material - succinct and engaging demonstration/modeling <br> (includes clear steps, prompted known steps/decisions and modeled/taught new steps/decisions) <br>  3. Guided/Individual Practice - appropriate scaffolding based on pupil responses <br>  4. teacher language is brief and consistent <br>  5. “thinks on feet” makes adjustments as needed",
+        "options": [
+          {
+            "content": "Includes all aspects of proper instruction",
+            "score": 8
+          },
+          {
+            "content": "Approaching fluent use of all components of instruction",
+            "score": 6
+          },
+          {
+            "content": "Inconsistent instruction, lack of model, and/or minimal scaffolding",
+            "score": 2
+          },
+          {
+            "content": "Unclear instruction, scaffolding not based on pupil responses",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Feedback",
+        "options": [
+          {
+            "content": "Meaningful feedback linked to pupil’s responses and feedback motivates pupils to persevere",
+            "score": 5
+          },
+          {
+            "content": "Some feedback or feedback not meaningful to pupils",
+            "score": 3
+          },
+          {
+            "content": "Minimal meaningful feedback to pupils",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Error Correction",
+        "options": [
+          {
+            "content": "Corrects all pupil errors, follows correction procedure ending in an independent correct pupil response",
+            "score": 6
+          },
+          {
+            "content": "Corrects some pupil errors or inconsistent correction procedure",
+            "score": 3
+          },
+          {
+            "content": "Minimal meaningful feedback to pupils",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Verbal Presentation",
+        "options": [
+          {
+            "content": "Appropriate enthusiasm, tone, and volume, relates positive attitude, age appropriate",
+            "score": 3
+          },
+          {
+            "content": "Little/excessive enthusiasm, tone, and volume, or interferes with student learning and behavior",
+            "score": 1
+          },
+          {
+            "content": "little or no enthusiasm, tone, and volume, interferes with student learning and behavior",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Time Efficiency",
+        "options": [
+          {
+            "content": "Teacher uses all class time efficiently, maintains classroom schedule, smooth transition",
+            "score": 3
+          },
+          {
+            "content": "Teacher uses most of class time efficiently, maintains classroom schedule, smooth transition",
+            "score": 1
+          },
+          {
+            "content": "Teacher makes inefficient use of time and/or time lost on non-instructional activities",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Behavior Management",
+    "rows": [
+      {
+        "area": "Expectations",
+        "options": [
+          {
+            "content": "Positively States behavior expectations",
+            "score": 1
+          },
+          {
+            "content": "Negatively states or does not include behavior expectations",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Engagement",
+        "tooltip": "1. Teacher arranges pupils, materials and environment to positively engage pupils <br> 2. Pupils are responding and attending most of the time <br> 3. Teacher and/or pupils follow general classroom and school routines <br> (i.e., gathering materials, transitions, circle time, interruptions, start up and ending routines, etc.)",
+        "options": [
+          {
+            "content": "Includes all aspects of positive engagement most of the time",
+            "score": 8
+          },
+          {
+            "content": "Aspects of positive engagement are present only sometimes",
+            "score": 4
+          },
+          {
+            "content": "Aspects of positive engagement are rarely or never present",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Reinforcement Quality",
+        "options": [
+          {
+            "content": "Reinforcement is immediate/timely, specific, consistent, varied, natural, contingent, balance between academic and behavior, and age appropriate",
+            "score": 6
+          },
+          {
+            "content": "Generally consistent reinforcement",
+            "score": 3
+          },
+          {
+            "content": "Inconsistent reinforcement",
+            "score": 1
+          },
+          {
+            "content": "Seldom reinforces appropriately",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Praise Ratio",
+        "options": [
+          {
+            "content": "Praise/Redirect ratio of at least 3:1",
+            "score": 3
+          },
+          {
+            "content": "Praise/Redirect ratio of at least 2:1",
+            "score": 1
+          },
+          {
+            "content": "Praise/Redirect ratio less than 2:1",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Management",
+        "tooltip": "1. Consistently follows management plan effectively for problem/academic/social behaviors <br> 2. Consistently responds positively to appropriate academic/social behavior to enhance learning <br> (delivers consequences as indicated, restates relevant expectations, etc.)",
+        "options": [
+          {
+            "content": "All problem behaviors addressed using effective management and/or always follows management plan for appropriate academic/social behavior",
+            "score": 10
+          },
+          {
+            "content": "Most problem behaviors addressed using management plan and/or most of the time follows management plan for appropriate academic/social behavior",
+            "score": 8
+          },
+          {
+            "content": "Some but not all problem behaviors addressed using management plan and/or sometimes follows management plan for appropriate academic/social behavior",
+            "score": 5
+          },
+          {
+            "content": "Does not consistently/effectively follow management plan when student engages in problem behavior and/or follow management plan for appropriate academic/social behavior",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Data Collection",
+    "rows": [
+      {
+        "area": "Recording",
+        "options": [
+          {
+            "content": "Data recorded, recorded accurately and aligned to IEP goals/objectives, data collected applicable to decision making",
+            "score": 4
+          },
+          {
+            "content": "Some data recorded, inconsistent or inaccurate, does not apply to decision making",
+            "score": 2
+          },
+          {
+            "content": "No data recorded or recorded inaccurately",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Documentation",
+        "options": [
+          {
+            "content": "Data entered daily, all data up to date and available for observer",
+            "score": 2
+          },
+          {
+            "content": "Data not up to date, inconsistently recorded and/or not available for observer",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Decision Making",
+        "options": [
+          {
+            "content": "Appropriate data based decisions made on recorded data",
+            "score": 4
+          },
+          {
+            "content": "Decisions made subjectively, but not based on recorded data",
+            "score": 2
+          },
+          {
+            "content": "Inappropriate decisions made",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Cooperating Teacher Checklist",
+    "rows": [
+      {
+        "area": "Checklist",
+        "tooltip": "Mark N/A if student is an associate teacher",
+        "options": [
+          {
+            "content": "90% or higher",
+            "score": 10
+          },
+          {
+            "content": "80% - 89%",
+            "score": 8
+          },
+          {
+            "content": "70 - 79%",
+            "score": 4
+          },
+          {
+            "content": "69% or lower",
+            "score": 0
+          }
+        ]
+      }
+    ]
   }
 ]

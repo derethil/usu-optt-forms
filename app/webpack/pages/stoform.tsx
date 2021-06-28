@@ -13,11 +13,10 @@ import _rubricData from "../../rubrics/studentTeaching.json";
 const PageBaseDiv = styled.div`
   font-family: 'Poppins', sans-serif;
   width: 100%;
-  margin: auto;
-  text-align: center;
+  text-align: left;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 `;
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
