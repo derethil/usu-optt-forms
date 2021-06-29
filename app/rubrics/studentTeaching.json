@@ -60,7 +60,7 @@
         "options": [
           {
             "content": "Materials gathered and ready for use",
-            "score": 0
+            "score": "Yes"
           },
           {
             "content": "Materials not gathered or ready for use ",
@@ -387,6 +387,110 @@
           {
             "content": "69% or lower",
             "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Professionalism",
+    "tooltip": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
+    "rows": [
+      {
+        "area": "Dress and Hygiene",
+        "tooltip": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "options": [
+          {
+            "content": "Dresses appropriately and maintains good personal hygiene",
+            "score": "Yes"
+          },
+          {
+            "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Accepting Criticism",
+        "tooltip": "1. Accepts feedback and constructive criticism <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "options": [
+          {
+            "content": "Responds appropriately to constructive criticism",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not respond appropriately to constructive criticism",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Implementing Changes",
+        "tooltip": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
+        "options": [
+          {
+            "content": "Correctly implements changes after being given feedback",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not correctly implement changes after being given feedback",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Classroom Attitude",
+        "tooltip": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
+        "options": [
+          {
+            "content": "Exhibits positive and respectful attitude in the classroom",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not exhibit positive and respectful attitude in the classroom",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Professional Attributes",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "options": [
+          {
+            "content": "Demonstrates many or all professional attributes",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Interactions",
+        "tooltip": "Interacts appropriately and assigns tasks as needed to classroom staff, <br> related service personnel, classroom teachers, peer tutors and other school staff",
+        "options": [
+          {
+            "content": "Interacts appropriately almost all or all of the time",
+            "score": "Yes"
+          },
+          {
+            "content": "Interacts appropriately some or none of the time",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Assignments",
+        "tooltip": "1. Demonstrates adequate progress toward PPAT/assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
+        "options": [
+          {
+            "content": "Follows assignment procedure all or most of the time ",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not follow assignment procedure",
+            "score": -1
           }
         ]
       }

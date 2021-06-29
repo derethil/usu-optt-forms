@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
+import ReactTooltip from "react-tooltip";
 
 import { OptionRow } from "./optionRow";
-import { useDefaultObjState } from "../hooks";
-
-import _rubricData from "../../rubrics/studentTeaching.json";
-import { RecursivePartial, ScoresState, Section } from "../types";
+import { ScoresState, Section } from "../types";
+import { CenteredIconContainer } from "../styledComponents/style";
 
 
 type RubricSTOProps = {
@@ -20,7 +19,19 @@ export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) =
     const rows: JSX.Element[] = [];
 
     const sectionDiv = <section key={sectionIdx}>
-      <h2 style={{ marginBottom: 0 }}>{section.sectionTitle}</h2>
+      <div className="title" style={{ display: "flex" }}>
+        <h1 style={{ marginRight: "0.5em" }}>{section.sectionTitle}</h1>
+        {section.tooltip && <CenteredIconContainer className="hover-icon" data-tip={section.tooltip}>
+          <i className="far fa-question-circle"></i>
+          <ReactTooltip
+            place="top"
+            type="dark"
+            effect="solid"
+            multiline={true}
+          />
+        </CenteredIconContainer>}
+      </div>
+
       {rows}
     </section>
 

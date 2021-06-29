@@ -35,12 +35,16 @@ export const FormInformation = ({ scores }: { scores: ScoresState }) => {
     const sectionData = rubricData.find(el => el.sectionTitle === section);
     const sectionScores = scores[section];
 
-    const maxBefore = sectionData?.rows.reduce((total, row) => total + row.options[0].score, 0); // Find max based on json
+    const maxBefore = sectionData?.rows.reduce((total, row) => { // Find max based on json
+      return total + (typeof row.options[0].score === "number" ? row.options[0].score : 0)
+    }, 0);
+
     const nanRows = Object.keys(sectionScores).filter(key => sectionScores[key] === "N/A"); // Find rows whose score is N/A
 
     return Object.keys(sectionScores).reduce((total, scoreArea) => { // Subtract max score from any row marked as N/A
       if (!nanRows.includes(scoreArea)) return total;
-      return total! - sectionData?.rows.find(el => el.area === scoreArea)?.options[0].score!;
+      const maxAreaScore = sectionData?.rows.find(row => row.area === scoreArea)?.options[0].score!
+      return total! - (typeof maxAreaScore === "number" ? maxAreaScore : 0);
     }, maxBefore);
   }
 

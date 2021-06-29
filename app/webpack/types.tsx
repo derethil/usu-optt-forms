@@ -18,6 +18,7 @@ export interface FormInfo {
 
 export interface Section {
   sectionTitle: string,
+  tooltip?: string,
   rows: [{
     area: string,
     tooltip?: string,

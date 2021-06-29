@@ -11,12 +11,14 @@ import { Section, ScoresState } from "../types";
 import _rubricData from "../../rubrics/studentTeaching.json";
 
 const PageBaseDiv = styled.div`
-  font-family: 'Poppins', sans-serif;
+  margin-left: 45em;
   width: 100%;
+  display: flex;
+
+  font-family: 'Poppins', sans-serif;
   text-align: left;
 
-  display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 `;
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
@@ -25,7 +27,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
   rubricData.forEach(section => {
     initialState[section.sectionTitle] = {};
     section.rows.forEach(row => {
-      initialState[section.sectionTitle][row.area] = "0";
+      initialState[section.sectionTitle][row.area] = String(row.options[row.options.length - 1].score);
     });
   });
 
