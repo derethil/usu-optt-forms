@@ -18,18 +18,20 @@ export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) =
   rubricData.forEach((section, sectionIdx) => {
     const rows: JSX.Element[] = [];
 
+    const sectionIcon = <CenteredIconContainer className="hover-icon" data-tip={section.tooltip}>
+      <i className="far fa-question-circle"></i>
+      <ReactTooltip
+        place="top"
+        type="dark"
+        effect="solid"
+        multiline={true}
+      />
+    </CenteredIconContainer>
+
     const sectionDiv = <section key={sectionIdx}>
       <div className="title" style={{ display: "flex" }}>
         <h1 style={{ marginRight: "0.5em" }}>{section.sectionTitle}</h1>
-        {section.tooltip && <CenteredIconContainer className="hover-icon" data-tip={section.tooltip}>
-          <i className="far fa-question-circle"></i>
-          <ReactTooltip
-            place="top"
-            type="dark"
-            effect="solid"
-            multiline={true}
-          />
-        </CenteredIconContainer>}
+        {section.tooltip && sectionIcon}
       </div>
 
       {rows}

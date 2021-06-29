@@ -3,22 +3,20 @@ import styled from "styled-components";
 
 import { FormInformation } from "../components/formInformation";
 import { RubricSTO } from "../components/rubricsto";
+import { Tabs } from "../components/tabs";
 
 import { useDefaultObjState } from "../hooks";
-
 import { Section, ScoresState } from "../types";
+import { TabsContainer } from "../styledComponents/style";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
 
 const PageBaseDiv = styled.div`
   margin-left: 45em;
   width: 100%;
-  display: flex;
 
   font-family: 'Poppins', sans-serif;
   text-align: left;
-
-  /* justify-content: flex-end; */
 `;
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
@@ -51,7 +49,23 @@ export const STOForm = () => {
   return (
     <PageBaseDiv>
       <FormInformation scores={scores} />
-      <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
+
+      <Tabs default="rubric">
+
+        <TabsContainer className="tabs">
+          <Tabs.Tab label="rubric">Rubric</Tabs.Tab>
+          <Tabs.Tab label="data1">Record Data 1</Tabs.Tab>
+        </TabsContainer>
+
+
+        <Tabs.Panel label="rubric">
+          <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
+        </Tabs.Panel>
+
+        <Tabs.Panel label="data1">Data 1</Tabs.Panel>
+
+
+      </Tabs>
     </PageBaseDiv>
   )
 }

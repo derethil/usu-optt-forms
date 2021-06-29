@@ -21,3 +21,7 @@ export const CenteredIconContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const TabsContainer = styled.div`
+  display: flex;
+`;
