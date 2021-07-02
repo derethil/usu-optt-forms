@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { FormInformation } from "../components/FormInformation";
 import { RubricSTO } from "../components/RubricSTO";
+import { DataSTO } from "../components/DataSTO";
 import { Tabs } from "../components/tabs";
 
 import { useDefaultObjState } from "../hooks";
@@ -62,7 +63,9 @@ export const FormSTO = () => {
           <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
         </Tabs.Panel>
 
-        <Tabs.Panel label="data1">Data 1</Tabs.Panel>
+        <Tabs.Panel label="data1">
+          <DataSTO />
+        </Tabs.Panel>
 
 
       </Tabs>
