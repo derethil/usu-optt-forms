@@ -1,6 +1,8 @@
 import React from "react";
-import { Timer } from "./Timer";
+import Timer from "./Timer";
 
-export const DataSTO = () => {
+const DataSTO = () => {
   return <Timer />
 }
+
+export default DataSTO;

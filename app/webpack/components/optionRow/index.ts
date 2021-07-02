@@ -1,1 +1,3 @@
-export * from "./OptionRow";
+import OptionRow from "./OptionRow";
+
+export default OptionRow

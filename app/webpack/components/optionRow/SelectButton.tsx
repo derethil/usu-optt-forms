@@ -52,7 +52,7 @@ type SelectButtonProps = {
   score?: string
 };
 
-export const SelectButton = ({ content, selected, score, updateSelection }: SelectButtonProps) => {
+const SelectButton = ({ content, selected, score, updateSelection }: SelectButtonProps) => {
 
   const selectBy = score ? score : content;
 
@@ -62,5 +62,6 @@ export const SelectButton = ({ content, selected, score, updateSelection }: Sele
       {score && <ScoreValue>{score}</ScoreValue>}
     </BoxButton>
   </ButtonContainer>
-
 }
+
+export default SelectButton;

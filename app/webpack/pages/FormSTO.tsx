@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { FormInformation } from "../components/FormInformation";
-import { RubricSTO } from "../components/RubricSTO";
-import { DataSTO } from "../components/DataSTO";
-import { Tabs } from "../components/tabs";
+import FormInformation from "../components/FormInformation";
+import RubricSTO from "../components/RubricSTO";
+import DataSTO from "../components/DataSTO";
+import Tabs from "../components/tabs";
 
-import { useDefaultObjState } from "../hooks";
+import { useDefaultObjState } from "../hooks/hooks";
 import { Section, ScoresState } from "../types";
 import { TabsContainer } from "../styledComponents/style";
 

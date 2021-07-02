@@ -1,8 +1,7 @@
 import React from "react";
-import ReactTooltip from "react-tooltip";
 
-import { OptionRow } from "./optionRow";
-import { IconTitle } from "./IconTitle";
+import OptionRow from "./optionRow";
+import IconTitle from "./IconTitle";
 import { ScoresState, Section } from "../types";
 
 
@@ -12,7 +11,7 @@ type RubricSTOProps = {
   updateScore: (section: string, row: string, newSelection: string) => void
 }
 
-export const RubricSTO = (props: RubricSTOProps) => {
+const RubricSTO = (props: RubricSTOProps) => {
   const sections: JSX.Element[] = [];
 
   props.rubricData.forEach((section, sectionIdx) => {
@@ -60,3 +59,5 @@ export const RubricSTO = (props: RubricSTOProps) => {
     </div>
   )
 }
+
+export default RubricSTO;

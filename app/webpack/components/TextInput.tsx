@@ -12,7 +12,7 @@ type TextInputProps = {
   field: string
 }
 
-export const TextInput = ({ value, updateFormInfo, field }: TextInputProps) => {
+const TextInput = ({ value, updateFormInfo, field }: TextInputProps) => {
 
   const spaced = field.replace(/([A-Z])/g, " $1");
   const titleCased = spaced.charAt(0).toUpperCase() + spaced.slice(1);
@@ -28,3 +28,5 @@ export const TextInput = ({ value, updateFormInfo, field }: TextInputProps) => {
     </InputContainer>
   )
 }
+
+export default TextInput;

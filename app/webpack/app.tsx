@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Navbar } from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import { ProtectedRoute } from "./routing /ProtectedRoute";
 import { Dashboard } from "./pages/Dashboard";
 import { FormSTO } from "./pages/FormSTO";

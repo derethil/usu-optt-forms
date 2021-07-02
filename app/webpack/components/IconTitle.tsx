@@ -23,7 +23,7 @@ type IconTitleProps = {
   fontsize: string
 }
 
-export const IconTitle = (props: IconTitleProps) => {
+const IconTitle = (props: IconTitleProps) => {
   return <div className="title" style={{ display: "flex" }}>
     <Title fontSize={props.fontsize}>{props.content}</Title>
     <CenteredIconContainer className="hover-icon" data-tip={props.tooltipContent}>
@@ -37,3 +37,5 @@ export const IconTitle = (props: IconTitleProps) => {
     </CenteredIconContainer>
   </div>
 }
+
+export default IconTitle;

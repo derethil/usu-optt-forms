@@ -1,15 +1,15 @@
 import React from "react";
 
-import { TextInput } from "./TextInput";
-import { OptionRow } from "./optionRow";
-import { useDefaultObjState } from "../hooks";
+import TextInput from "./TextInput";
+import OptionRow from "./optionRow";
+import { useDefaultObjState } from "../hooks/hooks";
 import { Label, FormInfo, InputContainer } from "../styledComponents/style";
 
 import { ScoresState, Section } from "../types";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
 
-export const FormInformation = ({ scores }: { scores: ScoresState }) => {
+const FormInformation = ({ scores }: { scores: ScoresState }) => {
   const rubricData = _rubricData as Section[];
 
   const [formInfo, updateFormInfo, resetFormInfo] = useDefaultObjState({
@@ -115,3 +115,5 @@ export const FormInformation = ({ scores }: { scores: ScoresState }) => {
     </FormInfo >
   )
 }
+
+export default FormInformation;

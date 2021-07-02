@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { SelectButton } from "./SelectButton";
-import { IconTitle } from "../IconTitle";
+import SelectButton from "./SelectButton";
+import IconTitle from "../IconTitle";
 
 const ButtonsRow = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ interface OptionRowProps {
   tooltip?: string
 };
 
-export const OptionRow = (props: OptionRowProps) => {
+const OptionRow = (props: OptionRowProps) => {
 
   const selectButtons: JSX.Element[] = [];
 
@@ -69,3 +69,5 @@ export const OptionRow = (props: OptionRowProps) => {
     </ButtonsRow>
   </div >
 }
+
+export default OptionRow;
