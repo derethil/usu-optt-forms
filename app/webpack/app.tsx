@@ -2,18 +2,18 @@ import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { Navbar } from "./components/navbar";
-import { ProtectedRoute } from "./routing /protectedRoute";
-import { Dashboard } from "./pages/dashboard";
-import { STOForm } from "./pages/stoform";
-import { NotFound } from "./pages/notfound";
+import { Navbar } from "./components/Navbar";
+import { ProtectedRoute } from "./routing /ProtectedRoute";
+import { Dashboard } from "./pages/Dashboard";
+import { FormSTO } from "./pages/FormSTO";
+import { NotFound } from "./pages/NotFound";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={STOForm} />
+        <Route exact path="/" component={FormSTO} />
         <ProtectedRoute isAuthenticated={true} authenticationPath="/" exact path="/dashboard" component={Dashboard} />
         <Route component={NotFound} />
       </Switch>

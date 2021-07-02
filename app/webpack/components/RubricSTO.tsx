@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactTooltip from "react-tooltip";
 
 import { OptionRow } from "./optionRow";
+import { IconTitle } from "./IconTitle";
 import { ScoresState, Section } from "../types";
-import { CenteredIconContainer } from "../styledComponents/style";
 
 
 type RubricSTOProps = {
@@ -12,28 +12,22 @@ type RubricSTOProps = {
   updateScore: (section: string, row: string, newSelection: string) => void
 }
 
-export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) => {
+export const RubricSTO = (props: RubricSTOProps) => {
   const sections: JSX.Element[] = [];
 
-  rubricData.forEach((section, sectionIdx) => {
+  props.rubricData.forEach((section, sectionIdx) => {
     const rows: JSX.Element[] = [];
 
-    const sectionIcon = <CenteredIconContainer className="hover-icon" data-tip={section.tooltip}>
-      <i className="far fa-question-circle"></i>
-      <ReactTooltip
-        place="top"
-        type="dark"
-        effect="solid"
-        multiline={true}
-      />
-    </CenteredIconContainer>
+    const sectionTitle = () => {
+      if (section.tooltip) {
+        return <IconTitle content={section.sectionTitle} tooltipContent={section.tooltip} fontsize="1.33rem"></IconTitle>
+      } else {
+        return <h1 style={{ fontSize: "1.33rem" }}>{section.sectionTitle}</h1>
+      }
+    }
 
     const sectionDiv = <section key={sectionIdx}>
-      <div className="title" style={{ display: "flex" }}>
-        <h1 style={{ marginRight: "0.5em" }}>{section.sectionTitle}</h1>
-        {section.tooltip && sectionIcon}
-      </div>
-
+      {sectionTitle()}
       {rows}
     </section>
 
@@ -52,8 +46,8 @@ export const RubricSTO = ({ scores, rubricData, updateScore }: RubricSTOProps) =
         scoreOptions={currScoreOptions}
         tooltip={row.tooltip}
         title={row.area}
-        currSelection={String(scores[section.sectionTitle][row.area])}
-        updateSelection={newSelection => updateScore(section.sectionTitle, row.area, newSelection)}
+        currSelection={String(props.scores[section.sectionTitle][row.area])}
+        updateSelection={newSelection => props.updateScore(section.sectionTitle, row.area, newSelection)}
       />);
     })
 

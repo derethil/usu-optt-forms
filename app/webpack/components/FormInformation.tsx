@@ -1,7 +1,6 @@
-import React, { useDebugValue } from "react";
-import styled from "styled-components";
+import React from "react";
 
-import { TextInput } from "./textInput";
+import { TextInput } from "./TextInput";
 import { OptionRow } from "./optionRow";
 import { useDefaultObjState } from "../hooks";
 import { Label, FormInfo, InputContainer } from "../styledComponents/style";

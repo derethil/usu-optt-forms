@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ReactTooltip from "react-tooltip";
 
 const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABox?: boolean }>`
   min-width: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};

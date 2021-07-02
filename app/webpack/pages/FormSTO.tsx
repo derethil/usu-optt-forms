@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { FormInformation } from "../components/formInformation";
-import { RubricSTO } from "../components/rubricsto";
+import { FormInformation } from "../components/FormInformation";
+import { RubricSTO } from "../components/RubricSTO";
 import { Tabs } from "../components/tabs";
 
 import { useDefaultObjState } from "../hooks";
@@ -33,7 +33,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 }
 
 
-export const STOForm = () => {
+export const FormSTO = () => {
   const rubricData = _rubricData as Section[];
   const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
 
