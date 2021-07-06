@@ -5,7 +5,7 @@ export type Partial<T> = {
 };
 
 export type RecursivePartial<T> = {
-  [K in keyof T]?: RecursivePartial<T[K]>;
+  [P in keyof T]?: RecursivePartial<T[P]>;
 };
 
 export interface FormInfo {

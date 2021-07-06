@@ -51,7 +51,7 @@ export const FormSTO = () => {
     <PageBaseDiv>
       <FormInformation scores={scores} />
 
-      <Tabs default="rubric">
+      <Tabs default="data1">
 
         <TabsContainer className="tabs">
           <Tabs.Tab label="rubric">Rubric</Tabs.Tab>

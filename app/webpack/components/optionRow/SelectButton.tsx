@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Button } from "../../styledComponents/style";
+
 const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABox?: boolean }>`
   min-width: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};
   max-width: ${props => props.scoreBox || props.NABox ? "200px" : "8em"};
@@ -13,13 +15,12 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABo
 
   background-color: ${props => props.selected ? "#00a6e9" : "white"};
   color: ${props => props.selected ? "white" : "black"};
-  //box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
   font-size: ${props => props.NABox ? 1.5 : 1}rem;
   font-weight: bold;
+
   text-align: center;
-  font-size: 0.85vh;
 
   :hover {
     cursor: pointer;
@@ -29,15 +30,6 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABo
 
   transition: all 0.12s ease-in-out;
   /* transform: translateY(${props => props.selected ? -0.5 : 0}em); */
-`;
-
-const BoxButton = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  height: 100%;
 `;
 
 const ScoreValue = styled.div<{}>`
@@ -57,10 +49,10 @@ const SelectButton = ({ content, selected, score, updateSelection }: SelectButto
   const selectBy = score ? score : content;
 
   return <ButtonContainer scoreBox={Boolean(score)} NABox={content === "N/A"} selected={selected}>
-    <BoxButton onClick={() => updateSelection(selectBy)}>
+    <Button onClick={() => updateSelection(selectBy)}>
       <p style={{ marginTop: Boolean(score) ? "2.5em" : "normal" }}>{content}</p>
       {score && <ScoreValue>{score}</ScoreValue>}
-    </BoxButton>
+    </Button>
   </ButtonContainer>
 }
 

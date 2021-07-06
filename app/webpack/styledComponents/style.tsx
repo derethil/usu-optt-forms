@@ -25,3 +25,22 @@ export const CenteredIconContainer = styled.div`
 export const TabsContainer = styled.div`
   display: flex;
 `;
+
+export const Button = styled.div<{ color?: string, textColor?: string }>`
+  height: 100%;
+  min-height: 4em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: ${props => props.color};
+  color: ${props => props.textColor};
+
+  font-weight: bold;
+
+  border-radius: 15%;
+
+  user-select: none;
+`;
