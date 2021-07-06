@@ -34,3 +34,29 @@ export interface ScoresState {
     [key: string]: string
   }
 }
+
+export interface STOData {
+  cues: {
+    individual: number,
+    group: number
+  },
+  praise: {
+    general: number,
+    academic: number,
+    behavioral: number,
+    reprimand: number
+  },
+  corrections: {
+    correct: number,
+    incorrect: number,
+    none: number
+  },
+  engagement: {
+    engaged: number,
+    notEngaged: number
+  },
+  misc: {
+    scanningCount: number,
+    transitionCount: number
+  }
+}

@@ -2,38 +2,14 @@ import React from "react";
 import Timer from "./Timer";
 import CounterButton from "./CounterButton";
 import { useDefaultObjState } from "../hooks/hooks";
+import { STOData } from "../types";
 
 const gcd = (a: number, b: number): number => {
   if (!b) return a;
   return gcd(b, a % b);
 }
 
-const DataSTO = () => {
-  const [data, setData, resetData] = useDefaultObjState({
-    cues: {
-      individual: 0,
-      group: 0
-    },
-    praise: {
-      general: 0,
-      academic: 0,
-      behavioral: 0,
-      reprimand: 0
-    },
-    corrections: {
-      correct: 0,
-      incorrect: 0,
-      none: 0
-    },
-    engagement: {
-      engaged: 0,
-      notEngaged: 0
-    },
-    misc: {
-      scanningCount: 0,
-      transitionCount: 0
-    }
-  });
+const DataSTO = ({ data, setData }: { data: STOData, setData: (updatedValues: Partial<STOData>) => void }) => {
 
   const praiseSum = Object.values(data.praise).reduce((total, value) => total + value, 0) - data.praise.reprimand;
   const correctionsSum = Object.values(data.corrections).reduce((total, value) => total + value, 0);
