@@ -2,20 +2,23 @@ import React from "react";
 import Timer from "./Timer";
 import CounterButton from "./CounterButton";
 import { useDefaultObjState } from "../hooks/hooks";
-import { STOData } from "../types";
+import { STOData, ITimer } from "../types";
 
 const gcd = (a: number, b: number): number => {
   if (!b) return a;
   return gcd(b, a % b);
 }
 
-const DataSTO = ({ data, setData }: { data: STOData, setData: (updatedValues: Partial<STOData>) => void }) => {
+const DataSTO = ({ timer, data, setData }: { timer: ITimer, data: STOData, setData: (updatedValues: Partial<STOData>) => void }) => {
 
-  const praiseSum = Object.values(data.praise).reduce((total, value) => total + value, 0) - data.praise.reprimand;
-  const correctionsSum = Object.values(data.corrections).reduce((total, value) => total + value, 0);
+  const praises = Object.values(data.praise);
+  const praiseSum = praises.reduce((total, value) => total + value, 0) - data.praise.reprimand;
+
+  const corrections = Object.values(data.corrections);
+  const correctionsSum = corrections.reduce((total, value) => total + value, 0);
 
   return <div>
-    <Timer />
+    <Timer timer={timer} />
 
     <div className="cues-counter" style={{ display: "flex", padding: "1em 0em" }}>
       <CounterButton

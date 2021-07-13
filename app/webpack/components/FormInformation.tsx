@@ -5,22 +5,34 @@ import OptionRow from "./optionRow";
 import { useDefaultObjState } from "../hooks/hooks";
 import { Label, FormInfo, InputContainer } from "../styledComponents/style";
 
-import { ScoresState, Section } from "../types";
+import { defaultData, ITimer, ScoresState, Section } from "../types";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
+import { PDFGenerator } from "./PDFGenerator";
 
-const FormInformation = ({ scores }: { scores: ScoresState }) => {
+type FormInformationProps = {
+  scores: ScoresState,
+  data1: typeof defaultData,
+  data2: typeof defaultData,
+  timer1: ITimer,
+  timer2: ITimer
+
+}
+
+const FormInformation = ({ scores, data1, data2, timer1, timer2 }: FormInformationProps) => {
   const rubricData = _rubricData as Section[];
 
   const [formInfo, updateFormInfo, resetFormInfo] = useDefaultObjState({
     studentTeacher: "",
     cooperatingTeacher: "",
     supervisor: "",
-    date: new Date().toISOString().slice(0, 10),
-    observation: 1,
+    date: new Date().toISOString().slice(-1, 10),
+    observation: 0,
     other: "",
     program: "Mild/Moderate"
   });
+
+
 
   const getSubtotal = (section: string) => {
     const sectionScores = scores[section];
@@ -110,7 +122,14 @@ const FormInformation = ({ scores }: { scores: ScoresState }) => {
 
       {totals}
 
-
+      <PDFGenerator
+        scores={scores}
+        data1={data1}
+        data2={data2}
+        timer1={timer1}
+        timer2={timer2}
+        formInfo={formInfo}
+      />
 
     </FormInfo >
   )

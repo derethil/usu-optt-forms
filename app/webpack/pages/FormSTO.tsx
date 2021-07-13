@@ -1,16 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-
+import _rubricData from "../../rubrics/studentTeaching.json";
+import DataSTO from "../components/DataSTO";
 import FormInformation from "../components/FormInformation";
 import RubricSTO from "../components/RubricSTO";
-import DataSTO from "../components/DataSTO";
 import Tabs from "../components/tabs";
-
+import Timer from "../components/Timer";
+import useTimer from "../hooks/useTimer";
 import { useDefaultObjState } from "../hooks/hooks";
-import { Section, ScoresState } from "../types";
 import { TabsContainer } from "../styledComponents/style";
-
-import _rubricData from "../../rubrics/studentTeaching.json";
+import { ScoresState, Section, defaultData } from "../types";
 
 const PageBaseDiv = styled.div`
   margin-left: 45em;
@@ -19,32 +18,6 @@ const PageBaseDiv = styled.div`
   font-family: 'Poppins', sans-serif;
   text-align: left;
 `;
-
-const defaultData = {
-  cues: {
-    individual: 0,
-    group: 0
-  },
-  praise: {
-    general: 0,
-    academic: 0,
-    behavioral: 0,
-    reprimand: 0
-  },
-  corrections: {
-    correct: 0,
-    incorrect: 0,
-    none: 0
-  },
-  engagement: {
-    engaged: 0,
-    notEngaged: 0
-  },
-  misc: {
-    scanningCount: 0,
-    transitionCount: 0
-  }
-}
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -76,11 +49,16 @@ export const FormSTO = () => {
   const [data1, setData1, resetData1] = useDefaultObjState(defaultData);
   const [data2, setData2, resetData2] = useDefaultObjState(defaultData);
 
+  const timer1 = useTimer();
+  const timer2 = useTimer();
+
+
+
   return (
     <PageBaseDiv>
-      <FormInformation scores={scores} />
+      <FormInformation scores={scores} data1={data1} data2={data2} timer1={timer1} timer2={timer2} />
 
-      <Tabs default="data1">
+      <Tabs default="rubric">
 
         <TabsContainer className="tabs">
           <Tabs.Tab label="rubric">Rubric</Tabs.Tab>
@@ -94,11 +72,11 @@ export const FormSTO = () => {
         </Tabs.Panel>
 
         <Tabs.Panel label="data1">
-          <DataSTO data={data1} setData={setData1} />
+          <DataSTO data={data1} setData={setData1} timer={timer1} />
         </Tabs.Panel>
 
         <Tabs.Panel label="data2">
-          <DataSTO data={data2} setData={setData2} />
+          <DataSTO data={data2} setData={setData2} timer={timer2} />
         </Tabs.Panel>
 
 
