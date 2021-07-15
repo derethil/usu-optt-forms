@@ -1,22 +1,10 @@
 import React from "react";
 import Timer from "./Timer";
 import CounterButton from "./CounterButton";
-import { useDefaultObjState } from "../hooks/hooks";
 import { STOData, ITimer } from "../types";
-
-const gcd = (a: number, b: number): number => {
-  if (!b) return a;
-  return gcd(b, a % b);
-}
+import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils";
 
 const DataSTO = ({ timer, data, setData }: { timer: ITimer, data: STOData, setData: (updatedValues: Partial<STOData>) => void }) => {
-
-  const praises = Object.values(data.praise);
-  const praiseSum = praises.reduce((total, value) => total + value, 0) - data.praise.reprimand;
-
-  const corrections = Object.values(data.corrections);
-  const correctionsSum = corrections.reduce((total, value) => total + value, 0);
-
   return <div>
     <Timer timer={timer} />
 
@@ -80,8 +68,8 @@ const DataSTO = ({ timer, data, setData }: { timer: ITimer, data: STOData, setDa
       <h3>Academic Praise: {data.praise.academic}</h3>
       <h3>Behavioral Praise: {data.praise.behavioral}</h3>
       <h3>Redirect/Reprimand: {data.praise.reprimand}</h3>
-      <h3>Praise Ratio: {praiseSum / gcd(praiseSum, data.praise.reprimand)} : {data.praise.reprimand / gcd(praiseSum, data.praise.reprimand)}</h3>
-      <h3>Percent Specific: {(((data.praise.academic + data.praise.behavioral) / praiseSum) * 100).toFixed(0)}%</h3>
+      <h3>Praise Ratio: {getPraiseRatio(data)}</h3>
+      <h3>Percent Specific: {getPercent(data.praise.academic + data.praise.behavioral, getPraiseSum(data))}</h3>
     </div>
 
     <div className="corrections-counter" style={{ display: "flex", padding: "1em 0em" }}>
@@ -111,8 +99,8 @@ const DataSTO = ({ timer, data, setData }: { timer: ITimer, data: STOData, setDa
       <h3>Correct: {data.corrections.correct}</h3>
       <h3>Incorrect: {data.corrections.incorrect}</h3>
       <h3>None: {data.corrections.none}</h3>
-      <h3>Total Corrections: {correctionsSum}</h3>
-      <h3>Percent: {((data.corrections.correct / correctionsSum) * 100).toFixed(0)}%</h3>
+      <h3>Total Corrections: {getCorrectionsSum(data)}</h3>
+      <h3>Percent: {getPercent(data.corrections.correct, getCorrectionsSum(data))}</h3>
     </div>
 
     <div className="engagement-counter" style={{ display: "flex", padding: "1em 0em" }}>
@@ -135,7 +123,7 @@ const DataSTO = ({ timer, data, setData }: { timer: ITimer, data: STOData, setDa
       <h3>Engaged: {data.engagement.engaged}</h3>
       <h3>Not Engaged: {data.engagement.notEngaged}</h3>
       <h3>Total: {data.engagement.engaged + data.engagement.notEngaged}</h3>
-      <h3>Percent: {((data.engagement.engaged / (data.engagement.engaged + data.engagement.notEngaged)) * 100).toFixed(0)}%</h3>
+      <h3>Percent: {getPercent(data.engagement.engaged, data.engagement.engaged + data.engagement.notEngaged)}</h3>
     </div>
 
     <div className="misc-counter" style={{ display: "flex", padding: "1em 0em" }}>

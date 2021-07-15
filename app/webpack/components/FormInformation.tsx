@@ -6,6 +6,7 @@ import { useDefaultObjState } from "../hooks/hooks";
 import { Label, FormInfo, InputContainer } from "../styledComponents/style";
 
 import { defaultData, ITimer, ScoresState, Section } from "../types";
+import { getSubtotal, getMaxSubtotal } from "../utils";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
 import { PDFGenerator } from "./PDFGenerator";
@@ -26,43 +27,19 @@ const FormInformation = ({ scores, data1, data2, timer1, timer2 }: FormInformati
     studentTeacher: "",
     cooperatingTeacher: "",
     supervisor: "",
-    date: new Date().toISOString().slice(-1, 10),
-    observation: 0,
+    date: new Date().toISOString().slice(0, 10),
+    nextDate: new Date().toISOString().slice(0, 10),
+    observation: 1,
     other: "",
     program: "Mild/Moderate"
   });
 
-
-
-  const getSubtotal = (section: string) => {
-    const sectionScores = scores[section];
-    return Object.values(sectionScores).reduce((total, value) => {
-      if (isNaN(Number(value))) return total;
-      return total + Number(value)
-    }, 0);
-  }
-
-  const getMaxSubtotal = (section: string) => {
-    const sectionData = rubricData.find(el => el.sectionTitle === section);
-    const sectionScores = scores[section];
-
-    const maxBefore = sectionData?.rows.reduce((total, row) => { // Find max based on json
-      return total + (typeof row.options[0].score === "number" ? row.options[0].score : 0)
-    }, 0);
-
-    const nanRows = Object.keys(sectionScores).filter(key => sectionScores[key] === "N/A"); // Find rows whose score is N/A
-
-    return Object.keys(sectionScores).reduce((total, scoreArea) => { // Subtract max score from any row marked as N/A
-      if (!nanRows.includes(scoreArea)) return total;
-      const maxAreaScore = sectionData?.rows.find(row => row.area === scoreArea)?.options[0].score!
-      return total! - (typeof maxAreaScore === "number" ? maxAreaScore : 0);
-    }, maxBefore);
-  }
-
   const sections = rubricData.map(section => section.sectionTitle);
 
   const totals = sections.map((section, index) => {
-    return <h3 key={index}>{section} Score: {getSubtotal(section)} / {getMaxSubtotal(section)}</h3>
+    return <h3 key={index}>
+      {section} Score: {getSubtotal(section, scores)} / {getMaxSubtotal(section, scores, rubricData)}
+    </h3>
   })
 
   return (
@@ -90,10 +67,22 @@ const FormInformation = ({ scores, data1, data2, timer1, timer2 }: FormInformati
 
         <input
           type="date"
-          name="data"
+          name="date"
           id="datepicker"
           value={formInfo.date}
           onChange={(e) => updateFormInfo({ "date": e.target.value })}
+        />
+      </InputContainer>
+
+      <InputContainer>
+        <Label htmlFor="nextdate">Next Observation Date</Label>
+
+        <input
+          type="date"
+          name="data"
+          id="nextdatepicker"
+          value={formInfo.nextDate}
+          onChange={(e) => updateFormInfo({ "nextDate": e.target.value })}
         />
       </InputContainer>
 

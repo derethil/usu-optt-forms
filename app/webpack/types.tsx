@@ -76,6 +76,7 @@ export interface IFormInfo {
   cooperatingTeacher: string,
   supervisor: string,
   date: string,
+  nextDate: string,
   observation: number,
   other: string,
   program: string
