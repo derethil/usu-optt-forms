@@ -13,7 +13,7 @@ const Router = () => {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={FormSTO} />
+        <Route exact path="/rubric" component={FormSTO} />
         <ProtectedRoute isAuthenticated={true} authenticationPath="/" exact path="/dashboard" component={Dashboard} />
         <Route component={NotFound} />
       </Switch>

@@ -1,5 +1,4 @@
 const path = require('path');
-const { ModifierFlags } = require('typescript');
 
 module.exports = {
   entry: './app/webpack/index.ts',
