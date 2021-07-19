@@ -5,6 +5,7 @@ import autoTable from "jspdf-autotable";
 import { defaultData, ScoresState, ITimer, IFormInfo, Section } from "../types";
 import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum, formatTime } from "../utils";
 import _rubricData from "../../rubrics/studentTeaching.json"
+import usuLogoB64 from "../../assets/usuLogoB64";
 
 type PDFGeneratorProps = {
   scores: ScoresState,
@@ -15,19 +16,6 @@ type PDFGeneratorProps = {
   formInfo: IFormInfo
 }
 
-const pdfTitle = (doc: jsPDF, content: string, ypos: number, size?: number) => {
-  const currSize = doc.getFontSize();
-  const currColor = doc.getTextColor();
-
-  doc.setFontSize(size ? size : 20);
-  doc.setTextColor("000");
-
-  doc.text(content, 14, ypos);
-
-  doc.setFontSize(currSize);
-  doc.setTextColor(currColor);
-}
-
 export const PDFGenerator = (props: PDFGeneratorProps) => {
   const rubricData = _rubricData as Section[];
   const generatePDF = () => {
@@ -35,17 +23,20 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
       format: "a4"
     });
 
-    doc.setFontSize(11);
+    doc.setFontSize(16);
     doc.setTextColor(50);
     doc.setFont("helvetica", "normal", 400);
+    doc.addImage(usuLogoB64, 'png', 165, 11, 30, 10.05);
+
+
 
     // GENERAL INFO
 
-    pdfTitle(doc, `${props.formInfo.studentTeacher}'s Observation Report (${props.formInfo.date})`, 16);
+    doc.text(`Observation Report (${props.formInfo.date})`, 14, 18);
 
     autoTable(doc, {
-      startY: 24,
-      head: [['Information Report', ""]],
+      startY: 24.5,
+      head: [['Information', ""]],
       columnStyles: {
         1: { cellWidth: 50 }
       },
