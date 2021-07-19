@@ -5,6 +5,7 @@ import autoTable from "jspdf-autotable";
 import { defaultData, ScoresState, ITimer, IFormInfo, Section } from "../types";
 import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum, formatTime } from "../utils";
 import _rubricData from "../../rubrics/studentTeaching.json"
+import { css } from "styled-components";
 
 type PDFGeneratorProps = {
   scores: ScoresState,
@@ -28,23 +29,6 @@ const pdfTitle = (doc: jsPDF, content: string, ypos: number, size?: number) => {
   doc.setTextColor(currColor);
 }
 
-const observationSummary = (doc: jsPDF, data: typeof defaultData, timer: ITimer, startY: number, title: string) => {
-  autoTable(doc, {
-    startY: startY,
-    head: [[title, "Value"]],
-    body: [
-      ["Time", formatTime(timer.timer)],
-      ["OTR Rate", 0],
-      ["Praise Ratio", getPraiseRatio(data)],
-      ["Percent Specific", getPercent(data.praise.academic + data.praise.behavioral, getPraiseSum(data))],
-      ["Percent Correct", getPercent(data.corrections.correct, getCorrectionsSum(data))],
-      ["Percent Engaged", getPercent(data.engagement.engaged, data.engagement.engaged + data.engagement.notEngaged)],
-      ["Transition Count", data.misc.transitionCount],
-      ["Scanning Count", data.misc.scanningCount]
-    ]
-  })
-}
-
 export const PDFGenerator = (props: PDFGeneratorProps) => {
   const rubricData = _rubricData as Section[];
   const generatePDF = () => {
@@ -56,11 +40,16 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     doc.setTextColor(50);
     doc.setFont("helvetica", "normal", 400);
 
+    // GENERAL INFO
+
     pdfTitle(doc, `${props.formInfo.studentTeacher} - Observation Report`, 18);
 
     autoTable(doc, {
       startY: 24,
-      head: [['Information Report', 'Value']],
+      head: [['Information Report', '']],
+      columnStyles: {
+        1: { cellWidth: 50 }
+      },
       body: [
         ['Student Teacher', props.formInfo.studentTeacher],
         ['Cooperating Teacher', props.formInfo.cooperatingTeacher],
@@ -73,7 +62,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
       ],
     });
 
-    pdfTitle(doc, "Performance Summary", 102, 16)
+    // SUMMARY
 
     const sections = rubricData.map(section => section.sectionTitle);
     const summary = sections.map(section => {
@@ -81,19 +70,98 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     });
 
     autoTable(doc, {
-      startY: 108,
-      head: [["Area", "Score"]],
+      startY: (doc as any).lastAutoTable.finalY + 5,
+      head: [["Performance Summary", "Score"]],
+      columnStyles: {
+        1: { cellWidth: 50 }
+      },
       body: summary,
     });
 
+    // OBSERVATION DATA
+
+    // pdfTitle(doc, "Observations Summary", 170, 16);
+
+    const nestedTableCell = {
+      content: '',
+      styles: { minCellHeight: 71 },
+    }
+
+    autoTable(doc, {
+      head: [["Observation 1", "Observation 2"]],
+      headStyles: { fillColor: "#1abd9c" },
+      body: [[nestedTableCell]],
+      startY: (doc as any).lastAutoTable.finalY + 5,
+      didDrawCell: data => {
+        if (data.row.index !== 0 || data.row.section !== "body") return;
+
+        const obsTable = (observData: typeof defaultData, timer: ITimer, right?: boolean) => {
+          autoTable(doc, {
+            startY: data.cell.y + 2,
+            margin: { left: right ? data.cell.x + 2 : data.cell.x },
+            tableWidth: data.cell.width - 2,
+            styles: {
+              minCellHeight: 4,
+            },
+            head: [["Area", "Score"]],
+            body: [
+              ["Time", formatTime(timer.timer)],
+              ["OTR Rate", 0],
+              ["Praise Ratio", getPraiseRatio(observData)],
+              ["Percent Specific", getPercent(observData.praise.academic + observData.praise.behavioral, getPraiseSum(observData))],
+              ["Percent Correct", getPercent(observData.corrections.correct, getCorrectionsSum(observData))],
+              ["Percent Engaged", getPercent(observData.engagement.engaged, observData.engagement.engaged + observData.engagement.notEngaged)],
+              ["Transition Count", observData.misc.transitionCount],
+              ["Scanning Count", observData.misc.scanningCount]
+            ]
+          })
+        }
+
+        if (data.column.index === 0) {
+          obsTable(props.data1, props.timer1);
+        } else if (data.column.index === 1) {
+          obsTable(props.data2, props.timer2, true);
+        }
+
+      }
+    })
+
     doc.addPage();
 
-    pdfTitle(doc, "Observations Summary", 18, 16);
+    const nestedTableCells = [40, 70, 48, 32, 17, 40].map(minHeight => {
+      return [{ content: "", styles: { minCellHeight: minHeight } }]
+    });
 
-    observationSummary(doc, props.data1, props.timer1, 24, "Observation 1");
-    observationSummary(doc, props.data2, props.timer2, 96, "Observation 2");
+    autoTable(doc, {
+      startY: 18,
+      // theme: "grid",
+      head: [["Scores"]],
+      headStyles: { fillColor: "#1abd9c" },
+      body: nestedTableCells,
+      didDrawCell: data => {
+        if (data.row.section !== "body") return;
+
+        const [sectionTitle, scoresObj] = Object.entries(props.scores)[data.row.index];
+
+        autoTable(doc, {
+          startY: data.cell.y + 2,
+          columnStyles: {
+            1: { cellWidth: 50 },
+          },
+          margin: { left: data.cell.x },
+          tableWidth: data.cell.width,
+          styles: {
+            minCellHeight: 4,
+          },
+          head: [[sectionTitle, "Score"]],
+          body: Object.entries(scoresObj)
+
+        });
+      }
+    })
 
     doc.save('table.pdf');
+
   }
   return <button onClick={() => generatePDF()}>Download Data</button>
 }
