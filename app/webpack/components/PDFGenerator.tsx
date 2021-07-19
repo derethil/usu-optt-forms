@@ -5,7 +5,6 @@ import autoTable from "jspdf-autotable";
 import { defaultData, ScoresState, ITimer, IFormInfo, Section } from "../types";
 import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum, formatTime } from "../utils";
 import _rubricData from "../../rubrics/studentTeaching.json"
-import { css } from "styled-components";
 
 type PDFGeneratorProps = {
   scores: ScoresState,
@@ -42,11 +41,11 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
     // GENERAL INFO
 
-    pdfTitle(doc, `${props.formInfo.studentTeacher} - Observation Report`, 18);
+    pdfTitle(doc, `${props.formInfo.studentTeacher}'s Observation Report (${props.formInfo.date})`, 16);
 
     autoTable(doc, {
       startY: 24,
-      head: [['Information Report', '']],
+      head: [['Information Report', ""]],
       columnStyles: {
         1: { cellWidth: 50 }
       },
@@ -63,10 +62,18 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     });
 
     // SUMMARY
+    let totalCorrect = 0;
+    let totalPossible = 0;
 
     const sections = rubricData.map(section => section.sectionTitle);
     const summary = sections.map(section => {
-      return [section, `${getSubtotal(section, props.scores)} / ${getMaxSubtotal(section, props.scores, rubricData)}`]
+      const subtotal = getSubtotal(section, props.scores);
+      totalCorrect += subtotal;
+
+      const possible = getMaxSubtotal(section, props.scores, rubricData);
+      totalPossible += possible;
+
+      return [section, `${subtotal} / ${possible}`]
     });
 
     autoTable(doc, {
@@ -79,8 +86,6 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     });
 
     // OBSERVATION DATA
-
-    // pdfTitle(doc, "Observations Summary", 170, 16);
 
     const nestedTableCell = {
       content: '',
@@ -126,6 +131,40 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
       }
     })
 
+    // TOTAL SCORE
+
+    const getLetterGrade = (percent: number): string => {
+      if (percent >= 93) {
+        return "A";
+      } else if (percent >= 90) {
+        return "A-"
+      } else if (percent >= 87) {
+        return "B+"
+      } else if (percent >= 83) {
+        return "B"
+      } else if (percent >= 80) {
+        return "B-"
+      } else {
+        return "At-risk"
+      }
+    }
+
+
+    autoTable(doc, {
+      head: [["Total Score", ""]],
+      columnStyles: {
+        1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 }
+      },
+      body: [
+        ["Total Correct", totalCorrect],
+        ["Total Possible", totalPossible],
+        ["Percentage", getPercent(totalCorrect, totalPossible)],
+        ["Letter Grade", getLetterGrade((totalCorrect / totalPossible) * 100)]
+      ]
+    })
+
+    // SCORES
+
     doc.addPage();
 
     const nestedTableCells = [40, 70, 48, 32, 17, 40].map(minHeight => {
@@ -159,6 +198,8 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
         });
       }
     })
+
+    // SAVE
 
     doc.save('table.pdf');
 
