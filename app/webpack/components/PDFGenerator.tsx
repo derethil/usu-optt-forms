@@ -2,9 +2,10 @@ import React from "react";
 import jsPDF from 'jspdf'
 import autoTable from "jspdf-autotable";
 
-import { defaultData, ScoresState, ITimer, IFormInfo, Section } from "../types";
+import { ScoresState, ITimer, IFormInfo, Section } from "../types";
 import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum, formatTime } from "../utils";
 import _rubricData from "../../rubrics/studentTeaching.json"
+import { defaultData } from "../defaults";
 import usuLogoB64 from "../../assets/usuLogoB64";
 
 type PDFGeneratorProps = {

@@ -5,8 +5,9 @@ import OptionRow from "./optionRow";
 import { useDefaultObjState } from "../hooks/hooks";
 import { Label, FormInfo, InputContainer } from "../styledComponents/style";
 
-import { defaultData, ITimer, ScoresState, Section } from "../types";
+import { ITimer, ScoresState, Section } from "../types";
 import { getSubtotal, getMaxSubtotal } from "../utils";
+import { defaultData } from "../defaults";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
 import { PDFGenerator } from "./PDFGenerator";

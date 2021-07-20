@@ -1,4 +1,5 @@
-import { defaultData, ScoresState, Section } from "./types"
+import { ScoresState, Section } from "./types"
+import { defaultData } from "./defaults"
 
 // TIMER FUNCTIONS
 

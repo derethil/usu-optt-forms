@@ -1,14 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-
-import { Partial, FormInfo } from "../types";
 import { Label, InputContainer } from "../styledComponents/style";
-
-
 
 type TextInputProps = {
   value: string,
-  updateFormInfo: (updatedValues: Partial<FormInfo>) => void,
+  updateFormInfo: (updatedValues: { [key: string]: string }) => void,
   field: string
 }
 

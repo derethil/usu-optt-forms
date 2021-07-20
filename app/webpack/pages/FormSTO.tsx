@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+
 import _rubricData from "../../rubrics/studentTeaching.json";
-import DataSTO from "../components/DataSTO";
+
 import FormInformation from "../components/FormInformation";
+import DataSTO from "../components/DataSTO";
 import RubricSTO from "../components/RubricSTO";
-import Tabs from "../components/tabs";
-import Timer from "../components/Timer";
 import useTimer from "../hooks/useTimer";
 import { useDefaultObjState } from "../hooks/hooks";
-import { TabsContainer } from "../styledComponents/style";
-import { ScoresState, Section, defaultData } from "../types";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { ScoresState, Section } from "../types";
+import { defaultData, defaultComments } from "../defaults";
+import { FeedbackPage } from "../components/FeedbackPage";
+
 
 const PageBaseDiv = styled.div`
   margin-left: 45em;
@@ -36,6 +38,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 
 export const FormSTO = () => {
   const rubricData = _rubricData as Section[];
+
   const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
 
   const updateScore = (section: string, row: string, updatedScore: string) => {
@@ -53,36 +56,41 @@ export const FormSTO = () => {
   const timer1 = useTimer();
   const timer2 = useTimer();
 
+  const [comments, updateComments] = useDefaultObjState(defaultComments);
+
 
 
   return (
     <PageBaseDiv>
       <FormInformation scores={scores} data1={data1} data2={data2} timer1={timer1} timer2={timer2} />
 
-      <Tabs default="rubric">
-        <BrowserRouter>
-          <div id="tabs">
-            <Link to="/rubric">Rubric</Link>
-            <Link to="/data1">Data 1</Link>
-            <Link to="/data2">Data 2</Link>
-          </div>
+      <BrowserRouter>
+        <div id="tabs">
+          <Link to="/rubric">Rubric</Link>
+          <Link to="/feedback">Feedback</Link>
+          <Link to="/data1">Data 1</Link>
+          <Link to="/data2">Data 2</Link>
+        </div>
 
-          <Switch>
-            <Route path="/rubric">
-              <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
-            </Route>
+        <Switch>
+          <Route path="/rubric">
+            <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
+          </Route>
 
-            <Route path="/data1">
-              <DataSTO data={data1} setData={setData1} timer={timer1} />
-            </Route>
+          <Route path="/data1">
+            <DataSTO data={data1} setData={setData1} timer={timer1} />
+          </Route>
 
-            <Route path="/data2">
-              <DataSTO data={data2} setData={setData2} timer={timer2} />
-            </Route>
-          </Switch>
+          <Route path="/data2">
+            <DataSTO data={data2} setData={setData2} timer={timer2} />
+          </Route>
 
-        </BrowserRouter>
-      </Tabs>
+          <Route path="/feedback">
+            <FeedbackPage comments={comments} updateComments={updateComments} />
+          </Route>
+        </Switch>
+
+      </BrowserRouter>
     </PageBaseDiv>
   )
 }
