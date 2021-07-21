@@ -7,11 +7,12 @@ import _rubricData from "../../rubrics/studentTeaching.json";
 import FormInformation from "../components/FormInformation";
 import DataSTO from "../components/DataSTO";
 import RubricSTO from "../components/RubricSTO";
-import useTimer from "../hooks/useTimer";
-import { useDefaultObjState } from "../hooks/hooks";
-import { ScoresState, Section } from "../types";
-import { defaultData, defaultComments } from "../defaults";
 import { FeedbackPage } from "../components/FeedbackPage";
+import useTimer from "../hooks/useTimer";
+
+import { useDefaultObjState, useObjState } from "../hooks/hooks";
+import { ScoresState, Section } from "../types";
+import { defaultData, defaultComments, defaultFormInfo } from "../defaults";
 
 
 const PageBaseDiv = styled.div`
@@ -39,6 +40,8 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 export const FormSTO = () => {
   const rubricData = _rubricData as Section[];
 
+  const [formInfo, updateFormInfo, resetFormInfo] = useDefaultObjState(defaultFormInfo);
+
   const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
 
   const updateScore = (section: string, row: string, updatedScore: string) => {
@@ -56,13 +59,32 @@ export const FormSTO = () => {
   const timer1 = useTimer();
   const timer2 = useTimer();
 
-  const [comments, updateComments, resetComments] = useDefaultObjState(defaultComments);
+  const [comments, updateComments, resetComments] = useDefaultObjState(defaultComments());
+
+  const resetAll = (): void => {
+    resetScores();
+    resetData1();
+    resetData2();
+    timer1.handleReset();
+    timer2.handleReset();
+    resetFormInfo();
+    resetComments();
+  }
 
 
 
   return (
     <PageBaseDiv>
-      <FormInformation scores={scores} data1={data1} data2={data2} timer1={timer1} timer2={timer2} />
+      <FormInformation
+        formInfo={formInfo}
+        scores={scores}
+        data1={data1}
+        data2={data2}
+        timer1={timer1}
+        timer2={timer2}
+        resetAll={resetAll}
+        updateFormInfo={updateFormInfo}
+      />
 
       <BrowserRouter>
         <div id="tabs">

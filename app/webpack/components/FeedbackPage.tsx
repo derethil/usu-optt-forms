@@ -1,23 +1,24 @@
 import React, { Props } from "react";
 
-import { defaultComments } from "../defaults";
+import { defaultComments, IComments } from "../defaults";
 import TextInput from "./TextInput";
 
 type feedbackPageProps = {
-  comments: typeof defaultComments,
+  comments: IComments,
   updateComments: (updatedComments: { [key: string]: string[] }) => void
 }
 
 
 export const FeedbackPage = (props: feedbackPageProps) => {
 
-  type Feedback = keyof typeof props.comments;
+  // type Feedback = keyof typeof props.comments;
+  type Feedback = "strengths" | "suggestions" | "nextFocus";
 
   const updateComment = (
     newValues: { [key: string]: string },
     index: number,
-    oldComments: string[]) => {
-
+    oldComments: string[]
+  ) => {
     oldComments[index] = Object.values(newValues)[0];
     props.updateComments({ [newValues.key]: oldComments });
   }
@@ -38,9 +39,7 @@ export const FeedbackPage = (props: feedbackPageProps) => {
   }
 
   const addNewComment = (feedbackArea: Feedback) => {
-    const feedbackArr = props.comments[feedbackArea];
-    feedbackArr.push("");
-    props.updateComments({ feedbackArea: feedbackArr });
+    props.updateComments({ [feedbackArea]: [...props.comments[feedbackArea], ""] });
   }
 
 

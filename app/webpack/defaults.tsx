@@ -24,8 +24,27 @@ export const defaultData = {
   }
 }
 
-export const defaultComments = {
-  strengths: [""],
-  suggestions: [""],
-  nextFocus: [""],
+export interface IComments {
+  strengths: string[],
+  suggestions: string[],
+  nextFocus: string[]
+}
+
+export const defaultComments = (): IComments => {
+  return {
+    strengths: [""],
+    suggestions: [""],
+    nextFocus: [""],
+  }
+}
+
+export const defaultFormInfo = {
+  studentTeacher: "",
+  cooperatingTeacher: "",
+  supervisor: "",
+  date: new Date().toISOString().slice(0, 10),
+  nextDate: new Date().toISOString().slice(0, 10),
+  observation: 1,
+  other: "",
+  program: "Mild/Moderate"
 }
