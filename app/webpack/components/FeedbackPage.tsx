@@ -55,6 +55,22 @@ export const FeedbackPage = (props: feedbackPageProps) => {
       </button>
 
       {generateInputs("strengths")}
+
+      <h2>Suggestions: </h2>
+
+      <button onClick={() => addNewComment("suggestions")}>
+        Add New Suggestion
+      </button>
+
+      {generateInputs("suggestions")}
+
+      <h2>Next Focus: </h2>
+
+      <button onClick={() => addNewComment("nextFocus")}>
+        Add New Focus
+      </button>
+
+      {generateInputs("nextFocus")}
     </div>
   )
 }
