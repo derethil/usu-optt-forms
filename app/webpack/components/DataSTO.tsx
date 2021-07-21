@@ -4,7 +4,11 @@ import CounterButton from "./CounterButton";
 import { STOData, ITimer } from "../types";
 import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils";
 
-const DataSTO = ({ timer, data, setData }: { timer: ITimer, data: STOData, setData: (updatedValues: Partial<STOData>) => void }) => {
+interface DATASTOProps {
+  timer: ITimer, data: STOData, setData: (updatedValues: Partial<STOData>) => void
+}
+
+const DataSTO = ({ timer, data, setData }: DATASTOProps) => {
   return <div>
     <Timer timer={timer} />
 

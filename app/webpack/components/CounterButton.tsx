@@ -27,7 +27,12 @@ type CounterButtonProps = {
 
 const CounterButton = (props: CounterButtonProps) => {
   return (
-    <CounterButtonEl color={props.color} textColor={"white"} onClick={() => props.onClick(props.value + 1)} style={{ marginRight: "1em" }}>
+    <CounterButtonEl
+      color={props.color}
+      textColor={"white"}
+      onClick={() => props.onClick(props.value + 1)}
+      style={{ marginRight: "1em" }}
+    >
       {props.content}
     </CounterButtonEl>
   )

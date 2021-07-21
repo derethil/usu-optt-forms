@@ -56,7 +56,7 @@ export const FormSTO = () => {
   const timer1 = useTimer();
   const timer2 = useTimer();
 
-  const [comments, updateComments] = useDefaultObjState(defaultComments);
+  const [comments, updateComments, resetComments] = useDefaultObjState(defaultComments);
 
 
 

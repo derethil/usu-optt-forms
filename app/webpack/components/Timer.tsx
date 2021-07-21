@@ -4,27 +4,23 @@ import { formatTime } from "../utils";
 import { ITimer } from "../types";
 
 
-type TimerProps = {
-  timer: ITimer
-}
-
-const Timer = (props: TimerProps) => {
+const Timer = ({ timer }: { timer: ITimer }) => {
 
   const currentButton = () => {
-    if (!props.timer.isActive) {
-      return <button onClick={props.timer.handleStart}>Start</button>
-    } else if (props.timer.isPaused) {
-      return <button onClick={props.timer.handleResume}>Resume</button>
+    if (!timer.isActive) {
+      return <button onClick={timer.handleStart}>Start</button>
+    } else if (timer.isPaused) {
+      return <button onClick={timer.handleResume}>Resume</button>
     } else {
-      return <button onClick={props.timer.handlePause}>Pause</button>
+      return <button onClick={timer.handlePause}>Pause</button>
     }
   }
 
   return <div className='stopwatch-card'>
-    <p>{formatTime(props.timer.timer)}</p>
+    <p>{formatTime(timer.timer)}</p>
     <div className='buttons'>
       {currentButton()}
-      <button onClick={props.timer.handleReset} disabled={!props.timer.isActive}>Reset</button>
+      <button onClick={timer.handleReset} disabled={!timer.isActive}>Reset</button>
     </div>
   </div>
 }
