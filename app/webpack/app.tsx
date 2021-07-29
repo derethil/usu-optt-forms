@@ -14,7 +14,7 @@ import Navbar from "./routing/Navbar";
 import { useDefaultObjState } from "./hooks/hooks";
 import { ScoresState, Section } from "./types";
 import { defaultData, defaultComments, defaultFormInfo } from "./defaults";
-import { PageBaseDiv } from "./styledComponents/style";
+import { PageBaseDiv, PageContentDiv } from "./styledComponents/style";
 import { NotFound } from "./pages/NotFound";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
@@ -70,43 +70,44 @@ export const FormSTO = () => {
   return (
     <PageBaseDiv>
       <BrowserRouter>
-        <Navbar />
+        <Navbar studentTeacher={formInfo.studentTeacher} />
 
-        <Switch>
-          <Route exact path="/">
-            <FormInformation
-              formInfo={formInfo}
-              scores={scores}
-              data1={data1}
-              data2={data2}
-              timer1={timer1}
-              timer2={timer2}
-              resetAll={resetAll}
-              updateFormInfo={updateFormInfo}
-            />
-          </Route>
+        <PageContentDiv>
+          <Switch>
+            <Route exact path="/">
+              <FormInformation
+                formInfo={formInfo}
+                scores={scores}
+                data1={data1}
+                data2={data2}
+                timer1={timer1}
+                timer2={timer2}
+                resetAll={resetAll}
+                updateFormInfo={updateFormInfo}
+              />
+            </Route>
 
-          <Route path="/rubric">
-            <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
-          </Route>
+            <Route path="/rubric">
+              <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
+            </Route>
 
-          <Route path="/data1">
-            <DataSTO data={data1} setData={setData1} timer={timer1} />
-          </Route>
+            <Route path="/data1">
+              <DataSTO data={data1} setData={setData1} timer={timer1} />
+            </Route>
 
-          <Route path="/data2">
-            <DataSTO data={data2} setData={setData2} timer={timer2} />
-          </Route>
+            <Route path="/data2">
+              <DataSTO data={data2} setData={setData2} timer={timer2} />
+            </Route>
 
-          <Route path="/feedback">
-            <FeedbackPage comments={comments} updateComments={updateComments} />
-          </Route>
+            <Route path="/feedback">
+              <FeedbackPage comments={comments} updateComments={updateComments} />
+            </Route>
 
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </PageContentDiv>
       </BrowserRouter>
     </PageBaseDiv>
   )

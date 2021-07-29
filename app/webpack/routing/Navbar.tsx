@@ -1,17 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Color } from "../styledComponents/style";
 
+const activeClassName = "active";
+
 const NavbarContainer = styled.div`
-  background-color: ${Color.blues.primary};
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   font-size: 1.3em;
+  background-color: ${Color.blues.primary};
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
 `;
 
-const activeClassName = "active";
+const StudentDisplay = styled.div`
+  display: inline-block;
+  color: ${Color.lights.light};
+  padding: 1.5rem;
+  margin-left: auto;
+  margin-right: 1em;
+`;
 
 const StyledLink = styled(NavLink)`
   display: inline-block;
@@ -29,7 +41,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const Navbar = () => {
+const Navbar = (props: { studentTeacher: string }) => {
   return (
     <NavbarContainer>
       <StyledLink activeClassName={activeClassName} exact to="/">Home</StyledLink>
@@ -37,6 +49,10 @@ const Navbar = () => {
       <StyledLink activeClassName={activeClassName} to="/feedback">Feedback</StyledLink>
       <StyledLink activeClassName={activeClassName} to="/data1">Data 1</StyledLink>
       <StyledLink activeClassName={activeClassName} to="/data2">Data 2</StyledLink>
+
+      <StudentDisplay>
+        {props.studentTeacher}
+      </StudentDisplay>
     </NavbarContainer>
   )
 }

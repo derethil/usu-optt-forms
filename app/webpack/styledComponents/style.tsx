@@ -36,6 +36,10 @@ export const Color = {
   }
 }
 
+export const PageContentDiv = styled.div`
+  margin-top: 6em;
+`;
+
 export const Label = styled.label`
   /* font-family: Roboto, sans-serif; */
   /* padding-right: 1em; */
