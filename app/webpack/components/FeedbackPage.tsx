@@ -11,8 +11,8 @@ type feedbackPageProps = {
 
 export const FeedbackPage = (props: feedbackPageProps) => {
 
-  // type Feedback = keyof typeof props.comments;
-  type Feedback = "strengths" | "suggestions" | "nextFocus";
+  type Feedback = keyof typeof props.comments;
+  // type Feedback = "strengths" | "suggestions" | "nextFocus";
 
   const updateComment = (
     newValues: { [key: string]: string },

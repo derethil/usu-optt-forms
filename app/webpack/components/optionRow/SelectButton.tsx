@@ -32,10 +32,11 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABo
   /* transform: translateY(${props => props.selected ? -0.5 : 0}em); */
 `;
 
-const ScoreValue = styled.div<{}>`
+const ScoreValue = styled.div`
   font-size: 2rem;
   margin-top: auto;
 `;
+
 
 type SelectButtonProps = {
   content: string,

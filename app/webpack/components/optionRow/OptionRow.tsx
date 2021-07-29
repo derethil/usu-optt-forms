@@ -4,6 +4,7 @@ import styled from "styled-components";
 import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
 
+
 const ButtonsRow = styled.div`
   display: flex;
   align-items: center;
@@ -21,25 +22,19 @@ interface OptionRowProps {
 
 const OptionRow = (props: OptionRowProps) => {
 
-  const selectButtons: JSX.Element[] = [];
-
-
-  for (let i = 0; i < props.contentOptions.length; i++) {
-    const content = props.contentOptions[i];
-    const score = props.scoreOptions ? props.scoreOptions[i] : "";
-
+  const selectButtons = props.contentOptions.map((content, idx) => {
+    const score = props.scoreOptions ? props.scoreOptions[idx] : "";
     const compareTo = props.scoreOptions ? score : content;
 
-    selectButtons.push(
+    return (
       <SelectButton
         content={content}
         score={score}
-        key={i}
+        key={idx}
         updateSelection={props.updateSelection}
         selected={compareTo === props.currSelection}
-      />
-    )
-  }
+      />)
+  });
 
   if (props.scoreOptions) {
     selectButtons.push(

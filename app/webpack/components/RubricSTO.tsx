@@ -12,45 +12,42 @@ type RubricSTOProps = {
 }
 
 const RubricSTO = (props: RubricSTOProps) => {
-  const sections: JSX.Element[] = [];
 
-  props.rubricData.forEach((section, sectionIdx) => {
-    const rows: JSX.Element[] = [];
-
-    const sectionTitle = () => {
-      if (section.tooltip) {
-        return <IconTitle content={section.sectionTitle} tooltipContent={section.tooltip} fontsize="1.33rem"></IconTitle>
-      } else {
-        return <h1 style={{ fontSize: "1.33rem" }}>{section.sectionTitle}</h1>
-      }
+  const sectionTitle = (section: Section) => {
+    if (section.tooltip) {
+      return <IconTitle content={section.sectionTitle} tooltipContent={section.tooltip} fontsize="1.33rem"></IconTitle>
+    } else {
+      return <h1 style={{ fontSize: "1.33rem" }}>{section.sectionTitle}</h1>
     }
+  }
 
-    const sectionDiv = <section key={sectionIdx}>
-      {sectionTitle()}
-      {rows}
-    </section>
+  const sections = props.rubricData.map((section, idx) => {
+    const rows = section.rows.map((row, rowIdx) => {
 
-    section.rows.forEach((row, rowIdx) => {
-      let currContentOptions: string[] = [];
-      let currScoreOptions: string[] = [];
+      const currContentOptions = row.options.map(option => option.content);
+      const currScoreOptions = row.options.map(option => String(option.score));
 
-      row.options.forEach(option => {
-        currContentOptions.push(option.content);
-        currScoreOptions.push(String(option.score));
-      });
-
-      rows.push(<OptionRow
-        key={rowIdx}
-        contentOptions={currContentOptions}
-        scoreOptions={currScoreOptions}
-        tooltip={row.tooltip}
-        title={row.area}
-        currSelection={String(props.scores[section.sectionTitle][row.area])}
-        updateSelection={newSelection => props.updateScore(section.sectionTitle, row.area, newSelection)}
-      />);
+      return (
+        <OptionRow
+          key={rowIdx}
+          contentOptions={currContentOptions}
+          scoreOptions={currScoreOptions}
+          tooltip={row.tooltip}
+          title={row.area}
+          currSelection={String(props.scores[section.sectionTitle][row.area])}
+          updateSelection={newSelection => props.updateScore(section.sectionTitle, row.area, newSelection)}
+        />);
     })
 
-    sections.push(sectionDiv);
+    const sectionDiv = (
+      <section key={idx}>
+        {sectionTitle(section)}
+        {rows}
+      </section>
+    )
+
+
+    return sectionDiv;
   })
 
   return (
