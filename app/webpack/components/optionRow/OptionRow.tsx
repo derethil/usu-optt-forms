@@ -6,9 +6,9 @@ import IconTitle from "../IconTitle";
 
 
 const ButtonsRow = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; */
 `;
 
 interface OptionRowProps {

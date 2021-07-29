@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDom from "react-dom";
-import styled from "styled-components";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 
 import _rubricData from "../rubrics/studentTeaching.json";
@@ -8,8 +7,9 @@ import _rubricData from "../rubrics/studentTeaching.json";
 import FormInformation from "./components/FormInformation";
 import DataSTO from "./components/DataSTO";
 import RubricSTO from "./components/RubricSTO";
-import { FeedbackPage } from "./components/FeedbackPage";
+import FeedbackPage from "./components/FeedbackPage";
 import useTimer from "./hooks/useTimer";
+import Navbar from "./routing/Navbar";
 
 import { useDefaultObjState } from "./hooks/hooks";
 import { ScoresState, Section } from "./types";
@@ -70,13 +70,7 @@ export const FormSTO = () => {
   return (
     <PageBaseDiv>
       <BrowserRouter>
-        <div id="tabs">
-          <Link to="/">Home</Link>
-          <Link to="/rubric">Rubric</Link>
-          <Link to="/feedback">Feedback</Link>
-          <Link to="/data1">Data 1</Link>
-          <Link to="/data2">Data 2</Link>
-        </div>
+        <Navbar />
 
         <Switch>
           <Route exact path="/">

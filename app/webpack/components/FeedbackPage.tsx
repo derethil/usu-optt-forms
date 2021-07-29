@@ -1,6 +1,6 @@
-import React, { Props } from "react";
+import React from "react";
 
-import { defaultComments, IComments } from "../defaults";
+import { IComments } from "../defaults";
 import TextInput from "./TextInput";
 
 type feedbackPageProps = {
@@ -9,7 +9,7 @@ type feedbackPageProps = {
 }
 
 
-export const FeedbackPage = (props: feedbackPageProps) => {
+const FeedbackPage = (props: feedbackPageProps) => {
 
   type Feedback = keyof typeof props.comments;
   // type Feedback = "strengths" | "suggestions" | "nextFocus";
@@ -73,3 +73,5 @@ export const FeedbackPage = (props: feedbackPageProps) => {
     </div>
   )
 }
+
+export default FeedbackPage;

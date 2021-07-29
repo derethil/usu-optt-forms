@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Button } from "../../styledComponents/style";
 
 const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABox?: boolean }>`
-  min-width: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};
+  /* min-width: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};
   max-width: ${props => props.scoreBox || props.NABox ? "200px" : "8em"};
   height: ${props => props.scoreBox || props.NABox ? "200px" : "4em"};
 
@@ -29,12 +29,12 @@ const ButtonContainer = styled.div<{ selected: boolean, scoreBox?: boolean, NABo
   }
 
   transition: all 0.12s ease-in-out;
-  /* transform: translateY(${props => props.selected ? -0.5 : 0}em); */
+  transform: translateY(${props => props.selected ? -0.5 : 0}em); */
 `;
 
 const ScoreValue = styled.div`
-  font-size: 2rem;
-  margin-top: auto;
+  /* font-size: 2rem;
+  margin-top: auto; */
 `;
 
 
