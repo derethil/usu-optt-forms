@@ -14,7 +14,7 @@ import Navbar from "./routing/Navbar";
 import { useDefaultObjState } from "./hooks/hooks";
 import { ScoresState, Section } from "./types";
 import { defaultData, defaultComments, defaultFormInfo } from "./defaults";
-import { PageBaseDiv, PageContentDiv } from "./styledComponents/style";
+import { PageContainer, PageContent, PageHeader, Title } from "./styledComponents/style";
 import { NotFound } from "./pages/NotFound";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
@@ -66,13 +66,17 @@ export const FormSTO = () => {
   }
 
 
-
   return (
-    <PageBaseDiv>
+    <PageContainer>
       <BrowserRouter>
+
+        <PageHeader>
+          <Title>Student Teaching Observation Form</Title>
+        </PageHeader>
+
         <Navbar studentTeacher={formInfo.studentTeacher} />
 
-        <PageContentDiv>
+        <PageContent>
           <Switch>
             <Route exact path="/">
               <FormInformation
@@ -107,9 +111,9 @@ export const FormSTO = () => {
               <NotFound />
             </Route>
           </Switch>
-        </PageContentDiv>
+        </PageContent>
       </BrowserRouter>
-    </PageBaseDiv>
+    </PageContainer>
   )
 }
 

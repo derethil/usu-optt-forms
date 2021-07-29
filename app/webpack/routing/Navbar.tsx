@@ -6,14 +6,14 @@ import { Color } from "../styledComponents/style";
 
 const activeClassName = "active";
 
-const NavbarContainer = styled.div`
+const NavbarContainer = styled.nav`
   display: flex;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100vw;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   font-size: 1.3em;
-  background-color: ${Color.blues.primary};
+  background-color: ${Color.blues.blueDarker};
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
 `;
 
