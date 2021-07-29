@@ -44,3 +44,12 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
 
   user-select: none;
 `;
+
+
+export const PageBaseDiv = styled.div`
+  margin-left: 45em;
+  width: 100%;
+
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+`;
