@@ -6,9 +6,9 @@ export const Label = styled.label`
 `;
 
 export const FormInfo = styled.div`
-  position: fixed;
+  /* position: fixed;
   left: 3em;
-  text-align: left;
+  text-align: left; */
 `;
 
 export const InputContainer = styled.div`
@@ -47,9 +47,9 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
 
 
 export const PageBaseDiv = styled.div`
-  margin-left: 45em;
   width: 100%;
-
-  font-family: 'Poppins', sans-serif;
+  margin-left: 1em;
+  margin-top: 1em;
+  font-family: Roboto, sans-serif;
   text-align: left;
 `;

@@ -69,19 +69,9 @@ export const FormSTO = () => {
 
   return (
     <PageBaseDiv>
-      <FormInformation
-        formInfo={formInfo}
-        scores={scores}
-        data1={data1}
-        data2={data2}
-        timer1={timer1}
-        timer2={timer2}
-        resetAll={resetAll}
-        updateFormInfo={updateFormInfo}
-      />
-
       <BrowserRouter>
         <div id="tabs">
+          <Link to="/">Home</Link>
           <Link to="/rubric">Rubric</Link>
           <Link to="/feedback">Feedback</Link>
           <Link to="/data1">Data 1</Link>
@@ -89,6 +79,19 @@ export const FormSTO = () => {
         </div>
 
         <Switch>
+          <Route exact path="/">
+            <FormInformation
+              formInfo={formInfo}
+              scores={scores}
+              data1={data1}
+              data2={data2}
+              timer1={timer1}
+              timer2={timer2}
+              resetAll={resetAll}
+              updateFormInfo={updateFormInfo}
+            />
+          </Route>
+
           <Route path="/rubric">
             <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
           </Route>
