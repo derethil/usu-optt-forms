@@ -23,6 +23,7 @@ const TextInput = ({ value, field, updateFormInfo, noLabel, placeholder }: TextI
         value={value}
         onChange={(e) => updateFormInfo({ [field]: e.target.value })}
         placeholder={placeholder}
+        id={field}
       />
     </InputContainer>
   )

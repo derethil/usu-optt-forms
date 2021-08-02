@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import TextInput from "./TextInput";
 import OptionRow from "./optionRow";
-import { InputContainer, Label } from "../styledComponents/style";
+import { InputContainer, Label, Input } from "../styledComponents/style";
 
 import { IFormInfo } from "../types";
 type FormInfoProps = {
@@ -33,22 +33,24 @@ const FormInfo = (props: FormInfoProps) => {
       />
 
       <InputContainer>
-        <Label htmlFor="date">Date</Label>
+        <Label htmlFor="observation-date">Date</Label>
 
         <DatePicker
           selected={props.formInfo.date}
-          id="datepicker"
-          onChange={date => props.updateFormInfo({ "date": date as Date })}
+          id="observation-date"
+          onChange={date => props.updateFormInfo({ date: date as Date })}
+          customInput={<Input />}
         />
       </InputContainer>
 
       <InputContainer>
-        <Label htmlFor="nextdate">Next Observation Date</Label>
+        <Label htmlFor="next-observation-date">Next Observation Date</Label>
 
         <DatePicker
           selected={props.formInfo.nextDate}
-          id="datepicker"
-          onChange={date => props.updateFormInfo({ "date": date as Date })}
+          id="next-observation-date"
+          onChange={date => props.updateFormInfo({ nextDate: date as Date })}
+          customInput={<Input />}
         />
       </InputContainer>
 

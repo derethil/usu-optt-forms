@@ -60,17 +60,19 @@ export const Title = styled.h1`
 // Inputs
 
 export const Label = styled.label`
+  margin-right: auto;
   /* font-family: Roboto, sans-serif; */
   /* padding-right: 1em; */
 `;
 
 export const InputContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 export const Input = styled.input`
   width: 250px;
+
 `;
 
 
