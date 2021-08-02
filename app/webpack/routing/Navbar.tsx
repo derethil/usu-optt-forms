@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
-import { Color } from "../styledComponents/style";
+import { Color } from "../styledComponents/colors";
 
 const activeClassName = "active";
 

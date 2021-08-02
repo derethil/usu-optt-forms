@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import TextInput from "./TextInput";
 import OptionRow from "./optionRow";
-import { InputContainer, Label, Input } from "../styledComponents/style";
 
 import { IFormInfo } from "../types";
 import DateInput from "./DateInput";

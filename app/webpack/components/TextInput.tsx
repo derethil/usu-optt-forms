@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import { Label, InputContainer, Input } from "../styledComponents/style";
+import { Label, InputContainer, Input } from "../styledComponents/input";
 
 type TextInputProps = {
   value: string,

@@ -1,6 +1,6 @@
 import React from "react";
-import Timer from "./Timer";
-import CounterButton from "./CounterButton";
+import Timer from "../components/Timer";
+import CounterButton from "../components/CounterButton";
 import { STOData, ITimer } from "../types";
 import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils";
 

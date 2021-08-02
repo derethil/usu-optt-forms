@@ -2,12 +2,12 @@ import React from "react";
 
 import { IFormInfo, ITimer, ScoresState } from "../types";
 
-import { defaultData, defaultFormInfo } from "../defaults";
+import { defaultData } from "../defaults";
 
-import { PDFGenerator } from "./PDFGenerator";
-import ScoreTotals from "./ScoreTotals";
-import FormInfo from "./FormInfo";
-import Card from "./Card";
+import { PDFGenerator } from "../components/PDFGenerator";
+import ScoreTotals from "../components/ScoreTotals";
+import FormInfo from "../components/FormInfo";
+import Card from "../components/Card";
 
 type FormHomeProps = {
   formInfo: IFormInfo,

@@ -1,7 +1,7 @@
 import React from "react";
 
-import OptionRow from "./optionRow";
-import IconTitle from "./IconTitle";
+import OptionRow from "../components/optionRow";
+import IconTitle from "../components/IconTitle";
 import { ScoresState, Section } from "../types";
 
 

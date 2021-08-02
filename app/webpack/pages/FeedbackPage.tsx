@@ -1,7 +1,7 @@
 import React from "react";
 
 import { IComments } from "../defaults";
-import TextInput from "./TextInput";
+import TextInput from "../components/TextInput";
 
 type feedbackPageProps = {
   comments: IComments,

@@ -4,10 +4,10 @@ import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 
 import _rubricData from "../rubrics/studentTeaching.json";
 
-import FormHome from "./components/FormHome";
-import DataSTO from "./components/DataSTO";
-import RubricSTO from "./components/RubricSTO";
-import FeedbackPage from "./components/FeedbackPage";
+import FormHome from "./pages/FormHome";
+import DataSTO from "./pages/DataSTO";
+import RubricSTO from "./pages/RubricSTO";
+import FeedbackPage from "./pages/FeedbackPage";
 import useTimer from "./hooks/useTimer";
 import Navbar from "./routing/Navbar";
 
