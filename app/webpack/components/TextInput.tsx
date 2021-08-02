@@ -10,20 +10,20 @@ type TextInputProps = {
   placeholder?: string,
 }
 
-const TextInput = ({ value, field, updateFormInfo, noLabel, placeholder }: TextInputProps) => {
+const TextInput = (props: TextInputProps) => {
 
-  const spaced = field.replace(/([A-Z])/g, " $1");
+  const spaced = props.field.replace(/([A-Z])/g, " $1");
   const titleCased = spaced.charAt(0).toUpperCase() + spaced.slice(1);
 
   return (
     <InputContainer>
-      {!noLabel && <Label htmlFor={field}>{titleCased}</Label>}
+      {!props.noLabel && <Label htmlFor={props.field}>{titleCased}</Label>}
       <Input
         // className={`text-input`}
-        value={value}
-        onChange={(e) => updateFormInfo({ [field]: e.target.value })}
-        placeholder={placeholder}
-        id={field}
+        value={props.value}
+        onChange={(e) => props.updateFormInfo({ [props.field]: e.target.value })}
+        placeholder={props.placeholder}
+        id={props.field}
       />
     </InputContainer>
   )

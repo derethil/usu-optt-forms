@@ -8,6 +8,7 @@ import OptionRow from "./optionRow";
 import { InputContainer, Label, Input } from "../styledComponents/style";
 
 import { IFormInfo } from "../types";
+import DateInput from "./DateInput";
 type FormInfoProps = {
   formInfo: IFormInfo,
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void
@@ -32,29 +33,17 @@ const FormInfo = (props: FormInfoProps) => {
         field="supervisor"
       />
 
-      <InputContainer>
-        <Label htmlFor="observation-date">Date</Label>
+      <DateInput
+        field="date"
+        date={props.formInfo.date}
+        updateFormInfo={props.updateFormInfo}
+      />
 
-        <DatePicker
-          selected={props.formInfo.date}
-          id="observation-date"
-          onChange={date => props.updateFormInfo({ date: date as Date })}
-          customInput={<Input />}
-        />
-      </InputContainer>
-
-      <InputContainer>
-        <Label htmlFor="next-observation-date">Next Observation Date</Label>
-
-        <DatePicker
-          selected={props.formInfo.nextDate}
-          id="next-observation-date"
-          onChange={date => props.updateFormInfo({ nextDate: date as Date })}
-          customInput={<Input />}
-        />
-      </InputContainer>
-
-
+      <DateInput
+        field="nextDate"
+        date={props.formInfo.nextDate}
+        updateFormInfo={props.updateFormInfo}
+      />
 
       <TextInput
         value={props.formInfo.other}

@@ -24,7 +24,7 @@ type FormHomeProps = {
 const FormHome = (props: FormHomeProps) => {
   return (
     <div>
-      <Card title="Form Info">
+      <Card title="Form Information">
         <FormInfo formInfo={props.formInfo} updateFormInfo={props.updateFormInfo} />
       </Card>
 
