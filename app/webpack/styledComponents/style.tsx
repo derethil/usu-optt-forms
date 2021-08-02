@@ -32,22 +32,18 @@ export const TabsContainer = styled.div`
 `;
 
 export const Button = styled.div<{ color?: string, textColor?: string }>`
-  /* height: 100%;
-  min-height: 4em;
+  background-color: ${props => props.color};
+  color: ${props => props.textColor};
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  background-color: ${props => props.color};
-  color: ${props => props.textColor};
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
 
-  font-weight: bold;
-
-  border-radius: 15%;
-
-  user-select: none; */
+  transition: 0.2s all ease;
+  cursor: pointer;
 `;
 
 
