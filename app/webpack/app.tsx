@@ -4,7 +4,7 @@ import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 
 import _rubricData from "../rubrics/studentTeaching.json";
 
-import FormInformation from "./components/FormInformation";
+import FormHome from "./components/FormHome";
 import DataSTO from "./components/DataSTO";
 import RubricSTO from "./components/RubricSTO";
 import FeedbackPage from "./components/FeedbackPage";
@@ -79,7 +79,7 @@ export const FormSTO = () => {
         <PageContent>
           <Switch>
             <Route exact path="/">
-              <FormInformation
+              <FormHome
                 formInfo={formInfo}
                 scores={scores}
                 data1={data1}

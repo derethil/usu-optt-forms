@@ -37,7 +37,7 @@ const StyledLink = styled(NavLink)`
 
   :hover, &.${activeClassName} {
     background-color: ${Color.blues.blueDark};
-    color: ${Color.blues.blueLight}
+    color: ${Color.blues.blueLight};
   }
 `;
 

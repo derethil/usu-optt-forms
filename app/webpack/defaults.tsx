@@ -42,8 +42,8 @@ export const defaultFormInfo = {
   studentTeacher: "",
   cooperatingTeacher: "",
   supervisor: "",
-  date: new Date().toISOString().slice(0, 10),
-  nextDate: new Date().toISOString().slice(0, 10),
+  date: new Date(),
+  nextDate: new Date(),
   observation: 1,
   other: "",
   program: "Mild/Moderate"

@@ -1,5 +1,6 @@
 import React from "react";
-import { Label, InputContainer } from "../styledComponents/style";
+import styled from "styled-components";
+import { Label, InputContainer, Input } from "../styledComponents/style";
 
 type TextInputProps = {
   value: string,
@@ -17,7 +18,7 @@ const TextInput = ({ value, field, updateFormInfo, noLabel, placeholder }: TextI
   return (
     <InputContainer>
       {!noLabel && <Label htmlFor={field}>{titleCased}</Label>}
-      <input
+      <Input
         // className={`text-input`}
         value={value}
         onChange={(e) => updateFormInfo({ [field]: e.target.value })}

@@ -50,29 +50,30 @@ export const PageHeader = styled.section`
   color: ${Color.lights.light};
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 600;
-  font-size: 1.6em;
+  font-size: 1.3em;
 `;
 
 export const Title = styled.h1`
   margin: 0;
 `;
 
+// Inputs
+
 export const Label = styled.label`
   /* font-family: Roboto, sans-serif; */
   /* padding-right: 1em; */
 `;
 
-export const FormInfo = styled.div`
-  /* position: fixed;
-  left: 3em;
-  text-align: left; */
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
-export const InputContainer = styled.div`
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* width: 21em; */
+export const Input = styled.input`
+  width: 250px;
 `;
+
+
 
 export const CenteredIconContainer = styled.div`
   /* display: flex; */
