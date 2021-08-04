@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
+import { Color } from "../../styledComponents/colors";
 
 
 const ButtonsRow = styled.div`
@@ -51,7 +52,7 @@ const OptionRow = (props: OptionRowProps) => {
     if (tooltip) {
       return <IconTitle content={props.title} tooltipContent={tooltip} fontsize="1.1rem"></IconTitle>
     } else {
-      return <h1 style={{ fontSize: "1.1rem" }}>{props.title}</h1>
+      return <p style={{ color: Color.neutrals.grayDark }}>{props.title}</ p>
     }
   }
 

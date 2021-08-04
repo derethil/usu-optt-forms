@@ -7,6 +7,7 @@ import { Color } from "../styledComponents/colors";
 const activeClassName = "active";
 
 const NavbarContainer = styled.nav`
+  z-index: 999;
   display: flex;
   position: sticky;
   top: 0;
@@ -15,6 +16,7 @@ const NavbarContainer = styled.nav`
   font-size: 1.3em;
   background-color: ${Color.blues.blueDarker};
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
+  border-bottom: 0.5em solid ${Color.lights.white};
 `;
 
 const StudentDisplay = styled.div`

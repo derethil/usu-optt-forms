@@ -5,8 +5,8 @@ import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import _rubricData from "../rubrics/studentTeaching.json";
 
 import FormHome from "./pages/FormHome";
-import DataSTO from "./pages/DataSTO";
-import RubricSTO from "./pages/RubricSTO";
+import DataSTO from "./pages/Data";
+import RubricSTO from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import useTimer from "./hooks/useTimer";
 import Navbar from "./routing/Navbar";
@@ -76,42 +76,40 @@ export const FormSTO = () => {
 
         <Navbar studentTeacher={formInfo.studentTeacher} />
 
-        <PageContent>
-          <Switch>
-            <Route exact path="/">
-              <FormHome
-                formInfo={formInfo}
-                scores={scores}
-                data1={data1}
-                data2={data2}
-                timer1={timer1}
-                timer2={timer2}
-                resetAll={resetAll}
-                updateFormInfo={updateFormInfo}
-              />
-            </Route>
+        <Switch>
+          <Route exact path="/">
+            <FormHome
+              formInfo={formInfo}
+              scores={scores}
+              data1={data1}
+              data2={data2}
+              timer1={timer1}
+              timer2={timer2}
+              resetAll={resetAll}
+              updateFormInfo={updateFormInfo}
+            />
+          </Route>
 
-            <Route path="/rubric">
-              <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
-            </Route>
+          <Route path="/rubric">
+            <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
+          </Route>
 
-            <Route path="/data1">
-              <DataSTO data={data1} setData={setData1} timer={timer1} />
-            </Route>
+          <Route path="/data1">
+            <DataSTO data={data1} setData={setData1} timer={timer1} />
+          </Route>
 
-            <Route path="/data2">
-              <DataSTO data={data2} setData={setData2} timer={timer2} />
-            </Route>
+          <Route path="/data2">
+            <DataSTO data={data2} setData={setData2} timer={timer2} />
+          </Route>
 
-            <Route path="/feedback">
-              <FeedbackPage comments={comments} updateComments={updateComments} />
-            </Route>
+          <Route path="/feedback">
+            <FeedbackPage comments={comments} updateComments={updateComments} />
+          </Route>
 
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
-        </PageContent>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
       </BrowserRouter>
     </PageContainer>
   )

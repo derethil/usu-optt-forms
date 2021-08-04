@@ -7,6 +7,8 @@ import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, 
 import _rubricData from "../../rubrics/studentTeaching.json"
 import { defaultData } from "../defaults";
 import usuLogoB64 from "../../assets/usuLogoB64";
+import { Button } from "../styledComponents/style";
+import { Color } from "../styledComponents/colors";
 
 type PDFGeneratorProps = {
   scores: ScoresState,
@@ -33,11 +35,14 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
     // GENERAL INFO
 
-    doc.text(`Observation Report (${props.formInfo.date})`, 14, 18);
+    doc.text(`Observation Report (${props.formInfo.date.toISOString().slice(0, 10)})`, 14, 18);
 
     autoTable(doc, {
       startY: 24.5,
       head: [['Information', ""]],
+      headStyles: {
+        fillColor: Color.blues.primary
+      },
       columnStyles: {
         1: { cellWidth: 50 }
       },
@@ -45,8 +50,8 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
         ['Student Teacher', props.formInfo.studentTeacher],
         ['Cooperating Teacher', props.formInfo.cooperatingTeacher],
         ['Supervisor', props.formInfo.supervisor],
-        ['Date', props.formInfo.date.toISOString()],
-        ['Next Observation Date', props.formInfo.nextDate.toISOString()],
+        ['Date', props.formInfo.date.toISOString().slice(0, 10)],
+        ['Next Observation Date', props.formInfo.nextDate.toISOString().slice(0, 10)],
         ['Observation', props.formInfo.observation],
         ['Program', props.formInfo.program],
         ['Other', props.formInfo.other],
@@ -71,6 +76,9 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     autoTable(doc, {
       startY: (doc as any).lastAutoTable.finalY + 5,
       head: [["Performance Summary", "Score"]],
+      headStyles: {
+        fillColor: Color.blues.primary
+      },
       columnStyles: {
         1: { cellWidth: 50 }
       },
@@ -86,7 +94,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
     autoTable(doc, {
       head: [["Observation 1", "Observation 2"]],
-      headStyles: { fillColor: "#1abd9c" },
+      headStyles: { fillColor: Color.blues.primary },
       body: [[nestedTableCell]],
       startY: (doc as any).lastAutoTable.finalY + 5,
       didDrawCell: data => {
@@ -99,6 +107,9 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
             tableWidth: data.cell.width - 2,
             styles: {
               minCellHeight: 4,
+            },
+            headStyles: {
+              fillColor: Color.blues.blue
             },
             head: [["Area", "Score"]],
             body: [
@@ -144,6 +155,9 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
     autoTable(doc, {
       head: [["Total Score", ""]],
+      headStyles: {
+        fillColor: Color.blues.primary
+      },
       columnStyles: {
         1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 }
       },
@@ -167,7 +181,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
       startY: 18,
       // theme: "grid",
       head: [["Scores"]],
-      headStyles: { fillColor: "#1abd9c" },
+      headStyles: { fillColor: Color.blues.primary },
       body: nestedTableCells,
       didDrawCell: data => {
         if (data.row.section !== "body") return;
@@ -178,6 +192,9 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
           startY: data.cell.y + 2,
           columnStyles: {
             1: { cellWidth: 50 },
+          },
+          headStyles: {
+            fillColor: Color.blues.blue
           },
           margin: { left: data.cell.x },
           tableWidth: data.cell.width,
@@ -196,5 +213,14 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     doc.save('table.pdf');
 
   }
-  return <button onClick={() => generatePDF()}>Download Data</button>
+  return (
+    <Button
+      onClick={() => generatePDF()}
+      color={Color.blues.blue}
+      textColor={Color.blues.blueLight}
+      style={{ fontWeight: 600, marginBottom: "1em" }}
+    >
+      Generate Report
+    </Button>
+  )
 }

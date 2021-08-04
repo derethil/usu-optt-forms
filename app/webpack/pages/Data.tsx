@@ -1,15 +1,16 @@
 import React from "react";
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
-import { STOData, ITimer } from "../types";
+import { Data, ITimer } from "../types";
 import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils";
+import { PageContent } from "../styledComponents/style";
 
-interface DATASTOProps {
-  timer: ITimer, data: STOData, setData: (updatedValues: Partial<STOData>) => void
+interface DataProps {
+  timer: ITimer, data: Data, setData: (updatedValues: Partial<Data>) => void
 }
 
-const DataSTO = ({ timer, data, setData }: DATASTOProps) => {
-  return <div>
+const DataSTO = ({ timer, data, setData }: DataProps) => {
+  return <PageContent>
     <Timer timer={timer} />
 
     <div className="cues-counter" style={{ display: "flex", padding: "1em 0em" }}>
@@ -151,7 +152,7 @@ const DataSTO = ({ timer, data, setData }: DATASTOProps) => {
       <h3>Occurance of Scanning: {data.misc.transitionCount}</h3>
     </div>
 
-  </div>
+  </PageContent>
 }
 
 export default DataSTO;

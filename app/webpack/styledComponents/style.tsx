@@ -44,6 +44,8 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
 
   transition: 0.2s all ease;
   cursor: pointer;
+
+  padding: 1em;
 `;
 
 

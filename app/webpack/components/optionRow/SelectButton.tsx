@@ -10,7 +10,7 @@ const SelectButtonEl = styled(Button)`
   min-height: 3em;
   min-width: 3em;
 
-  border: 3px solid ${Color.blues.blue};
+  border: 3px solid ${Color.neutrals.grayDark};
   border-radius: 0.75em;
 
   font-size: 1.2rem;
@@ -18,6 +18,10 @@ const SelectButtonEl = styled(Button)`
   :hover {
     background-color: ${Color.blues.blueLight};
     color: ${Color.blues.blue};
+  }
+
+  :active {
+    border: 3px solid ${Color.blues.primary};
   }
 
 `;

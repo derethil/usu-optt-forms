@@ -35,7 +35,7 @@ export interface ScoresState {
   }
 }
 
-export interface STOData {
+export interface Data {
   cues: {
     individual: number,
     group: number

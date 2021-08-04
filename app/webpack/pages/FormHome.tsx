@@ -8,6 +8,8 @@ import { PDFGenerator } from "../components/PDFGenerator";
 import ScoreTotals from "../components/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
+import { Button, PageContent } from "../styledComponents/style";
+import { Color } from "../styledComponents/colors";
 
 type FormHomeProps = {
   formInfo: IFormInfo,
@@ -23,27 +25,39 @@ type FormHomeProps = {
 
 const FormHome = (props: FormHomeProps) => {
   return (
-    <div>
+    <PageContent>
       <Card title="Form Information">
         <FormInfo formInfo={props.formInfo} updateFormInfo={props.updateFormInfo} />
       </Card>
 
-      <ScoreTotals scores={props.scores} />
+      <Card title="Scores">
+        <ScoreTotals scores={props.scores} />
+      </Card>
 
-      <PDFGenerator
-        scores={props.scores}
-        data1={props.data1}
-        data2={props.data2}
-        timer1={props.timer1}
-        timer2={props.timer2}
-        formInfo={props.formInfo}
-      />
+      <Card title="Form Actions">
+        <PDFGenerator
+          scores={props.scores}
+          data1={props.data1}
+          data2={props.data2}
+          timer1={props.timer1}
+          timer2={props.timer2}
+          formInfo={props.formInfo}
+        />
 
-      <button onClick={() => props.resetAll()}>
-        RESET ALL
-      </button>
+        <Button
+          onClick={() => props.resetAll()}
+          color={Color.contextual.danger}
+          textColor={Color.lights.light}
+          style={{ fontWeight: 600 }}
+        >
+          Reset Form Information
+        </Button>
+      </Card>
 
-    </div>
+
+
+
+    </PageContent>
   )
 }
 
