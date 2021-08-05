@@ -30,7 +30,7 @@ export const Input = styled.input`
   transition: border-color 0.2s;
 
   &::placeholder {
-    color: transparent;
+    color: ${Color.neutrals.gray};
   }
 
   &:placeholder-shown ~ label {

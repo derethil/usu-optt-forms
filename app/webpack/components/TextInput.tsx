@@ -6,6 +6,7 @@ type TextInputProps = {
   field: string,
   updateFormInfo: (updatedValues: { [key: string]: string }) => void,
   noLabel?: boolean,
+  placeholder?: string,
 }
 
 const TextInput = (props: TextInputProps) => {
@@ -21,6 +22,7 @@ const TextInput = (props: TextInputProps) => {
         value={props.value}
         onChange={(e) => props.updateFormInfo({ [props.field]: e.target.value })}
         id={props.field}
+        placeholder={props.placeholder}
       />
     </InputContainer>
   )

@@ -252,7 +252,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
       onClick={() => generatePDF()}
       color={Color.blues.blue}
       textColor={Color.blues.blueLight}
-      style={{ fontWeight: 600, marginBottom: "1em" }}
+      style={{ fontWeight: 600, marginBottom: "1em", borderRadius: "0.25em" }}
     >
       Generate Report
     </Button>

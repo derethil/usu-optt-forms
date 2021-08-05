@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Color } from "./colors";
 
 export const PageContent = styled.section`
-  /* margin-top: 6em; */
+  background-color: ${Color.lights.light};
 `;
 
 export const PageHeader = styled.section`

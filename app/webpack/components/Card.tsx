@@ -6,10 +6,13 @@ import { Color } from "../styledComponents/colors";
 const CardContainer = styled.div`
   margin: 1em auto;
   width: 50vw;
-  border: 1px solid rgba(0,0,0,.125);
-`;
+  border: 2px solid rgba(0,0,0,.125);
+  background-color: ${Color.lights.white};
+  border-radius: 0.5em;
+  `;
 
 const CardTitle = styled(Title)`
+  border-radius: 0.25em 0.25em 0 0;
   background-color: ${Color.blues.blueDarker};
   color: ${Color.blues.blueLight};
   padding: 0.5em;

@@ -51,7 +51,7 @@ const FormHome = (props: FormHomeProps) => {
           onClick={() => props.resetAll()}
           color={Color.contextual.danger}
           textColor={Color.lights.light}
-          style={{ fontWeight: 600 }}
+          style={{ fontWeight: 600, borderRadius: "0.25em" }}
         >
           Reset Form Information
         </Button>

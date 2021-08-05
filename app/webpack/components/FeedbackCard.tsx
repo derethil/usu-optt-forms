@@ -41,6 +41,7 @@ const FeedbackCard = (props: FeedbackCardProps) => {
         }}
         field={field}
         noLabel
+        placeholder="Comment"
       />
     });
   }
@@ -52,6 +53,7 @@ const FeedbackCard = (props: FeedbackCardProps) => {
         onClick={() => addNewComment(props.feedbackType)}
         color={Color.blues.blue}
         textColor={Color.blues.blueLight}
+        style={{ borderRadius: "0.25em" }}
       >
         {props.buttonText}
       </Button>
