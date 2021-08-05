@@ -6,10 +6,10 @@ import IconTitle from "../IconTitle";
 import { Color } from "../../styledComponents/colors";
 
 
-const ButtonsRow = styled.div`
+const ButtonsWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: stretch;
+  justify-content: stretch;
 `;
 
 interface OptionRowProps {
@@ -19,6 +19,9 @@ interface OptionRowProps {
   updateSelection: (newSelection: string) => void
   scoreOptions?: string[],
   tooltip?: string
+  wrapperStyles?: React.CSSProperties,
+  buttonStyles?: React.CSSProperties,
+  titleStyles?: React.CSSProperties,
 };
 
 const OptionRow = (props: OptionRowProps) => {
@@ -34,6 +37,7 @@ const OptionRow = (props: OptionRowProps) => {
         key={idx}
         updateSelection={props.updateSelection}
         selected={compareTo === props.currSelection}
+        styles={props.buttonStyles}
       />)
   });
 
@@ -44,15 +48,22 @@ const OptionRow = (props: OptionRowProps) => {
         key={props.contentOptions.length}
         updateSelection={props.updateSelection}
         selected={"N/A" === props.currSelection}
+        styles={props.buttonStyles}
       />
     )
   }
 
   const renderTitle = (tooltip?: string) => {
     if (tooltip) {
-      return <IconTitle content={props.title} tooltipContent={tooltip} fontsize="1.1rem"></IconTitle>
+      return (
+        <IconTitle
+          content={props.title}
+          tooltipContent={tooltip}
+          titleStyles={props.titleStyles}
+        />
+      )
     } else {
-      return <p style={{ color: Color.neutrals.grayDark }}>{props.title}</ p>
+      return <p style={props.titleStyles}>{props.title}</ p>
     }
   }
 
@@ -60,9 +71,9 @@ const OptionRow = (props: OptionRowProps) => {
   return <div>
     {renderTitle(props.tooltip)}
 
-    <ButtonsRow>
+    <ButtonsWrapper style={props.wrapperStyles}>
       {selectButtons}
-    </ButtonsRow>
+    </ButtonsWrapper>
   </div >
 }
 

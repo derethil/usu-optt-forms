@@ -18,17 +18,16 @@ export const PageHeader = styled.section`
   font-size: 1.3em;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.div`
   margin: 0;
+  padding-left: 1.5em;
+  font-weight: 600;
+  font-size: 1.8rem;
 `;
 
 export const CenteredIconContainer = styled.div`
-  /* display: flex; */
-  /* align-items: center; */
-`;
-
-export const TabsContainer = styled.div`
-  /* display: flex; */
+  display: flex;
+  align-items: center;
 `;
 
 export const Button = styled.div<{ color?: string, textColor?: string }>`
@@ -45,7 +44,7 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
   border-radius: 0.75em;
 
   transition: 0.2s all ease;
-  transition: 0.1s transform ease;
+  /* transition: 0.1s transform ease; */
   cursor: pointer;
 
 

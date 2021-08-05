@@ -8,6 +8,7 @@ import OptionRow from "./optionRow";
 
 import { IFormInfo } from "../types";
 import DateInput from "./DateInput";
+import { Color } from "../styledComponents/colors";
 type FormInfoProps = {
   formInfo: IFormInfo,
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void
@@ -56,6 +57,7 @@ const FormInfo = (props: FormInfoProps) => {
         contentOptions={["1", "2", "3", "4", "5"]}
         currSelection={props.formInfo.observation.toString()}
         updateSelection={(newSelection: string) => props.updateFormInfo({ "observation": Number(newSelection) })}
+        titleStyles={{ color: Color.neutrals.grayDark }}
       />
 
       <OptionRow
@@ -63,6 +65,7 @@ const FormInfo = (props: FormInfoProps) => {
         contentOptions={["Mild/Moderate", "Severe", "Birth to 5"]}
         currSelection={props.formInfo.program}
         updateSelection={(newSelection: string) => props.updateFormInfo({ "program": newSelection })}
+        titleStyles={{ color: Color.neutrals.grayDark }}
       />
     </div>
   )

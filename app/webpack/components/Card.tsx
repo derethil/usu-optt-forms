@@ -21,16 +21,17 @@ const CardContent = styled.div`
 `;
 
 type CardProps = {
-  title: string,
+  title: React.ReactNode,
   children: React.ReactNode,
-  containerStyles?: React.CSSProperties
-  contentStyles?: React.CSSProperties
+  containerStyles?: React.CSSProperties,
+  contentStyles?: React.CSSProperties,
+  titleStyles?: React.CSSProperties,
 }
 
 const Card = (props: CardProps) => {
   return (
     <CardContainer style={props.containerStyles}>
-      <CardTitle>{props.title}</CardTitle>
+      <CardTitle style={props.titleStyles}>{props.title}</CardTitle>
       <CardContent style={props.contentStyles}>
         {props.children}
       </CardContent>
