@@ -32,7 +32,7 @@ export interface IComments {
 
 export const defaultComments = (): IComments => {
   return {
-    strengths: [""],
+    strengths: ["test", "test 2"],
     suggestions: [""],
     nextFocus: [""],
   }

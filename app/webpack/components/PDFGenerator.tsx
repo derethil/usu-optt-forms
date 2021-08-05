@@ -5,7 +5,7 @@ import autoTable from "jspdf-autotable";
 import { ScoresState, ITimer, IFormInfo, Section } from "../types";
 import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum, formatTime } from "../utils";
 import _rubricData from "../../rubrics/studentTeaching.json"
-import { defaultData } from "../defaults";
+import { defaultData, IComments } from "../defaults";
 import usuLogoB64 from "../../assets/usuLogoB64";
 import { Button } from "../styledComponents/style";
 import { Color } from "../styledComponents/colors";
@@ -16,7 +16,8 @@ type PDFGeneratorProps = {
   data2: typeof defaultData,
   timer1: ITimer,
   timer2: ITimer,
-  formInfo: IFormInfo
+  formInfo: IFormInfo,
+  comments: IComments
 }
 
 export const PDFGenerator = (props: PDFGeneratorProps) => {
@@ -132,7 +133,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
         }
 
       }
-    })
+    });
 
     // TOTAL SCORE
 
@@ -167,7 +168,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
         ["Percentage", getPercent(totalCorrect, totalPossible)],
         ["Letter Grade", getLetterGrade((totalCorrect / totalPossible) * 100)]
       ]
-    })
+    });
 
     // SCORES
 
@@ -206,7 +207,40 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
         });
       }
+    });
+
+    // FEEDBACK
+
+    autoTable(doc, {
+      startY: 40,
+      head: [["Feedback"]],
+      headStyles: { fillColor: Color.blues.primary }
     })
+
+    console.log();
+    console.log(props.comments.strengths);
+
+    autoTable(doc, {
+      startY: (doc as any).lastAutoTable.finalY + 2,
+      head: [["Strengths"]],
+      headStyles: { fillColor: Color.blues.blue },
+      body: props.comments.strengths.map(comment => [comment])
+    });
+
+    autoTable(doc, {
+      startY: (doc as any).lastAutoTable.finalY + 5,
+      head: [["Suggestions"]],
+      headStyles: { fillColor: Color.blues.blue },
+      body: props.comments.suggestions.map(comment => [comment])
+
+    });
+
+    autoTable(doc, {
+      startY: (doc as any).lastAutoTable.finalY + 5,
+      head: [["Next Focus"]],
+      headStyles: { fillColor: Color.blues.blue },
+      body: props.comments.nextFocus.map(comment => [comment])
+    });
 
     // SAVE
 

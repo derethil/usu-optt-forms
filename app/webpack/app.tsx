@@ -80,6 +80,7 @@ export const FormSTO = () => {
           <Route exact path="/">
             <FormHome
               formInfo={formInfo}
+              comments={comments}
               scores={scores}
               data1={data1}
               data2={data2}

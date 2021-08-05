@@ -10,6 +10,7 @@ import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
 import { Button, PageContent } from "../styledComponents/style";
 import { Color } from "../styledComponents/colors";
+import { IComments } from "../defaults";
 
 type FormHomeProps = {
   formInfo: IFormInfo,
@@ -17,6 +18,7 @@ type FormHomeProps = {
   scores: ScoresState,
   data1: typeof defaultData,
   data2: typeof defaultData,
+  comments: IComments,
   timer1: ITimer,
   timer2: ITimer,
   resetAll: () => void
@@ -42,6 +44,7 @@ const FormHome = (props: FormHomeProps) => {
           timer1={props.timer1}
           timer2={props.timer2}
           formInfo={props.formInfo}
+          comments={props.comments}
         />
 
         <Button
