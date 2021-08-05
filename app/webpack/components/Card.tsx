@@ -20,14 +20,21 @@ const CardContent = styled.div`
   padding: 1em;
 `;
 
-const Card = (props: { title: string, children: React.ReactNode }) => {
+type CardProps = {
+  title: string,
+  children: React.ReactNode,
+  containerStyles?: React.CSSProperties
+  contentStyles?: React.CSSProperties
+}
+
+const Card = (props: CardProps) => {
   return (
-    <CardContainer>
+    <CardContainer style={props.containerStyles}>
       <CardTitle>{props.title}</CardTitle>
-      <CardContent>
+      <CardContent style={props.contentStyles}>
         {props.children}
       </CardContent>
-    </CardContainer>
+    </CardContainer >
   )
 }
 

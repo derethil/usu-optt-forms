@@ -11,19 +11,8 @@ const SelectButtonEl = styled(Button)`
   min-width: 3em;
 
   border: 3px solid ${Color.neutrals.grayDark};
-  border-radius: 0.75em;
 
   font-size: 1.2rem;
-
-  :hover {
-    background-color: ${Color.blues.blueLight};
-    color: ${Color.blues.blue};
-  }
-
-  :active {
-    border: 3px solid ${Color.blues.primary};
-  }
-
 `;
 
 const ScoreValue = styled.div`

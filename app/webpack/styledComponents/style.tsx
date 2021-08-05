@@ -41,11 +41,21 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
   justify-content: center;
 
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
+  padding: 1em;
+  border-radius: 0.75em;
 
   transition: 0.2s all ease;
+  transition: 0.1s transform ease;
   cursor: pointer;
 
-  padding: 1em;
+
+  :hover {
+    transform: translateY(-2px);
+  }
+
+  :active {
+    transform: translateY(2px);
+  }
 `;
 
 

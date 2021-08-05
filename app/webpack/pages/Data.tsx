@@ -1,158 +1,319 @@
 import React from "react";
+import styled from "styled-components";
+
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
 import { Data, ITimer } from "../types";
 import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils";
 import { PageContent } from "../styledComponents/style";
+import Card from "../components/Card";
+import { Color } from "../styledComponents/colors";
 
 interface DataProps {
   timer: ITimer, data: Data, setData: (updatedValues: Partial<Data>) => void
 }
 
+const cardContainerStyles: React.CSSProperties = { width: "60em" };
+
+const cardContentStyles: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+};
+
+const ButtonsWrapper = styled.div`
+  height: 6em;
+  margin-right: 3em;
+  display: flex;
+  padding: 1em 0em;
+`;
+
+const DataWrapper = styled.div`
+  width: 14em;
+  /* display: flex; */
+  /* flex-direction: column; */
+  `;
+
+const DataRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0em;
+  border-bottom: 2px solid ${Color.lights.gray};
+`;
+
+const DataCell = styled.p`
+  margin: 0px;
+
+  :first-child {
+    text-align: left;
+  }
+
+  :last-child {
+    font-weight: 600;
+  }
+`;
+
+
+
 const DataSTO = ({ timer, data, setData }: DataProps) => {
   return <PageContent>
-    <Timer timer={timer} />
+    <Card title="Timer" containerStyles={cardContainerStyles}>
+      <Timer timer={timer} />
+    </Card>
 
-    <div className="cues-counter" style={{ display: "flex", padding: "1em 0em" }}>
-      <CounterButton
-        color="#75B34D"
-        content="Individual"
-        value={data.cues.individual}
-        onClick={(newValue: number) => setData({ cues: { ...data.cues, individual: newValue } })}
-      />
+    <Card
+      title="Cues / Directions / Opportunities to Respond"
+      containerStyles={cardContainerStyles}
+      contentStyles={cardContentStyles}
+    >
+      <ButtonsWrapper>
+        <CounterButton
+          color={Color.accents.greenLight}
+          content="Individual"
+          value={data.cues.individual}
+          onClick={(newValue: number) => setData({ cues: { ...data.cues, individual: newValue } })}
+        />
 
-      <CounterButton
-        color="#75B34D"
-        content="Group"
-        value={data.cues.group}
-        onClick={(newValue: number) => setData({ cues: { ...data.cues, group: newValue } })}
-      />
+        <CounterButton
+          color={Color.accents.greenLight}
+          content="Group"
+          value={data.cues.group}
+          onClick={(newValue: number) => setData({ cues: { ...data.cues, group: newValue } })}
+        />
 
-    </div>
+      </ButtonsWrapper>
 
-    <div className="cues-display" style={{ display: "flex", flexDirection: "column" }}>
-      <h3>Individual Cues: {data.cues.individual}</h3>
-      <h3>Group Cues: {data.cues.group}</h3>
-      <h3>Total Cues: {data.cues.individual + data.cues.group}</h3>
-      <h3>OTR Rate: { }</h3>
-    </div>
+      <DataWrapper>
+        <DataRow>
+          <DataCell>Individual Cues</DataCell>
+          <DataCell>{data.cues.individual}</DataCell>
+        </DataRow>
 
-    <div className="praise-counter" style={{ display: "flex", padding: "1em 0em" }}>
-      <CounterButton
-        color="#FFC00F"
-        content="General"
-        value={data.praise.general}
-        onClick={(newValue: number) => setData({ praise: { ...data.praise, general: newValue } })}
-      />
+        <DataRow>
+          <DataCell>Individual Cues:</DataCell>
+          <DataCell>{data.cues.individual}</DataCell>
+        </DataRow>
 
-      <CounterButton
-        color="#FFC00F"
-        content="Academic"
-        value={data.praise.academic}
-        onClick={(newValue: number) => setData({ praise: { ...data.praise, academic: newValue } })}
-      />
+        <DataRow>
+          <DataCell>Total Cues</DataCell>
+          <DataCell>{data.cues.individual + data.cues.group}</DataCell>
+        </DataRow>
 
-      <CounterButton
-        color="#FFC00F"
-        content="Behavioral"
-        value={data.praise.behavioral}
-        onClick={(newValue: number) => setData({ praise: { ...data.praise, behavioral: newValue } })}
-      />
+        <DataRow>
+          <DataCell>OTR Rate</DataCell>
+          <DataCell>{ }</DataCell>
+        </DataRow>
+      </DataWrapper>
+    </Card>
 
-      <CounterButton
-        color="#EA0B03"
-        content="Redirect/Reprimand"
-        value={data.praise.reprimand}
-        onClick={(newValue: number) => setData({ praise: { ...data.praise, reprimand: newValue } })}
-      />
+    <Card
+      title="Praise Type"
+      containerStyles={cardContainerStyles}
+      contentStyles={cardContentStyles}
+    >
+      <ButtonsWrapper>
+        <CounterButton
+          color={Color.accents.yellow}
+          content="General"
+          value={data.praise.general}
+          onClick={(newValue: number) => setData({ praise: { ...data.praise, general: newValue } })}
+        />
 
-    </div>
+        <CounterButton
+          color={Color.accents.yellow}
+          content="Academic"
+          value={data.praise.academic}
+          onClick={(newValue: number) => setData({ praise: { ...data.praise, academic: newValue } })}
+        />
 
-    <div className="praise-display" style={{ display: "flex", flexDirection: "column" }}>
-      <h3>General Praise: {data.praise.general}</h3>
-      <h3>Academic Praise: {data.praise.academic}</h3>
-      <h3>Behavioral Praise: {data.praise.behavioral}</h3>
-      <h3>Redirect/Reprimand: {data.praise.reprimand}</h3>
-      <h3>Praise Ratio: {getPraiseRatio(data)}</h3>
-      <h3>Percent Specific: {getPercent(data.praise.academic + data.praise.behavioral, getPraiseSum(data))}</h3>
-    </div>
+        <CounterButton
+          color={Color.accents.yellow}
+          content="Behavioral"
+          value={data.praise.behavioral}
+          onClick={(newValue: number) => setData({ praise: { ...data.praise, behavioral: newValue } })}
+        />
 
-    <div className="corrections-counter" style={{ display: "flex", padding: "1em 0em" }}>
-      <CounterButton
-        color="#61A0DA"
-        content="Correct"
-        value={data.corrections.correct}
-        onClick={(newValue: number) => setData({ corrections: { ...data.corrections, correct: newValue } })}
-      />
+        <CounterButton
+          color={Color.contextual.danger}
+          content="Redirect/Reprimand"
+          value={data.praise.reprimand}
+          onClick={(newValue: number) => setData({ praise: { ...data.praise, reprimand: newValue } })}
+        />
 
-      <CounterButton
-        color="#61A0DA"
-        content="Incorrect"
-        value={data.corrections.incorrect}
-        onClick={(newValue: number) => setData({ corrections: { ...data.corrections, incorrect: newValue } })}
-      />
+      </ButtonsWrapper>
 
-      <CounterButton
-        color="#61A0DA"
-        content="None"
-        value={data.corrections.none}
-        onClick={(newValue: number) => setData({ corrections: { ...data.corrections, none: newValue } })}
-      />
-    </div>
+      <DataWrapper >
+        <DataRow>
+          <DataCell>General Praise</DataCell>
+          <DataCell>{data.praise.general}</DataCell>
+        </DataRow>
 
-    <div className="praise-display" style={{ display: "flex", flexDirection: "column" }}>
-      <h3>Correct: {data.corrections.correct}</h3>
-      <h3>Incorrect: {data.corrections.incorrect}</h3>
-      <h3>None: {data.corrections.none}</h3>
-      <h3>Total Corrections: {getCorrectionsSum(data)}</h3>
-      <h3>Percent: {getPercent(data.corrections.correct, getCorrectionsSum(data))}</h3>
-    </div>
+        <DataRow>
+          <DataCell>Academic Praise</DataCell>
+          <DataCell>{data.praise.academic}</DataCell>
+        </DataRow>
 
-    <div className="engagement-counter" style={{ display: "flex", padding: "1em 0em" }}>
-      <CounterButton
-        color="#4674C9"
-        content="Engaged"
-        value={data.engagement.engaged}
-        onClick={(newValue: number) => setData({ engagement: { ...data.engagement, engaged: newValue } })}
-      />
+        <DataRow>
+          <DataCell>Behavioral Praise</DataCell>
+          <DataCell>{data.praise.reprimand}</DataCell>
+        </DataRow>
 
-      <CounterButton
-        color="#4674C9"
-        content="Not Engaged"
-        value={data.engagement.notEngaged}
-        onClick={(newValue: number) => setData({ engagement: { ...data.engagement, notEngaged: newValue } })}
-      />
-    </div>
+        <DataRow>
+          <DataCell>Redirect/Repremand</DataCell>
+          <DataCell>{data.praise.reprimand}</DataCell>
+        </DataRow>
 
-    <div className="engagement-display" style={{ display: "flex", flexDirection: "column" }}>
-      <h3>Engaged: {data.engagement.engaged}</h3>
-      <h3>Not Engaged: {data.engagement.notEngaged}</h3>
-      <h3>Total: {data.engagement.engaged + data.engagement.notEngaged}</h3>
-      <h3>Percent: {getPercent(data.engagement.engaged, data.engagement.engaged + data.engagement.notEngaged)}</h3>
-    </div>
+        <DataRow>
+          <DataCell>Prase Ratio</DataCell>
+          <DataCell>{getPraiseRatio(data)}</DataCell>
+        </DataRow>
 
-    <div className="misc-counter" style={{ display: "flex", padding: "1em 0em" }}>
-      <CounterButton
-        color="#F38139"
-        content="Scanning"
-        value={data.misc.scanningCount}
-        onClick={(newValue: number) => setData({ misc: { ...data.misc, scanningCount: newValue } })}
-      />
+        <DataRow>
+          <DataCell>Percent Specific</DataCell>
+          <DataCell>{getPercent(data.praise.academic + data.praise.behavioral, getPraiseSum(data))}</DataCell>
+        </DataRow>
+      </DataWrapper>
+    </Card>
 
-      <CounterButton
-        color="#F38139"
-        content="Transition"
-        value={data.misc.transitionCount}
-        onClick={(newValue: number) => setData({ misc: { ...data.misc, transitionCount: newValue } })}
-      />
-    </div>
+    <Card
+      title="Corrections"
+      containerStyles={cardContainerStyles}
+      contentStyles={cardContentStyles}
+    >
+      <ButtonsWrapper>
+        <CounterButton
+          color={Color.accents.brightLight}
+          content="Correct"
+          value={data.corrections.correct}
+          onClick={(newValue: number) => setData({ corrections: { ...data.corrections, correct: newValue } })}
+        />
 
-    <div className="engagement-display" style={{ display: "flex", flexDirection: "column" }}>
-      <h3>Number of Transitions: {data.misc.scanningCount}</h3>
-      <h3>Occurance of Scanning: {data.misc.transitionCount}</h3>
-    </div>
+        <CounterButton
+          color={Color.accents.brightLight}
+          content="Incorrect"
+          value={data.corrections.incorrect}
+          onClick={(newValue: number) => setData({ corrections: { ...data.corrections, incorrect: newValue } })}
+        />
 
-  </PageContent>
+        <CounterButton
+          color={Color.accents.brightLight}
+          content="None"
+          value={data.corrections.none}
+          onClick={(newValue: number) => setData({ corrections: { ...data.corrections, none: newValue } })}
+        />
+      </ButtonsWrapper>
+
+      <DataWrapper>
+        <DataRow>
+          <DataCell>Correct</DataCell>
+          <DataCell>{data.corrections.correct}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Not Correct</DataCell>
+          <DataCell>{data.corrections.incorrect}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>None</DataCell>
+          <DataCell>{data.corrections.none}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Total Corrections</DataCell>
+          <DataCell>{getCorrectionsSum(data)}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Percent</DataCell>
+          <DataCell>{getPercent(data.corrections.correct, getCorrectionsSum(data))}</DataCell>
+        </DataRow>
+      </DataWrapper>
+    </Card>
+
+    <Card
+      title="Momentary Sample Time / Child Engagement"
+      containerStyles={cardContainerStyles}
+      contentStyles={cardContentStyles}
+    >
+      <ButtonsWrapper>
+        <CounterButton
+          color={Color.contextual.info}
+          content="Engaged"
+          value={data.engagement.engaged}
+          onClick={(newValue: number) => setData({ engagement: { ...data.engagement, engaged: newValue } })}
+        />
+
+        <CounterButton
+          color={Color.contextual.info}
+          content="Not Engaged"
+          value={data.engagement.notEngaged}
+          onClick={(newValue: number) => setData({ engagement: { ...data.engagement, notEngaged: newValue } })}
+        />
+      </ButtonsWrapper>
+
+      <DataWrapper>
+        <DataRow>
+          <DataCell>Engaged</DataCell>
+          <DataCell>{data.engagement.engaged}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Not Engaged</DataCell>
+          <DataCell>{data.engagement.notEngaged}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Total</DataCell>
+          <DataCell>{data.engagement.engaged + data.engagement.notEngaged}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Percent</DataCell>
+          <DataCell>{getPercent(data.engagement.engaged, data.engagement.engaged + data.engagement.notEngaged)}</DataCell>
+        </DataRow>
+      </DataWrapper>
+    </Card>
+
+    <Card
+      title="Scanning and Transitions"
+      containerStyles={cardContainerStyles}
+      contentStyles={cardContentStyles}
+    >
+      <ButtonsWrapper>
+        <CounterButton
+          color={Color.accents.brick}
+          content="Scanning"
+          value={data.misc.scanningCount}
+          onClick={(newValue: number) => setData({ misc: { ...data.misc, scanningCount: newValue } })}
+        />
+
+        <CounterButton
+          color={Color.accents.brick}
+          content="Transition"
+          value={data.misc.transitionCount}
+          onClick={(newValue: number) => setData({ misc: { ...data.misc, transitionCount: newValue } })}
+        />
+      </ButtonsWrapper>
+
+      <DataWrapper>
+        <DataRow>
+          <DataCell>Number of Transitions</DataCell>
+          <DataCell>{data.misc.transitionCount}</DataCell>
+        </DataRow>
+
+        <DataRow>
+          <DataCell>Occurance of Scanning</DataCell>
+          <DataCell>{data.misc.scanningCount}</DataCell>
+        </DataRow>
+      </DataWrapper>
+    </Card>
+
+
+
+
+
+  </PageContent >
 }
 
 export default DataSTO;

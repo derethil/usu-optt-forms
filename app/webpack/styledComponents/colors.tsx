@@ -26,6 +26,7 @@ export const Color = {
     brick: "#C44E28",
     greenLight: "#7D9C3A",
     grape: "#543035",
+    yellow: "#F5B51B",
   },
   contextual: {
     success: "#588038",
