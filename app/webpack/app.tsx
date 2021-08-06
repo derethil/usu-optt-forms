@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import _rubricData from "../rubrics/studentTeaching.json";
 
@@ -8,14 +8,15 @@ import FormHome from "./pages/FormHome";
 import DataSTO from "./pages/Data";
 import RubricSTO from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
-import useTimer from "./hooks/useTimer";
 import Navbar from "./routing/Navbar";
+import NotFound from "./pages/NotFound";
+import useTimer from "./hooks/useTimer";
 
-import { useDefaultObjState } from "./hooks/hooks";
+import { useObjLocalStorage } from "./hooks/localStorage";
+import { setTimerStorage, getTimerStorage, resetTimerStorage } from "./timerUtils";
 import { ScoresState, Section } from "./types";
 import { defaultData, defaultComments, defaultFormInfo } from "./defaults";
-import { PageContainer, PageContent, PageHeader, Title } from "./styledComponents/style";
-import { NotFound } from "./pages/NotFound";
+import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -34,9 +35,9 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 export const FormSTO = () => {
   const rubricData = _rubricData as Section[];
 
-  const [formInfo, updateFormInfo, resetFormInfo] = useDefaultObjState(defaultFormInfo);
+  const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage("formInfo", defaultFormInfo);
 
-  const [scores, updateScores, resetScores] = useDefaultObjState(getInitialState(rubricData));
+  const [scores, updateScores, resetScores] = useObjLocalStorage("scores", getInitialState(rubricData));
 
   const updateScore = (section: string, row: string, updatedScore: string) => {
     updateScores({
@@ -47,20 +48,18 @@ export const FormSTO = () => {
     });
   }
 
-  const [data1, setData1, resetData1] = useDefaultObjState(defaultData);
-  const [data2, setData2, resetData2] = useDefaultObjState(defaultData);
+  const [data1, setData1, resetData1] = useObjLocalStorage("data1", defaultData);
+  const [data2, setData2, resetData2] = useObjLocalStorage("data2", defaultData);
 
-  const timer1 = useTimer();
-  const timer2 = useTimer();
+  const timer1 = useTimer("timer1");
+  const timer2 = useTimer("timer2");
 
-  const [comments, updateComments, resetComments] = useDefaultObjState(defaultComments());
+  const [comments, updateComments, resetComments] = useObjLocalStorage("comments", defaultComments());
 
   const resetAll = (): void => {
     resetScores();
     resetData1();
     resetData2();
-    timer1.handleReset();
-    timer2.handleReset();
     resetFormInfo();
     resetComments();
   }
@@ -96,11 +95,11 @@ export const FormSTO = () => {
           </Route>
 
           <Route path="/data1">
-            <DataSTO data={data1} setData={setData1} timer={timer1} />
+            <DataSTO data={data1} setData={setData1} timer={timer1} timerKey="timer1" />
           </Route>
 
           <Route path="/data2">
-            <DataSTO data={data2} setData={setData2} timer={timer2} />
+            <DataSTO data={data2} setData={setData2} timer={timer2} timerKey="timer2" />
           </Route>
 
           <Route path="/feedback">

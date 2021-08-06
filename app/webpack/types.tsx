@@ -1,13 +1,4 @@
 
-// Creates a new type object where each key is optional
-export type Partial<T> = {
-  [K in keyof T]?: T[K];
-};
-
-export type RecursivePartial<T> = {
-  [P in keyof T]?: RecursivePartial<T[P]>;
-};
-
 export interface FormInfo {
   studentTeacher: string,
   cooperatingTeacher: string,
@@ -62,13 +53,13 @@ export interface Data {
 }
 
 export interface ITimer {
-  timer: number;
-  isActive: boolean;
-  isPaused: boolean;
-  handleStart: () => void;
-  handlePause: () => void;
-  handleResume: () => void;
-  handleReset: () => void;
+  time: number;
+  isActive: boolean,
+  isPaused: boolean,
+  handleStart: () => void,
+  handleResume: () => void,
+  handlePause: () => void,
+  handleReset: () => void
 }
 
 export interface IFormInfo {

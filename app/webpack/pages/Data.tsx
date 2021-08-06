@@ -10,12 +10,16 @@ import Card from "../components/Card";
 import { Color } from "../styledComponents/colors";
 
 interface DataProps {
-  timer: ITimer, data: Data, setData: (updatedValues: Partial<Data>) => void
+  timer: ITimer,
+  timerKey: string,
+  data: Data,
+  setData: (updatedValues: Partial<Data>) => void
 }
 
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
 
 const cardContentStyles: React.CSSProperties = {
+  padding: "0em 1em",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -55,10 +59,10 @@ const DataCell = styled.p`
 
 
 
-const DataSTO = ({ timer, data, setData }: DataProps) => {
+const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
   return <PageContent>
     <Card title="Timer" containerStyles={cardContainerStyles}>
-      <Timer timer={timer} />
+      <Timer timer={timer} key={timerKey} />
     </Card>
 
     <Card

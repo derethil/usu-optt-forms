@@ -16,9 +16,9 @@ const DateInput = (props: DateInputProps) => {
       <Label htmlFor="next-observation-date">Next Observation Date</Label>
 
       <DatePicker
-        selected={props.date}
+        selected={new Date(props.date)}
         id={props.field}
-        onChange={date => props.updateFormInfo({ [props.field]: date as Date })}
+        onChange={date => props.updateFormInfo({ [props.field]: (date as Date).getTime() })}
         customInput={<Input />}
       />
     </InputContainer>

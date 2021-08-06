@@ -28,7 +28,7 @@ type FormHomeProps = {
 const FormHome = (props: FormHomeProps) => {
   return (
     <PageContent>
-      <Card title="Form Information">
+      <Card title="General Information">
         <FormInfo formInfo={props.formInfo} updateFormInfo={props.updateFormInfo} />
       </Card>
 

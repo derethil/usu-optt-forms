@@ -62,17 +62,16 @@ const Timer = ({ timer }: { timer: ITimer }) => {
 
     if (!timer.isActive) {
       return getButton("Start", timer.handleStart);
-
     } else if (timer.isPaused) {
       return getButton("Resume", timer.handleResume);
-
     } else {
       return getButton("Pause", timer.handlePause);
     }
   }
 
+
   return <TimerContent>
-    <TimerDisplay>{formatTime(timer.timer)}</TimerDisplay>
+    <TimerDisplay>{formatTime(timer.time)}</TimerDisplay>
 
     {currentButton()}
 

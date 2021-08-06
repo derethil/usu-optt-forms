@@ -114,7 +114,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
             },
             head: [["Area", "Score"]],
             body: [
-              ["Time", formatTime(timer.timer)],
+              ["Time", formatTime(timer.time)],
               ["OTR Rate", 0],
               ["Praise Ratio", getPraiseRatio(observData)],
               ["Percent Specific", getPercent(observData.praise.academic + observData.praise.behavioral, getPraiseSum(observData))],

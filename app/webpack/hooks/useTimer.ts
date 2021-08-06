@@ -1,7 +1,10 @@
 import { useState, useRef } from "react";
+import { useLocalStorage } from "./localStorage";
+const useTimer = (key?: string, initialState = 0) => {
+  const [time, setTimer] =
+    key ? useLocalStorage(key, initialState) : useState(initialState);
 
-const useTimer = (initialState = 0) => {
-  const [timer, setTimer] = useState(initialState);
+
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const countRef = useRef<NodeJS.Timeout | null>(null);
@@ -35,7 +38,7 @@ const useTimer = (initialState = 0) => {
     setTimer(initialState);
   }
 
-  return { timer, isActive, isPaused, handleStart, handlePause, handleResume, handleReset }
+  return { time, isActive, isPaused, handleStart, handlePause, handleResume, handleReset }
 }
 
 export default useTimer;
