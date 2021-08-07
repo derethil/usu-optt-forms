@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { useLocalStorage } from "./localStorage";
+
 const useTimer = (key?: string, initialState = 0) => {
   const [time, setTimer] =
     key ? useLocalStorage(key, initialState) : useState(initialState);
@@ -40,5 +41,8 @@ const useTimer = (key?: string, initialState = 0) => {
 
   return { time, isActive, isPaused, handleStart, handlePause, handleResume, handleReset }
 }
+
+
+
 
 export default useTimer;

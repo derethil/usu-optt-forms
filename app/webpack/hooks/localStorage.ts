@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export const useLocalStorage = <T extends any>(key: string, initialValue: T) => {
+export const useLocalStorage = <T>(key: string, initialValue: T) => {
   const [storedValue, setStoredValue] = useState(() => {
 
     try {
@@ -8,28 +8,20 @@ export const useLocalStorage = <T extends any>(key: string, initialValue: T) => 
       return item ? JSON.parse(item) : initialValue;
 
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return initialValue;
     }
   })
 
-  const setValue = (value: any) => {
-    try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(storedValue));
+  }, [storedValue])
 
   const resetValue = () => {
     setStoredValue(initialValue);
   }
 
-  return [storedValue, setValue, resetValue];
+  return [storedValue, setStoredValue, resetValue];
 }
 
 export const useObjLocalStorage = <T extends object>(key: string, initialValue: T) => {
