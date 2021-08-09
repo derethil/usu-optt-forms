@@ -3,12 +3,14 @@ import jsPDF from 'jspdf'
 import autoTable from "jspdf-autotable";
 
 import { ScoresState, ITimer, IFormInfo, Section } from "../types";
-import { getSubtotal, getMaxSubtotal, getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum, formatTime } from "../utils";
-import _rubricData from "../../rubrics/studentTeaching.json"
+import { getSubtotal, getMaxSubtotal } from "../utils/scoreUtils";
+import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum} from "../utils/dataUtils";
+import { formatTime } from "../utils/timerUtils";
 import { defaultData, IComments } from "../defaults";
-import usuLogoB64 from "../../assets/usuLogoB64";
 import { Button } from "../styledComponents/style";
 import { Color } from "../styledComponents/colors";
+import usuLogoB64 from "../../assets/usuLogoB64";
+import _rubricData from "../../rubrics/studentTeaching.json"
 
 type PDFGeneratorProps = {
   scores: ScoresState,

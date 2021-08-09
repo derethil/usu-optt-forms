@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
 import { Data, ITimer } from "../types";
-import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils";
+import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils/dataUtils";
 import { PageContent } from "../styledComponents/style";
 import Card from "../components/Card";
 import { Color } from "../styledComponents/colors";

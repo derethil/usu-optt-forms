@@ -13,7 +13,6 @@ import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
-import { setTimerStorage, getTimerStorage, resetTimerStorage } from "./timerUtils";
 import { ScoresState, Section } from "./types";
 import { defaultData, defaultComments, defaultFormInfo } from "./defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";

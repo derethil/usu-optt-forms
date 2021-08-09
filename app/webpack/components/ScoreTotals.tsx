@@ -1,7 +1,7 @@
 import React from "react";
 
 import _rubricData from "../../rubrics/studentTeaching.json";
-import { getSubtotal, getMaxSubtotal } from "../utils";
+import { getSubtotal, getMaxSubtotal } from "../utils/scoreUtils";
 import { ScoresState, Section } from "../types";
 
 const ScoreTotals = (props: { scores: ScoresState }) => {
