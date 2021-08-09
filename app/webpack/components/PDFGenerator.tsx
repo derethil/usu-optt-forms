@@ -9,6 +9,7 @@ import {
   getPercent,
   getPraiseSum,
   getCorrectionsSum,
+  getOTRRate,
 } from "../utils/dataUtils";
 import { formatTime } from "../utils/timerUtils";
 import { defaultData, IComments } from "../defaults";
@@ -40,9 +41,10 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
     doc.addImage(usuLogoB64, "png", 165, 11, 30, 10.05);
 
     // GENERAL INFO
-
     doc.text(
-      `Observation Report (${props.formInfo.date.toISOString().slice(0, 10)})`,
+      `Observation Report (${new Date(
+        props.formInfo.date
+      ).toLocaleDateString()})`,
       14,
       18
     );
@@ -60,10 +62,10 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
         ["Student Teacher", props.formInfo.studentTeacher],
         ["Cooperating Teacher", props.formInfo.cooperatingTeacher],
         ["Supervisor", props.formInfo.supervisor],
-        ["Date", props.formInfo.date.toISOString().slice(0, 10)],
+        ["Date", new Date(props.formInfo.date).toLocaleDateString()],
         [
           "Next Observation Date",
-          props.formInfo.nextDate.toISOString().slice(0, 10),
+          new Date(props.formInfo.nextDate).toLocaleDateString(),
         ],
         ["Observation", props.formInfo.observation],
         ["Program", props.formInfo.program],
@@ -131,7 +133,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
             head: [["Area", "Score"]],
             body: [
               ["Time", formatTime(timer.time)],
-              ["OTR Rate", 0],
+              ["OTR Rate", getOTRRate(observData, timer)],
               ["Praise Ratio", getPraiseRatio(observData)],
               [
                 "Percent Specific",

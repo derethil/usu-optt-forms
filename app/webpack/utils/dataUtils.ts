@@ -1,6 +1,12 @@
+import { ITimer } from "../types";
 import { defaultData } from "../defaults";
 
 // DATA FUNCTIONS
+
+export const getOTRRate = (data: typeof defaultData, timer: ITimer): string => {
+  const OTRRate = ((data.cues.group + data.cues.individual) / timer.time) * 60;
+  return OTRRate.toFixed(2);
+};
 
 export const getPraiseSum = (data: typeof defaultData): number => {
   const praises = Object.values(data.praise);

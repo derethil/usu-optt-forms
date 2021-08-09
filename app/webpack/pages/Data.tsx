@@ -9,6 +9,7 @@ import {
   getPercent,
   getPraiseSum,
   getCorrectionsSum,
+  getOTRRate,
 } from "../utils/dataUtils";
 import { PageContent } from "../styledComponents/style";
 import Card from "../components/Card";
@@ -112,7 +113,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
 
           <DataRow>
             <DataCell>OTR Rate</DataCell>
-            <DataCell>{}</DataCell>
+            <DataCell>{getOTRRate(data, timer)}</DataCell>
           </DataRow>
         </DataWrapper>
       </Card>
