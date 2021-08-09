@@ -60,3 +60,28 @@ export const PageContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   color: ${Color.neutrals.black};
 `;
+
+export const DataWrapper = styled.div<{ width?: string }>`
+  width: ${(props) => props.width};
+  /* display: flex; */
+  /* flex-direction: column; */
+`;
+
+export const DataRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0em;
+  border-bottom: 2px solid ${Color.lights.gray};
+`;
+
+export const DataCell = styled.p`
+  margin: 0px;
+
+  :first-child {
+    text-align: left;
+  }
+
+  :last-child {
+    font-weight: 600;
+  }
+`;

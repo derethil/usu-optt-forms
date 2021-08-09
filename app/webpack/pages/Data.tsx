@@ -11,7 +11,12 @@ import {
   getCorrectionsSum,
   getOTRRate,
 } from "../utils/dataUtils";
-import { PageContent } from "../styledComponents/style";
+import {
+  PageContent,
+  DataWrapper,
+  DataCell,
+  DataRow,
+} from "../styledComponents/style";
 import Card from "../components/Card";
 import { Color } from "../styledComponents/colors";
 
@@ -38,29 +43,8 @@ const ButtonsWrapper = styled.div`
   padding: 1em 0em;
 `;
 
-const DataWrapper = styled.div`
+const ObservDataWrapper = styled(DataWrapper)`
   width: 14em;
-  /* display: flex; */
-  /* flex-direction: column; */
-`;
-
-const DataRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0.5em 0em;
-  border-bottom: 2px solid ${Color.lights.gray};
-`;
-
-const DataCell = styled.p`
-  margin: 0px;
-
-  :first-child {
-    text-align: left;
-  }
-
-  :last-child {
-    font-weight: 600;
-  }
 `;
 
 const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
@@ -95,7 +79,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
           />
         </ButtonsWrapper>
 
-        <DataWrapper>
+        <ObservDataWrapper>
           <DataRow>
             <DataCell>Individual Cues</DataCell>
             <DataCell>{data.cues.individual}</DataCell>
@@ -115,7 +99,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             <DataCell>OTR Rate</DataCell>
             <DataCell>{getOTRRate(data, timer)}</DataCell>
           </DataRow>
-        </DataWrapper>
+        </ObservDataWrapper>
       </Card>
 
       <Card
@@ -161,7 +145,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
           />
         </ButtonsWrapper>
 
-        <DataWrapper>
+        <ObservDataWrapper>
           <DataRow>
             <DataCell>General Praise</DataCell>
             <DataCell>{data.praise.general}</DataCell>
@@ -196,7 +180,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
               )}
             </DataCell>
           </DataRow>
-        </DataWrapper>
+        </ObservDataWrapper>
       </Card>
 
       <Card
@@ -237,7 +221,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
           />
         </ButtonsWrapper>
 
-        <DataWrapper>
+        <ObservDataWrapper>
           <DataRow>
             <DataCell>Correct</DataCell>
             <DataCell>{data.corrections.correct}</DataCell>
@@ -264,7 +248,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
               {getPercent(data.corrections.correct, getCorrectionsSum(data))}
             </DataCell>
           </DataRow>
-        </DataWrapper>
+        </ObservDataWrapper>
       </Card>
 
       <Card
@@ -294,7 +278,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
           />
         </ButtonsWrapper>
 
-        <DataWrapper>
+        <ObservDataWrapper>
           <DataRow>
             <DataCell>Engaged</DataCell>
             <DataCell>{data.engagement.engaged}</DataCell>
@@ -321,7 +305,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
               )}
             </DataCell>
           </DataRow>
-        </DataWrapper>
+        </ObservDataWrapper>
       </Card>
 
       <Card
@@ -349,7 +333,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
           />
         </ButtonsWrapper>
 
-        <DataWrapper>
+        <ObservDataWrapper>
           <DataRow>
             <DataCell>Number of Transitions</DataCell>
             <DataCell>{data.misc.transitionCount}</DataCell>
@@ -359,7 +343,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             <DataCell>Occurance of Scanning</DataCell>
             <DataCell>{data.misc.scanningCount}</DataCell>
           </DataRow>
-        </DataWrapper>
+        </ObservDataWrapper>
       </Card>
     </PageContent>
   );

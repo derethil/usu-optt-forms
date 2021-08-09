@@ -4,6 +4,8 @@ import _rubricData from "../../rubrics/studentTeaching.json";
 import { getSubtotal, getMaxSubtotal } from "../utils/scoreUtils";
 import { ScoresState, Section } from "../types";
 
+import { DataWrapper, DataCell, DataRow } from "../styledComponents/style";
+
 const ScoreTotals = (props: { scores: ScoresState }) => {
   const rubricData = _rubricData as Section[];
 
@@ -12,14 +14,17 @@ const ScoreTotals = (props: { scores: ScoresState }) => {
 
   const totals = sections.map((section, index) => {
     return (
-      <h3 key={index}>
-        {section} Score: {getSubtotal(section, props.scores)} /{" "}
-        {getMaxSubtotal(section, props.scores, rubricData)}
-      </h3>
+      <DataRow key={index}>
+        <DataCell>{section} Score:</DataCell>
+        <DataCell>
+          {getSubtotal(section, props.scores)} /
+          {" " + getMaxSubtotal(section, props.scores, rubricData)}
+        </DataCell>
+      </DataRow>
     );
   });
 
-  return <div>{totals}</div>;
+  return <DataWrapper>{totals}</DataWrapper>;
 };
 
 export default ScoreTotals;
