@@ -5,10 +5,10 @@ import { InputContainer, Label, Input } from "../styledComponents/input";
 import { IFormInfo } from "../types";
 
 type DateInputProps = {
-  date: Date,
-  field: string,
-  updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void
-}
+  date: Date;
+  field: string;
+  updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
+};
 
 const DateInput = (props: DateInputProps) => {
   return (
@@ -18,11 +18,13 @@ const DateInput = (props: DateInputProps) => {
       <DatePicker
         selected={new Date(props.date)}
         id={props.field}
-        onChange={date => props.updateFormInfo({ [props.field]: (date as Date).getTime() })}
+        onChange={(date) =>
+          props.updateFormInfo({ [props.field]: (date as Date).getTime() })
+        }
         customInput={<Input />}
       />
     </InputContainer>
-  )
-}
+  );
+};
 
 export default DateInput;

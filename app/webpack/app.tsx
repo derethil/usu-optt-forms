@@ -20,40 +20,56 @@ import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
 
-  rubricData.forEach(section => {
+  rubricData.forEach((section) => {
     initialState[section.sectionTitle] = {};
-    section.rows.forEach(row => {
-      initialState[section.sectionTitle][row.area] = String(row.options[row.options.length - 1].score);
+    section.rows.forEach((row) => {
+      initialState[section.sectionTitle][row.area] = String(
+        row.options[row.options.length - 1].score
+      );
     });
   });
 
   return initialState;
-}
-
+};
 
 export const FormSTO = () => {
   const rubricData = _rubricData as Section[];
 
-  const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage("formInfo", defaultFormInfo);
+  const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage(
+    "formInfo",
+    defaultFormInfo
+  );
 
-  const [scores, updateScores, resetScores] = useObjLocalStorage("scores", getInitialState(rubricData));
+  const [scores, updateScores, resetScores] = useObjLocalStorage(
+    "scores",
+    getInitialState(rubricData)
+  );
 
   const updateScore = (section: string, row: string, updatedScore: string) => {
     updateScores({
       [section]: {
         ...scores[section],
-        [row]: updatedScore
-      }
+        [row]: updatedScore,
+      },
     });
-  }
+  };
 
-  const [data1, setData1, resetData1] = useObjLocalStorage("data1", defaultData);
-  const [data2, setData2, resetData2] = useObjLocalStorage("data2", defaultData);
+  const [data1, setData1, resetData1] = useObjLocalStorage(
+    "data1",
+    defaultData
+  );
+  const [data2, setData2, resetData2] = useObjLocalStorage(
+    "data2",
+    defaultData
+  );
 
   const timer1 = useTimer("timer1");
   const timer2 = useTimer("timer2");
 
-  const [comments, updateComments, resetComments] = useObjLocalStorage("comments", defaultComments());
+  const [comments, updateComments, resetComments] = useObjLocalStorage(
+    "comments",
+    defaultComments()
+  );
 
   const resetAll = (): void => {
     resetScores();
@@ -61,13 +77,11 @@ export const FormSTO = () => {
     resetData2();
     resetFormInfo();
     resetComments();
-  }
-
+  };
 
   return (
     <PageContainer>
       <BrowserRouter>
-
         <PageHeader>
           <Title>Student Teaching Observation Form</Title>
         </PageHeader>
@@ -90,15 +104,29 @@ export const FormSTO = () => {
           </Route>
 
           <Route path="/rubric">
-            <RubricSTO scores={scores} rubricData={rubricData} updateScore={updateScore} />
+            <RubricSTO
+              scores={scores}
+              rubricData={rubricData}
+              updateScore={updateScore}
+            />
           </Route>
 
           <Route path="/data1">
-            <DataSTO data={data1} setData={setData1} timer={timer1} timerKey="timer1" />
+            <DataSTO
+              data={data1}
+              setData={setData1}
+              timer={timer1}
+              timerKey="timer1"
+            />
           </Route>
 
           <Route path="/data2">
-            <DataSTO data={data2} setData={setData2} timer={timer2} timerKey="timer2" />
+            <DataSTO
+              data={data2}
+              setData={setData2}
+              timer={timer2}
+              timerKey="timer2"
+            />
           </Route>
 
           <Route path="/feedback">
@@ -111,12 +139,12 @@ export const FormSTO = () => {
         </Switch>
       </BrowserRouter>
     </PageContainer>
-  )
-}
+  );
+};
 
 const RootComponent = () => {
-  return <FormSTO />
-}
+  return <FormSTO />;
+};
 
 const entry = document.getElementById("app-root");
 ReactDom.render(<RootComponent />, entry);

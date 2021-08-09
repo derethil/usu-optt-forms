@@ -1,32 +1,33 @@
-import { defaultData } from "../defaults"
-
+import { defaultData } from "../defaults";
 
 // DATA FUNCTIONS
 
 export const getPraiseSum = (data: typeof defaultData): number => {
   const praises = Object.values(data.praise);
-  return praises.reduce((total, value) => total + value, 0) - data.praise.reprimand;
-}
+  return (
+    praises.reduce((total, value) => total + value, 0) - data.praise.reprimand
+  );
+};
 
 export const getCorrectionsSum = (data: typeof defaultData): number => {
   const corrections = Object.values(data.corrections);
   return corrections.reduce((total, value) => total + value, 0);
-}
+};
 
 export const getPraiseRatio = (data: typeof defaultData): string => {
   const gcd = (a: number, b: number): number => {
     if (!b) return a;
     return gcd(b, a % b);
-  }
+  };
 
   const praiseSum = getPraiseSum(data);
   const num1 = praiseSum / gcd(praiseSum, data.praise.reprimand);
   const num2 = data.praise.reprimand / gcd(praiseSum, data.praise.reprimand);
 
-  return `${isNaN(num1) ? 0 : num1} : ${isNaN(num2) ? 0 : num2}`
-}
+  return `${isNaN(num1) ? 0 : num1} : ${isNaN(num2) ? 0 : num2}`;
+};
 
 export const getPercent = (subtotal: number, total: number): string => {
   const percent = (subtotal / total) * 100;
   return `${!isNaN(percent) ? percent.toFixed(0) : 0}%`;
-}
+};

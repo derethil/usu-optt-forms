@@ -30,9 +30,9 @@ export const CenteredIconContainer = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.div<{ color?: string, textColor?: string }>`
-  background-color: ${props => props.color};
-  color: ${props => props.textColor};
+export const Button = styled.div<{ color?: string; textColor?: string }>`
+  background-color: ${(props) => props.color};
+  color: ${(props) => props.textColor};
 
   display: flex;
   flex-direction: column;
@@ -47,7 +47,6 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
   /* transition: 0.1s transform ease; */
   cursor: pointer;
 
-
   :hover {
     transform: translateY(-2px);
   }
@@ -57,8 +56,7 @@ export const Button = styled.div<{ color?: string, textColor?: string }>`
   }
 `;
 
-
 export const PageContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
-  color: ${Color.neutrals.black}
+  color: ${Color.neutrals.black};
 `;

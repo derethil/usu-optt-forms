@@ -2,15 +2,14 @@ import React from "react";
 import { Label, InputContainer, Input } from "../styledComponents/input";
 
 type TextInputProps = {
-  value: string,
-  field: string,
-  updateFormInfo: (updatedValues: { [key: string]: string }) => void,
-  noLabel?: boolean,
-  placeholder?: string,
-}
+  value: string;
+  field: string;
+  updateFormInfo: (updatedValues: { [key: string]: string }) => void;
+  noLabel?: boolean;
+  placeholder?: string;
+};
 
 const TextInput = (props: TextInputProps) => {
-
   const spaced = props.field.replace(/([A-Z])/g, " $1");
   const titleCased = spaced.charAt(0).toUpperCase() + spaced.slice(1);
 
@@ -20,12 +19,14 @@ const TextInput = (props: TextInputProps) => {
       <Input
         // className={`text-input`}
         value={props.value}
-        onChange={(e) => props.updateFormInfo({ [props.field]: e.target.value })}
+        onChange={(e) =>
+          props.updateFormInfo({ [props.field]: e.target.value })
+        }
         id={props.field}
         placeholder={props.placeholder}
       />
     </InputContainer>
-  )
-}
+  );
+};
 
 export default TextInput;

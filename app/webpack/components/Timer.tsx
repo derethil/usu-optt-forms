@@ -40,25 +40,24 @@ const TimerButton = styled(Button)`
   :nth-child(2) {
     margin-right: 1em;
   }
-
 `;
 
-
 const Timer = ({ timer }: { timer: ITimer }) => {
-
   const currentButton = () => {
-
     const getButton = (text: string, onClick: () => void) => {
       return (
         <TimerButton
           color={Color.blues.blue}
           onClick={onClick}
-          style={{ minWidth: "12em", border: `3px solid ${Color.neutrals.grayDark}` }}
+          style={{
+            minWidth: "12em",
+            border: `3px solid ${Color.neutrals.grayDark}`,
+          }}
         >
           {text}
         </TimerButton>
-      )
-    }
+      );
+    };
 
     if (!timer.isActive) {
       return getButton("Start", timer.handleStart);
@@ -67,23 +66,23 @@ const Timer = ({ timer }: { timer: ITimer }) => {
     } else {
       return getButton("Pause", timer.handlePause);
     }
-  }
+  };
 
+  return (
+    <TimerContent>
+      <TimerDisplay>{formatTime(timer.time)}</TimerDisplay>
 
-  return <TimerContent>
-    <TimerDisplay>{formatTime(timer.time)}</TimerDisplay>
+      {currentButton()}
 
-    {currentButton()}
-
-    <TimerButton
-      onClick={timer.handleReset}
-      color={Color.accents.brick}
-      style={{ border: `3px solid ${Color.contextual.danger}` }}
-    >
-      Reset
-    </TimerButton>
-
-  </TimerContent>
-}
+      <TimerButton
+        onClick={timer.handleReset}
+        color={Color.accents.brick}
+        style={{ border: `3px solid ${Color.contextual.danger}` }}
+      >
+        Reset
+      </TimerButton>
+    </TimerContent>
+  );
+};
 
 export default Timer;

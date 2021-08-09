@@ -8,13 +8,11 @@ import { Color } from "../styledComponents/colors";
 import FeedbackCard from "../components/FeedbackCard";
 
 type feedbackPageProps = {
-  comments: IComments,
-  updateComments: (updatedComments: { [key: string]: string[] }) => void
-}
-
+  comments: IComments;
+  updateComments: (updatedComments: { [key: string]: string[] }) => void;
+};
 
 const FeedbackPage = (props: feedbackPageProps) => {
-
   return (
     <PageContent className="feedback">
       <FeedbackCard
@@ -41,7 +39,7 @@ const FeedbackPage = (props: feedbackPageProps) => {
         updateComments={props.updateComments}
       />
     </PageContent>
-  )
-}
+  );
+};
 
 export default FeedbackPage;

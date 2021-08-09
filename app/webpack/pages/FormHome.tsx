@@ -13,23 +13,25 @@ import { Color } from "../styledComponents/colors";
 import { IComments } from "../defaults";
 
 type FormHomeProps = {
-  formInfo: IFormInfo,
-  updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void,
-  scores: ScoresState,
-  data1: typeof defaultData,
-  data2: typeof defaultData,
-  comments: IComments,
-  timer1: ITimer,
-  timer2: ITimer,
-  resetAll: () => void
-
-}
+  formInfo: IFormInfo;
+  updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
+  scores: ScoresState;
+  data1: typeof defaultData;
+  data2: typeof defaultData;
+  comments: IComments;
+  timer1: ITimer;
+  timer2: ITimer;
+  resetAll: () => void;
+};
 
 const FormHome = (props: FormHomeProps) => {
   return (
     <PageContent>
       <Card title="General Information">
-        <FormInfo formInfo={props.formInfo} updateFormInfo={props.updateFormInfo} />
+        <FormInfo
+          formInfo={props.formInfo}
+          updateFormInfo={props.updateFormInfo}
+        />
       </Card>
 
       <Card title="Scores">
@@ -56,12 +58,8 @@ const FormHome = (props: FormHomeProps) => {
           Reset Form Information
         </Button>
       </Card>
-
-
-
-
     </PageContent>
-  )
-}
+  );
+};
 
 export default FormHome;

@@ -37,7 +37,8 @@ const StyledLink = styled(NavLink)`
 
   transition: 0.2s all ease;
 
-  :hover, &.${activeClassName} {
+  :hover,
+  &.${activeClassName} {
     background-color: ${Color.blues.blueDark};
     color: ${Color.blues.blueLight};
   }
@@ -46,17 +47,25 @@ const StyledLink = styled(NavLink)`
 const Navbar = (props: { studentTeacher: string }) => {
   return (
     <NavbarContainer>
-      <StyledLink activeClassName={activeClassName} exact to="/">Home</StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/data1">Data 1</StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/data2">Data 2</StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/rubric">Rubric</StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/feedback">Feedback</StyledLink>
+      <StyledLink activeClassName={activeClassName} exact to="/">
+        Home
+      </StyledLink>
+      <StyledLink activeClassName={activeClassName} to="/data1">
+        Data 1
+      </StyledLink>
+      <StyledLink activeClassName={activeClassName} to="/data2">
+        Data 2
+      </StyledLink>
+      <StyledLink activeClassName={activeClassName} to="/rubric">
+        Rubric
+      </StyledLink>
+      <StyledLink activeClassName={activeClassName} to="/feedback">
+        Feedback
+      </StyledLink>
 
-      <StudentDisplay>
-        {props.studentTeacher}
-      </StudentDisplay>
+      <StudentDisplay>{props.studentTeacher}</StudentDisplay>
     </NavbarContainer>
-  )
-}
+  );
+};
 
 export default Navbar;

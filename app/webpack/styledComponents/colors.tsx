@@ -1,4 +1,3 @@
-
 export const Color = {
   blues: {
     primary: "#0F2439",
@@ -19,7 +18,7 @@ export const Color = {
     grayLight: "#DEE2E6",
     grayLighter: "#E9ECEF",
     light: "#F8F9FA",
-    white: "#FFFFFF"
+    white: "#FFFFFF",
   },
   accents: {
     brightLight: "#4494DA",
@@ -32,6 +31,6 @@ export const Color = {
     success: "#588038",
     info: "#226BAA",
     warning: "#AE6002",
-    danger: "#A6260D"
-  }
-}
+    danger: "#A6260D",
+  },
+};

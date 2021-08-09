@@ -4,16 +4,21 @@ import styled from "styled-components";
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
 import { Data, ITimer } from "../types";
-import { getPraiseRatio, getPercent, getPraiseSum, getCorrectionsSum } from "../utils/dataUtils";
+import {
+  getPraiseRatio,
+  getPercent,
+  getPraiseSum,
+  getCorrectionsSum,
+} from "../utils/dataUtils";
 import { PageContent } from "../styledComponents/style";
 import Card from "../components/Card";
 import { Color } from "../styledComponents/colors";
 
 interface DataProps {
-  timer: ITimer,
-  timerKey: string,
-  data: Data,
-  setData: (updatedValues: Partial<Data>) => void
+  timer: ITimer;
+  timerKey: string;
+  data: Data;
+  setData: (updatedValues: Partial<Data>) => void;
 }
 
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
@@ -36,7 +41,7 @@ const DataWrapper = styled.div`
   width: 14em;
   /* display: flex; */
   /* flex-direction: column; */
-  `;
+`;
 
 const DataRow = styled.div`
   display: flex;
@@ -57,8 +62,6 @@ const DataCell = styled.p`
   }
 `;
 
-
-
 const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
   return (
     <PageContent>
@@ -76,16 +79,19 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             color={Color.accents.greenLight}
             content="Individual"
             value={data.cues.individual}
-            onClick={(newValue: number) => setData({ cues: { ...data.cues, individual: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ cues: { ...data.cues, individual: newValue } })
+            }
           />
 
           <CounterButton
             color={Color.accents.greenLight}
             content="Group"
             value={data.cues.group}
-            onClick={(newValue: number) => setData({ cues: { ...data.cues, group: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ cues: { ...data.cues, group: newValue } })
+            }
           />
-
         </ButtonsWrapper>
 
         <DataWrapper>
@@ -106,7 +112,7 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
 
           <DataRow>
             <DataCell>OTR Rate</DataCell>
-            <DataCell>{ }</DataCell>
+            <DataCell>{}</DataCell>
           </DataRow>
         </DataWrapper>
       </Card>
@@ -121,33 +127,40 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             color={Color.accents.yellow}
             content="General"
             value={data.praise.general}
-            onClick={(newValue: number) => setData({ praise: { ...data.praise, general: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, general: newValue } })
+            }
           />
 
           <CounterButton
             color={Color.accents.yellow}
             content="Academic"
             value={data.praise.academic}
-            onClick={(newValue: number) => setData({ praise: { ...data.praise, academic: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, academic: newValue } })
+            }
           />
 
           <CounterButton
             color={Color.accents.yellow}
             content="Behavioral"
             value={data.praise.behavioral}
-            onClick={(newValue: number) => setData({ praise: { ...data.praise, behavioral: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, behavioral: newValue } })
+            }
           />
 
           <CounterButton
             color={Color.contextual.danger}
             content="Redirect/Reprimand"
             value={data.praise.reprimand}
-            onClick={(newValue: number) => setData({ praise: { ...data.praise, reprimand: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, reprimand: newValue } })
+            }
           />
-
         </ButtonsWrapper>
 
-        <DataWrapper >
+        <DataWrapper>
           <DataRow>
             <DataCell>General Praise</DataCell>
             <DataCell>{data.praise.general}</DataCell>
@@ -175,7 +188,12 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
 
           <DataRow>
             <DataCell>Percent Specific</DataCell>
-            <DataCell>{getPercent(data.praise.academic + data.praise.behavioral, getPraiseSum(data))}</DataCell>
+            <DataCell>
+              {getPercent(
+                data.praise.academic + data.praise.behavioral,
+                getPraiseSum(data)
+              )}
+            </DataCell>
           </DataRow>
         </DataWrapper>
       </Card>
@@ -190,21 +208,31 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             color={Color.accents.brightLight}
             content="Correct"
             value={data.corrections.correct}
-            onClick={(newValue: number) => setData({ corrections: { ...data.corrections, correct: newValue } })}
+            onClick={(newValue: number) =>
+              setData({
+                corrections: { ...data.corrections, correct: newValue },
+              })
+            }
           />
 
           <CounterButton
             color={Color.accents.brightLight}
             content="Incorrect"
             value={data.corrections.incorrect}
-            onClick={(newValue: number) => setData({ corrections: { ...data.corrections, incorrect: newValue } })}
+            onClick={(newValue: number) =>
+              setData({
+                corrections: { ...data.corrections, incorrect: newValue },
+              })
+            }
           />
 
           <CounterButton
             color={Color.accents.brightLight}
             content="None"
             value={data.corrections.none}
-            onClick={(newValue: number) => setData({ corrections: { ...data.corrections, none: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ corrections: { ...data.corrections, none: newValue } })
+            }
           />
         </ButtonsWrapper>
 
@@ -231,7 +259,9 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
 
           <DataRow>
             <DataCell>Percent</DataCell>
-            <DataCell>{getPercent(data.corrections.correct, getCorrectionsSum(data))}</DataCell>
+            <DataCell>
+              {getPercent(data.corrections.correct, getCorrectionsSum(data))}
+            </DataCell>
           </DataRow>
         </DataWrapper>
       </Card>
@@ -246,14 +276,20 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             color={Color.contextual.info}
             content="Engaged"
             value={data.engagement.engaged}
-            onClick={(newValue: number) => setData({ engagement: { ...data.engagement, engaged: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ engagement: { ...data.engagement, engaged: newValue } })
+            }
           />
 
           <CounterButton
             color={Color.contextual.info}
             content="Not Engaged"
             value={data.engagement.notEngaged}
-            onClick={(newValue: number) => setData({ engagement: { ...data.engagement, notEngaged: newValue } })}
+            onClick={(newValue: number) =>
+              setData({
+                engagement: { ...data.engagement, notEngaged: newValue },
+              })
+            }
           />
         </ButtonsWrapper>
 
@@ -270,12 +306,19 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
 
           <DataRow>
             <DataCell>Total</DataCell>
-            <DataCell>{data.engagement.engaged + data.engagement.notEngaged}</DataCell>
+            <DataCell>
+              {data.engagement.engaged + data.engagement.notEngaged}
+            </DataCell>
           </DataRow>
 
           <DataRow>
             <DataCell>Percent</DataCell>
-            <DataCell>{getPercent(data.engagement.engaged, data.engagement.engaged + data.engagement.notEngaged)}</DataCell>
+            <DataCell>
+              {getPercent(
+                data.engagement.engaged,
+                data.engagement.engaged + data.engagement.notEngaged
+              )}
+            </DataCell>
           </DataRow>
         </DataWrapper>
       </Card>
@@ -290,14 +333,18 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
             color={Color.accents.brick}
             content="Scanning"
             value={data.misc.scanningCount}
-            onClick={(newValue: number) => setData({ misc: { ...data.misc, scanningCount: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ misc: { ...data.misc, scanningCount: newValue } })
+            }
           />
 
           <CounterButton
             color={Color.accents.brick}
             content="Transition"
             value={data.misc.transitionCount}
-            onClick={(newValue: number) => setData({ misc: { ...data.misc, transitionCount: newValue } })}
+            onClick={(newValue: number) =>
+              setData({ misc: { ...data.misc, transitionCount: newValue } })
+            }
           />
         </ButtonsWrapper>
 
@@ -313,9 +360,8 @@ const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
           </DataRow>
         </DataWrapper>
       </Card>
-
-    </PageContent >
-  )
-}
+    </PageContent>
+  );
+};
 
 export default DataSTO;

@@ -46,14 +46,21 @@ export const Input = styled.input`
       transition: 0.2s;
       font-size: 1rem;
       color: $primary;
-      font-weight:700;
+      font-weight: 700;
     }
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
-    border-image: linear-gradient(to right, ${Color.blues.blueDark},${Color.blues.blue});
+    border-image: linear-gradient(
+      to right,
+      ${Color.blues.blueDark},
+      ${Color.blues.blue}
+    );
     border-image-slice: 1;
   }
 
-  &:required,&:invalid { box-shadow:none; }
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
 `;

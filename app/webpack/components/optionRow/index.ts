@@ -1,3 +1,3 @@
 import OptionRow from "./OptionRow";
 
-export default OptionRow
+export default OptionRow;

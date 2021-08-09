@@ -5,7 +5,6 @@ import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
 import { Color } from "../../styledComponents/colors";
 
-
 const ButtonsWrapper = styled.div`
   display: flex;
   align-items: stretch;
@@ -13,19 +12,18 @@ const ButtonsWrapper = styled.div`
 `;
 
 interface OptionRowProps {
-  title: string
-  currSelection: string,
-  contentOptions: string[],
-  updateSelection: (newSelection: string) => void
-  scoreOptions?: string[],
-  tooltip?: string
-  wrapperStyles?: React.CSSProperties,
-  buttonStyles?: React.CSSProperties,
-  titleStyles?: React.CSSProperties,
-};
+  title: string;
+  currSelection: string;
+  contentOptions: string[];
+  updateSelection: (newSelection: string) => void;
+  scoreOptions?: string[];
+  tooltip?: string;
+  wrapperStyles?: React.CSSProperties;
+  buttonStyles?: React.CSSProperties;
+  titleStyles?: React.CSSProperties;
+}
 
 const OptionRow = (props: OptionRowProps) => {
-
   const selectButtons = props.contentOptions.map((content, idx) => {
     const score = props.scoreOptions ? props.scoreOptions[idx] : "";
     const compareTo = props.scoreOptions ? score : content;
@@ -38,7 +36,8 @@ const OptionRow = (props: OptionRowProps) => {
         updateSelection={props.updateSelection}
         selected={compareTo === props.currSelection}
         styles={props.buttonStyles}
-      />)
+      />
+    );
   });
 
   if (props.scoreOptions) {
@@ -50,7 +49,7 @@ const OptionRow = (props: OptionRowProps) => {
         selected={"N/A" === props.currSelection}
         styles={props.buttonStyles}
       />
-    )
+    );
   }
 
   const renderTitle = (tooltip?: string) => {
@@ -61,20 +60,21 @@ const OptionRow = (props: OptionRowProps) => {
           tooltipContent={tooltip}
           titleStyles={props.titleStyles}
         />
-      )
+      );
     } else {
-      return <p style={props.titleStyles}>{props.title}</ p>
+      return <p style={props.titleStyles}>{props.title}</p>;
     }
-  }
+  };
 
+  return (
+    <div>
+      {renderTitle(props.tooltip)}
 
-  return <div>
-    {renderTitle(props.tooltip)}
-
-    <ButtonsWrapper style={props.wrapperStyles}>
-      {selectButtons}
-    </ButtonsWrapper>
-  </div >
-}
+      <ButtonsWrapper style={props.wrapperStyles}>
+        {selectButtons}
+      </ButtonsWrapper>
+    </div>
+  );
+};
 
 export default OptionRow;

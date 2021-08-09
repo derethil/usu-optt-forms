@@ -29,17 +29,21 @@ const ScoreValue = styled.div`
   margin-top: auto;
 `;
 
-
 type SelectButtonProps = {
-  content: string,
-  selected: boolean,
-  updateSelection: (newSelection: string) => void
-  score?: string,
-  styles?: React.CSSProperties
+  content: string;
+  selected: boolean;
+  updateSelection: (newSelection: string) => void;
+  score?: string;
+  styles?: React.CSSProperties;
 };
 
-const SelectButton = ({ content, selected, score, updateSelection, styles }: SelectButtonProps) => {
-
+const SelectButton = ({
+  content,
+  selected,
+  score,
+  updateSelection,
+  styles,
+}: SelectButtonProps) => {
   const selectBy = score ? score : content;
 
   return (
@@ -48,12 +52,11 @@ const SelectButton = ({ content, selected, score, updateSelection, styles }: Sel
       textColor={selected ? Color.blues.blue : Color.blues.blueLight}
       onClick={() => updateSelection(selectBy)}
       style={styles}
-
     >
       <p style={{ marginTop: Boolean(score) ? "auto" : "normal" }}>{content}</p>
       {score && <ScoreValue>{score}</ScoreValue>}
-    </SelectButtonEl >
-  )
-}
+    </SelectButtonEl>
+  );
+};
 
 export default SelectButton;

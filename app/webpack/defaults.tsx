@@ -1,33 +1,33 @@
 export const defaultData = {
   cues: {
     individual: 0,
-    group: 0
+    group: 0,
   },
   praise: {
     general: 0,
     academic: 0,
     behavioral: 0,
-    reprimand: 0
+    reprimand: 0,
   },
   corrections: {
     correct: 0,
     incorrect: 0,
-    none: 0
+    none: 0,
   },
   engagement: {
     engaged: 0,
-    notEngaged: 0
+    notEngaged: 0,
   },
   misc: {
     scanningCount: 0,
-    transitionCount: 0
-  }
-}
+    transitionCount: 0,
+  },
+};
 
 export interface IComments {
-  strengths: string[],
-  suggestions: string[],
-  nextFocus: string[]
+  strengths: string[];
+  suggestions: string[];
+  nextFocus: string[];
 }
 
 export const defaultComments = (): IComments => {
@@ -35,8 +35,8 @@ export const defaultComments = (): IComments => {
     strengths: [""],
     suggestions: [""],
     nextFocus: [""],
-  }
-}
+  };
+};
 
 export const defaultFormInfo = {
   studentTeacher: "",
@@ -46,5 +46,5 @@ export const defaultFormInfo = {
   nextDate: new Date(),
   observation: 1,
   other: "",
-  program: "Mild/Moderate"
-}
+  program: "Mild/Moderate",
+};
