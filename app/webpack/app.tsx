@@ -74,6 +74,8 @@ export const FormSTO = () => {
   const resetAll = (): void => {
     resetScores();
     resetData1();
+    timer1.handleReset();
+    timer2.handleReset();
     resetData2();
     resetFormInfo();
     resetComments();

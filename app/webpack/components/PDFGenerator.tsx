@@ -279,7 +279,13 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
     // SAVE
 
-    doc.save("table.pdf");
+    debugger;
+
+    doc.save(
+      `${props.formInfo.studentTeacher} ${new Date(props.formInfo.date)
+        .toISOString()
+        .slice(0, 10)}.pdf`
+    );
   };
   return (
     <Button
