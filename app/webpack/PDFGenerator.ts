@@ -4,20 +4,38 @@ import { Color } from "./styledComponents/colors";
 
 type startYType = number | "RELATIVE";
 
+interface TableI {
+  startY?: startYType;
+  head: string[];
+  body?: (string | number)[][];
+  headStyles?: Partial<Styles>;
+  columnStyles?: { [key: string]: Partial<Styles> };
+}
+
+interface DualTableI {
+  startY?: startYType;
+  head: string[];
+  nestedBodies: [(string | number)[][], (string | number)[][]];
+  nestedHeads: [string[], string[]];
+  nestedTableHeight: number;
+  headStyles?: Partial<Styles>;
+  columnStyles?: { [key: string]: Partial<Styles> };
+}
+
 class PDFGenerator {
-  public pdf: jsPDF;
+  public readonly pdf: jsPDF;
 
-  constructor(
-    jsPDFOptions: jsPDFOptions,
-    fontSize?: number,
-    textColor?: number,
-    font?: string
-  ) {
-    this.pdf = new jsPDF(jsPDFOptions);
+  constructor(options: {
+    jsPDFOptions: jsPDFOptions;
+    fontSize?: number;
+    textColor?: number;
+    font?: string;
+  }) {
+    this.pdf = new jsPDF(options.jsPDFOptions);
 
-    if (fontSize) this.pdf.setFontSize(fontSize);
-    if (textColor) this.pdf.setTextColor(textColor);
-    if (font) this.pdf.setFont(font, "normal", 400);
+    if (options.fontSize) this.pdf.setFontSize(options.fontSize);
+    if (options.textColor) this.pdf.setTextColor(options.textColor);
+    if (options.font) this.pdf.setFont(options.font, "normal", 400);
   }
 
   private getYCoord(startY: startYType): number {
@@ -27,62 +45,84 @@ class PDFGenerator {
   }
 
   // Generate simple
-  public table(
-    startY: startYType,
-    head: string[] | string,
-    body: string[][],
-    headStyles?: Partial<Styles>,
-    columnStyles?: { [key: string]: Partial<Styles> }
-  ) {
+  public table(options: TableI) {
+    options.startY =
+      typeof options.startY === "number" ? options.startY : "RELATIVE";
+
     autoTable(this.pdf, {
-      startY: this.getYCoord(startY),
-      head: typeof head === "object" ? [head] : [[head]],
+      startY: this.getYCoord(options.startY),
+      head: [options.head],
       headStyles: {
         fillColor: Color.blues.primary,
-        ...headStyles,
+        ...options.headStyles,
       },
       columnStyles: {
         1: { cellWidth: 50 },
-        ...columnStyles,
+        ...options.columnStyles,
       },
-      body: body,
+      body: options.body,
     });
   }
 
-  public dualNestedTables(
-    startY: startYType,
-    head: string[] | string,
-    nestedTableHeight: number,
-    body: string[][],
-    headStyles?: Partial<Styles>,
-    columnStyles?: { [key: string]: Partial<Styles> }
-  ) {
+  public dualNestedTables(options: DualTableI) {
+    options.startY = options.startY ? options.startY : "RELATIVE";
+
     // Required to generate nested tables this way as per jsPDF documentation
     const nestedTableCell = {
       content: "",
-      styles: { minCellHeight: nestedTableHeight },
+      styles: { minCellHeight: options.nestedTableHeight },
     };
 
     autoTable(this.pdf, {
-      startY: this.getYCoord(startY),
-      head: typeof head === "object" ? [head] : [[head]],
+      startY: this.getYCoord(options.startY),
+      head: [options.head],
       headStyles: {
         fillColor: Color.blues.primary,
-        ...headStyles,
+        ...options.headStyles,
       },
       columnStyles: {
-        1: { cellWidth: 50 },
-        ...columnStyles,
+        ...options.columnStyles,
       },
       body: [[nestedTableCell]],
 
       didDrawCell: (data) => {
         if (data.row.index !== 0 || data.row.section !== "body") return;
 
-        const genNestedTable = () => {
-          autoTable(this.pdf, {});
+        const genNestedTable = (
+          body: (string | number)[][],
+          head: string[],
+          side: "LEFT" | "RIGHT"
+        ) => {
+          autoTable(this.pdf, {
+            startY: data.cell.y + 2,
+            margin: { left: side === "RIGHT" ? data.cell.x + 2 : data.cell.x },
+            tableWidth: data.cell.width - 2,
+            styles: {
+              minCellHeight: 4,
+            },
+            headStyles: {
+              fillColor: Color.blues.blue,
+            },
+            head: [head],
+            body: body,
+          });
         };
+
+        if (data.column.index === 0)
+          genNestedTable(
+            options.nestedBodies[0],
+            options.nestedHeads[0],
+            "LEFT"
+          );
+        else if (data.column.index === 1)
+          genNestedTable(
+            options.nestedBodies[1],
+            options.nestedHeads[1],
+            "RIGHT"
+          );
       },
     });
   }
 }
+
+export default PDFGenerator;

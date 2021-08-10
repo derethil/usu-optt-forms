@@ -4,7 +4,7 @@ import { IFormInfo, ITimer, ScoresState } from "../types";
 
 import { defaultData } from "../defaults";
 
-import { PDFGenerator } from "../components/PDFGenerator";
+import { PDFData } from "../components/PDFData";
 import ScoreTotals from "../components/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
@@ -42,7 +42,7 @@ const FormHome = (props: FormHomeProps) => {
         title="Form Actions"
         contentStyles={{ display: "flex", justifyContent: "space-between" }}
       >
-        <PDFGenerator
+        <PDFData
           scores={props.scores}
           data1={props.data1}
           data2={props.data2}
