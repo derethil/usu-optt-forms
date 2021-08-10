@@ -28,7 +28,7 @@ type PDFGeneratorProps = {
   comments: IComments;
 };
 
-export const PDFGenerator = (props: PDFGeneratorProps) => {
+export const GeneratePDF = (props: PDFGeneratorProps) => {
   const rubricData = _rubricData as Section[];
   const generatePDF = () => {
     const doc = new jsPDF({
@@ -279,8 +279,6 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
 
     // SAVE
 
-    debugger;
-
     doc.save(
       `${props.formInfo.studentTeacher} ${new Date(props.formInfo.date)
         .toISOString()
@@ -292,14 +290,7 @@ export const PDFGenerator = (props: PDFGeneratorProps) => {
       onClick={() => generatePDF()}
       color={Color.blues.blue}
       textColor={Color.blues.blueLight}
-      style={{
-        fontWeight: 600,
-        marginBottom: "1em",
-        borderRadius: "0.25em",
-        width: "13em",
-        height: "4em",
-        border: `3px solid ${Color.neutrals.grayDark}`,
-      }}
+      style={{ fontWeight: 600, marginBottom: "1em", borderRadius: "0.25em" }}
     >
       Generate Report
     </Button>

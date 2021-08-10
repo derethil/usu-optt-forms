@@ -38,7 +38,10 @@ const FormHome = (props: FormHomeProps) => {
         <ScoreTotals scores={props.scores} />
       </Card>
 
-      <Card title="Form Actions">
+      <Card
+        title="Form Actions"
+        contentStyles={{ display: "flex", justifyContent: "space-between" }}
+      >
         <PDFGenerator
           scores={props.scores}
           data1={props.data1}
@@ -53,7 +56,13 @@ const FormHome = (props: FormHomeProps) => {
           onClick={() => props.resetAll()}
           color={Color.contextual.danger}
           textColor={Color.lights.light}
-          style={{ fontWeight: 600, borderRadius: "0.25em" }}
+          style={{
+            fontWeight: 600,
+            borderRadius: "0.25em",
+            width: "13em",
+            height: "4em",
+            border: `3px solid ${Color.accents.brick}`,
+          }}
         >
           Reset Form Information
         </Button>

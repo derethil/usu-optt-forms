@@ -7,6 +7,7 @@ import { Color } from "../../styledComponents/colors";
 const SelectButtonEl = styled(Button)`
   padding: 1em;
 
+  height: auto;
   min-height: 3em;
   min-width: 3em;
 
