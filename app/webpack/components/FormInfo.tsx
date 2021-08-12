@@ -8,7 +8,7 @@ import OptionRow from "./optionRow";
 
 import { IFormInfo } from "../types";
 import DateInput from "./DateInput";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 type FormInfoProps = {
   formInfo: IFormInfo;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;

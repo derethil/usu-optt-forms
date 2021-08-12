@@ -4,7 +4,7 @@ import { ScoresState, ITimer, IFormInfo, Section } from "../types";
 
 import { defaultData, IComments } from "../defaults";
 import { Button } from "../styledComponents/style";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../assets/usuLogoB64";
 import _rubricData from "../../rubrics/studentTeaching.json";
 import PDFGenerator from "../PDFGenerator";
@@ -161,9 +161,10 @@ export const PDFData = (props: PDFGeneratorProps) => {
         fontWeight: 600,
         marginBottom: "1em",
         borderRadius: "0.25em",
-        width: "13em",
-        height: "4em",
+        width: "45%",
+        height: "104px",
         border: `3px solid ${Color.neutrals.grayDark}`,
+        boxSizing: "border-box",
       }}
     >
       Generate Report

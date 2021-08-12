@@ -1,4 +1,4 @@
-export const Color = {
+const Color = {
   blues: {
     primary: "#0F2439",
     blueLight: "#E1EAF9",
@@ -34,3 +34,5 @@ export const Color = {
     danger: "#A6260D",
   },
 };
+
+export default Color;

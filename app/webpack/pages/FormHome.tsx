@@ -8,9 +8,9 @@ import { PDFData } from "../components/PDFData";
 import ScoreTotals from "../components/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
-import { Button, PageContent } from "../styledComponents/style";
-import { Color } from "../styledComponents/colors";
+import { PageContent } from "../styledComponents/style";
 import { IComments } from "../defaults";
+import ConfirmModal from "../components/ConfirmModal";
 
 type FormHomeProps = {
   formInfo: IFormInfo;
@@ -52,20 +52,7 @@ const FormHome = (props: FormHomeProps) => {
           comments={props.comments}
         />
 
-        <Button
-          onClick={() => props.resetAll()}
-          color={Color.contextual.danger}
-          textColor={Color.lights.light}
-          style={{
-            fontWeight: 600,
-            borderRadius: "0.25em",
-            width: "13em",
-            height: "4em",
-            border: `3px solid ${Color.accents.brick}`,
-          }}
-        >
-          Reset Form Information
-        </Button>
+        <ConfirmModal handleConfirm={props.resetAll} />
       </Card>
     </PageContent>
   );

@@ -4,7 +4,7 @@ import { IComments } from "../defaults";
 import TextInput from "../components/TextInput";
 import { Button, PageContent } from "../styledComponents/style";
 import Card from "../components/Card";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 import FeedbackCard from "../components/FeedbackCard";
 
 type feedbackPageProps = {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "./colors";
+import Color from "./colors";
 
 export const PageContent = styled.section`
   background-color: ${Color.lights.light};

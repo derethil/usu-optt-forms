@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
-import { Color } from "../../styledComponents/colors";
+import Color from "../../styledComponents/colors";
 
 const ButtonsWrapper = styled.div`
   display: flex;

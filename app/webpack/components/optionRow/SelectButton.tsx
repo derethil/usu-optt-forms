@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Button } from "../../styledComponents/style";
-import { Color } from "../../styledComponents/colors";
+import Color from "../../styledComponents/colors";
 
 const SelectButtonEl = styled(Button)`
   padding: 1em;

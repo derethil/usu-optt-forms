@@ -18,7 +18,7 @@ import {
   DataRow,
 } from "../styledComponents/style";
 import Card from "../components/Card";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 interface DataProps {
   timer: ITimer;

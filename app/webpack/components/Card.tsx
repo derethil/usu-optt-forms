@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Title } from "../styledComponents/style";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 const CardContainer = styled.div`
   margin: 1em auto;

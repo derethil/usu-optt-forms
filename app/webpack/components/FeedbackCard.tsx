@@ -4,7 +4,7 @@ import Card from "./Card";
 import TextInput from "./TextInput";
 import { Button } from "../styledComponents/style";
 import { IComments } from "../defaults";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 type Feedback = "strengths" | "suggestions" | "nextFocus";
 

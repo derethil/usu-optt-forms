@@ -1,6 +1,6 @@
 import jsPDF, { jsPDFOptions } from "jspdf";
 import autoTable, { UserOptions, Styles } from "jspdf-autotable";
-import { Color } from "./styledComponents/colors";
+import Color from "./styledComponents/colors";
 
 type startYType = number | "RELATIVE";
 

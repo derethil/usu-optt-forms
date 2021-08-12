@@ -5,7 +5,7 @@ import { formatTime } from "../utils/timerUtils";
 import { ITimer } from "../types";
 
 import { Button } from "../styledComponents/style";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 const TimerDisplay = styled.h2`
   display: flex;

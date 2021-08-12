@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "./colors";
+import Color from "./colors";
 
 export const Label = styled.label`
   position: absolute;

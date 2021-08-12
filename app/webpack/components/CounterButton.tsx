@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 import { Button } from "../styledComponents/style";
 

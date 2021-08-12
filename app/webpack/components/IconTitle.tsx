@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
 import { CenteredIconContainer } from "../styledComponents/style";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 const Title = styled.p`
   margin-right: 0.5em;

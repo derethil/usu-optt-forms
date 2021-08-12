@@ -5,7 +5,7 @@ import IconTitle from "../components/IconTitle";
 import { ScoresState, Section } from "../types";
 import { PageContent } from "../styledComponents/style";
 import Card from "../components/Card";
-import { Color } from "../styledComponents/colors";
+import Color from "../styledComponents/colors";
 
 type RubricSTOProps = {
   scores: ScoresState;
