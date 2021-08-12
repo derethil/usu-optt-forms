@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import Card from "./Card";
 import TextInput from "./TextInput";
@@ -16,6 +17,23 @@ type FeedbackCardProps = {
   updateComments: (updatedComments: { [key: string]: string[] }) => void;
 };
 
+const FeedbackInputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const DeleteIcon = styled.i`
+  padding-left: 1em;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  color: ${Color.contextual.danger};
+
+  :hover {
+    transform: translateY(-2px);
+    font-size: 1.2rem;
+  }
+`;
+
 const FeedbackCard = (props: FeedbackCardProps) => {
   const addNewComment = (feedbackArea: Feedback) => {
     props.updateComments({
@@ -32,20 +50,39 @@ const FeedbackCard = (props: FeedbackCardProps) => {
     props.updateComments({ [newValues.key]: oldComments });
   };
 
+  const deleteComment = (field: Feedback, index: number) => {
+    const feedbackArray = props.comments[field];
+    const newFeedbackArray = feedbackArray.filter((comment, currIndex) => {
+      return index !== currIndex;
+    });
+
+    props.updateComments({
+      [field]: newFeedbackArray,
+    });
+  };
+
   const generateInputs = (field: Feedback) => {
     const feedback = props.comments[field];
     return feedback.map((comment, index) => {
       return (
-        <TextInput
-          key={index}
-          value={feedback[index]}
-          updateFormInfo={(newValues: { [key: string]: string }) => {
-            updateComment(newValues, index, feedback);
-          }}
-          field={field}
-          noLabel
-          placeholder="Comment"
-        />
+        <FeedbackInputWrapper>
+          <TextInput
+            key={index}
+            value={comment}
+            updateFormInfo={(newValues: { [key: string]: string }) => {
+              updateComment(newValues, index, feedback);
+            }}
+            field={field}
+            noLabel
+            placeholder="Comment"
+          />
+          {index > 0 && (
+            <DeleteIcon
+              className="fas fa-window-close"
+              onClick={() => deleteComment(field, index)}
+            ></DeleteIcon>
+          )}
+        </FeedbackInputWrapper>
       );
     });
   };
@@ -57,7 +94,7 @@ const FeedbackCard = (props: FeedbackCardProps) => {
         onClick={() => addNewComment(props.feedbackType)}
         color={Color.blues.blue}
         textColor={Color.blues.blueLight}
-        style={{ borderRadius: "0.25em" }}
+        style={{ width: "50%", margin: "auto" }}
       >
         {props.buttonText}
       </Button>

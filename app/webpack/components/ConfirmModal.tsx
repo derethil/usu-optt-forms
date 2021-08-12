@@ -77,7 +77,6 @@ const ConfirmModal = (props: ConfirmModalProps) => {
         textColor={Color.lights.light}
         style={{
           border: `3px solid ${Color.accents.brick}`,
-          borderRadius: "0.25em",
           height: "98px",
           padding: 0,
         }}

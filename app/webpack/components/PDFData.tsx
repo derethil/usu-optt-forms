@@ -160,7 +160,6 @@ export const PDFData = (props: PDFGeneratorProps) => {
       style={{
         fontWeight: 600,
         marginBottom: "1em",
-        borderRadius: "0.25em",
         width: "45%",
         height: "104px",
         border: `3px solid ${Color.neutrals.grayDark}`,
