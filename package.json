@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "npx webpack serve --config webpack.dev.js",
+    "build": "npx webpack --config webpack.prod.js && rm app/static/js/main.js.LICENSE.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
