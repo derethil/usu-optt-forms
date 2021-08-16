@@ -21,6 +21,7 @@ import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 
 interface DataProps {
+  title: string;
   timer: ITimer;
   timerKey: string;
   data: Data;
@@ -47,9 +48,15 @@ const ObservDataWrapper = styled(DataWrapper)`
   width: 14em;
 `;
 
-const DataSTO = ({ timer, timerKey, data, setData }: DataProps) => {
+const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
   return (
     <PageContent>
+      <Card
+        title={title}
+        containerStyles={cardContainerStyles}
+        titleStyles={{ fontSize: "2rem" }}
+      ></Card>
+
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={timer} key={timerKey} />
       </Card>

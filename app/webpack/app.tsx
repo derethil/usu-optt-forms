@@ -119,6 +119,7 @@ export const FormSTO = () => {
               setData={setData1}
               timer={timer1}
               timerKey="timer1"
+              title="Data 1"
             />
           </Route>
 
@@ -128,6 +129,7 @@ export const FormSTO = () => {
               setData={setData2}
               timer={timer2}
               timerKey="timer2"
+              title="Data 2"
             />
           </Route>
 

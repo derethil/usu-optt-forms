@@ -11,8 +11,9 @@ const CardContainer = styled.div`
   border-radius: 0.5em;
 `;
 
-const CardTitle = styled(Title)`
-  border-radius: 0.25em 0.25em 0 0;
+const CardTitle = styled(Title)<{ hasContent: boolean }>`
+  border-radius: ${(props) =>
+    props.hasContent ? "0.25em 0.25em 0 0" : "0.25em"};
   background-color: ${Color.blues.blueDarker};
   color: ${Color.blues.blueLight};
   padding: 0.5em;
@@ -25,7 +26,7 @@ const CardContent = styled.div`
 
 type CardProps = {
   title: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   containerStyles?: React.CSSProperties;
   contentStyles?: React.CSSProperties;
   titleStyles?: React.CSSProperties;
@@ -34,8 +35,12 @@ type CardProps = {
 const Card = (props: CardProps) => {
   return (
     <CardContainer style={props.containerStyles}>
-      <CardTitle style={props.titleStyles}>{props.title}</CardTitle>
-      <CardContent style={props.contentStyles}>{props.children}</CardContent>
+      <CardTitle hasContent={Boolean(props.children)} style={props.titleStyles}>
+        {props.title}
+      </CardTitle>
+      {props.children && (
+        <CardContent style={props.contentStyles}>{props.children}</CardContent>
+      )}
     </CardContainer>
   );
 };
