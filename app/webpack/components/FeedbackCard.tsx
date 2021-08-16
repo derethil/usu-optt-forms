@@ -27,10 +27,11 @@ const DeleteIcon = styled.i`
   transition: 0.2s all ease;
   cursor: pointer;
   color: ${Color.contextual.danger};
+  font-size: 1.8rem;
 
   :hover {
     transform: translateY(-2px);
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
 `;
 
