@@ -32,8 +32,3 @@ export const getPraiseRatio = (data: typeof defaultData): string => {
 
   return `${isNaN(num1) ? 0 : num1} : ${isNaN(num2) ? 0 : num2}`;
 };
-
-export const getPercent = (subtotal: number, total: number): string => {
-  const percent = (subtotal / total) * 100;
-  return `${!isNaN(percent) ? percent.toFixed(0) : 0}%`;
-};

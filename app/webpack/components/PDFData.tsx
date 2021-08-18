@@ -8,12 +8,9 @@ import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../assets/usuLogoB64";
 import _rubricData from "../../rubrics/studentTeaching.json";
 import PDFGenerator from "../PDFGenerator";
-import {
-  generateObsBody,
-  generateScoreData,
-  getLetterGrade,
-} from "../utils/pdfUtils";
-import { getPercent } from "../utils/dataUtils";
+import { generateObsBody, getLetterGrade } from "../utils/pdfUtils";
+import { getPercent } from "../utils/utils";
+import { generateScoreData } from "../utils/scoreUtils";
 
 type PDFGeneratorProps = {
   scores: ScoresState;
@@ -72,6 +69,8 @@ export const PDFData = (props: PDFGeneratorProps) => {
       head: ["Performance Summary", "Score"],
       body: summary,
     });
+
+    console.log(summary);
 
     // Observations
 

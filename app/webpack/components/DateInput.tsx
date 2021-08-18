@@ -7,13 +7,14 @@ import { IFormInfo } from "../types";
 type DateInputProps = {
   date: Date;
   field: string;
+  label: string;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
 };
 
 const DateInput = (props: DateInputProps) => {
   return (
     <InputContainer>
-      <Label htmlFor="next-observation-date">Next Observation Date</Label>
+      <Label htmlFor={props.field}>{props.label}</Label>
 
       <DatePicker
         selected={new Date(props.date)}

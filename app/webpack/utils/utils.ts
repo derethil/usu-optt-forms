@@ -18,3 +18,8 @@ export const hexToRGBA = (h: string, opacity: number) => {
 
   return "rgb(" + +r + "," + +g + "," + +b + "," + opacity + ")";
 };
+
+export const getPercent = (subtotal: number, total: number): string => {
+  const percent = (subtotal / total) * 100;
+  return `${!isNaN(percent) ? percent.toFixed(0) : 0}%`;
+};

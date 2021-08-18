@@ -1,5 +1,9 @@
 import { ScoresState, Section } from "../types";
 
+import _rubricData from "../../rubrics/studentTeaching.json";
+
+const rubricData = _rubricData as Section[];
+
 export const getSubtotal = (section: string, scores: ScoresState): number => {
   const sectionScores = scores[section];
   return Object.values(sectionScores).reduce((total, value) => {
@@ -39,4 +43,25 @@ export const getMaxSubtotal = (
       ?.options[0].score!; // Get max score
     return total - (typeof maxAreaScore === "number" ? maxAreaScore : 0);
   }, maxBefore);
+};
+
+export const generateScoreData = (scores: ScoresState) => {
+  let correct = 0;
+  let possible = 0;
+
+  const summary = rubricData.map((section) => {
+    const subtotal = getSubtotal(section.sectionTitle, scores);
+    correct += subtotal;
+
+    const currPossible = getMaxSubtotal(
+      section.sectionTitle,
+      scores,
+      rubricData
+    );
+    possible += currPossible;
+
+    return [section.sectionTitle, `${subtotal} / ${currPossible}`];
+  });
+
+  return { correct, possible, summary };
 };

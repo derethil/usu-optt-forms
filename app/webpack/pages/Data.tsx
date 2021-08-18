@@ -4,19 +4,9 @@ import styled from "styled-components";
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
 import { Data, ITimer } from "../types";
-import {
-  getPraiseRatio,
-  getPercent,
-  getPraiseSum,
-  getCorrectionsSum,
-  getOTRRate,
-} from "../utils/dataUtils";
-import {
-  PageContent,
-  DataWrapper,
-  DataCell,
-  DataRow,
-} from "../styledComponents/style";
+import * as dataUtils from "../utils/dataUtils";
+import { getPercent } from "../utils/utils";
+import * as Styles from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 
@@ -44,13 +34,13 @@ const ButtonsWrapper = styled.div`
   padding: 1em 0em;
 `;
 
-const ObservDataWrapper = styled(DataWrapper)`
+const ObservDataWrapper = styled(Styles.DataWrapper)`
   width: 14em;
 `;
 
 const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
   return (
-    <PageContent>
+    <Styles.PageContent>
       <Card
         title={title}
         containerStyles={cardContainerStyles}
@@ -87,25 +77,29 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
         </ButtonsWrapper>
 
         <ObservDataWrapper>
-          <DataRow>
-            <DataCell>Individual Cues</DataCell>
-            <DataCell>{data.cues.individual}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Individual Cues</Styles.DataCell>
+            <Styles.DataCell>{data.cues.individual}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Individual Cues:</DataCell>
-            <DataCell>{data.cues.individual}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Individual Cues:</Styles.DataCell>
+            <Styles.DataCell>{data.cues.individual}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Total Cues</DataCell>
-            <DataCell>{data.cues.individual + data.cues.group}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Total Cues</Styles.DataCell>
+            <Styles.DataCell>
+              {data.cues.individual + data.cues.group}
+            </Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>OTR Rate</DataCell>
-            <DataCell>{getOTRRate(data, timer)}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>OTR Rate</Styles.DataCell>
+            <Styles.DataCell>
+              {dataUtils.getOTRRate(data, timer)}
+            </Styles.DataCell>
+          </Styles.DataRow>
         </ObservDataWrapper>
       </Card>
 
@@ -153,40 +147,40 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
         </ButtonsWrapper>
 
         <ObservDataWrapper>
-          <DataRow>
-            <DataCell>General Praise</DataCell>
-            <DataCell>{data.praise.general}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>General Praise</Styles.DataCell>
+            <Styles.DataCell>{data.praise.general}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Academic Praise</DataCell>
-            <DataCell>{data.praise.academic}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Academic Praise</Styles.DataCell>
+            <Styles.DataCell>{data.praise.academic}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Behavioral Praise</DataCell>
-            <DataCell>{data.praise.reprimand}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Behavioral Praise</Styles.DataCell>
+            <Styles.DataCell>{data.praise.reprimand}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Redirect/Repremand</DataCell>
-            <DataCell>{data.praise.reprimand}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Redirect/Repremand</Styles.DataCell>
+            <Styles.DataCell>{data.praise.reprimand}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Prase Ratio</DataCell>
-            <DataCell>{getPraiseRatio(data)}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Prase Ratio</Styles.DataCell>
+            <Styles.DataCell>{dataUtils.getPraiseRatio(data)}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Percent Specific</DataCell>
-            <DataCell>
+          <Styles.DataRow>
+            <Styles.DataCell>Percent Specific</Styles.DataCell>
+            <Styles.DataCell>
               {getPercent(
                 data.praise.academic + data.praise.behavioral,
-                getPraiseSum(data)
+                dataUtils.getPraiseSum(data)
               )}
-            </DataCell>
-          </DataRow>
+            </Styles.DataCell>
+          </Styles.DataRow>
         </ObservDataWrapper>
       </Card>
 
@@ -229,32 +223,37 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
         </ButtonsWrapper>
 
         <ObservDataWrapper>
-          <DataRow>
-            <DataCell>Correct</DataCell>
-            <DataCell>{data.corrections.correct}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Correct</Styles.DataCell>
+            <Styles.DataCell>{data.corrections.correct}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Not Correct</DataCell>
-            <DataCell>{data.corrections.incorrect}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Not Correct</Styles.DataCell>
+            <Styles.DataCell>{data.corrections.incorrect}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>None</DataCell>
-            <DataCell>{data.corrections.none}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>None</Styles.DataCell>
+            <Styles.DataCell>{data.corrections.none}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Total Corrections</DataCell>
-            <DataCell>{getCorrectionsSum(data)}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Total Corrections</Styles.DataCell>
+            <Styles.DataCell>
+              {dataUtils.getCorrectionsSum(data)}
+            </Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Percent</DataCell>
-            <DataCell>
-              {getPercent(data.corrections.correct, getCorrectionsSum(data))}
-            </DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Percent</Styles.DataCell>
+            <Styles.DataCell>
+              {getPercent(
+                data.corrections.correct,
+                dataUtils.getCorrectionsSum(data)
+              )}
+            </Styles.DataCell>
+          </Styles.DataRow>
         </ObservDataWrapper>
       </Card>
 
@@ -286,32 +285,32 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
         </ButtonsWrapper>
 
         <ObservDataWrapper>
-          <DataRow>
-            <DataCell>Engaged</DataCell>
-            <DataCell>{data.engagement.engaged}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Engaged</Styles.DataCell>
+            <Styles.DataCell>{data.engagement.engaged}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Not Engaged</DataCell>
-            <DataCell>{data.engagement.notEngaged}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Not Engaged</Styles.DataCell>
+            <Styles.DataCell>{data.engagement.notEngaged}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Total</DataCell>
-            <DataCell>
+          <Styles.DataRow>
+            <Styles.DataCell>Total</Styles.DataCell>
+            <Styles.DataCell>
               {data.engagement.engaged + data.engagement.notEngaged}
-            </DataCell>
-          </DataRow>
+            </Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Percent</DataCell>
-            <DataCell>
+          <Styles.DataRow>
+            <Styles.DataCell>Percent</Styles.DataCell>
+            <Styles.DataCell>
               {getPercent(
                 data.engagement.engaged,
                 data.engagement.engaged + data.engagement.notEngaged
               )}
-            </DataCell>
-          </DataRow>
+            </Styles.DataCell>
+          </Styles.DataRow>
         </ObservDataWrapper>
       </Card>
 
@@ -341,18 +340,18 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
         </ButtonsWrapper>
 
         <ObservDataWrapper>
-          <DataRow>
-            <DataCell>Number of Transitions</DataCell>
-            <DataCell>{data.misc.transitionCount}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Number of Transitions</Styles.DataCell>
+            <Styles.DataCell>{data.misc.transitionCount}</Styles.DataCell>
+          </Styles.DataRow>
 
-          <DataRow>
-            <DataCell>Occurance of Scanning</DataCell>
-            <DataCell>{data.misc.scanningCount}</DataCell>
-          </DataRow>
+          <Styles.DataRow>
+            <Styles.DataCell>Occurance of Scanning</Styles.DataCell>
+            <Styles.DataCell>{data.misc.scanningCount}</Styles.DataCell>
+          </Styles.DataRow>
         </ObservDataWrapper>
       </Card>
-    </PageContent>
+    </Styles.PageContent>
   );
 };
 

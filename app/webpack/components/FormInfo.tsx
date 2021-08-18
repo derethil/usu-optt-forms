@@ -35,11 +35,13 @@ const FormInfo = (props: FormInfoProps) => {
 
       <DateInput
         field="date"
+        label="Observation Date"
         date={props.formInfo.date}
         updateFormInfo={props.updateFormInfo}
       />
 
       <DateInput
+        label="Next Observation Date"
         field="nextDate"
         date={props.formInfo.nextDate}
         updateFormInfo={props.updateFormInfo}

@@ -3,6 +3,7 @@ import { ITimer, ScoresState } from "../types";
 
 import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
+import * as utils from "./utils";
 import * as scoreUtils from "./scoreUtils";
 import _rubricData from "../../rubrics/studentTeaching.json";
 import { Section } from "../types";
@@ -19,21 +20,21 @@ export const generateObsBody = (
     ["Praise Ratio", data.getPraiseRatio(observData)],
     [
       "Percent Specific",
-      data.getPercent(
+      utils.getPercent(
         observData.praise.academic + observData.praise.behavioral,
         data.getPraiseSum(observData)
       ),
     ],
     [
       "Percent Correct",
-      data.getPercent(
+      utils.getPercent(
         observData.corrections.correct,
         data.getCorrectionsSum(observData)
       ),
     ],
     [
       "Percent Engaged",
-      data.getPercent(
+      utils.getPercent(
         observData.engagement.engaged,
         observData.engagement.engaged + observData.engagement.notEngaged
       ),
@@ -41,27 +42,6 @@ export const generateObsBody = (
     ["Transition Count", observData.misc.transitionCount],
     ["Scanning Count", observData.misc.scanningCount],
   ];
-};
-
-export const generateScoreData = (scores: ScoresState) => {
-  let correct = 0;
-  let possible = 0;
-
-  const summary = rubricData.map((section) => {
-    const subtotal = scoreUtils.getSubtotal(section.sectionTitle, scores);
-    correct += subtotal;
-
-    const currPossible = scoreUtils.getMaxSubtotal(
-      section.sectionTitle,
-      scores,
-      rubricData
-    );
-    possible += currPossible;
-
-    return [section.sectionTitle, `${subtotal} / ${currPossible}`];
-  });
-
-  return { correct, possible, summary };
 };
 
 export const getLetterGrade = (percent: number): string => {

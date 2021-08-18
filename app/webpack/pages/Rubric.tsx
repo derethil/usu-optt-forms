@@ -1,9 +1,11 @@
 import React, { CSSProperties } from "react";
+import styled from "styled-components";
 
 import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
 import { ScoresState, Section } from "../types";
 import { PageContent } from "../styledComponents/style";
+import ScoreTotals from "../components/ScoreTotals";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 
@@ -12,6 +14,10 @@ type RubricSTOProps = {
   rubricData: Section[];
   updateScore: (section: string, row: string, newSelection: string) => void;
 };
+
+const RubricTitleContent = styled.h1`
+  font-size: 1.33rem;
+`;
 
 const buttonStyles: CSSProperties = {
   width: "10em",
@@ -43,7 +49,7 @@ const RubricSTO = (props: RubricSTOProps) => {
         />
       );
     } else {
-      return <h1 style={{ fontSize: "1.33rem" }}>{section.sectionTitle}</h1>;
+      return <RubricTitleContent>{section.sectionTitle}</RubricTitleContent>;
     }
   };
 
@@ -86,7 +92,17 @@ const RubricSTO = (props: RubricSTOProps) => {
     return sectionDiv;
   });
 
-  return <PageContent className="rubric">{sections}</PageContent>;
+  return (
+    <PageContent className="rubric">
+      {sections}
+      <Card
+        title={<RubricTitleContent>Scores</RubricTitleContent>}
+        titleStyles={cardTitleStyles}
+      >
+        <ScoreTotals scores={props.scores} displaySections={false} />
+      </Card>
+    </PageContent>
+  );
 };
 
 export default RubricSTO;
