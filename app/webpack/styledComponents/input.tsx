@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Color from "./colors";
 
 export const Label = styled.label`
@@ -17,7 +17,7 @@ export const InputContainer = styled.div`
   width: 100%;
 `;
 
-export const Input = styled.input`
+const InputStyles = css`
   font-family: inherit;
   width: 100%;
   border: 0;
@@ -62,5 +62,23 @@ export const Input = styled.input`
   &:required,
   &:invalid {
     box-shadow: none;
+  }
+`;
+
+export const Input = styled.input`
+  ${InputStyles};
+`;
+
+export const InputTA = styled.textarea`
+  ${InputStyles};
+  border: 3px solid ${Color.neutrals.gray};
+  padding: 7px;
+  width: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+  min-width: calc(100% - 20px);
+  min-height: 5em;
+
+  &:focus {
+    padding-bottom: 7px;
   }
 `;

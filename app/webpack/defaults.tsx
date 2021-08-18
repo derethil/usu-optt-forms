@@ -24,19 +24,13 @@ export const defaultData = {
   },
 };
 
-export interface IComments {
-  strengths: string[];
-  suggestions: string[];
-  nextFocus: string[];
-}
-
-export const defaultComments = (): IComments => {
-  return {
-    strengths: [""],
-    suggestions: [""],
-    nextFocus: [""],
-  };
+export const defaultComments = {
+  strengths: "",
+  suggestions: "",
+  nextFocus: "",
 };
+
+export type IComments = typeof defaultComments;
 
 export const defaultFormInfo = {
   studentTeacher: "",

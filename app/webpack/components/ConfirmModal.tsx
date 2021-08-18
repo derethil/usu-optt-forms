@@ -72,7 +72,7 @@ const ConfirmModal = (props: ConfirmModalProps) => {
       }}
     >
       <Button
-        onClick={() => setIsOpen(true)}
+        onClick={(e) => setIsOpen(true)}
         color={Color.contextual.danger}
         textColor={Color.lights.light}
         style={{

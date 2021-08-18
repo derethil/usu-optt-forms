@@ -70,8 +70,6 @@ export const PDFData = (props: PDFGeneratorProps) => {
       body: summary,
     });
 
-    console.log(summary);
-
     // Observations
 
     generator.dualNestedTables({
@@ -133,13 +131,15 @@ export const PDFData = (props: PDFGeneratorProps) => {
       ["Next Focus", props.comments.nextFocus],
     ];
 
-    feedback.forEach(([title, comments], index) => {
+    console.log(feedback);
+
+    feedback.forEach(([title, comment], index) => {
       const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
       generator.table({
         startY: index === 0 ? startY : "RELATIVE",
         head: [title as string],
         headStyles: { fillColor: Color.blues.blue },
-        body: (comments as string[]).map((comment) => [comment]),
+        body: [[comment]],
       });
     });
 
