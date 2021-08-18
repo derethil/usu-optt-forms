@@ -5,7 +5,7 @@ import { ScoresState, ITimer, IFormInfo, Section } from "../types";
 import { defaultData, IComments } from "../defaults";
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
-import usuLogoB64 from "../../assets/usuLogoB64";
+import usuLogoB64 from "../../static/img/usuLogoB64";
 import _rubricData from "../../rubrics/studentTeaching.json";
 import PDFGenerator from "../PDFGenerator";
 import { generateObsBody, getLetterGrade } from "../utils/pdfUtils";

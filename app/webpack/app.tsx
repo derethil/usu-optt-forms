@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import _rubricData from "../rubrics/studentTeaching.json";
+import logo from "../static/img/horizontal_logo.png";
 
 import FormHome from "./pages/FormHome";
 import Data from "./pages/Data";
@@ -85,6 +86,7 @@ export const FormSTO = () => {
     <PageContainer>
       <BrowserRouter>
         <PageHeader>
+          <img alt="logo" width={300} src={logo} />
           <Title>Student Teaching Observation Form</Title>
         </PageHeader>
 

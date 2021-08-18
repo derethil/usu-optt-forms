@@ -5,10 +5,11 @@ export const PageContent = styled.section`
   background-color: ${Color.lights.light};
 `;
 
-export const PageHeader = styled.section`
+export const PageHeader = styled.header`
   display: flex;
   align-items: center;
-  padding-left: 0.8em;
+  justify-content: space-between;
+  padding: 0em 1.6em;
 
   height: 5em;
   background-color: ${Color.blues.primary};
@@ -20,7 +21,6 @@ export const PageHeader = styled.section`
 
 export const Title = styled.div`
   margin: 0;
-  padding-left: 1.5em;
   font-weight: 600;
   font-size: 1.8rem;
 `;

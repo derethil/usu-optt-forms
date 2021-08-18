@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './app/webpack/index.ts',
+  entry: "./app/webpack/index.ts",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'app/static/js'),
-    publicPath: "/static/"
+    filename: "main.js",
+    path: path.resolve(__dirname, "app/static/js"),
+    publicPath: "/static/",
   },
   module: {
     rules: [
@@ -17,22 +17,26 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          // [style-loader](/loaders/style-loader)
-          { loader: 'style-loader' },
-          // [css-loader](/loaders/css-loader)
+          { loader: "style-loader" },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              modules: true
-            }
+              modules: true,
+            },
           },
-          // [sass-loader](/loaders/sass-loader)
-          // { loader: 'sass-loader' }
-        ]
+        ],
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          publicPath: "/static/img/",
+        },
       },
     ],
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],
-  }
-}
+  },
+};

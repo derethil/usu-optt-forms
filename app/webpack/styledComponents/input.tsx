@@ -71,14 +71,16 @@ export const Input = styled.input`
 
 export const InputTA = styled.textarea`
   ${InputStyles};
-  border: 3px solid ${Color.neutrals.gray};
+  border: 2px solid ${Color.neutrals.gray};
   padding: 7px;
-  width: calc(100% - 19px);
-  max-width: calc(100% - 19px);
-  min-width: calc(100% - 19px);
+  margin-bottom: 2px;
+  width: calc(100% - 18px);
+  max-width: calc(100% - 18px);
+  min-width: calc(100% - 18px);
   min-height: 5em;
 
   &:focus {
     padding-bottom: 7px;
+    margin-bottom: 0px;
   }
 `;
