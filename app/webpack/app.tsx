@@ -68,7 +68,7 @@ export const FormSTO = () => {
 
   const [comments, updateComments, resetComments] = useObjLocalStorage(
     "comments",
-    defaultComments()
+    defaultComments
   );
 
   const resetAll = (): void => {

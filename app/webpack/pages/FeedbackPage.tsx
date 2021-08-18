@@ -9,7 +9,7 @@ import FeedbackCard from "../components/FeedbackCard";
 
 type feedbackPageProps = {
   comments: IComments;
-  updateComments: (updatedComments: { [key: string]: string[] }) => void;
+  updateComments: (updatedComments: { [key: string]: string }) => void;
 };
 
 const FeedbackPage = (props: feedbackPageProps) => {
@@ -17,25 +17,22 @@ const FeedbackPage = (props: feedbackPageProps) => {
     <PageContent className="feedback">
       <FeedbackCard
         title="Strengths"
-        buttonText="Add New Strength"
         feedbackType="strengths"
-        comments={props.comments}
+        comment={props.comments.strengths}
         updateComments={props.updateComments}
       />
 
       <FeedbackCard
         title="Suggestions"
-        buttonText="Add New Suggestion"
         feedbackType="suggestions"
-        comments={props.comments}
+        comment={props.comments.suggestions}
         updateComments={props.updateComments}
       />
 
       <FeedbackCard
         title="Next Focus"
-        buttonText="Add New Next Focus"
         feedbackType="nextFocus"
-        comments={props.comments}
+        comment={props.comments.nextFocus}
         updateComments={props.updateComments}
       />
     </PageContent>
