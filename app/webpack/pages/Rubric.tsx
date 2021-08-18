@@ -23,6 +23,7 @@ const buttonStyles: CSSProperties = {
   width: "10em",
   textAlign: "center",
   flexGrow: 1,
+  fontSize: "1.05rem",
 };
 
 const cardTitleStyles: CSSProperties = {
@@ -81,7 +82,7 @@ const RubricSTO = (props: RubricSTOProps) => {
       <Card
         key={idx}
         title={sectionTitle(section)}
-        containerStyles={{ width: "75em" }}
+        containerStyles={{ width: "65em" }}
         titleStyles={cardTitleStyles}
         contentStyles={contentStyles}
       >

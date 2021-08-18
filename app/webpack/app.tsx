@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import _rubricData from "../rubrics/studentTeaching.json";
 
 import FormHome from "./pages/FormHome";
-import DataSTO from "./pages/Data";
+import Data from "./pages/Data";
 import RubricSTO from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
@@ -74,9 +74,9 @@ export const FormSTO = () => {
   const resetAll = (): void => {
     resetScores();
     resetData1();
+    resetData2();
     timer1.handleReset();
     timer2.handleReset();
-    resetData2();
     resetFormInfo();
     resetComments();
   };
@@ -114,22 +114,24 @@ export const FormSTO = () => {
           </Route>
 
           <Route path="/data1">
-            <DataSTO
+            <Data
               data={data1}
               setData={setData1}
               timer={timer1}
               timerKey="timer1"
               title="Data 1"
+              resetCallback={resetData1}
             />
           </Route>
 
           <Route path="/data2">
-            <DataSTO
+            <Data
               data={data2}
               setData={setData2}
               timer={timer2}
               timerKey="timer2"
               title="Data 2"
+              resetCallback={resetData2}
             />
           </Route>
 

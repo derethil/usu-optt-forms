@@ -42,7 +42,12 @@ const TimerButton = styled(Button)`
   }
 `;
 
-const Timer = ({ timer }: { timer: ITimer }) => {
+type TimerProps = {
+  timer: ITimer;
+  resetCallback?: () => void;
+};
+
+const Timer = ({ timer, resetCallback }: TimerProps) => {
   const currentButton = () => {
     const getButton = (text: string, onClick: () => void) => {
       return (
@@ -68,6 +73,11 @@ const Timer = ({ timer }: { timer: ITimer }) => {
     }
   };
 
+  const handleResetClicked = () => {
+    timer.handleReset();
+    if (resetCallback) resetCallback();
+  };
+
   return (
     <TimerContent>
       <TimerDisplay>{formatTime(timer.time)}</TimerDisplay>
@@ -75,7 +85,7 @@ const Timer = ({ timer }: { timer: ITimer }) => {
       {currentButton()}
 
       <TimerButton
-        onClick={timer.handleReset}
+        onClick={handleResetClicked}
         color={Color.accents.brick}
         style={{ border: `3px solid ${Color.contextual.danger}` }}
       >

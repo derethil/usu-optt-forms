@@ -10,14 +10,6 @@ import * as Styles from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 
-interface DataProps {
-  title: string;
-  timer: ITimer;
-  timerKey: string;
-  data: Data;
-  setData: (updatedValues: Partial<Data>) => void;
-}
-
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
 
 const cardContentStyles: React.CSSProperties = {
@@ -38,7 +30,23 @@ const ObservDataWrapper = styled(Styles.DataWrapper)`
   width: 14em;
 `;
 
-const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
+interface DataProps {
+  title: string;
+  timer: ITimer;
+  timerKey: string;
+  data: Data;
+  setData: (updatedValues: Partial<Data>) => void;
+  resetCallback?: () => void;
+}
+
+const Data = ({
+  timer,
+  timerKey,
+  data,
+  setData,
+  title,
+  resetCallback,
+}: DataProps) => {
   return (
     <Styles.PageContent>
       <Card
@@ -48,7 +56,7 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={timer} key={timerKey} />
+        <Timer timer={timer} key={timerKey} resetCallback={resetCallback} />
       </Card>
 
       <Card
@@ -83,8 +91,8 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
           </Styles.DataRow>
 
           <Styles.DataRow>
-            <Styles.DataCell>Individual Cues:</Styles.DataCell>
-            <Styles.DataCell>{data.cues.individual}</Styles.DataCell>
+            <Styles.DataCell>Group Cues:</Styles.DataCell>
+            <Styles.DataCell>{data.cues.group}</Styles.DataCell>
           </Styles.DataRow>
 
           <Styles.DataRow>
@@ -159,7 +167,7 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
 
           <Styles.DataRow>
             <Styles.DataCell>Behavioral Praise</Styles.DataCell>
-            <Styles.DataCell>{data.praise.reprimand}</Styles.DataCell>
+            <Styles.DataCell>{data.praise.behavioral}</Styles.DataCell>
           </Styles.DataRow>
 
           <Styles.DataRow>
@@ -258,7 +266,7 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
       </Card>
 
       <Card
-        title="Momentary Sample Time / Child Engagement"
+        title="Momentary Time Sample / Child Engagement"
         containerStyles={cardContainerStyles}
         contentStyles={cardContentStyles}
       >
@@ -341,13 +349,13 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
 
         <ObservDataWrapper>
           <Styles.DataRow>
-            <Styles.DataCell>Number of Transitions</Styles.DataCell>
-            <Styles.DataCell>{data.misc.transitionCount}</Styles.DataCell>
+            <Styles.DataCell>Occurrence of Scanning</Styles.DataCell>
+            <Styles.DataCell>{data.misc.scanningCount}</Styles.DataCell>
           </Styles.DataRow>
 
           <Styles.DataRow>
-            <Styles.DataCell>Occurance of Scanning</Styles.DataCell>
-            <Styles.DataCell>{data.misc.scanningCount}</Styles.DataCell>
+            <Styles.DataCell>Number of Transitions</Styles.DataCell>
+            <Styles.DataCell>{data.misc.transitionCount}</Styles.DataCell>
           </Styles.DataRow>
         </ObservDataWrapper>
       </Card>
@@ -355,4 +363,4 @@ const DataSTO = ({ timer, timerKey, data, setData, title }: DataProps) => {
   );
 };
 
-export default DataSTO;
+export default Data;
