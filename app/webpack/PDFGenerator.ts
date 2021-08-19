@@ -1,5 +1,5 @@
 import jsPDF, { jsPDFOptions } from "jspdf";
-import autoTable, { UserOptions, Styles } from "jspdf-autotable";
+import autoTable, { UserOptions, Styles, RowInput } from "jspdf-autotable";
 import Color from "./styledComponents/colors";
 
 type startYType = number | "RELATIVE";
@@ -7,7 +7,7 @@ type startYType = number | "RELATIVE";
 interface TableI {
   startY?: startYType;
   head: string[];
-  body?: (string | number)[][];
+  body?: RowInput[];
   headStyles?: Partial<Styles>;
   columnStyles?: { [key: string]: Partial<Styles> };
 }

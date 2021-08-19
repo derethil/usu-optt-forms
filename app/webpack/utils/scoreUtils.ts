@@ -31,7 +31,7 @@ export const getMaxSubtotal = (
 
   // Find rows whose score is N/A
   const NARows = Object.keys(sectionScores).filter(
-    (key) => sectionScores[key] === "N/A"
+    (key) => sectionScores[key].score === "N/A"
   );
 
   // Return total with N/A max scores subtracted

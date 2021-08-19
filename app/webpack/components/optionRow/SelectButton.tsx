@@ -15,7 +15,7 @@ const SelectButtonEl = styled(Button)`
 
   font-size: 1.2rem;
 
-  flex-grow: 1;
+  flex-grow: 1 1 auto;
 
   margin-right: 1em;
 

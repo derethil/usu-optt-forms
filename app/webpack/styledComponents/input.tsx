@@ -80,6 +80,7 @@ export const InputTA = styled.textarea`
   min-height: 5em;
 
   &:focus {
+    border: 3px solid ${Color.blues.blueDark};
     padding-bottom: 7px;
     margin-bottom: 0px;
   }

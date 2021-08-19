@@ -13,7 +13,12 @@ import { generateScoreData } from "../utils/scoreUtils";
 type RubricSTOProps = {
   scores: ScoresState;
   rubricData: Section[];
-  updateScore: (section: string, row: string, newSelection: string) => void;
+  updateScore: (
+    section: string,
+    row: string,
+    newScore: string,
+    newComment: string
+  ) => void;
 };
 
 const RubricTitleContent = styled.h1`
@@ -41,6 +46,10 @@ const contentStyles: CSSProperties = {
   paddingTop: 0,
 };
 
+const cardContainerStyles: CSSProperties = {
+  width: "65vw",
+};
+
 const CardTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -51,6 +60,7 @@ const RubricSTO = (props: RubricSTOProps) => {
 
   const sectionTitle = (section: Section, index: number) => {
     const sectionScore = summary[index][1];
+
     if (section.tooltip) {
       return (
         <CardTitleContainer>
@@ -79,6 +89,8 @@ const RubricSTO = (props: RubricSTOProps) => {
         String(option.score)
       );
 
+      const { score, comment } = props.scores[section.sectionTitle][row.area];
+
       return (
         <OptionRow
           key={rowIdx}
@@ -86,12 +98,27 @@ const RubricSTO = (props: RubricSTOProps) => {
           scoreOptions={currScoreOptions}
           tooltip={row.tooltip}
           title={row.area}
-          currSelection={String(props.scores[section.sectionTitle][row.area])}
-          updateSelection={(newSelection) =>
-            props.updateScore(section.sectionTitle, row.area, newSelection)
-          }
+          currSelection={score}
+          updateSelection={(newSelection) => {
+            props.updateScore(
+              section.sectionTitle,
+              row.area,
+              newSelection,
+              comment
+            );
+          }}
           buttonStyles={buttonStyles}
           titleStyles={rowTitleStyles}
+          comment={comment}
+          updateComment={(updatedValues: { [key: string]: string }) => {
+            console.log(updatedValues);
+            props.updateScore(
+              section.sectionTitle,
+              row.area,
+              score,
+              Object.values(updatedValues)[0]
+            );
+          }}
         />
       );
     });
@@ -102,6 +129,7 @@ const RubricSTO = (props: RubricSTOProps) => {
         title={sectionTitle(section, idx)}
         titleStyles={cardTitleStyles}
         contentStyles={contentStyles}
+        containerStyles={cardContainerStyles}
       >
         {rows}
       </Card>
@@ -116,6 +144,7 @@ const RubricSTO = (props: RubricSTOProps) => {
       <Card
         title={<RubricTitleContent>Total Scores</RubricTitleContent>}
         titleStyles={cardTitleStyles}
+        containerStyles={cardContainerStyles}
       >
         <ScoreTotals scores={props.scores} displaySections={false} />
       </Card>
