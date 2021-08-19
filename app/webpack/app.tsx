@@ -24,9 +24,10 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
   rubricData.forEach((section) => {
     initialState[section.sectionTitle] = {};
     section.rows.forEach((row) => {
-      initialState[section.sectionTitle][row.area] = String(
-        row.options[row.options.length - 1].score
-      );
+      initialState[section.sectionTitle][row.area] = {
+        score: String(row.options[row.options.length - 1].score),
+        comment: "",
+      };
     });
   });
 
@@ -46,11 +47,19 @@ export const FormSTO = () => {
     getInitialState(rubricData)
   );
 
-  const updateScore = (section: string, row: string, updatedScore: string) => {
+  const updateScore = (
+    section: string,
+    row: string,
+    newScore: string,
+    newComment: string
+  ) => {
     updateScores({
       [section]: {
         ...scores[section],
-        [row]: updatedScore,
+        [row]: {
+          score: newScore,
+          comment: newComment,
+        },
       },
     });
   };

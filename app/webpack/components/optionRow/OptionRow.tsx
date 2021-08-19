@@ -5,10 +5,17 @@ import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
 import Color from "../../styledComponents/colors";
 
+import TextInput from "../TextInput";
+
 const ButtonsWrapper = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: stretch;
+`;
+
+const OptionRowInput = styled(TextInput)`
+  padding-top: 0px;
+  height: 100%;
 `;
 
 interface OptionRowProps {
@@ -23,8 +30,13 @@ interface OptionRowProps {
   titleStyles?: React.CSSProperties;
 }
 
-const OptionRow = (props: OptionRowProps) => {
-  const selectButtons = props.contentOptions.map((content, idx) => {
+interface OptionRowCommentProps extends OptionRowProps {
+  comment: string;
+  updateComment: (updatedValues: { [key: string]: string }) => void;
+}
+
+const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
+  const rowContents = props.contentOptions.map((content, idx) => {
     const score = props.scoreOptions ? props.scoreOptions[idx] : "";
     const compareTo = props.scoreOptions ? score : content;
 
@@ -41,13 +53,29 @@ const OptionRow = (props: OptionRowProps) => {
   });
 
   if (props.scoreOptions) {
-    selectButtons.push(
+    rowContents.push(
       <SelectButton
         content={"N/A"}
         key={props.contentOptions.length}
         updateSelection={props.updateSelection}
         selected={"N/A" === props.currSelection}
         styles={props.buttonStyles}
+      />
+    );
+  }
+
+  if ("comment" in props) {
+    rowContents.push(
+      <OptionRowInput
+        key={props.contentOptions.length + 1}
+        value={props.comment}
+        updateFormInfo={props.updateComment}
+        field={`${props.title}-comment`}
+        placeholder={"Comment"}
+        noLabel
+        textArea
+        inputClassNames={["option-row__textarea"]}
+        containerClassNames={["option-row__container"]}
       />
     );
   }
@@ -70,9 +98,7 @@ const OptionRow = (props: OptionRowProps) => {
     <div>
       {renderTitle(props.tooltip)}
 
-      <ButtonsWrapper style={props.wrapperStyles}>
-        {selectButtons}
-      </ButtonsWrapper>
+      <ButtonsWrapper style={props.wrapperStyles}>{rowContents}</ButtonsWrapper>
     </div>
   );
 };

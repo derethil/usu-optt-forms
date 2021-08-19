@@ -100,7 +100,9 @@ export const PDFData = (props: PDFGeneratorProps) => {
       ],
     });
 
-    // Invdividual Scores
+    // // Invdividual Scores
+
+    const rubricData = _rubricData as Section[];
 
     generator.pdf.addPage();
 
@@ -109,15 +111,37 @@ export const PDFData = (props: PDFGeneratorProps) => {
       head: ["Scores"],
     });
 
-    Object.entries(props.scores).forEach(([sectionTitle, scoresObj], index) => {
-      const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
-      generator.table({
-        startY: index === 0 ? startY : "RELATIVE",
-        headStyles: { fillColor: Color.blues.blue },
-        head: [sectionTitle, "Score"],
-        body: Object.entries(scoresObj),
-      });
-    });
+    Object.entries(props.scores).forEach(
+      ([sectionTitle, scoresObj], sectionIdx) => {
+        const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
+
+        generator.table({
+          startY: sectionIdx === 0 ? startY : "RELATIVE",
+          headStyles: { fillColor: Color.blues.blue },
+          columnStyles: {
+            0: { cellWidth: 115, valign: "middle" },
+            1: { cellWidth: "auto", halign: "center", valign: "middle" },
+            2: {
+              cellWidth: 50,
+              halign: "center",
+              cellPadding: { horizontal: 5, vertical: 2 },
+            },
+          },
+          head: [sectionTitle, "  Score", "             Comments"],
+          body: Object.entries(scoresObj).map(([rowTitle, rowInfo], rowIdx) => {
+            const maxScore =
+              rubricData[sectionIdx].rows[rowIdx].options[0].score;
+
+            const score =
+              typeof maxScore === "number"
+                ? `${rowInfo.score} / ${maxScore}`
+                : rowInfo.score;
+
+            return [rowTitle, score, rowInfo.comment];
+          }),
+        });
+      }
+    );
 
     // Feedback
 
@@ -130,8 +154,6 @@ export const PDFData = (props: PDFGeneratorProps) => {
       ["Suggestions", props.comments.suggestions],
       ["Next Focus", props.comments.nextFocus],
     ];
-
-    console.log(feedback);
 
     feedback.forEach(([title, comment], index) => {
       const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
@@ -151,6 +173,7 @@ export const PDFData = (props: PDFGeneratorProps) => {
         .slice(0, 10)}.pdf`
     );
   };
+
   return (
     <Button
       onClick={() => generatePDF()}

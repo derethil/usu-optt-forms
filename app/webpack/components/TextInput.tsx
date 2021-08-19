@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import {
   Label,
   InputContainer,
@@ -13,6 +13,8 @@ type TextInputProps = {
   noLabel?: boolean;
   placeholder?: string;
   textArea?: boolean;
+  inputClassNames?: string[];
+  containerClassNames?: string[];
 };
 
 const TextInput = (props: TextInputProps) => {
@@ -25,10 +27,11 @@ const TextInput = (props: TextInputProps) => {
       props.updateFormInfo({ [props.field]: e.target.value }),
     id: props.field,
     placeholder: props.placeholder,
+    className: props.inputClassNames?.join(" "),
   };
 
   return (
-    <InputContainer>
+    <InputContainer className={props.containerClassNames?.join(" ")}>
       {!props.noLabel && <Label htmlFor={props.field}>{titleCased}</Label>}
       {props.textArea ? <InputTA {...inputProps} /> : <Input {...inputProps} />}
     </InputContainer>

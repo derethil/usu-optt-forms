@@ -25,7 +25,10 @@ export interface Section {
 
 export interface ScoresState {
   [key: string]: {
-    [key: string]: string;
+    [key: string]: {
+      score: string;
+      comment: string;
+    };
   };
 }
 
