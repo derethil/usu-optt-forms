@@ -111,7 +111,6 @@ const RubricSTO = (props: RubricSTOProps) => {
           titleStyles={rowTitleStyles}
           comment={comment}
           updateComment={(updatedValues: { [key: string]: string }) => {
-            console.log(updatedValues);
             props.updateScore(
               section.sectionTitle,
               row.area,

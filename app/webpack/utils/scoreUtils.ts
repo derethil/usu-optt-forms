@@ -6,9 +6,9 @@ const rubricData = _rubricData as Section[];
 
 export const getSubtotal = (section: string, scores: ScoresState): number => {
   const sectionScores = scores[section];
-  return Object.values(sectionScores).reduce((total, value) => {
-    if (isNaN(Number(value))) return total;
-    return total + Number(value);
+  return Object.values(sectionScores).reduce((total, { score, comment }) => {
+    if (isNaN(Number(score))) return total;
+    return total + Number(score);
   }, 0);
 };
 
