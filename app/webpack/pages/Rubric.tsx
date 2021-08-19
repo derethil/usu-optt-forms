@@ -8,6 +8,7 @@ import { PageContent } from "../styledComponents/style";
 import ScoreTotals from "../components/ScoreTotals";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
+import { generateScoreData } from "../utils/scoreUtils";
 
 type RubricSTOProps = {
   scores: ScoresState;
@@ -28,6 +29,7 @@ const buttonStyles: CSSProperties = {
 
 const cardTitleStyles: CSSProperties = {
   paddingLeft: "1em",
+  paddingRight: "1em",
 };
 
 const rowTitleStyles: CSSProperties = {
@@ -39,18 +41,34 @@ const contentStyles: CSSProperties = {
   paddingTop: 0,
 };
 
+const CardTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const RubricSTO = (props: RubricSTOProps) => {
-  const sectionTitle = (section: Section) => {
+  const { correct, possible, summary } = generateScoreData(props.scores);
+
+  const sectionTitle = (section: Section, index: number) => {
+    const sectionScore = summary[index][1];
     if (section.tooltip) {
       return (
-        <IconTitle
-          content={section.sectionTitle}
-          tooltipContent={section.tooltip}
-          titleStyles={{ fontSize: "1.33rem" }}
-        />
+        <CardTitleContainer>
+          <IconTitle
+            content={section.sectionTitle}
+            tooltipContent={section.tooltip}
+            titleStyles={{ fontSize: "1.33rem" }}
+          />
+          <p>{sectionScore}</p>
+        </CardTitleContainer>
       );
     } else {
-      return <RubricTitleContent>{section.sectionTitle}</RubricTitleContent>;
+      return (
+        <CardTitleContainer>
+          <RubricTitleContent>{section.sectionTitle}</RubricTitleContent>
+          <p>{sectionScore}</p>
+        </CardTitleContainer>
+      );
     }
   };
 
@@ -81,8 +99,7 @@ const RubricSTO = (props: RubricSTOProps) => {
     const sectionDiv = (
       <Card
         key={idx}
-        title={sectionTitle(section)}
-        containerStyles={{ width: "65em" }}
+        title={sectionTitle(section, idx)}
         titleStyles={cardTitleStyles}
         contentStyles={contentStyles}
       >
@@ -97,7 +114,7 @@ const RubricSTO = (props: RubricSTOProps) => {
     <PageContent className="rubric">
       {sections}
       <Card
-        title={<RubricTitleContent>Scores</RubricTitleContent>}
+        title={<RubricTitleContent>Total Scores</RubricTitleContent>}
         titleStyles={cardTitleStyles}
       >
         <ScoreTotals scores={props.scores} displaySections={false} />
