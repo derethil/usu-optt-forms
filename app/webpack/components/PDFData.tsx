@@ -8,7 +8,7 @@ import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../static/img/usuLogoB64";
 import _rubricData from "../../rubrics/studentTeaching.json";
 import PDFGenerator from "../PDFGenerator";
-import { generateObsBody, getLetterGrade } from "../utils/pdfUtils";
+import { generateObsBody, getLetterGrade, getScore } from "../utils/pdfUtils";
 import { getPercent } from "../utils/utils";
 import { generateScoreData } from "../utils/scoreUtils";
 
@@ -129,15 +129,8 @@ export const PDFData = (props: PDFGeneratorProps) => {
           },
           head: [sectionTitle, "  Score", "             Comments"],
           body: Object.entries(scoresObj).map(([rowTitle, rowInfo], rowIdx) => {
-            const maxScore =
-              rubricData[sectionIdx].rows[rowIdx].options[0].score;
-
-            const score =
-              typeof maxScore === "number"
-                ? `${rowInfo.score} / ${maxScore}`
-                : rowInfo.score;
-
-            return [rowTitle, score, rowInfo.comment];
+            const scoreDisplay = getScore(rowInfo, sectionIdx, rowIdx);
+            return [rowTitle, scoreDisplay, rowInfo.comment];
           }),
         });
       }

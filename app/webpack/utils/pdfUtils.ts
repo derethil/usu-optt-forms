@@ -59,3 +59,22 @@ export const getLetterGrade = (percent: number): string => {
     return "At-risk";
   }
 };
+
+type rowInfoType = { score: string; comment: string };
+
+export const getScore = (
+  rowInfo: rowInfoType,
+  sectionIdx: number,
+  rowIdx: number
+) => {
+  if (
+    rowInfo.score === "Yes" ||
+    rowInfo.score === "N/A" ||
+    Number(rowInfo.score) < 0
+  ) {
+    return rowInfo.score;
+  } else {
+    const maxScore = rubricData[sectionIdx].rows[rowIdx].options[0].score;
+    return `${rowInfo.score} / ${maxScore}`;
+  }
+};
