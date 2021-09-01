@@ -31,7 +31,7 @@ export const CenteredIconContainer = styled.div`
 `;
 
 export const Button = styled.div<{ color?: string; textColor?: string }>`
-  height: 100%;
+  height: 80%;
   background-color: ${(props) => props.color};
   color: ${(props) => props.textColor};
 
