@@ -82,12 +82,16 @@ const RubricSTO = (props: RubricSTOProps) => {
     }
   };
 
-  const sections = props.rubricData.map((section, idx) => {
+  const sections = props.rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
       const currContentOptions = row.options.map((option) => option.content);
       const currScoreOptions = row.options.map((option) =>
         String(option.score)
       );
+
+      console.log(props.scores[section.sectionTitle]);
+
+      console.log(section.sectionTitle);
 
       const { score, comment } = props.scores[section.sectionTitle][row.area];
 
@@ -124,8 +128,8 @@ const RubricSTO = (props: RubricSTOProps) => {
 
     const sectionDiv = (
       <Card
-        key={idx}
-        title={sectionTitle(section, idx)}
+        key={sectionIdx}
+        title={sectionTitle(section, sectionIdx)}
         titleStyles={cardTitleStyles}
         contentStyles={contentStyles}
         containerStyles={cardContainerStyles}

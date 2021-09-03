@@ -1,6 +1,6 @@
 import { ScoresState, Section } from "../types";
 
-import _rubricData from "../../rubrics/studentTeaching.json";
+import _rubricData from "../../rubrics/severePracticum.json";
 
 const rubricData = _rubricData as Section[];
 

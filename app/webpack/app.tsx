@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import _rubricData from "../rubrics/studentTeaching.json";
+import _rubricData from "../rubrics/severePracticum.json";
 import logo from "../static/img/horizontal_logo.png";
 
 import FormHome from "./pages/FormHome";
