@@ -245,7 +245,7 @@
   },
   {
     "sectionTitle": "Feedback and Management",
-    "options": [
+    "rows": [
       {
         "area": "Expectations",
         "options": [
@@ -315,7 +315,7 @@
         "area": "Effective Teaching Strategies",
         "options": [
           {
-            "content": "aware of environment, is proactive, appropriate unprogrammed interactions, \"thinks on feet\"",
+            "content": "Aware of environment, is proactive, appropriate unprogrammed interactions, \"thinks on feet\"",
             "score": 4
           },
           {
@@ -358,7 +358,7 @@
             "score": 3
           },
           {
-            "content": "one or more components present less then 50% of the time (see list)",
+            "content": "One or more components present less then 50% of the time (see list)",
             "score": 0
           }
         ]
