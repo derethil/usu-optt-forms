@@ -2,7 +2,6 @@ import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import _rubricData from "../rubrics/severePracticum.json";
 import logo from "../static/img/horizontal_logo.png";
 
 import FormHome from "./pages/FormHome";
@@ -15,6 +14,7 @@ import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section } from "./types";
+import { getRubric } from "./utils/formUtils";
 import { defaultData, defaultComments, defaultFormInfo } from "./defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 
@@ -35,7 +35,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 };
 
 export const FormSTO = () => {
-  const rubricData = _rubricData as Section[];
+  const rubricData = getRubric();
 
   const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage(
     "formInfo",

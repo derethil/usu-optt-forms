@@ -1,11 +1,3 @@
-export interface FormInfo {
-  studentTeacher: string;
-  cooperatingTeacher: string;
-  supervisor: string;
-  date: string;
-  observation: number;
-}
-
 export interface Section {
   sectionTitle: string;
   tooltip?: string;

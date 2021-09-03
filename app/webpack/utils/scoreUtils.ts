@@ -1,8 +1,8 @@
 import { ScoresState, Section } from "../types";
 
-import _rubricData from "../../rubrics/severePracticum.json";
+import { getRubric } from "./formUtils";
 
-const rubricData = _rubricData as Section[];
+const rubricData = getRubric();
 
 export const getSubtotal = (section: string, scores: ScoresState): number => {
   const sectionScores = scores[section];

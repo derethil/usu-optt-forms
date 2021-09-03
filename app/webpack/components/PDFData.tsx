@@ -6,7 +6,7 @@ import { defaultData, IComments } from "../defaults";
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../static/img/usuLogoB64";
-import _rubricData from "../../rubrics/studentTeaching.json";
+import { getRubric } from "../utils/formUtils";
 import PDFGenerator from "../PDFGenerator";
 import { generateObsBody, getLetterGrade, getScore } from "../utils/pdfUtils";
 import { getPercent } from "../utils/utils";
@@ -102,7 +102,7 @@ export const PDFData = (props: PDFGeneratorProps) => {
 
     // // Invdividual Scores
 
-    const rubricData = _rubricData as Section[];
+    const rubricData = getRubric();
 
     generator.pdf.addPage();
 

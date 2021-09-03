@@ -4,11 +4,10 @@ import { ITimer, ScoresState } from "../types";
 import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
 import * as utils from "./utils";
-import * as scoreUtils from "./scoreUtils";
-import _rubricData from "../../rubrics/studentTeaching.json";
+import { getRubric } from "./formUtils";
 import { Section } from "../types";
 
-const rubricData = _rubricData as Section[];
+const rubricData = getRubric();
 
 export const generateObsBody = (
   observData: typeof defaultData,

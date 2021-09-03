@@ -1,6 +1,5 @@
 import React from "react";
 
-import _rubricData from "../../rubrics/studentTeaching.json";
 import { generateScoreData } from "../utils/scoreUtils";
 import { getPercent } from "../utils/utils";
 import { ScoresState, Section } from "../types";
