@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
-import { Data, ITimer } from "../types";
+import { ITimer } from "../types";
+import { studentTeachingDataI } from "../defaultData";
 import * as dataUtils from "../utils/dataUtils";
 import { getPercent } from "../utils/utils";
 import * as Styles from "../styledComponents/style";
@@ -34,8 +35,8 @@ interface DataProps {
   title: string;
   timer: ITimer;
   timerKey: string;
-  data: Data;
-  setData: (updatedValues: Partial<Data>) => void;
+  data: studentTeachingDataI;
+  setData: (updatedValues: Partial<studentTeachingDataI>) => void;
   resetCallback?: () => void;
 }
 

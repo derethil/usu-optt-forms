@@ -24,32 +24,6 @@ export interface ScoresState {
   };
 }
 
-export interface Data {
-  cues: {
-    individual: number;
-    group: number;
-  };
-  praise: {
-    general: number;
-    academic: number;
-    behavioral: number;
-    reprimand: number;
-  };
-  corrections: {
-    correct: number;
-    incorrect: number;
-    none: number;
-  };
-  engagement: {
-    engaged: number;
-    notEngaged: number;
-  };
-  misc: {
-    scanningCount: number;
-    transitionCount: number;
-  };
-}
-
 export interface ITimer {
   time: number;
   isActive: boolean;

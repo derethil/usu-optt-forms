@@ -6,7 +6,7 @@ import logo from "../static/img/horizontal_logo.png";
 
 import FormHome from "./pages/FormHome";
 import Data from "./pages/Data";
-import RubricSTO from "./pages/Rubric";
+import Rubric from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
 import NotFound from "./pages/NotFound";
@@ -15,7 +15,8 @@ import useTimer from "./hooks/useTimer";
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section } from "./types";
 import { getRubric } from "./utils/formUtils";
-import { defaultData, defaultComments, defaultFormInfo } from "./defaults";
+import { defaultComments, defaultFormInfo } from "./defaults";
+import { defaultStudentTeachingData } from "./defaultData";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
@@ -66,11 +67,11 @@ export const FormSTO = () => {
 
   const [data1, setData1, resetData1] = useObjLocalStorage(
     "data1",
-    defaultData
+    defaultStudentTeachingData
   );
   const [data2, setData2, resetData2] = useObjLocalStorage(
     "data2",
-    defaultData
+    defaultStudentTeachingData
   );
 
   const timer1 = useTimer("timer1");
@@ -117,7 +118,7 @@ export const FormSTO = () => {
           </Route>
 
           <Route path="/rubric">
-            <RubricSTO
+            <Rubric
               scores={scores}
               rubricData={rubricData}
               updateScore={updateScore}

@@ -2,7 +2,7 @@ import React from "react";
 
 import { IFormInfo, ITimer, ScoresState } from "../types";
 
-import { defaultData } from "../defaults";
+import { studentTeachingDataI } from "../defaultData";
 
 import { PDFData } from "../components/PDFData";
 import ScoreTotals from "../components/ScoreTotals";
@@ -16,8 +16,8 @@ type FormHomeProps = {
   formInfo: IFormInfo;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
   scores: ScoresState;
-  data1: typeof defaultData;
-  data2: typeof defaultData;
+  data1: studentTeachingDataI;
+  data2: studentTeachingDataI;
   comments: IComments;
   timer1: ITimer;
   timer2: ITimer;

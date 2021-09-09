@@ -10,7 +10,7 @@ import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 import { generateScoreData } from "../utils/scoreUtils";
 
-type RubricSTOProps = {
+type RubricProps = {
   scores: ScoresState;
   rubricData: Section[];
   updateScore: (
@@ -55,7 +55,7 @@ const CardTitleContainer = styled.div`
   justify-content: space-between;
 `;
 
-const RubricSTO = (props: RubricSTOProps) => {
+const Rubric = (props: RubricProps) => {
   const { correct, possible, summary } = generateScoreData(props.scores);
 
   const sectionTitle = (section: Section, index: number) => {
@@ -88,10 +88,6 @@ const RubricSTO = (props: RubricSTOProps) => {
       const currScoreOptions = row.options.map((option) =>
         String(option.score)
       );
-
-      console.log(props.scores[section.sectionTitle]);
-
-      console.log(section.sectionTitle);
 
       const { score, comment } = props.scores[section.sectionTitle][row.area];
 
@@ -155,4 +151,4 @@ const RubricSTO = (props: RubricSTOProps) => {
   );
 };
 
-export default RubricSTO;
+export default Rubric;

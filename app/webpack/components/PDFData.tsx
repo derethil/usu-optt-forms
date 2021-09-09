@@ -2,7 +2,8 @@ import React from "react";
 
 import { ScoresState, ITimer, IFormInfo, Section } from "../types";
 
-import { defaultData, IComments } from "../defaults";
+import { IComments } from "../defaults";
+import { studentTeachingDataI } from "../defaultData";
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../static/img/usuLogoB64";
@@ -14,8 +15,8 @@ import { generateScoreData } from "../utils/scoreUtils";
 
 type PDFGeneratorProps = {
   scores: ScoresState;
-  data1: typeof defaultData;
-  data2: typeof defaultData;
+  data1: studentTeachingDataI;
+  data2: studentTeachingDataI;
   timer1: ITimer;
   timer2: ITimer;
   formInfo: IFormInfo;

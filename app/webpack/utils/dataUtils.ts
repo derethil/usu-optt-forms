@@ -1,5 +1,7 @@
 import { ITimer } from "../types";
-import { defaultData } from "../defaults";
+import { defaultStudentTeachingData } from "../defaultData";
+
+const defaultData = defaultStudentTeachingData;
 
 // DATA FUNCTIONS
 
