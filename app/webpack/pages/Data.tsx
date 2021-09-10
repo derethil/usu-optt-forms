@@ -12,26 +12,13 @@ import * as Styles from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 
-import { getDefaultData } from "../utils/formUtils";
-
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
-
-const cardContentStyles: React.CSSProperties = {
-  padding: "0em 1em",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-};
 
 const ButtonsWrapper = styled.div`
   height: 6em;
   margin-right: 3em;
   display: flex;
   padding: 1em 0em;
-`;
-
-const ObservDataWrapper = styled(Styles.DataWrapper)`
-  width: 14em;
 `;
 
 interface DataProps {
@@ -74,22 +61,24 @@ const Data = ({
           { display: "OTR Rate", score: dataUtils.getOTRRate(data, timer) },
         ]}
       >
-        <CounterButton
-          color={Color.accents.greenLight}
-          content="Individual"
-          value={data.cues.individual}
-          onClick={(newValue: number) =>
-            setData({ cues: { ...data.cues, individual: newValue } })
-          }
-        />
-        <CounterButton
-          color={Color.accents.greenLight}
-          content="Group"
-          value={data.cues.group}
-          onClick={(newValue: number) =>
-            setData({ cues: { ...data.cues, group: newValue } })
-          }
-        />
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.greenLight}
+            content="Individual"
+            value={data.cues.individual}
+            onClick={(newValue: number) =>
+              setData({ cues: { ...data.cues, individual: newValue } })
+            }
+          />
+          <CounterButton
+            color={Color.accents.greenLight}
+            content="Group"
+            value={data.cues.group}
+            onClick={(newValue: number) =>
+              setData({ cues: { ...data.cues, group: newValue } })
+            }
+          />
+        </ButtonsWrapper>
       </DataRow>
 
       <DataRow
@@ -109,38 +98,40 @@ const Data = ({
           },
         ]}
       >
-        <CounterButton
-          color={Color.accents.yellow}
-          content="General"
-          value={data.praise.general}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, general: newValue } })
-          }
-        />
-        <CounterButton
-          color={Color.accents.yellow}
-          content="Academic"
-          value={data.praise.academic}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, academic: newValue } })
-          }
-        />
-        <CounterButton
-          color={Color.accents.yellow}
-          content="Behavioral"
-          value={data.praise.behavioral}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, behavioral: newValue } })
-          }
-        />
-        <CounterButton
-          color={Color.contextual.danger}
-          content="Redirect/Reprimand"
-          value={data.praise.reprimand}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, reprimand: newValue } })
-          }
-        />
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.yellow}
+            content="General"
+            value={data.praise.general}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, general: newValue } })
+            }
+          />
+          <CounterButton
+            color={Color.accents.yellow}
+            content="Academic"
+            value={data.praise.academic}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, academic: newValue } })
+            }
+          />
+          <CounterButton
+            color={Color.accents.yellow}
+            content="Behavioral"
+            value={data.praise.behavioral}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, behavioral: newValue } })
+            }
+          />
+          <CounterButton
+            color={Color.contextual.danger}
+            content="Redirect/Reprimand"
+            value={data.praise.reprimand}
+            onClick={(newValue: number) =>
+              setData({ praise: { ...data.praise, reprimand: newValue } })
+            }
+          />
+        </ButtonsWrapper>
       </DataRow>
 
       <DataRow
@@ -162,34 +153,36 @@ const Data = ({
           },
         ]}
       >
-        <CounterButton
-          color={Color.accents.brightLight}
-          content="Correct"
-          value={data.corrections.correct}
-          onClick={(newValue: number) =>
-            setData({
-              corrections: { ...data.corrections, correct: newValue },
-            })
-          }
-        />
-        <CounterButton
-          color={Color.accents.brightLight}
-          content="Incorrect"
-          value={data.corrections.incorrect}
-          onClick={(newValue: number) =>
-            setData({
-              corrections: { ...data.corrections, incorrect: newValue },
-            })
-          }
-        />
-        <CounterButton
-          color={Color.accents.brightLight}
-          content="None"
-          value={data.corrections.none}
-          onClick={(newValue: number) =>
-            setData({ corrections: { ...data.corrections, none: newValue } })
-          }
-        />
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="Correct"
+            value={data.corrections.correct}
+            onClick={(newValue: number) =>
+              setData({
+                corrections: { ...data.corrections, correct: newValue },
+              })
+            }
+          />
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="Incorrect"
+            value={data.corrections.incorrect}
+            onClick={(newValue: number) =>
+              setData({
+                corrections: { ...data.corrections, incorrect: newValue },
+              })
+            }
+          />
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="None"
+            value={data.corrections.none}
+            onClick={(newValue: number) =>
+              setData({ corrections: { ...data.corrections, none: newValue } })
+            }
+          />
+        </ButtonsWrapper>
       </DataRow>
 
       <DataRow
@@ -210,25 +203,27 @@ const Data = ({
           },
         ]}
       >
-        <CounterButton
-          color={Color.contextual.info}
-          content="Engaged"
-          value={data.engagement.engaged}
-          onClick={(newValue: number) =>
-            setData({ engagement: { ...data.engagement, engaged: newValue } })
-          }
-        />
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.contextual.info}
+            content="Engaged"
+            value={data.engagement.engaged}
+            onClick={(newValue: number) =>
+              setData({ engagement: { ...data.engagement, engaged: newValue } })
+            }
+          />
 
-        <CounterButton
-          color={Color.contextual.info}
-          content="Not Engaged"
-          value={data.engagement.notEngaged}
-          onClick={(newValue: number) =>
-            setData({
-              engagement: { ...data.engagement, notEngaged: newValue },
-            })
-          }
-        />
+          <CounterButton
+            color={Color.contextual.info}
+            content="Not Engaged"
+            value={data.engagement.notEngaged}
+            onClick={(newValue: number) =>
+              setData({
+                engagement: { ...data.engagement, notEngaged: newValue },
+              })
+            }
+          />
+        </ButtonsWrapper>
       </DataRow>
 
       <DataRow
@@ -241,23 +236,25 @@ const Data = ({
           },
         ]}
       >
-        <CounterButton
-          color={Color.accents.brick}
-          content="Scanning"
-          value={data.misc.scanningCount}
-          onClick={(newValue: number) =>
-            setData({ misc: { ...data.misc, scanningCount: newValue } })
-          }
-        />
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.brick}
+            content="Scanning"
+            value={data.misc.scanningCount}
+            onClick={(newValue: number) =>
+              setData({ misc: { ...data.misc, scanningCount: newValue } })
+            }
+          />
 
-        <CounterButton
-          color={Color.accents.brick}
-          content="Transition"
-          value={data.misc.transitionCount}
-          onClick={(newValue: number) =>
-            setData({ misc: { ...data.misc, transitionCount: newValue } })
-          }
-        />
+          <CounterButton
+            color={Color.accents.brick}
+            content="Transition"
+            value={data.misc.transitionCount}
+            onClick={(newValue: number) =>
+              setData({ misc: { ...data.misc, transitionCount: newValue } })
+            }
+          />
+        </ButtonsWrapper>
       </DataRow>
     </Styles.PageContent>
   );

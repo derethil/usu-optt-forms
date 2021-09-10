@@ -1,16 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import CounterButton from "./CounterButton";
 import * as Styles from "../styledComponents/style";
 
 import Card from "./Card";
-
-const ButtonsWrapper = styled.div`
-  height: 6em;
-  margin-right: 3em;
-  display: flex;
-  padding: 1em 0em;
-`;
 
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
 
@@ -52,7 +44,7 @@ const DataRow = (props: DataRowProps) => {
       containerStyles={cardContainerStyles}
       contentStyles={cardContentStyles}
     >
-      <ButtonsWrapper>{props.children}</ButtonsWrapper>
+      {props.children}
 
       <ObservDataWrapper>{...rows}</ObservDataWrapper>
     </Card>
