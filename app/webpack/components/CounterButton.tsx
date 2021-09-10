@@ -28,7 +28,7 @@ type CounterButtonProps = {
   onClick: (newValue: number) => void;
 };
 
-const CounterButton = (props: CounterButtonProps) => {
+const CounterButton = (props: CounterButtonProps): JSX.Element => {
   return (
     <CounterButtonEl
       color={props.color}

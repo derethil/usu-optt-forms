@@ -1,0 +1,62 @@
+import React from "react";
+import styled from "styled-components";
+import CounterButton from "./CounterButton";
+import * as Styles from "../styledComponents/style";
+
+import Card from "./Card";
+
+const ButtonsWrapper = styled.div`
+  height: 6em;
+  margin-right: 3em;
+  display: flex;
+  padding: 1em 0em;
+`;
+
+const cardContainerStyles: React.CSSProperties = { width: "60em" };
+
+const cardContentStyles: React.CSSProperties = {
+  padding: "0em 1em",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+};
+
+const ObservDataWrapper = styled(Styles.DataWrapper)`
+  width: 14em;
+`;
+
+type dataEntryType = {
+  display: string;
+  score: string | number;
+};
+
+type DataRowProps = {
+  displayData: dataEntryType[];
+  title: string;
+  children: React.ReactNode;
+};
+
+const DataRow = (props: DataRowProps) => {
+  const rows = props.displayData.map((entry) => {
+    return (
+      <Styles.DataRow>
+        <Styles.DataCell>{entry.display}</Styles.DataCell>
+        <Styles.DataCell>{entry.score}</Styles.DataCell>
+      </Styles.DataRow>
+    );
+  });
+
+  return (
+    <Card
+      title={props.title}
+      containerStyles={cardContainerStyles}
+      contentStyles={cardContentStyles}
+    >
+      <ButtonsWrapper>{props.children}</ButtonsWrapper>
+
+      <ObservDataWrapper>{...rows}</ObservDataWrapper>
+    </Card>
+  );
+};
+
+export default DataRow;

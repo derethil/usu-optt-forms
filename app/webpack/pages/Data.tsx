@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
+import DataRow from "../components/DataRow";
 import { ITimer } from "../types";
 import { studentTeachingDataI } from "../defaultData";
 import * as dataUtils from "../utils/dataUtils";
@@ -10,6 +11,8 @@ import { getPercent } from "../utils/utils";
 import * as Styles from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
+
+import { getDefaultData } from "../utils/formUtils";
 
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
 
@@ -55,311 +58,207 @@ const Data = ({
         containerStyles={cardContainerStyles}
         titleStyles={{ fontSize: "2rem" }}
       ></Card>
-
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={timer} key={timerKey} resetCallback={resetCallback} />
       </Card>
 
-      <Card
+      <DataRow
         title="Cues / Directions / Opportunities to Respond"
-        containerStyles={cardContainerStyles}
-        contentStyles={cardContentStyles}
+        displayData={[
+          { display: "Individual Cues", score: data.cues.individual },
+          { display: "Group Cues", score: data.cues.group },
+          {
+            display: "Total Cues",
+            score: data.cues.individual + data.cues.group,
+          },
+          { display: "OTR Rate", score: dataUtils.getOTRRate(data, timer) },
+        ]}
       >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.accents.greenLight}
-            content="Individual"
-            value={data.cues.individual}
-            onClick={(newValue: number) =>
-              setData({ cues: { ...data.cues, individual: newValue } })
-            }
-          />
+        <CounterButton
+          color={Color.accents.greenLight}
+          content="Individual"
+          value={data.cues.individual}
+          onClick={(newValue: number) =>
+            setData({ cues: { ...data.cues, individual: newValue } })
+          }
+        />
+        <CounterButton
+          color={Color.accents.greenLight}
+          content="Group"
+          value={data.cues.group}
+          onClick={(newValue: number) =>
+            setData({ cues: { ...data.cues, group: newValue } })
+          }
+        />
+      </DataRow>
 
-          <CounterButton
-            color={Color.accents.greenLight}
-            content="Group"
-            value={data.cues.group}
-            onClick={(newValue: number) =>
-              setData({ cues: { ...data.cues, group: newValue } })
-            }
-          />
-        </ButtonsWrapper>
-
-        <ObservDataWrapper>
-          <Styles.DataRow>
-            <Styles.DataCell>Individual Cues</Styles.DataCell>
-            <Styles.DataCell>{data.cues.individual}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Group Cues:</Styles.DataCell>
-            <Styles.DataCell>{data.cues.group}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Total Cues</Styles.DataCell>
-            <Styles.DataCell>
-              {data.cues.individual + data.cues.group}
-            </Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>OTR Rate</Styles.DataCell>
-            <Styles.DataCell>
-              {dataUtils.getOTRRate(data, timer)}
-            </Styles.DataCell>
-          </Styles.DataRow>
-        </ObservDataWrapper>
-      </Card>
-
-      <Card
+      <DataRow
         title="Praise Type"
-        containerStyles={cardContainerStyles}
-        contentStyles={cardContentStyles}
+        displayData={[
+          { display: "General Praise", score: data.praise.general },
+          { display: "Academic Praise", score: data.praise.academic },
+          { display: "Behavioral Praise", score: data.praise.behavioral },
+          { display: "Redirect/Reprimand", score: data.praise.reprimand },
+          { display: "Praise Ratio", score: dataUtils.getPraiseRatio(data) },
+          {
+            display: "Percent Specific",
+            score: getPercent(
+              data.praise.academic + data.praise.behavioral,
+              dataUtils.getPraiseSum(data)
+            ),
+          },
+        ]}
       >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.accents.yellow}
-            content="General"
-            value={data.praise.general}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, general: newValue } })
-            }
-          />
+        <CounterButton
+          color={Color.accents.yellow}
+          content="General"
+          value={data.praise.general}
+          onClick={(newValue: number) =>
+            setData({ praise: { ...data.praise, general: newValue } })
+          }
+        />
+        <CounterButton
+          color={Color.accents.yellow}
+          content="Academic"
+          value={data.praise.academic}
+          onClick={(newValue: number) =>
+            setData({ praise: { ...data.praise, academic: newValue } })
+          }
+        />
+        <CounterButton
+          color={Color.accents.yellow}
+          content="Behavioral"
+          value={data.praise.behavioral}
+          onClick={(newValue: number) =>
+            setData({ praise: { ...data.praise, behavioral: newValue } })
+          }
+        />
+        <CounterButton
+          color={Color.contextual.danger}
+          content="Redirect/Reprimand"
+          value={data.praise.reprimand}
+          onClick={(newValue: number) =>
+            setData({ praise: { ...data.praise, reprimand: newValue } })
+          }
+        />
+      </DataRow>
 
-          <CounterButton
-            color={Color.accents.yellow}
-            content="Academic"
-            value={data.praise.academic}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, academic: newValue } })
-            }
-          />
-
-          <CounterButton
-            color={Color.accents.yellow}
-            content="Behavioral"
-            value={data.praise.behavioral}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, behavioral: newValue } })
-            }
-          />
-
-          <CounterButton
-            color={Color.contextual.danger}
-            content="Redirect/Reprimand"
-            value={data.praise.reprimand}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, reprimand: newValue } })
-            }
-          />
-        </ButtonsWrapper>
-
-        <ObservDataWrapper>
-          <Styles.DataRow>
-            <Styles.DataCell>General Praise</Styles.DataCell>
-            <Styles.DataCell>{data.praise.general}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Academic Praise</Styles.DataCell>
-            <Styles.DataCell>{data.praise.academic}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Behavioral Praise</Styles.DataCell>
-            <Styles.DataCell>{data.praise.behavioral}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Redirect/Repremand</Styles.DataCell>
-            <Styles.DataCell>{data.praise.reprimand}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Prase Ratio</Styles.DataCell>
-            <Styles.DataCell>{dataUtils.getPraiseRatio(data)}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Percent Specific</Styles.DataCell>
-            <Styles.DataCell>
-              {getPercent(
-                data.praise.academic + data.praise.behavioral,
-                dataUtils.getPraiseSum(data)
-              )}
-            </Styles.DataCell>
-          </Styles.DataRow>
-        </ObservDataWrapper>
-      </Card>
-
-      <Card
+      <DataRow
         title="Corrections"
-        containerStyles={cardContainerStyles}
-        contentStyles={cardContentStyles}
+        displayData={[
+          { display: "Correct", score: data.corrections.correct },
+          { display: "Not Correct", score: data.corrections.incorrect },
+          { display: "None", score: data.corrections.none },
+          {
+            display: "Total Corrections",
+            score: dataUtils.getCorrectionsSum(data),
+          },
+          {
+            display: "Percent",
+            score: getPercent(
+              data.corrections.correct,
+              dataUtils.getCorrectionsSum(data)
+            ),
+          },
+        ]}
       >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.accents.brightLight}
-            content="Correct"
-            value={data.corrections.correct}
-            onClick={(newValue: number) =>
-              setData({
-                corrections: { ...data.corrections, correct: newValue },
-              })
-            }
-          />
+        <CounterButton
+          color={Color.accents.brightLight}
+          content="Correct"
+          value={data.corrections.correct}
+          onClick={(newValue: number) =>
+            setData({
+              corrections: { ...data.corrections, correct: newValue },
+            })
+          }
+        />
+        <CounterButton
+          color={Color.accents.brightLight}
+          content="Incorrect"
+          value={data.corrections.incorrect}
+          onClick={(newValue: number) =>
+            setData({
+              corrections: { ...data.corrections, incorrect: newValue },
+            })
+          }
+        />
+        <CounterButton
+          color={Color.accents.brightLight}
+          content="None"
+          value={data.corrections.none}
+          onClick={(newValue: number) =>
+            setData({ corrections: { ...data.corrections, none: newValue } })
+          }
+        />
+      </DataRow>
 
-          <CounterButton
-            color={Color.accents.brightLight}
-            content="Incorrect"
-            value={data.corrections.incorrect}
-            onClick={(newValue: number) =>
-              setData({
-                corrections: { ...data.corrections, incorrect: newValue },
-              })
-            }
-          />
-
-          <CounterButton
-            color={Color.accents.brightLight}
-            content="None"
-            value={data.corrections.none}
-            onClick={(newValue: number) =>
-              setData({ corrections: { ...data.corrections, none: newValue } })
-            }
-          />
-        </ButtonsWrapper>
-
-        <ObservDataWrapper>
-          <Styles.DataRow>
-            <Styles.DataCell>Correct</Styles.DataCell>
-            <Styles.DataCell>{data.corrections.correct}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Not Correct</Styles.DataCell>
-            <Styles.DataCell>{data.corrections.incorrect}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>None</Styles.DataCell>
-            <Styles.DataCell>{data.corrections.none}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Total Corrections</Styles.DataCell>
-            <Styles.DataCell>
-              {dataUtils.getCorrectionsSum(data)}
-            </Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Percent</Styles.DataCell>
-            <Styles.DataCell>
-              {getPercent(
-                data.corrections.correct,
-                dataUtils.getCorrectionsSum(data)
-              )}
-            </Styles.DataCell>
-          </Styles.DataRow>
-        </ObservDataWrapper>
-      </Card>
-
-      <Card
-        title="Momentary Time Sample / Child Engagement"
-        containerStyles={cardContainerStyles}
-        contentStyles={cardContentStyles}
+      <DataRow
+        title="Momentary Sample Time"
+        displayData={[
+          { display: "Engaged", score: data.engagement.engaged },
+          { display: "Not Engaged", score: data.engagement.notEngaged },
+          {
+            display: "Total",
+            score: data.engagement.engaged + data.engagement.notEngaged,
+          },
+          {
+            display: "Percent",
+            score: getPercent(
+              data.engagement.engaged,
+              data.engagement.engaged + data.engagement.notEngaged
+            ),
+          },
+        ]}
       >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.contextual.info}
-            content="Engaged"
-            value={data.engagement.engaged}
-            onClick={(newValue: number) =>
-              setData({ engagement: { ...data.engagement, engaged: newValue } })
-            }
-          />
+        <CounterButton
+          color={Color.contextual.info}
+          content="Engaged"
+          value={data.engagement.engaged}
+          onClick={(newValue: number) =>
+            setData({ engagement: { ...data.engagement, engaged: newValue } })
+          }
+        />
 
-          <CounterButton
-            color={Color.contextual.info}
-            content="Not Engaged"
-            value={data.engagement.notEngaged}
-            onClick={(newValue: number) =>
-              setData({
-                engagement: { ...data.engagement, notEngaged: newValue },
-              })
-            }
-          />
-        </ButtonsWrapper>
+        <CounterButton
+          color={Color.contextual.info}
+          content="Not Engaged"
+          value={data.engagement.notEngaged}
+          onClick={(newValue: number) =>
+            setData({
+              engagement: { ...data.engagement, notEngaged: newValue },
+            })
+          }
+        />
+      </DataRow>
 
-        <ObservDataWrapper>
-          <Styles.DataRow>
-            <Styles.DataCell>Engaged</Styles.DataCell>
-            <Styles.DataCell>{data.engagement.engaged}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Not Engaged</Styles.DataCell>
-            <Styles.DataCell>{data.engagement.notEngaged}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Total</Styles.DataCell>
-            <Styles.DataCell>
-              {data.engagement.engaged + data.engagement.notEngaged}
-            </Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Percent</Styles.DataCell>
-            <Styles.DataCell>
-              {getPercent(
-                data.engagement.engaged,
-                data.engagement.engaged + data.engagement.notEngaged
-              )}
-            </Styles.DataCell>
-          </Styles.DataRow>
-        </ObservDataWrapper>
-      </Card>
-
-      <Card
+      <DataRow
         title="Scanning and Transitions"
-        containerStyles={cardContainerStyles}
-        contentStyles={cardContentStyles}
+        displayData={[
+          { display: "Occurrence of Scanning", score: data.misc.scanningCount },
+          {
+            display: "Number of Transitions",
+            score: data.misc.transitionCount,
+          },
+        ]}
       >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.accents.brick}
-            content="Scanning"
-            value={data.misc.scanningCount}
-            onClick={(newValue: number) =>
-              setData({ misc: { ...data.misc, scanningCount: newValue } })
-            }
-          />
+        <CounterButton
+          color={Color.accents.brick}
+          content="Scanning"
+          value={data.misc.scanningCount}
+          onClick={(newValue: number) =>
+            setData({ misc: { ...data.misc, scanningCount: newValue } })
+          }
+        />
 
-          <CounterButton
-            color={Color.accents.brick}
-            content="Transition"
-            value={data.misc.transitionCount}
-            onClick={(newValue: number) =>
-              setData({ misc: { ...data.misc, transitionCount: newValue } })
-            }
-          />
-        </ButtonsWrapper>
-
-        <ObservDataWrapper>
-          <Styles.DataRow>
-            <Styles.DataCell>Occurrence of Scanning</Styles.DataCell>
-            <Styles.DataCell>{data.misc.scanningCount}</Styles.DataCell>
-          </Styles.DataRow>
-
-          <Styles.DataRow>
-            <Styles.DataCell>Number of Transitions</Styles.DataCell>
-            <Styles.DataCell>{data.misc.transitionCount}</Styles.DataCell>
-          </Styles.DataRow>
-        </ObservDataWrapper>
-      </Card>
+        <CounterButton
+          color={Color.accents.brick}
+          content="Transition"
+          value={data.misc.transitionCount}
+          onClick={(newValue: number) =>
+            setData({ misc: { ...data.misc, transitionCount: newValue } })
+          }
+        />
+      </DataRow>
     </Styles.PageContent>
   );
 };

@@ -18,6 +18,7 @@ import { getRubric } from "./utils/formUtils";
 import { defaultComments, defaultFormInfo } from "./defaults";
 import { defaultStudentTeachingData } from "./defaultData";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
+import { getDefaultData } from "./utils/formUtils";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -67,11 +68,11 @@ export const FormSTO = () => {
 
   const [data1, setData1, resetData1] = useObjLocalStorage(
     "data1",
-    defaultStudentTeachingData
+    getDefaultData()
   );
   const [data2, setData2, resetData2] = useObjLocalStorage(
     "data2",
-    defaultStudentTeachingData
+    getDefaultData()
   );
 
   const timer1 = useTimer("timer1");
@@ -103,7 +104,18 @@ export const FormSTO = () => {
         <Navbar studentTeacher={formInfo.studentTeacher} />
 
         <Switch>
-          <Route exact path="/">
+          <Route path="/data1">
+            <Data
+              data={data1}
+              setData={setData1}
+              timer={timer1}
+              timerKey="timer1"
+              title="Data 1"
+              resetCallback={resetData1}
+            />
+          </Route>
+
+          {/* <Route exact path="/">
             <FormHome
               formInfo={formInfo}
               comments={comments}
@@ -125,16 +137,7 @@ export const FormSTO = () => {
             />
           </Route>
 
-          <Route path="/data1">
-            <Data
-              data={data1}
-              setData={setData1}
-              timer={timer1}
-              timerKey="timer1"
-              title="Data 1"
-              resetCallback={resetData1}
-            />
-          </Route>
+
 
           <Route path="/data2">
             <Data
@@ -153,7 +156,7 @@ export const FormSTO = () => {
 
           <Route>
             <NotFound />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
     </PageContainer>
