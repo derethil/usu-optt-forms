@@ -29,9 +29,9 @@ type DataRowProps = {
 };
 
 const DataRow = (props: DataRowProps) => {
-  const rows = props.displayData.map((entry) => {
+  const rows = props.displayData.map((entry, index) => {
     return (
-      <Styles.DataRow>
+      <Styles.DataRow key={index}>
         <Styles.DataCell>{entry.display}</Styles.DataCell>
         <Styles.DataCell>{entry.score}</Styles.DataCell>
       </Styles.DataRow>

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styled, { CSSProperties } from "styled-components";
 
 import { formatTime } from "../utils/timerUtils";
-import { ITimer } from "../types";
+import { ITimer } from "../types/types";
 
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";

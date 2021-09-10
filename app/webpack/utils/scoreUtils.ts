@@ -1,4 +1,4 @@
-import { ScoresState, Section } from "../types";
+import { ScoresState, Section } from "../types/types";
 
 import { getRubric } from "./formUtils";
 

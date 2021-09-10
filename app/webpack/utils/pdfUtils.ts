@@ -1,16 +1,16 @@
-import { studentTeachingDataI } from "../defaultData";
-import { ITimer, ScoresState } from "../types";
+import { IStudentTeachingData } from "../types/dataTypes";
+import { ITimer, ScoresState } from "../types/types";
 
 import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
 import * as utils from "./utils";
 import { getRubric } from "./formUtils";
-import { Section } from "../types";
+import { Section } from "../types/types";
 
 const rubricData = getRubric();
 
 export const generateObsBody = (
-  observData: studentTeachingDataI,
+  observData: IStudentTeachingData,
   timer: ITimer
 ) => {
   return [

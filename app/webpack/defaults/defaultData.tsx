@@ -42,8 +42,6 @@ export const defaultStudentTeachingData = {
   },
 };
 
-export type studentTeachingDataI = typeof defaultStudentTeachingData;
-
 export const defaultSeverePracticumData = {
   signalSequence: {
     correct: defaultSequence,
@@ -64,5 +62,3 @@ export const defaultSeverePracticumData = {
     individual: 0,
   },
 };
-
-export type severePracticumDataI = typeof defaultSeverePracticumData;

@@ -86,3 +86,10 @@ export const DataCell = styled.p`
     font-weight: 600;
   }
 `;
+
+export const ButtonsWrapper = styled.div`
+  height: 6em;
+  margin-right: 3em;
+  display: flex;
+  padding: 1em 0em;
+`;

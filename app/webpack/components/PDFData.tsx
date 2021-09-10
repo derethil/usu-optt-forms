@@ -1,9 +1,9 @@
 import React from "react";
 
-import { ScoresState, ITimer, IFormInfo, Section } from "../types";
+import { ScoresState, ITimer, IFormInfo, Section } from "../types/types";
 
-import { IComments } from "../defaults";
-import { studentTeachingDataI } from "../defaultData";
+import { IComments } from "../defaults/defaults";
+import { IStudentTeachingData } from "../types/dataTypes";
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../static/img/usuLogoB64";
@@ -15,8 +15,8 @@ import { generateScoreData } from "../utils/scoreUtils";
 
 type PDFGeneratorProps = {
   scores: ScoresState;
-  data1: studentTeachingDataI;
-  data2: studentTeachingDataI;
+  data1: IStudentTeachingData;
+  data2: IStudentTeachingData;
   timer1: ITimer;
   timer2: ITimer;
   formInfo: IFormInfo;

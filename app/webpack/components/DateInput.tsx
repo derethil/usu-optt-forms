@@ -2,7 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 
 import { InputContainer, Label, Input } from "../styledComponents/input";
-import { IFormInfo } from "../types";
+import { IFormInfo } from "../types/types";
 
 type DateInputProps = {
   date: Date;

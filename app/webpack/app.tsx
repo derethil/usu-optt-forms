@@ -13,10 +13,10 @@ import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
-import { ScoresState, Section } from "./types";
+import { ScoresState, Section } from "./types/types";
 import { getRubric } from "./utils/formUtils";
-import { defaultComments, defaultFormInfo } from "./defaults";
-import { defaultStudentTeachingData } from "./defaultData";
+import { defaultComments, defaultFormInfo } from "./defaults/defaults";
+import { defaultStudentTeachingData } from "./defaults/defaultData";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import { getDefaultData } from "./utils/formUtils";
 

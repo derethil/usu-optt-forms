@@ -1,23 +1,23 @@
 import React from "react";
 
-import { IFormInfo, ITimer, ScoresState } from "../types";
+import { IFormInfo, ITimer, ScoresState } from "../types/types";
 
-import { studentTeachingDataI } from "../defaultData";
+import { IStudentTeachingData } from "../types/dataTypes";
 
 import { PDFData } from "../components/PDFData";
 import ScoreTotals from "../components/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
 import { PageContent } from "../styledComponents/style";
-import { IComments } from "../defaults";
+import { IComments } from "../defaults/defaults";
 import ConfirmModal from "../components/ConfirmModal";
 
 type FormHomeProps = {
   formInfo: IFormInfo;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
   scores: ScoresState;
-  data1: studentTeachingDataI;
-  data2: studentTeachingDataI;
+  data1: IStudentTeachingData;
+  data2: IStudentTeachingData;
   comments: IComments;
   timer1: ITimer;
   timer2: ITimer;

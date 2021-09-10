@@ -1,5 +1,5 @@
 // TIMER LOCALSTORAGE UTILS
-import { ITimer } from "../types";
+import { ITimer } from "../types/types";
 
 export const setTimerStorage = (key: string, time: number) => {
   window.localStorage.setItem(key, String(time));

@@ -4,29 +4,24 @@ import styled from "styled-components";
 import Timer from "../components/Timer";
 import CounterButton from "../components/CounterButton";
 import DataRow from "../components/DataRow";
-import { ITimer } from "../types";
-import { studentTeachingDataI } from "../defaultData";
+import { ITimer } from "../types/types";
+import { IStudentTeachingData } from "../types/dataTypes";
 import * as dataUtils from "../utils/dataUtils";
 import { getPercent } from "../utils/utils";
 import * as Styles from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
+import { ButtonsWrapper } from "../styledComponents/style";
+import PraiseDataRow from "../components/PraiseDataRow";
 
 const cardContainerStyles: React.CSSProperties = { width: "60em" };
-
-const ButtonsWrapper = styled.div`
-  height: 6em;
-  margin-right: 3em;
-  display: flex;
-  padding: 1em 0em;
-`;
 
 interface DataProps {
   title: string;
   timer: ITimer;
   timerKey: string;
-  data: studentTeachingDataI;
-  setData: (updatedValues: Partial<studentTeachingDataI>) => void;
+  data: IStudentTeachingData;
+  setData: (updatedValues: Partial<IStudentTeachingData>) => void;
   resetCallback?: () => void;
 }
 
@@ -81,58 +76,7 @@ const Data = ({
         </ButtonsWrapper>
       </DataRow>
 
-      <DataRow
-        title="Praise Type"
-        displayData={[
-          { display: "General Praise", score: data.praise.general },
-          { display: "Academic Praise", score: data.praise.academic },
-          { display: "Behavioral Praise", score: data.praise.behavioral },
-          { display: "Redirect/Reprimand", score: data.praise.reprimand },
-          { display: "Praise Ratio", score: dataUtils.getPraiseRatio(data) },
-          {
-            display: "Percent Specific",
-            score: getPercent(
-              data.praise.academic + data.praise.behavioral,
-              dataUtils.getPraiseSum(data)
-            ),
-          },
-        ]}
-      >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.accents.yellow}
-            content="General"
-            value={data.praise.general}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, general: newValue } })
-            }
-          />
-          <CounterButton
-            color={Color.accents.yellow}
-            content="Academic"
-            value={data.praise.academic}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, academic: newValue } })
-            }
-          />
-          <CounterButton
-            color={Color.accents.yellow}
-            content="Behavioral"
-            value={data.praise.behavioral}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, behavioral: newValue } })
-            }
-          />
-          <CounterButton
-            color={Color.contextual.danger}
-            content="Redirect/Reprimand"
-            value={data.praise.reprimand}
-            onClick={(newValue: number) =>
-              setData({ praise: { ...data.praise, reprimand: newValue } })
-            }
-          />
-        </ButtonsWrapper>
-      </DataRow>
+      <PraiseDataRow data={data} setData={setData} />
 
       <DataRow
         title="Corrections"

@@ -1,4 +1,4 @@
-import { Section } from "../types";
+import { Section } from "../types/types";
 import CURR_FORM from "../currentForm";
 import _studentTeachingRubric from "../../rubrics/studentTeaching.json";
 import _severePracticumRubric from "../../rubrics/severePracticum.json";
@@ -6,7 +6,7 @@ import _severePracticumRubric from "../../rubrics/severePracticum.json";
 import {
   defaultStudentTeachingData,
   defaultSeverePracticumData,
-} from "../defaultData";
+} from "../defaults/defaultData";
 
 export const getRubric = (): Section[] => {
   const studentTeachingRubric = _studentTeachingRubric as Section[];
