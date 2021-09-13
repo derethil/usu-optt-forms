@@ -14,7 +14,7 @@ export interface ICues {
   };
 }
 
-type ISequence = {
+export type ISequence = {
   sequence: number;
   cue: number;
   pause: number;
@@ -44,18 +44,37 @@ export interface IStudentTeachingData extends IPraiseData, ICues {
   };
 }
 
-export interface ISeverePracticumData extends IPraiseData, ICues {
-  signalSequence: {
-    correct: ISequence;
-    incorrect: ISequence;
-  };
-  errorCorrection: {
-    correct: ICorrection;
-    incorrect: ICorrection;
-  };
-  corrections: {
-    correct: number;
-    incorrect: number;
-    none: number;
-  };
+interface Mapping<T> {
+  [key: string]: T;
 }
+
+interface SignalSequence extends Mapping<ISequence> {
+  correct: ISequence;
+  incorrect: ISequence;
+}
+
+interface ErrorCorrection extends Mapping<ICorrection> {
+  correct: ICorrection;
+  incorrect: ICorrection;
+}
+
+export interface ISeverePracticumData
+  extends IPraiseData,
+    ICues,
+    Mapping<SignalSequence | ErrorCorrection | any> {
+  signalSequence: SignalSequence;
+  errorCorrection: ErrorCorrection;
+}
+
+enum FormName {
+  studentTeaching = "STUDENT_TEACHING",
+  severePracticum = "SEVERE_PRACTICUM",
+}
+
+type DataSchema =
+  | ({
+      formKind: FormName.studentTeaching;
+    } & IStudentTeachingData)
+  | ({
+      formKind: FormName.severePracticum;
+    } & ISeverePracticumData);

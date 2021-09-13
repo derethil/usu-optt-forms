@@ -9,7 +9,7 @@ import OTRRow from "../../components/OTRRow";
 import Card from "../../components/Card";
 
 import { ITimer } from "../../types/types";
-import { ISeverePracticumData } from "../../types/dataTypes";
+import { ISeverePracticumData, ISequence } from "../../types/dataTypes";
 
 import * as dataUtils from "../../utils/dataUtils";
 import { getPercent } from "../../utils/utils";
@@ -36,24 +36,27 @@ interface DataSPProps {
 }
 
 const DataSP = (props: DataSPProps) => {
-  // const updateSequence = (
-  //   sequence: keyof typeof props.data,
-  //   group: keyof typeof props.data[sequence]
-  // ) => {
-  //   props.setData({
-  //     [sequence]: {
-  //       ...props.data[sequence],
-  //       [group]: {
-  //         ...props.data[sequence][group],
-  //       },
-  //     },
-  //   });
-  // };
+  const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
+    props.setData({
+      [sequenceKey]: {
+        ...props.data[sequenceKey],
+        [groupKey]: {
+          ...props.data[sequenceKey][groupKey],
+          ...newValue,
+        },
+      },
+    });
+  };
 
   const signalCorrect = props.data.signalSequence.correct;
   const signalIncorrect = props.data.signalSequence.incorrect;
 
   const totalSequences = signalCorrect.sequence + signalIncorrect.sequence;
+
+  const errorCorrect = props.data.errorCorrection.correct;
+  const errorIncorrect = props.data.errorCorrection.incorrect;
+
+  const totalErrors = errorCorrect.sequence + errorIncorrect.sequence;
 
   return (
     <Styles.PageContent>
@@ -99,64 +102,32 @@ const DataSP = (props: DataSPProps) => {
               color={Color.accents.greenLight}
               content="Correct Sequence"
               value={signalCorrect.sequence}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      sequence: newValue,
-                    },
-                  },
-                })
+              onClick={(sequence: number) =>
+                setData("signalSequence", "correct", { sequence })
               }
             />
             <CounterButton
               color={Color.accents.greenLight}
               content="Cue"
               value={signalCorrect.cue}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      cue: newValue,
-                    },
-                  },
-                })
+              onClick={(cue: number) =>
+                setData("signalSequence", "correct", { cue })
               }
             />
             <CounterButton
               color={Color.accents.greenLight}
               content="Pause"
               value={signalCorrect.pause}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      pause: newValue,
-                    },
-                  },
-                })
+              onClick={(pause: number) =>
+                setData("signalSequence", "correct", { pause })
               }
             />
             <CounterButton
               color={Color.accents.greenLight}
               content="Signal"
               value={signalCorrect.signal}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      signal: newValue,
-                    },
-                  },
-                })
+              onClick={(signal: number) =>
+                setData("signalSequence", "correct", { signal })
               }
             />
           </ButtonsWrapper>
@@ -165,64 +136,32 @@ const DataSP = (props: DataSPProps) => {
               color={Color.contextual.danger}
               content="Incorrect Sequence"
               value={signalIncorrect.sequence}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      sequence: newValue,
-                    },
-                  },
-                })
+              onClick={(sequence: number) =>
+                setData("signalSequence", "incorrect", { sequence })
               }
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.cue}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      cue: newValue,
-                    },
-                  },
-                })
+              onClick={(cue: number) =>
+                setData("signalSequence", "incorrect", { cue })
               }
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.pause}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      pause: newValue,
-                    },
-                  },
-                })
+              onClick={(pause: number) =>
+                setData("signalSequence", "incorrect", { pause })
               }
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.signal}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      signal: newValue,
-                    },
-                  },
-                })
+              onClick={(signal: number) =>
+                setData("signalSequence", "incorrect", { signal })
               }
             />
           </ButtonsWrapper>
@@ -233,25 +172,25 @@ const DataSP = (props: DataSPProps) => {
         title="Error Correction"
         displayData={[
           {
-            display: "Cue",
-            score: `${signalCorrect.cue} | ${signalIncorrect.cue}`,
+            display: "Model",
+            score: `${errorCorrect.model} | ${errorIncorrect.model}`,
           },
           {
-            display: "Pause",
-            score: `${signalCorrect.pause} | ${signalIncorrect.pause}`,
+            display: "Test",
+            score: `${errorCorrect.test} | ${errorIncorrect.test}`,
           },
           {
-            display: "Signal",
-            score: `${signalCorrect.signal} | ${signalIncorrect.signal}`,
+            display: "Delayed Test",
+            score: `${errorCorrect.delayedTest} | ${errorIncorrect.delayedTest}`,
           },
-          { display: "All Correct", score: signalCorrect.sequence },
+          { display: "All Correct", score: errorCorrect.sequence },
           {
             display: "Total Sequences",
-            score: totalSequences,
+            score: totalErrors,
           },
           {
             display: "Percent Correct",
-            score: getPercent(signalCorrect.sequence, totalSequences),
+            score: getPercent(errorCorrect.sequence, totalErrors),
           },
         ]}
       >
@@ -260,65 +199,33 @@ const DataSP = (props: DataSPProps) => {
             <CounterButton
               color={Color.contextual.info}
               content="Correct Sequence"
-              value={signalCorrect.sequence}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      sequence: newValue,
-                    },
-                  },
-                })
+              value={errorCorrect.sequence}
+              onClick={(sequence: number) =>
+                setData("errorCorrection", "correct", { sequence })
               }
             />
             <CounterButton
               color={Color.contextual.info}
               content="Model"
-              value={signalCorrect.cue}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      cue: newValue,
-                    },
-                  },
-                })
+              value={errorCorrect.model}
+              onClick={(model: number) =>
+                setData("errorCorrection", "correct", { model })
               }
             />
             <CounterButton
               color={Color.contextual.info}
               content="Test"
-              value={signalCorrect.pause}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      pause: newValue,
-                    },
-                  },
-                })
+              value={errorCorrect.test}
+              onClick={(test: number) =>
+                setData("errorCorrection", "correct", { test })
               }
             />
             <CounterButton
               color={Color.contextual.info}
               content="Delayed Test"
-              value={signalCorrect.signal}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    correct: {
-                      ...signalCorrect,
-                      signal: newValue,
-                    },
-                  },
-                })
+              value={errorCorrect.delayedTest}
+              onClick={(delayedTest: number) =>
+                setData("errorCorrection", "correct", { delayedTest })
               }
             />
           </ButtonsWrapper>
@@ -326,65 +233,33 @@ const DataSP = (props: DataSPProps) => {
             <CounterButton
               color={Color.contextual.danger}
               content="Incorrect Sequence"
-              value={signalIncorrect.sequence}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      sequence: newValue,
-                    },
-                  },
-                })
+              value={errorIncorrect.sequence}
+              onClick={(sequence: number) =>
+                setData("errorCorrection", "incorrect", { sequence })
               }
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
-              value={signalIncorrect.cue}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      cue: newValue,
-                    },
-                  },
-                })
+              value={errorIncorrect.model}
+              onClick={(model: number) =>
+                setData("errorCorrection", "incorrect", { model })
               }
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
-              value={signalIncorrect.pause}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      pause: newValue,
-                    },
-                  },
-                })
+              value={errorIncorrect.test}
+              onClick={(test: number) =>
+                setData("errorCorrection", "incorrect", { test })
               }
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
-              value={signalIncorrect.signal}
-              onClick={(newValue: number) =>
-                props.setData({
-                  signalSequence: {
-                    ...props.data.signalSequence,
-                    incorrect: {
-                      ...signalIncorrect,
-                      signal: newValue,
-                    },
-                  },
-                })
+              value={errorIncorrect.delayedTest}
+              onClick={(delayedTest: number) =>
+                setData("errorCorrection", "incorrect", { delayedTest })
               }
             />
           </ButtonsWrapper>
