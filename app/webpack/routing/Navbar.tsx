@@ -45,6 +45,7 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Navbar = (props: { studentTeacher: string }) => {
+  const form = currentForm;
   return (
     <NavbarContainer>
       <StyledLink activeClassName={activeClassName} exact to="/">

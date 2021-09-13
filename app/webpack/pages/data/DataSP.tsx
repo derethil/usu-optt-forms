@@ -11,7 +11,6 @@ import Card from "../../components/Card";
 import { ITimer } from "../../types/types";
 import { ISeverePracticumData, ISequence } from "../../types/dataTypes";
 
-import * as dataUtils from "../../utils/dataUtils";
 import { getPercent } from "../../utils/utils";
 
 import * as Styles from "../../styledComponents/style";
@@ -20,7 +19,6 @@ import {
   ButtonsWrapper,
   cardContainerStyles,
 } from "../../styledComponents/style";
-import { Props } from "react-modal";
 
 const TwoRowButtons = styled.div`
   display: flex;
