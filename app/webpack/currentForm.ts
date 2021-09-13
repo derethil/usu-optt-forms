@@ -1,5 +1,8 @@
-type formOptions = "studentTeaching" | "severePracticum";
+enum formOptions {
+  studentTeaching = "studentTeaching",
+  severePracticum = "severePracticum",
+}
 
-const CURR_FORM: formOptions = "severePracticum";
+const CURRENT_FORM: formOptions = formOptions.studentTeaching;
 
-export default CURR_FORM;
+export default CURRENT_FORM;

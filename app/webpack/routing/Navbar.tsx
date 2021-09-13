@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
 import Color from "../styledComponents/colors";
+import currentForm from "../currentForm";
 
 const activeClassName = "active";
 
@@ -44,25 +45,39 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
+const generateLinks = (): JSX.Element[] => {
+  const differentPages = -{
+    studentTeaching: ["data2"],
+  };
+
+  const endpoints = [
+    { name: "Home", endpoint: "/" },
+    { name: "Data 1", endpoint: "/data1" },
+    { name: "Rubric", endpoint: "/rubric" },
+    { name: "Feedback", endpoint: "/feedback" },
+  ];
+
+  if (currentForm === "studentTeaching") {
+    endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
+  }
+
+  const links = endpoints.map((endpoint) => {
+    return (
+      <StyledLink activeClassName={activeClassName} to={endpoint.endpoint}>
+        {endpoint.name}
+      </StyledLink>
+    );
+  });
+
+  return links;
+};
+
 const Navbar = (props: { studentTeacher: string }) => {
-  const form = currentForm;
+  const links = generateLinks();
+
   return (
     <NavbarContainer>
-      <StyledLink activeClassName={activeClassName} exact to="/">
-        Home
-      </StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/data1">
-        Data 1
-      </StyledLink>
-      {/* <StyledLink activeClassName={activeClassName} to="/data2">
-        Data 2
-      </StyledLink> */}
-      <StyledLink activeClassName={activeClassName} to="/rubric">
-        Rubric
-      </StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/feedback">
-        Feedback
-      </StyledLink>
+      {...links}
 
       <StudentDisplay>{props.studentTeacher}</StudentDisplay>
     </NavbarContainer>
