@@ -7,11 +7,28 @@ export interface IPraiseData {
   };
 }
 
-export interface IStudentTeachingData extends IPraiseData {
+export interface ICues {
   cues: {
     individual: number;
     group: number;
   };
+}
+
+type ISequence = {
+  sequence: number;
+  cue: number;
+  pause: number;
+  signal: number;
+};
+
+type ICorrection = {
+  sequence: number;
+  model: number;
+  test: number;
+  delayedTest: number;
+};
+
+export interface IStudentTeachingData extends IPraiseData, ICues {
   corrections: {
     correct: number;
     incorrect: number;
@@ -24,5 +41,21 @@ export interface IStudentTeachingData extends IPraiseData {
   misc: {
     scanningCount: number;
     transitionCount: number;
+  };
+}
+
+export interface ISeverePracticumData extends IPraiseData, ICues {
+  signalSequence: {
+    correct: ISequence;
+    incorrect: ISequence;
+  };
+  errorCorrection: {
+    correct: ICorrection;
+    incorrect: ICorrection;
+  };
+  corrections: {
+    correct: number;
+    incorrect: number;
+    none: number;
   };
 }

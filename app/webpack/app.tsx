@@ -5,7 +5,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import logo from "../static/img/horizontal_logo.png";
 
 import FormHome from "./pages/FormHome";
-import Data from "./pages/Data";
+import DataST from "./pages/data/DataST";
+import DataSP from "./pages/data/DataSP";
 import Rubric from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
@@ -104,18 +105,7 @@ export const FormSTO = () => {
         <Navbar studentTeacher={formInfo.studentTeacher} />
 
         <Switch>
-          <Route path="/data1">
-            <Data
-              data={data1}
-              setData={setData1}
-              timer={timer1}
-              timerKey="timer1"
-              title="Data 1"
-              resetCallback={resetData1}
-            />
-          </Route>
-
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <FormHome
               formInfo={formInfo}
               comments={comments}
@@ -129,6 +119,16 @@ export const FormSTO = () => {
             />
           </Route>
 
+          <Route path="/data1">
+            <DataSP
+              data={data1}
+              setData={setData1}
+              timer={timer1}
+              title="Data 1"
+              resetCallback={resetData1}
+            />
+          </Route>
+
           <Route path="/rubric">
             <Rubric
               scores={scores}
@@ -137,9 +137,7 @@ export const FormSTO = () => {
             />
           </Route>
 
-
-
-          <Route path="/data2">
+          {/* <Route path="/data2">
             <Data
               data={data2}
               setData={setData2}
@@ -148,7 +146,7 @@ export const FormSTO = () => {
               title="Data 2"
               resetCallback={resetData2}
             />
-          </Route>
+          </Route> */}
 
           <Route path="/feedback">
             <FeedbackPage comments={comments} updateComments={updateComments} />
@@ -156,7 +154,7 @@ export const FormSTO = () => {
 
           <Route>
             <NotFound />
-          </Route> */}
+          </Route>
         </Switch>
       </BrowserRouter>
     </PageContainer>

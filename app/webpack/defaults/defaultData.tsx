@@ -21,11 +21,15 @@ const defaultPraise = {
   reprimand: 0,
 };
 
+const defaultCues = {
+  individual: 0,
+  group: 0,
+};
+
+// Data interfaces
+
 export const defaultStudentTeachingData = {
-  cues: {
-    individual: 0,
-    group: 0,
-  },
+  cues: defaultCues,
   praise: defaultPraise,
   corrections: {
     correct: 0,
@@ -57,8 +61,5 @@ export const defaultSeverePracticumData = {
     none: 0,
   },
   praise: defaultPraise,
-  otr: {
-    group: 0,
-    individual: 0,
-  },
+  cues: defaultCues,
 };

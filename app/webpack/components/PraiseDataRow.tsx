@@ -8,13 +8,12 @@ import { ButtonsWrapper } from "../styledComponents/style";
 import * as dataUtils from "../utils/dataUtils";
 import Color from "../styledComponents/colors";
 
-const PraiseDataRow = ({
-  data,
-  setData,
-}: {
+type PraiseDataRowProps = {
   data: IPraiseData;
   setData: (updatedValues: Partial<IPraiseData>) => void;
-}) => {
+};
+
+const PraiseDataRow = ({ data, setData }: PraiseDataRowProps) => {
   return (
     <DataRow
       title="Praise Type"

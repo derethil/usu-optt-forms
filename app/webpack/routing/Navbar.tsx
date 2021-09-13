@@ -53,9 +53,9 @@ const Navbar = (props: { studentTeacher: string }) => {
       <StyledLink activeClassName={activeClassName} to="/data1">
         Data 1
       </StyledLink>
-      <StyledLink activeClassName={activeClassName} to="/data2">
+      {/* <StyledLink activeClassName={activeClassName} to="/data2">
         Data 2
-      </StyledLink>
+      </StyledLink> */}
       <StyledLink activeClassName={activeClassName} to="/rubric">
         Rubric
       </StyledLink>

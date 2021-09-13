@@ -1,10 +1,7 @@
 import React from "react";
 
-import { IComments } from "../defaults";
-import TextInput from "../components/TextInput";
-import { Button, PageContent } from "../styledComponents/style";
-import Card from "../components/Card";
-import Color from "../styledComponents/colors";
+import { IComments } from "../defaults/defaults";
+import { PageContent } from "../styledComponents/style";
 import FeedbackCard from "../components/FeedbackCard";
 
 type feedbackPageProps = {

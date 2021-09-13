@@ -1,38 +1,39 @@
 import React from "react";
-import styled from "styled-components";
 
-import Timer from "../components/Timer";
-import CounterButton from "../components/CounterButton";
-import DataRow from "../components/DataRow";
-import { ITimer } from "../types/types";
-import { IStudentTeachingData } from "../types/dataTypes";
-import * as dataUtils from "../utils/dataUtils";
-import { getPercent } from "../utils/utils";
-import * as Styles from "../styledComponents/style";
-import Card from "../components/Card";
-import Color from "../styledComponents/colors";
-import { ButtonsWrapper } from "../styledComponents/style";
-import PraiseDataRow from "../components/PraiseDataRow";
+import Timer from "../../components/Timer";
+import CounterButton from "../../components/CounterButton";
+import DataRow from "../../components/DataRow";
+import PraiseDataRow from "../../components/PraiseDataRow";
+import Card from "../../components/Card";
 
-const cardContainerStyles: React.CSSProperties = { width: "60em" };
+import { ITimer } from "../../types/types";
+import { IStudentTeachingData } from "../../types/dataTypes";
 
-interface DataProps {
+import * as dataUtils from "../../utils/dataUtils";
+import { getPercent } from "../../utils/utils";
+
+import * as Styles from "../../styledComponents/style";
+import Color from "../../styledComponents/colors";
+import {
+  ButtonsWrapper,
+  cardContainerStyles,
+} from "../../styledComponents/style";
+
+interface DataSTProps {
   title: string;
   timer: ITimer;
-  timerKey: string;
   data: IStudentTeachingData;
   setData: (updatedValues: Partial<IStudentTeachingData>) => void;
   resetCallback?: () => void;
 }
 
-const Data = ({
+const DataST = ({
   timer,
-  timerKey,
   data,
   setData,
   title,
   resetCallback,
-}: DataProps) => {
+}: DataSTProps) => {
   return (
     <Styles.PageContent>
       <Card
@@ -40,41 +41,10 @@ const Data = ({
         containerStyles={cardContainerStyles}
         titleStyles={{ fontSize: "2rem" }}
       ></Card>
-      <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={timer} key={timerKey} resetCallback={resetCallback} />
-      </Card>
 
-      <DataRow
-        title="Cues / Directions / Opportunities to Respond"
-        displayData={[
-          { display: "Individual Cues", score: data.cues.individual },
-          { display: "Group Cues", score: data.cues.group },
-          {
-            display: "Total Cues",
-            score: data.cues.individual + data.cues.group,
-          },
-          { display: "OTR Rate", score: dataUtils.getOTRRate(data, timer) },
-        ]}
-      >
-        <ButtonsWrapper>
-          <CounterButton
-            color={Color.accents.greenLight}
-            content="Individual"
-            value={data.cues.individual}
-            onClick={(newValue: number) =>
-              setData({ cues: { ...data.cues, individual: newValue } })
-            }
-          />
-          <CounterButton
-            color={Color.accents.greenLight}
-            content="Group"
-            value={data.cues.group}
-            onClick={(newValue: number) =>
-              setData({ cues: { ...data.cues, group: newValue } })
-            }
-          />
-        </ButtonsWrapper>
-      </DataRow>
+      <Card title="Timer" containerStyles={cardContainerStyles}>
+        <Timer timer={timer} resetCallback={resetCallback} />
+      </Card>
 
       <PraiseDataRow data={data} setData={setData} />
 
@@ -204,4 +174,4 @@ const Data = ({
   );
 };
 
-export default Data;
+export default DataST;

@@ -4,8 +4,6 @@ import * as Styles from "../styledComponents/style";
 
 import Card from "./Card";
 
-const cardContainerStyles: React.CSSProperties = { width: "60em" };
-
 const cardContentStyles: React.CSSProperties = {
   padding: "0em 1em",
   display: "flex",
@@ -41,7 +39,7 @@ const DataRow = (props: DataRowProps) => {
   return (
     <Card
       title={props.title}
-      containerStyles={cardContainerStyles}
+      containerStyles={Styles.cardContainerStyles}
       contentStyles={cardContentStyles}
     >
       {props.children}

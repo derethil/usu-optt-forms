@@ -93,3 +93,5 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   padding: 1em 0em;
 `;
+
+export const cardContainerStyles: React.CSSProperties = { width: "60em" };

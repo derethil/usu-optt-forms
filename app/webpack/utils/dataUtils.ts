@@ -1,15 +1,12 @@
 import { ITimer } from "../types/types";
 import { getDefaultData } from "./formUtils";
-import { IPraiseData, IStudentTeachingData } from "../types/dataTypes";
+import { IPraiseData, IStudentTeachingData, ICues } from "../types/dataTypes";
 
 const defaultData = getDefaultData();
 
 // DATA FUNCTIONS
 
-export const getOTRRate = (
-  data: IStudentTeachingData,
-  timer: ITimer
-): string => {
+export const getOTRRate = (data: ICues, timer: ITimer): string => {
   const OTRRate = ((data.cues.group + data.cues.individual) / timer.time) * 60;
   return OTRRate.toFixed(2);
 };
