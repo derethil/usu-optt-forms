@@ -20,6 +20,9 @@ import { defaultComments, defaultFormInfo } from "./defaults/defaults";
 import { defaultStudentTeachingData } from "./defaults/defaultData";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import { getDefaultData } from "./utils/formUtils";
+import { FormKind } from "./types/dataTypes";
+import currentForm, { formOptions } from "./currentForm";
+import FormRoute from "./routing/FormRoute";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -94,6 +97,36 @@ export const FormSTO = () => {
     resetComments();
   };
 
+  const allDynamicRoutes = [
+    <FormRoute path="/data1" for={formOptions.studentTeaching}>
+      <DataST
+        data={data1}
+        setData={setData1}
+        timer={timer1}
+        title="Data 1"
+        resetCallback={resetData1}
+      />
+    </FormRoute>,
+    <FormRoute path="/data2" for={formOptions.studentTeaching}>
+      <DataST
+        data={data2}
+        setData={setData2}
+        timer={timer2}
+        title="Data 2"
+        resetCallback={resetData2}
+      />
+    </FormRoute>,
+    <FormRoute path="/data1" for={formOptions.severePracticum}>
+      <DataSP
+        data={data2}
+        setData={setData2}
+        timer={timer2}
+        title="Data 2"
+        resetCallback={resetData2}
+      />
+    </FormRoute>,
+  ];
+
   return (
     <PageContainer>
       <BrowserRouter>
@@ -105,7 +138,7 @@ export const FormSTO = () => {
         <Navbar studentTeacher={formInfo.studentTeacher} />
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" key="FormHome">
             <FormHome
               formInfo={formInfo}
               comments={comments}
@@ -119,17 +152,11 @@ export const FormSTO = () => {
             />
           </Route>
 
-          <Route path="/data1">
-            <DataSP
-              data={data1}
-              setData={setData1}
-              timer={timer1}
-              title="Data 1"
-              resetCallback={resetData1}
-            />
-          </Route>
+          {...allDynamicRoutes.map((route) =>
+            route.props["for"] === currentForm ? route : null
+          )}
 
-          <Route path="/rubric">
+          <Route path="/rubric" key="Rubric">
             <Rubric
               scores={scores}
               rubricData={rubricData}
@@ -137,22 +164,11 @@ export const FormSTO = () => {
             />
           </Route>
 
-          {/* <Route path="/data2">
-            <Data
-              data={data2}
-              setData={setData2}
-              timer={timer2}
-              timerKey="timer2"
-              title="Data 2"
-              resetCallback={resetData2}
-            />
-          </Route> */}
-
-          <Route path="/feedback">
+          <Route path="/feedback" key="Feedback">
             <FeedbackPage comments={comments} updateComments={updateComments} />
           </Route>
 
-          <Route>
+          <Route key="NotFound">
             <NotFound />
           </Route>
         </Switch>

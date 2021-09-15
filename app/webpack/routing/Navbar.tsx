@@ -61,10 +61,10 @@ const generateLinks = (): JSX.Element[] => {
     endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
   }
 
-  const links = endpoints.map((endpoint) => {
+  const links = endpoints.map(({ name, endpoint }, index) => {
     return (
-      <StyledLink activeClassName={activeClassName} to={endpoint.endpoint}>
-        {endpoint.name}
+      <StyledLink activeClassName={activeClassName} to={endpoint} key={index}>
+        {name}
       </StyledLink>
     );
   });

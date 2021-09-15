@@ -66,15 +66,15 @@ export interface ISeverePracticumData
   errorCorrection: ErrorCorrection;
 }
 
-enum FormName {
-  studentTeaching = "STUDENT_TEACHING",
-  severePracticum = "SEVERE_PRACTICUM",
+export enum FormKind {
+  studentTeaching = "studentTeaching",
+  severePracticum = "severePracticum",
 }
 
-type DataSchema =
+export type DataSchema =
   | ({
-      formKind: FormName.studentTeaching;
+      formKind: FormKind.studentTeaching;
     } & IStudentTeachingData)
   | ({
-      formKind: FormName.severePracticum;
+      formKind: FormKind.severePracticum;
     } & ISeverePracticumData);

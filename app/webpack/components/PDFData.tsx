@@ -3,7 +3,7 @@ import React from "react";
 import { ScoresState, ITimer, IFormInfo, Section } from "../types/types";
 
 import { IComments } from "../defaults/defaults";
-import { IStudentTeachingData } from "../types/dataTypes";
+import { DataSchema, IStudentTeachingData } from "../types/dataTypes";
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../static/img/usuLogoB64";
@@ -15,8 +15,8 @@ import { generateScoreData } from "../utils/scoreUtils";
 
 type PDFGeneratorProps = {
   scores: ScoresState;
-  data1: IStudentTeachingData;
-  data2: IStudentTeachingData;
+  data1: DataSchema;
+  data2: DataSchema;
   timer1: ITimer;
   timer2: ITimer;
   formInfo: IFormInfo;
@@ -73,18 +73,23 @@ export const PDFData = (props: PDFGeneratorProps) => {
 
     // Observations
 
-    generator.dualNestedTables({
-      head: ["Observation 1", "Observation 2"],
-      nestedTableHeight: 71,
-      nestedHeads: [
-        ["Area", "Score"],
-        ["Area", "Score"],
-      ],
-      nestedBodies: [
-        generateObsBody(props.data1, props.timer1),
-        generateObsBody(props.data2, props.timer2),
-      ],
-    });
+    if (
+      props.data1.formKind === "studentTeaching" &&
+      props.data2.formKind === "studentTeaching"
+    ) {
+      generator.dualNestedTables({
+        head: ["Observation 1", "Observation 2"],
+        nestedTableHeight: 71,
+        nestedHeads: [
+          ["Area", "Score"],
+          ["Area", "Score"],
+        ],
+        nestedBodies: [
+          generateObsBody(props.data1, props.timer1),
+          generateObsBody(props.data2, props.timer2),
+        ],
+      });
+    }
 
     // Total Score Summary
 
