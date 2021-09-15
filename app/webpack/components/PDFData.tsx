@@ -1,17 +1,30 @@
 import React from "react";
 
-import { ScoresState, ITimer, IFormInfo, Section } from "../types/types";
+import { ScoresState, ITimer, IFormInfo } from "../types/types";
 
 import { IComments } from "../defaults/defaults";
-import { DataSchema, IStudentTeachingData } from "../types/dataTypes";
+import {
+  DataSchema,
+  FormKind,
+  ISeverePracticumData,
+  IStudentTeachingData,
+} from "../types/dataTypes";
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 import usuLogoB64 from "../../static/img/usuLogoB64";
 import { getRubric } from "../utils/formUtils";
 import PDFGenerator from "../PDFGenerator";
-import { generateObsBody, getLetterGrade, getScore } from "../utils/pdfUtils";
+import {
+  genSPError,
+  genSPObservationBody,
+  genSPSequence,
+  genSTObservationBody,
+  getLetterGrade,
+  getScore,
+} from "../utils/pdfUtils";
 import { getPercent } from "../utils/utils";
 import { generateScoreData } from "../utils/scoreUtils";
+import { getOTRRate, getPraiseRatio, getPraiseSum } from "../utils/dataUtils";
 
 type PDFGeneratorProps = {
   scores: ScoresState;
@@ -74,8 +87,8 @@ export const PDFData = (props: PDFGeneratorProps) => {
     // Observations
 
     if (
-      props.data1.formKind === "studentTeaching" &&
-      props.data2.formKind === "studentTeaching"
+      props.data1.formKind === FormKind.studentTeaching &&
+      props.data2.formKind === FormKind.studentTeaching
     ) {
       generator.dualNestedTables({
         head: ["Observation 1", "Observation 2"],
@@ -85,8 +98,58 @@ export const PDFData = (props: PDFGeneratorProps) => {
           ["Area", "Score"],
         ],
         nestedBodies: [
-          generateObsBody(props.data1, props.timer1),
-          generateObsBody(props.data2, props.timer2),
+          genSTObservationBody(props.data1, props.timer1),
+          genSTObservationBody(props.data2, props.timer2),
+        ],
+      });
+    } else if (props.data1.formKind === FormKind.severePracticum) {
+      generator.dualNestedTables({
+        head: ["Observation Data", "                             "],
+        nestedTableHeight: 54,
+        nestedHeads: [
+          ["Signal Sequences", "Correct | Incorrect"],
+          ["Error Corrections", "Correct | Incorrect"],
+        ],
+        nestedBodies: [
+          genSPSequence(props.data1.signalSequence),
+          genSPError(props.data1.errorCorrection),
+        ],
+      });
+
+      generator.table({
+        head: ["Praise Statements", ""],
+        columnStyles: { 1: { cellWidth: 50 } },
+        body: [
+          ["General Praise", props.data1.praise.general],
+          ["Academic Praise", props.data1.praise.academic],
+          ["Behavior Praise", props.data1.praise.behavioral],
+          ["Redirect/Reprimant", props.data1.praise.reprimand],
+          [
+            "Total Praise Statements",
+            getPraiseSum({ praise: props.data1.praise }),
+          ],
+          ["Praise Ratio", getPraiseRatio({ praise: props.data1.praise })],
+          [
+            "percent Specific",
+            getPercent(
+              props.data1.praise.academic + props.data1.praise.behavioral,
+              getPraiseSum({ praise: props.data1.praise })
+            ),
+          ],
+        ],
+      });
+
+      generator.table({
+        head: ["Opportunities to Respond", ""],
+        columnStyles: { 1: { cellWidth: 50 } },
+        body: [
+          ["Group Responses", props.data1.cues.group],
+          ["Individual Responses", props.data1.cues.individual],
+          ["Total OTR", props.data1.cues.individual + props.data1.cues.group],
+          [
+            "Responses/min",
+            getOTRRate({ cues: props.data1.cues }, props.timer1),
+          ],
         ],
       });
     }
@@ -108,12 +171,10 @@ export const PDFData = (props: PDFGeneratorProps) => {
 
     // // Invdividual Scores
 
-    const rubricData = getRubric();
-
-    generator.pdf.addPage();
+    // generator.pdf.addPage();
 
     generator.table({
-      startY: 18,
+      // startY: 18,
       head: ["Scores"],
     });
 

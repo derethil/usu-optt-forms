@@ -17,7 +17,6 @@ type PraiseDataRowProps = {
 };
 
 const PraiseDataRow = ({ data, setData, timer }: PraiseDataRowProps) => {
-  console.log(data);
   return (
     <DataRow
       title="Cues / Directions / Opportunities to Respond"

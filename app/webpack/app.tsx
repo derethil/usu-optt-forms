@@ -17,10 +17,8 @@ import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section } from "./types/types";
 import { getRubric } from "./utils/formUtils";
 import { defaultComments, defaultFormInfo } from "./defaults/defaults";
-import { defaultStudentTeachingData } from "./defaults/defaultData";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import { getDefaultData } from "./utils/formUtils";
-import { FormKind } from "./types/dataTypes";
 import currentForm, { formOptions } from "./currentForm";
 import FormRoute from "./routing/FormRoute";
 
@@ -40,7 +38,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
   return initialState;
 };
 
-export const FormSTO = () => {
+export const App = () => {
   const rubricData = getRubric();
 
   const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage(
@@ -98,7 +96,7 @@ export const FormSTO = () => {
   };
 
   const allDynamicRoutes = [
-    <FormRoute path="/data1" for={formOptions.studentTeaching}>
+    <FormRoute path="/data1" for={formOptions.studentTeaching} key={0}>
       <DataST
         data={data1}
         setData={setData1}
@@ -107,7 +105,7 @@ export const FormSTO = () => {
         resetCallback={resetData1}
       />
     </FormRoute>,
-    <FormRoute path="/data2" for={formOptions.studentTeaching}>
+    <FormRoute path="/data2" for={formOptions.studentTeaching} key={1}>
       <DataST
         data={data2}
         setData={setData2}
@@ -116,7 +114,7 @@ export const FormSTO = () => {
         resetCallback={resetData2}
       />
     </FormRoute>,
-    <FormRoute path="/data1" for={formOptions.severePracticum}>
+    <FormRoute path="/data1" for={formOptions.severePracticum} key={2}>
       <DataSP
         data={data2}
         setData={setData2}
@@ -178,7 +176,7 @@ export const FormSTO = () => {
 };
 
 const RootComponent = () => {
-  return <FormSTO />;
+  return <App />;
 };
 
 const entry = document.getElementById("app-root");

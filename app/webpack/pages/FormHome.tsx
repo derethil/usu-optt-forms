@@ -2,7 +2,7 @@ import React from "react";
 
 import { IFormInfo, ITimer, ScoresState } from "../types/types";
 
-import { DataSchema, IStudentTeachingData } from "../types/dataTypes";
+import { DataSchema } from "../types/dataTypes";
 
 import { PDFData } from "../components/PDFData";
 import ScoreTotals from "../components/ScoreTotals";

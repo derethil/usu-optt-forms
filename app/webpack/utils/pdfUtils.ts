@@ -1,4 +1,11 @@
-import { IStudentTeachingData } from "../types/dataTypes";
+import {
+  DataSchema,
+  FormKind,
+  ICorrection,
+  ISequence,
+  ISeverePracticumData,
+  IStudentTeachingData,
+} from "../types/dataTypes";
 import { ITimer, ScoresState } from "../types/types";
 
 import { formatTime } from "./timerUtils";
@@ -6,10 +13,11 @@ import * as data from "./dataUtils";
 import * as utils from "./utils";
 import { getRubric } from "./formUtils";
 import { Section } from "../types/types";
+import { getPercent } from "./utils";
 
 const rubricData = getRubric();
 
-export const generateObsBody = (
+export const genSTObservationBody = (
   observData: IStudentTeachingData,
   timer: ITimer
 ) => {
@@ -76,4 +84,81 @@ export const getScore = (
     const maxScore = rubricData[sectionIdx].rows[rowIdx].options[0].score;
     return `${rowInfo.score} / ${maxScore}`;
   }
+};
+
+export const genSPObservationBody = (
+  data: ISeverePracticumData,
+  timer: ITimer
+) => {
+  const signalCorrect = data.signalSequence.correct;
+  const signalIncorrect = data.signalSequence.incorrect;
+
+  const totalSequences = signalCorrect.sequence + signalIncorrect.sequence;
+
+  const errorCorrect = data.errorCorrection.correct;
+  const errorIncorrect = data.errorCorrection.incorrect;
+
+  const totalErrors = errorCorrect.sequence + errorIncorrect.sequence;
+
+  return [
+    ["Signal Sequence", "Correct | Incorrect"],
+    ["    Cue", `${signalCorrect.cue} | ${signalIncorrect.cue}`],
+    ["    Pause", `${signalCorrect.pause} | ${signalIncorrect.pause}`],
+    ["    Signal", `${signalCorrect.signal} | ${signalIncorrect.signal}`],
+    ["    All Correct", `${signalCorrect.sequence}`],
+    ["    Total Sequences", totalSequences],
+    ["    % Correct", `${getPercent(signalCorrect.sequence, totalSequences)}`],
+    ["Error Correction", ""],
+    ["    Model", `${errorCorrect.model} | ${errorIncorrect.model}`],
+    ["    Test", `${errorCorrect.test} | ${errorIncorrect.test}`],
+    [
+      "    Delayed Test",
+      `${errorCorrect.delayedTest} | ${errorIncorrect.delayedTest}`,
+    ],
+    ["    All Correct", `${errorCorrect.sequence}`],
+    ["    Total Sequences", totalErrors],
+    ["    % Correct", `${getPercent(errorCorrect.sequence, totalErrors)}`],
+  ];
+};
+
+interface ISequences {
+  correct: ISequence;
+  incorrect: ISequence;
+}
+
+export const genSPSequence = (data: ISequences) => {
+  const correct = data.correct;
+  const incorrect = data.incorrect;
+
+  const total = correct.sequence + incorrect.sequence;
+
+  return [
+    ["Cue", `${correct.cue} | ${incorrect.cue}`],
+    ["Pause", `${correct.pause} | ${incorrect.pause}`],
+    ["Signal", `${correct.signal} | ${incorrect.signal}`],
+    ["All Correct", `${correct.sequence}`],
+    ["Total Sequences", total],
+    ["% Correct", `${getPercent(correct.sequence, total)}`],
+  ];
+};
+
+interface ICorrections {
+  correct: ICorrection;
+  incorrect: ICorrection;
+}
+
+export const genSPError = (data: ICorrections) => {
+  const correct = data.correct;
+  const incorrect = data.incorrect;
+
+  const total = correct.sequence + incorrect.sequence;
+
+  return [
+    ["Model", `${correct.model} | ${incorrect.model}`],
+    ["Test", `${correct.test} | ${incorrect.test}`],
+    ["Delayed Test", `${correct.delayedTest} | ${incorrect.delayedTest}`],
+    ["All Correct", `${correct.sequence}`],
+    ["Total Sequences", total],
+    ["% Correct", `${getPercent(correct.sequence, total)}`],
+  ];
 };

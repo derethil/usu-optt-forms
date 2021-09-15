@@ -16,10 +16,6 @@ export const getRubric = (): Section[] => {
   else return severePracticumRubric;
 };
 
-type defaultData =
-  | typeof defaultStudentTeachingData
-  | typeof defaultSeverePracticumData;
-
 export const getDefaultData = () => {
   if (currentForm === "studentTeaching") return defaultStudentTeachingData;
   else return defaultSeverePracticumData;

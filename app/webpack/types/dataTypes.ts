@@ -21,7 +21,7 @@ export type ISequence = {
   signal: number;
 };
 
-type ICorrection = {
+export type ICorrection = {
   sequence: number;
   model: number;
   test: number;

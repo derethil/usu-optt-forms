@@ -1,6 +1,11 @@
 // Module interfaces
 
-import { ISeverePracticumData, IStudentTeachingData } from "../types/dataTypes";
+import {
+  FormKind,
+  ISeverePracticumData,
+  IStudentTeachingData,
+  DataSchema,
+} from "../types/dataTypes";
 
 const defaultSequence = {
   sequence: 0,
@@ -30,7 +35,7 @@ const defaultCues = {
 
 // Data interfaces
 
-export const defaultStudentTeachingData: IStudentTeachingData = {
+const studentTeachingData: IStudentTeachingData = {
   cues: defaultCues,
   praise: defaultPraise,
   corrections: {
@@ -48,7 +53,7 @@ export const defaultStudentTeachingData: IStudentTeachingData = {
   },
 };
 
-export const defaultSeverePracticumData: ISeverePracticumData = {
+const severePracticumData: ISeverePracticumData = {
   signalSequence: {
     correct: defaultSequence,
     incorrect: defaultSequence,
@@ -66,19 +71,12 @@ export const defaultSeverePracticumData: ISeverePracticumData = {
   cues: defaultCues,
 };
 
-type Something =
-  | ({
-      formKind: "a";
-    } & IStudentTeachingData)
-  | ({
-      formKind: "b";
-    } & ISeverePracticumData);
-
-const thing: Something = {
-  formKind: "b",
-  ...defaultSeverePracticumData,
+export const defaultStudentTeachingData: DataSchema = {
+  formKind: FormKind.studentTeaching,
+  ...studentTeachingData,
 };
 
-if (thing.formKind === "b") {
-  thing.signalSequence;
-}
+export const defaultSeverePracticumData: DataSchema = {
+  formKind: FormKind.severePracticum,
+  ...severePracticumData,
+};
