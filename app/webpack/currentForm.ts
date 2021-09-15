@@ -3,7 +3,7 @@ export enum formOptions {
   severePracticum = "severePracticum",
 }
 
-const CURRENT_FORM: formOptions = formOptions.studentTeaching;
+const CURRENT_FORM: formOptions = formOptions.severePracticum;
 
 export default CURRENT_FORM;
 
