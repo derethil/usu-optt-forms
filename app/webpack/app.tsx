@@ -126,11 +126,15 @@ export const App = () => {
       />
     </FormRoute>,
     // ------ BT5 PRACTICUM ------
-    <FormRoute
-      path="/data1"
-      for={formOptions.bTo5Practicum}
-      key={3}
-    ></FormRoute>,
+    <FormRoute path="/data1" for={formOptions.bTo5Practicum} key={3}>
+      <DataBT5
+        data={data1}
+        setData={setData1}
+        timer={timer1}
+        title="Data 1"
+        resetCallback={resetData1}
+      />
+    </FormRoute>,
   ];
 
   return (
