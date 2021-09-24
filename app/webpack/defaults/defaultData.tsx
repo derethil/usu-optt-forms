@@ -1,10 +1,11 @@
-// Module interfaces
+// ------ GENERAL ------
 
 import {
   FormKind,
   ISeverePracticumData,
   IStudentTeachingData,
   DataSchema,
+  IBT5PracticumData,
 } from "../types/dataTypes";
 
 const defaultSequence = {
@@ -33,7 +34,13 @@ const defaultCues = {
   group: 0,
 };
 
-// Data interfaces
+const instructionalSequence = {
+  attention: 0,
+  cue: 0,
+  pause: 0,
+};
+
+// ------- STUDENT TEACHING -------
 
 const studentTeachingData: IStudentTeachingData = {
   cues: defaultCues,
@@ -53,6 +60,8 @@ const studentTeachingData: IStudentTeachingData = {
   },
 };
 
+// ------- SEVERE PRACTICUM --------
+
 const severePracticumData: ISeverePracticumData = {
   signalSequence: {
     correct: defaultSequence,
@@ -71,6 +80,35 @@ const severePracticumData: ISeverePracticumData = {
   cues: defaultCues,
 };
 
+// -------- BT5 PRACTICUM --------
+
+const bTo5PracticumData: IBT5PracticumData = {
+  praise: defaultPraise,
+  sequence: {
+    correct: instructionalSequence,
+    incorrect: instructionalSequence,
+    allCorrect: 0,
+  },
+  interactions: {
+    comment: 0,
+    question: 0,
+    nonTargetCue: 0,
+  },
+  responses: {
+    group: 0,
+    individual: 0,
+    vocal: 0,
+    nonVocal: 0,
+  },
+  errorCorrection: defaultCorrection,
+  prompts: {
+    LTM: 0,
+    inconsistent: 0,
+  },
+};
+
+// -------- DATA FOR UNIFIED TYPE ------
+
 export const defaultStudentTeachingData: DataSchema = {
   formKind: FormKind.studentTeaching,
   ...studentTeachingData,
@@ -79,4 +117,9 @@ export const defaultStudentTeachingData: DataSchema = {
 export const defaultSeverePracticumData: DataSchema = {
   formKind: FormKind.severePracticum,
   ...severePracticumData,
+};
+
+export const defaultBT5PracticumData: DataSchema = {
+  formKind: FormKind.bTo5Practicum,
+  ...bTo5PracticumData,
 };

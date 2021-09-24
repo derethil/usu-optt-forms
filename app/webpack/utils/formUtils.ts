@@ -7,6 +7,7 @@ import _bTo5PracticumRubric from "../../rubrics/bTo5Practicum.json";
 import {
   defaultStudentTeachingData,
   defaultSeverePracticumData,
+  defaultBT5PracticumData,
 } from "../defaults/defaultData";
 
 export const getRubric = (): Section[] => {
@@ -25,6 +26,12 @@ export const getRubric = (): Section[] => {
 };
 
 export const getDefaultData = () => {
-  if (currentForm === "studentTeaching") return defaultStudentTeachingData;
-  else return defaultSeverePracticumData;
+  switch (currentForm) {
+    case formOptions.studentTeaching:
+      return defaultStudentTeachingData;
+    case formOptions.severePracticum:
+      return defaultStudentTeachingData;
+    case formOptions.bTo5Practicum:
+      return defaultBT5PracticumData;
+  }
 };

@@ -21,6 +21,7 @@ import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import { getDefaultData } from "./utils/formUtils";
 import currentForm, { formOptions } from "./currentForm";
 import FormRoute from "./routing/FormRoute";
+import DataBT5 from "./pages/data/DataBT5";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -95,6 +96,7 @@ export const App = () => {
   };
 
   const dynamicRoutes = [
+    // ------ STUDENT TEACHING ------
     <FormRoute path="/data1" for={formOptions.studentTeaching} key={0}>
       <DataST
         data={data1}
@@ -113,15 +115,22 @@ export const App = () => {
         resetCallback={resetData2}
       />
     </FormRoute>,
+    // ------ SEVERE PRACTICUM ------
     <FormRoute path="/data1" for={formOptions.severePracticum} key={2}>
       <DataSP
-        data={data2}
-        setData={setData2}
-        timer={timer2}
+        data={data1}
+        setData={setData1}
+        timer={timer1}
         title="Data 2"
-        resetCallback={resetData2}
+        resetCallback={resetData1}
       />
     </FormRoute>,
+    // ------ BT5 PRACTICUM ------
+    <FormRoute
+      path="/data1"
+      for={formOptions.bTo5Practicum}
+      key={3}
+    ></FormRoute>,
   ];
 
   return (

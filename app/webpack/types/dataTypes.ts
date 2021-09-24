@@ -1,3 +1,5 @@
+// ---- GENERAL ----
+
 export interface IPraiseData {
   praise: {
     general: number;
@@ -14,18 +16,13 @@ export interface ICues {
   };
 }
 
+// ---- STUDENT TEACHING ----
+
 export type ISequence = {
   sequence: number;
   cue: number;
   pause: number;
   signal: number;
-};
-
-export type ICorrection = {
-  sequence: number;
-  model: number;
-  test: number;
-  delayedTest: number;
 };
 
 export interface IStudentTeachingData extends IPraiseData, ICues {
@@ -44,9 +41,18 @@ export interface IStudentTeachingData extends IPraiseData, ICues {
   };
 }
 
+// ---- SEVERE PRACTICUM ----
+
 interface Mapping<T> {
   [key: string]: T;
 }
+
+export type ICorrection = {
+  sequence: number;
+  model: number;
+  test: number;
+  delayedTest: number;
+};
 
 interface SignalSequence extends Mapping<ISequence> {
   correct: ISequence;
@@ -66,9 +72,44 @@ export interface ISeverePracticumData
   errorCorrection: ErrorCorrection;
 }
 
+// ---- BT5 PRACTICUM ----
+
+interface instructionalSequence {
+  attention: number;
+  cue: number;
+  pause: number;
+}
+
+export interface IBT5PracticumData extends IPraiseData {
+  sequence: {
+    correct: instructionalSequence;
+    incorrect: instructionalSequence;
+    allCorrect: number;
+  };
+  interactions: {
+    comment: number;
+    question: number;
+    nonTargetCue: number;
+  };
+  responses: {
+    group: number;
+    individual: number;
+    vocal: number;
+    nonVocal: number;
+  };
+  errorCorrection: ICorrection;
+  prompts: {
+    LTM: number;
+    inconsistent: number;
+  };
+}
+
+// ---- UNIFIED TYPE ----
+
 export enum FormKind {
   studentTeaching = "studentTeaching",
   severePracticum = "severePracticum",
+  bTo5Practicum = "bTo5Practicum",
 }
 
 export type DataSchema =
@@ -77,4 +118,7 @@ export type DataSchema =
     } & IStudentTeachingData)
   | ({
       formKind: FormKind.severePracticum;
-    } & ISeverePracticumData);
+    } & ISeverePracticumData)
+  | ({
+      formKind: FormKind.bTo5Practicum;
+    } & IBT5PracticumData);
