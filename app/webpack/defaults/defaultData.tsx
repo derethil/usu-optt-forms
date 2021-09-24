@@ -38,6 +38,7 @@ const instructionalSequence = {
   attention: 0,
   cue: 0,
   pause: 0,
+  all: 0,
 };
 
 // ------- STUDENT TEACHING -------
@@ -87,7 +88,6 @@ const bTo5PracticumData: IBT5PracticumData = {
   sequence: {
     correct: instructionalSequence,
     incorrect: instructionalSequence,
-    allCorrect: 0,
   },
   interactions: {
     comment: 0,
@@ -100,7 +100,12 @@ const bTo5PracticumData: IBT5PracticumData = {
     vocal: 0,
     nonVocal: 0,
   },
-  errorCorrection: defaultCorrection,
+  errorCorrection: {
+    responseError: 0,
+    prompt: 0,
+    test: 0,
+    delayedTest: 0,
+  },
   prompts: {
     LTM: 0,
     inconsistent: 0,

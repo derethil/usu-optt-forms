@@ -16,6 +16,10 @@ export interface ICues {
   };
 }
 
+interface Mapping<T> {
+  [key: string]: T;
+}
+
 // ---- STUDENT TEACHING ----
 
 export type ISequence = {
@@ -42,10 +46,6 @@ export interface IStudentTeachingData extends IPraiseData, ICues {
 }
 
 // ---- SEVERE PRACTICUM ----
-
-interface Mapping<T> {
-  [key: string]: T;
-}
 
 export type ICorrection = {
   sequence: number;
@@ -74,18 +74,20 @@ export interface ISeverePracticumData
 
 // ---- BT5 PRACTICUM ----
 
-interface instructionalSequence {
+interface IInstrucSequence extends Mapping<number> {
   attention: number;
   cue: number;
   pause: number;
+  all: number;
 }
 
-export interface IBT5PracticumData extends IPraiseData {
-  sequence: {
-    correct: instructionalSequence;
-    incorrect: instructionalSequence;
-    allCorrect: number;
-  };
+interface Sequence extends Mapping<IInstrucSequence> {
+  correct: IInstrucSequence;
+  incorrect: IInstrucSequence;
+}
+
+export interface IBT5PracticumData extends IPraiseData, Mapping<any> {
+  sequence: Sequence;
   interactions: {
     comment: number;
     question: number;
@@ -97,7 +99,12 @@ export interface IBT5PracticumData extends IPraiseData {
     vocal: number;
     nonVocal: number;
   };
-  errorCorrection: ICorrection;
+  errorCorrection: {
+    responseError: number;
+    prompt: number;
+    test: number;
+    delayedTest: number;
+  };
   prompts: {
     LTM: number;
     inconsistent: number;
