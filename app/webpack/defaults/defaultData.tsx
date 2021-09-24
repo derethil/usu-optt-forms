@@ -107,7 +107,7 @@ const bTo5PracticumData: IBT5PracticumData = {
     delayedTest: 0,
   },
   prompts: {
-    LTM: 0,
+    ltm: 0,
     inconsistent: 0,
   },
 };

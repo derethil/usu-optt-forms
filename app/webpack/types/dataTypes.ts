@@ -106,7 +106,7 @@ export interface IBT5PracticumData extends IPraiseData, Mapping<any> {
     delayedTest: number;
   };
   prompts: {
-    LTM: number;
+    ltm: number;
     inconsistent: number;
   };
 }
