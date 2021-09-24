@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
 import Color from "../styledComponents/colors";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 
 const activeClassName = "active";
 
@@ -46,10 +46,6 @@ const StyledLink = styled(NavLink)`
 `;
 
 const generateLinks = (): JSX.Element[] => {
-  const differentPages = -{
-    studentTeaching: ["data2"],
-  };
-
   const endpoints = [
     { name: "Home", endpoint: "/" },
     { name: "Data 1", endpoint: "/data1" },
@@ -57,13 +53,18 @@ const generateLinks = (): JSX.Element[] => {
     { name: "Feedback", endpoint: "/feedback" },
   ];
 
-  if (currentForm === "studentTeaching") {
+  if (currentForm === formOptions.studentTeaching) {
     endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
   }
 
   const links = endpoints.map(({ name, endpoint }, index) => {
     return (
-      <StyledLink activeClassName={activeClassName} to={endpoint} key={index}>
+      <StyledLink
+        activeClassName={activeClassName}
+        to={endpoint}
+        key={index}
+        exact
+      >
         {name}
       </StyledLink>
     );
