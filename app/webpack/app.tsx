@@ -34,7 +34,6 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
       };
     });
   });
-
   return initialState;
 };
 
@@ -95,7 +94,7 @@ export const App = () => {
     resetComments();
   };
 
-  const allDynamicRoutes = [
+  const dynamicRoutes = [
     <FormRoute path="/data1" for={formOptions.studentTeaching} key={0}>
       <DataST
         data={data1}
@@ -150,7 +149,7 @@ export const App = () => {
             />
           </Route>
 
-          {...allDynamicRoutes.map((route) =>
+          {...dynamicRoutes.map((route) =>
             route.props["for"] === currentForm ? route : null
           )}
 

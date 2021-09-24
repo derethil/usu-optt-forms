@@ -1,7 +1,8 @@
 import { Section } from "../types/types";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 import _studentTeachingRubric from "../../rubrics/studentTeaching.json";
 import _severePracticumRubric from "../../rubrics/severePracticum.json";
+import _bTo5PracticumRubric from "../../rubrics/bTo5Practicum.json";
 
 import {
   defaultStudentTeachingData,
@@ -11,9 +12,16 @@ import {
 export const getRubric = (): Section[] => {
   const studentTeachingRubric = _studentTeachingRubric as Section[];
   const severePracticumRubric = _severePracticumRubric as Section[];
+  const bTo5PracticumRubric = _bTo5PracticumRubric as Section[];
 
-  if (currentForm === "studentTeaching") return studentTeachingRubric;
-  else return severePracticumRubric;
+  switch (currentForm) {
+    case formOptions.studentTeaching:
+      return studentTeachingRubric;
+    case formOptions.severePracticum:
+      return severePracticumRubric;
+    case formOptions.bTo5Practicum:
+      return bTo5PracticumRubric;
+  }
 };
 
 export const getDefaultData = () => {

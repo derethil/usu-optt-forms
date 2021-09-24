@@ -1,17 +1,17 @@
 [
   {
-    "sectionTitle": "Effective Teaching Cycle",
+    "sectionTitle": "Effective Teaching",
     "rows": [
       {
         "area": "Lesson Plan",
         "options": [
           {
             "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals/obj., sufficient # of trials, items, types & available",
-            "score": 6
+            "score": 4
           },
           {
             "content": "Incomplete, inconsistencies, or unclear lesson plan, not available at time of observation (not printed)",
-            "score": 4
+            "score": 2
           },
           {
             "content": "No lesson plan",
@@ -24,11 +24,11 @@
         "options": [
           {
             "content": "Included appropriate review / maintenance / prerequisite, with clear format",
-            "score": 4
+            "score": 2
           },
           {
             "content": "included inappropriate / partial review / maintenance / prerequisite, and/or unclear format",
-            "score": 2
+            "score": 1
           },
           {
             "content": "Included inappropriate / no review / maintenance / prerequisite, and/or unclear format",
@@ -41,10 +41,6 @@
         "options": [
           {
             "content": "Included appropriate objective, link, and relavance statement",
-            "score": 2
-          },
-          {
-            "content": "Included inappropriate/partial objective, link, and relevance statement",
             "score": 1
           },
           {
@@ -58,11 +54,11 @@
         "options": [
           {
             "content": "Skill broken into clear steps, modeled skill, appropriate format, engages student",
-            "score": 5
+            "score": 2
           },
           {
             "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
-            "score": 3
+            "score": 1
           },
           {
             "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
@@ -74,12 +70,12 @@
         "area": "Guided Practice",
         "options": [
           {
-            "content": "Appropriate cue and pace, necessary prompts, sufficient # of examples, aligned to objective",
-            "score": 5
+            "content": "Appropriate cue and pace, necessary prompts, sufficient # of trials, evidence of scaffolding",
+            "score": 3
           },
           {
             "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
-            "score": 3
+            "score": 2
           },
           {
             "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
@@ -91,11 +87,11 @@
         "area": "Real-Life Examples",
         "options": [
           {
-            "content": "Appropriate real-life examples",
+            "content": "Provides developmentally appropriate functional and relevant examples",
             "score": 2
           },
           {
-            "content": "Provides some real-life examples, examples are unclear or unrelated",
+            "content": "Provides some appropriate examples; examples are unclear or unrelated",
             "score": 1
           },
           {
@@ -109,11 +105,11 @@
         "options": [
           {
             "content": "Appropriate supervision/feedback, sufficient # of trials, varied examples, aligned to objective",
-            "score": 4
+            "score": 2
           },
           {
             "content": "Inappropriate supervision/feedback, or not aligned to objective",
-            "score": 2
+            "score": 1
           },
           {
             "content": "Inappropriate supervision/feedback, or not aligned to objective",
@@ -129,7 +125,24 @@
             "score": 2
           },
           {
-            "content": "Random or unpredictable practice opportunities, not aligned to objective",
+            "content": "Random or unpredictable practice opportunities, not aligned to objective, plan",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Correction Procedure",
+        "options": [
+          {
+            "content": "Clear correction procedure documenting the ETC and appropriate to the skill being taught",
+            "score": 2
+          },
+          {
+            "content": "Clear correction procedure documenting the ETC but not individualized to the skill being taught",
+            "score": 1
+          },
+          {
+            "content": "No clear correction procedure documented",
             "score": 0
           }
         ]
@@ -137,38 +150,43 @@
     ]
   },
   {
-    "sectionTitle": "Preparation, Planning, and Presentation",
+    "sectionTitle": "Presentation",
     "rows": [
       {
         "area": "Preparation",
         "options": [
           {
-            "content": "Started on time, materials gathered and ready for use, students arranged to optimize learning",
+            "content": "Materials gathered and ready for use, students arrenge to optimize learning",
             "score": 2
           },
           {
-            "content": "Did not start on time, some/all materials missing, ineffective arrangement",
+            "content": "Some/all materials missing, ineffective arrangement",
             "score": 0
           }
         ]
       },
       {
-        "area": "Format",
+        "area": "Verbal Presentation",
         "options": [
           {
-            "content": "Followed format or script in written program / ETC",
-            "score": 8
+            "content": "Appropriate enthusiasm, tone, and volume, balance between comments, questions, and student instruction",
+            "score": 2
           },
           {
-            "content": "Followed format or script in written program / ETC but was not fluent",
-            "score": 6
+            "content": "Little or no enthusiasm, tone, volume, interferes with learning and behavior",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Expectations",
+        "options": [
+          {
+            "content": "Positively states behavior expectations",
+            "score": 2
           },
           {
-            "content": "Followed portions of format of script of written program / ETC",
-            "score": 4
-          },
-          {
-            "content": "Did not follow format and/or script in written program / ETC",
+            "content": "Negatively states or does not include behavior expectations",
             "score": 0
           }
         ]
@@ -178,24 +196,24 @@
         "options": [
           {
             "content": "Frequent eye contact and frequent scanning of group",
-            "score": 5
+            "score": 4
           },
           {
             "content": "Some eye contact and/or infrequent scanning of group",
-            "score": 3
+            "score": 2
           },
           {
-            "content": "Little or not eye contact and/or not scanning of group",
+            "content": "Little or no  eye contact and/or frequent scanning of group",
             "score": 0
           }
         ]
       },
       {
-        "area": "Program Adaptation",
+        "area": "Program Adaptations",
         "options": [
           {
             "content": "Appropriately adapted program to meet individual needs",
-            "score": 4
+            "score": 2
           },
           {
             "content": "Adapted program but adaptations were not individualized to the extent needed by student",
@@ -208,35 +226,58 @@
         ]
       },
       {
-        "area": "Verbal Presentation",
+        "area": "Instructional Sequence",
+        "tooltip": "Correct Sequence List<br>1. Attention<br>2. Cues<br>3. Pause<br>4.Signal",
         "options": [
           {
-            "content": "Appropriate enthusiasm, tone, and volume, relates positive attitude, age appropriate, consistently uses smooth phrasing and emphasizes key words",
-            "score": 4
+            "content": "Correct sequence included 90-100% of the time, signal only needed when appropriate",
+            "score": 6
           },
           {
-            "content": "Little/excessive enthusiasm, tone, and volume, interferes with student learning/behavior, generally uses smooth phrasing and generally emphasizes key words",
-            "score": 2
+            "content": "Correct sequence list included 70 - 89% of the time",
+            "score": 3
           },
           {
-            "content": "Little or no enthusiasm, tone, and volume, interferes with student learning/behavior, does not use smooth phrasing, no emphasis of key words",
+            "content": "Correct sequence list included less than 70% of the time",
             "score": 0
           }
         ]
       },
       {
-        "area": "Signal Sequence",
+        "area": "Opportunities To Respond",
         "options": [
           {
-            "content": "Correct sequence included 90-100% of the time (attention, cue, pause, signal), signal only needed when appropriate",
-            "score": 7
+            "content": "Consistently included opportunities to respond and relevant combinations of individual/group/dispersed turns",
+            "score": 6
           },
           {
-            "content": "Correct sequence (see list) included 70-89% of the time",
-            "score": 5
+            "content": "Inconsistently included opportunities to respond, and/or lacks relevant combinations of individual/group/dispersed turns",
+            "score": 3
           },
           {
-            "content": "Correct sequence (see list) included less than 69% of the time",
+            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual/group/dispersed turns",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Rate of Instructional Interaction",
+        "tooltip": "Rate of interactions with learners using comments, questions, or instructions",
+        "options": [
+          {
+            "content": "Rate of 6-4 per minute",
+            "score": 6
+          },
+          {
+            "content": "Rate of 3.9-3 per minute",
+            "score": 4
+          },
+          {
+            "content": "Rate of 2.9-2 per minute",
+            "score": 2
+          },
+          {
+            "content": "Rate of 1.9 or less per minute",
             "score": 0
           }
         ]
@@ -247,46 +288,33 @@
     "sectionTitle": "Feedback and Management",
     "rows": [
       {
-        "area": "Expectations",
-        "options": [
-          {
-            "content": "Positively stated at beginning of lesson, and provides necessary directions to start lesson, find page, get supplies, etc.",
-            "score": 2
-          },
-          {
-            "content": "Negatively stated or not included, and/or does not provide necessary directions to start lesson, find page, get supplies, etc.",
-            "score": 0
-          }
-        ]
-      },
-      {
         "area": "Behavior Management",
         "options": [
           {
-            "content": "Consistently / effectively follows behavior management plan to address appropriate and problem behavior",
-            "score": 5
-          },
-          {
-            "content": "Inconsistently / ineffectively follows behavior management plan to address appropriate and problem behavior",
+            "content": "Follows class/indiv. plan for behavior, appropriate reinforcement schedule and student preferences",
             "score": 3
           },
           {
-            "content": "Does not consistently / effectively follow behavior management plan",
+            "content": "Some but not all problem behaviors addressed using classroom behavior management plan",
+            "score": 2
+          },
+          {
+            "content": "Does not consistently/effectively follow behavior management plan when student engages in problem behavior",
             "score": 0
           }
         ]
       },
       {
-        "area": "Reinforcement Quality",
-        "tooltip": "1. Varied academic & behavior <br> 2. Contingent <br> 3. Descriptive <br> 4. Non-disruptive",
+        "area": "Effective Teacher Strategies",
+        "tooltip": "Aware of environment <br>Is proactive <br>Appropriate unprogrammed interactions <br>\"Thinks on feet\"",
         "options": [
           {
-            "content": "All 4 components of good reinforcement observed",
-            "score": 4
+            "content": "All components observed",
+            "score": 2
           },
           {
             "content": "2-3 components observed",
-            "score": 2
+            "score": 1
           },
           {
             "content": "0-1 components observed",
@@ -295,35 +323,18 @@
         ]
       },
       {
-        "area": "Prompts",
+        "area": "Active Engagement",
         "options": [
           {
-            "content": "Consistently / effectively implemented prompting procedures, prompting procedures used appropriate for student(s)",
-            "score": 4
+            "content": "Individual turns spread out across all learners, learners engaged and responding",
+            "score": 3
           },
           {
-            "content": "Inconsistently / ineffectively implemented prompting procedures, prompting procedures used appropriate for student(s)",
+            "content": "Few individual turns and/or little active engagement, provides opp. to respond only to target students",
             "score": 2
           },
           {
-            "content": "Does not consistently / effectively implement prompting procedures, incorrect prompting procedures used",
-            "score": 0
-          }
-        ]
-      },
-      {
-        "area": "Effective Teaching Strategies",
-        "options": [
-          {
-            "content": "Aware of environment, is proactive, appropriate unprogrammed interactions, \"thinks on feet\"",
-            "score": 4
-          },
-          {
-            "content": "2-3 components observed",
-            "score": 2
-          },
-          {
-            "content": "0-1 components observed",
+            "content": "Does not attend to more then one student in group instruction",
             "score": 0
           }
         ]
@@ -332,33 +343,46 @@
         "area": "Time Efficiency",
         "options": [
           {
-            "content": "Efficient use of time and progresses through lesson appropriately, efficient transitions",
+            "content": "Teacher uses all class time efficiently by providing multiple OTR, session begins/ends on time, smooth transition",
             "score": 4
           },
           {
-            "content": "Partially efficient use of time and/or progresses through parts of lesson appropriately, some efficient transitions",
+            "content": "Teacher uses most of class time efficiently, session begins/ends on time, smooth transition",
             "score": 2
           },
           {
-            "content": "Inefficient use of time and/or does not progress through lesson appropriately, inefficient transitions",
+            "content": "Teacher makes inefficient use of time and/or time lost on non-instructional activities",
             "score": 0
           }
         ]
       },
       {
-        "area": "Error Correction",
-        "tooltip": "1. Model <br> 2. Test <br> 3. Delayed test",
+        "area": "Reinforcement Quality",
+        "tooltip": "4 Components of Quality Reinforcement<br>1. Varied (academic & behavior)<br>2. Contigent<br>3. Descriptive<br>4. Non-disruptive",
         "options": [
           {
-            "content": "All components present 80% or more of the time",
+            "content": "All 4 components observed",
             "score": 6
           },
           {
-            "content": "One or more components present less then 50% of the time (see list)",
+            "content": "2-3 Components observed",
             "score": 3
           },
           {
-            "content": "One or more components present less then 50% of the time (see list)",
+            "content": "0-1 components observed",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Preferences for Reinforcement",
+        "options": [
+          {
+            "content": "Using a systematic procedure for determining reinforcement to provide during instruction and includes enhanced reinforcement including social games, preferred items, and reinforcement systems",
+            "score": 2
+          },
+          {
+            "content": "Does not show evidence of determining child preference and providing reinforcement beyond praise during the instructional interaction",
             "score": 0
           }
         ]
@@ -367,7 +391,7 @@
         "area": "Praise Ratio",
         "options": [
           {
-            "content": "Praise/redirect ratio at least 3:1; praise rate appropriate for group / individual",
+            "content": "Praise/redirect ratio at least 3:1; praise rate appropriate for group/individual",
             "score": 5
           },
           {
@@ -381,18 +405,36 @@
         ]
       },
       {
-        "area": "Opportunities to Respond",
+        "area": "Prompts",
         "options": [
           {
-            "content": "Consistently included frequent opportunities to respond and relevant combinations of individual/group/dispersed turns",
+            "content": "Consistently/effectively implemented prompting procedures, prompting procedures used appropriate for student(s) 80-100% of the time",
+            "score": 4
+          },
+          {
+            "content": "Inconsistently/ineffectively implemented prompting procedures, prompting procedures used appropriate for student(s) 79-60% of the time",
+            "score": 2
+          },
+          {
+            "content": "Does not consistently/effectively implement prompting procedures, incorrect prompting procedures used",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Error Correction",
+        "tooltip": "3 Components of Quality Error Correction<br>1. Model<br>2. Test<br>3. Delayed Test",
+        "options": [
+          {
+            "content": "All components present 80% or more of the time",
             "score": 6
           },
           {
-            "content": "Inconsistently included frequent opportunities to respond, and/or lacks relevant combinations of individual/group/dispersed turns",
+            "content": "One or more components present more than 50% of the time",
             "score": 3
           },
           {
-            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual/group/dispersed turns",
+            "content": "One or more components present less than 50% of the time",
             "score": 0
           }
         ]
@@ -420,7 +462,7 @@
         "options": [
           {
             "content": "Records indicate data has been recorded previously with a minimum of 5 data points, form is neat and legible",
-            "score": 4
+            "score": 2
           },
           {
             "content": "No records of data recorded previously, form not legible or easily understood",
@@ -450,11 +492,11 @@
         "options": [
           {
             "content": "Previous data is appropriate graphed, axis labeled, phase change lines included, no missed sessions without explanation",
-            "score": 4
+            "score": 2
           },
           {
             "content": "Some previous data is graphed, axis labeled, phase change lines included, graph is not completed daily during inst. sessions",
-            "score": 2
+            "score": 1
           },
           {
             "content": "No records of data recorded previously",
@@ -467,7 +509,7 @@
         "options": [
           {
             "content": "Able to articulate trends in data and identify need to change and appropriate actions to take",
-            "score": 4
+            "score": 3
           },
           {
             "content": "With support articulates trends in data and identify need to change and appropriate actions to take",
