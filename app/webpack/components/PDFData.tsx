@@ -130,7 +130,7 @@ export const PDFData = (props: PDFGeneratorProps) => {
           ],
           ["Praise Ratio", getPraiseRatio({ praise: props.data1.praise })],
           [
-            "percent Specific",
+            "Percent Specific",
             getPercent(
               props.data1.praise.academic + props.data1.praise.behavioral,
               getPraiseSum({ praise: props.data1.praise })
