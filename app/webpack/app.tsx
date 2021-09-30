@@ -15,7 +15,7 @@ import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section } from "./types/types";
-import { getRubric } from "./utils/formUtils";
+import { getRubric, getTitle } from "./utils/formUtils";
 import { defaultComments, defaultFormInfo } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import { getDefaultData } from "./utils/formUtils";
@@ -142,7 +142,7 @@ export const App = () => {
       <BrowserRouter>
         <PageHeader>
           <img alt="logo" width={300} src={logo} />
-          <Title>Student Teaching Observation Form</Title>
+          <Title>{getTitle()}</Title>
         </PageHeader>
 
         <Navbar studentTeacher={formInfo.studentTeacher} />

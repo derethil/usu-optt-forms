@@ -35,3 +35,14 @@ export const getDefaultData = () => {
       return defaultBT5PracticumData;
   }
 };
+
+export const getTitle = () => {
+  switch (currentForm) {
+    case formOptions.studentTeaching:
+      return "Student Teaching Form";
+    case formOptions.severePracticum:
+      return "Severe Practicum Form";
+    case formOptions.bTo5Practicum:
+      return "Birth to 5 Form";
+  }
+};
