@@ -30,7 +30,7 @@ export const getDefaultData = () => {
     case formOptions.studentTeaching:
       return defaultStudentTeachingData;
     case formOptions.severePracticum:
-      return defaultStudentTeachingData;
+      return defaultSeverePracticumData;
     case formOptions.bTo5Practicum:
       return defaultBT5PracticumData;
   }
