@@ -338,12 +338,10 @@ const DataBT5 = (props: Props) => {
           { display: "Inconsistent Prompt", score: data.prompts.inconsistent },
           {
             display: "Prompt",
-            score:
-              Math.round(
-                (data.prompts.ltm /
-                  (data.prompts.ltm + data.prompts.inconsistent)) *
-                  100
-              ) + "%",
+            score: getPercent(
+              data.prompts.ltm,
+              data.prompts.ltm + data.prompts.inconsistent
+            ),
           },
         ]}
       >

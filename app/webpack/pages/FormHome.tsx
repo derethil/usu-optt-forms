@@ -4,7 +4,7 @@ import { IFormInfo, ITimer, ScoresState } from "../types/types";
 
 import { DataSchema } from "../types/dataTypes";
 
-import { PDFData } from "../components/PDFData";
+import { PDFData } from "../components/pdfReport/PDFData";
 import ScoreTotals from "../components/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";

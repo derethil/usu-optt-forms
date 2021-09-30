@@ -1,32 +1,23 @@
 import React from "react";
 
-import { ScoresState, ITimer, IFormInfo } from "../types/types";
+import { ScoresState, ITimer, IFormInfo } from "../../types/types";
 
-import { IComments } from "../defaults/defaults";
-import {
-  DataSchema,
-  FormKind,
-  ISeverePracticumData,
-  IStudentTeachingData,
-} from "../types/dataTypes";
-import { Button } from "../styledComponents/style";
-import Color from "../styledComponents/colors";
-import usuLogoB64 from "../../static/img/usuLogoB64";
-import { getRubric } from "../utils/formUtils";
-import PDFGenerator from "../PDFGenerator";
-import {
-  genSPError,
-  genSPObservationBody,
-  genSPSequence,
-  genSTObservationBody,
-  getLetterGrade,
-  getScore,
-} from "../utils/pdfUtils";
-import { getPercent } from "../utils/utils";
-import { generateScoreData } from "../utils/scoreUtils";
-import { getOTRRate, getPraiseRatio, getPraiseSum } from "../utils/dataUtils";
+import { IComments } from "../../defaults/defaults";
+import { DataSchema, FormKind } from "../../types/dataTypes";
+import { Button } from "../../styledComponents/style";
+import Color from "../../styledComponents/colors";
+import usuLogoB64 from "../../../static/img/usuLogoB64";
 
-type PDFGeneratorProps = {
+import PDFGenerator from "./PDFGenerator";
+import { getLetterGrade, getScore } from "../../utils/pdfUtils";
+import { getPercent } from "../../utils/utils";
+import { generateScoreData } from "../../utils/scoreUtils";
+
+import studentTeachingSection from "./studentTeaching";
+import severePracticumSection from "./severePracticum";
+import bTo5PracticumSection from "./bTo5Practicum";
+
+export type PDFDataProps = {
   scores: ScoresState;
   data1: DataSchema;
   data2: DataSchema;
@@ -40,7 +31,7 @@ const formatDate = (date: Date) => {
   return new Date(date).toLocaleDateString();
 };
 
-export const PDFData = (props: PDFGeneratorProps) => {
+export const PDFData = (props: PDFDataProps) => {
   const generatePDF = () => {
     // Setup
     const generator = new PDFGenerator({
@@ -90,68 +81,11 @@ export const PDFData = (props: PDFGeneratorProps) => {
       props.data1.formKind === FormKind.studentTeaching &&
       props.data2.formKind === FormKind.studentTeaching
     ) {
-      generator.dualNestedTables({
-        head: ["Observation 1", "Observation 2"],
-        nestedTableHeight: 71,
-        nestedHeads: [
-          ["Area", "Score"],
-          ["Area", "Score"],
-        ],
-        nestedBodies: [
-          genSTObservationBody(props.data1, props.timer1),
-          genSTObservationBody(props.data2, props.timer2),
-        ],
-      });
+      studentTeachingSection(generator, props);
     } else if (props.data1.formKind === FormKind.severePracticum) {
-      generator.dualNestedTables({
-        head: ["Observation Data", "                             "],
-        nestedTableHeight: 54,
-        nestedHeads: [
-          ["Signal Sequences", "Correct | Incorrect"],
-          ["Error Corrections", "Correct | Incorrect"],
-        ],
-        nestedBodies: [
-          genSPSequence(props.data1.signalSequence),
-          genSPError(props.data1.errorCorrection),
-        ],
-      });
-
-      generator.table({
-        head: ["Praise Statements", ""],
-        columnStyles: { 1: { cellWidth: 50 } },
-        body: [
-          ["General Praise", props.data1.praise.general],
-          ["Academic Praise", props.data1.praise.academic],
-          ["Behavior Praise", props.data1.praise.behavioral],
-          ["Redirect/Reprimant", props.data1.praise.reprimand],
-          [
-            "Total Praise Statements",
-            getPraiseSum({ praise: props.data1.praise }),
-          ],
-          ["Praise Ratio", getPraiseRatio({ praise: props.data1.praise })],
-          [
-            "Percent Specific",
-            getPercent(
-              props.data1.praise.academic + props.data1.praise.behavioral,
-              getPraiseSum({ praise: props.data1.praise })
-            ),
-          ],
-        ],
-      });
-
-      generator.table({
-        head: ["Opportunities to Respond", ""],
-        columnStyles: { 1: { cellWidth: 50 } },
-        body: [
-          ["Group Responses", props.data1.cues.group],
-          ["Individual Responses", props.data1.cues.individual],
-          ["Total OTR", props.data1.cues.individual + props.data1.cues.group],
-          [
-            "Responses/min",
-            getOTRRate({ cues: props.data1.cues }, props.timer1),
-          ],
-        ],
-      });
+      severePracticumSection(generator, props);
+    } else if (props.data1.formKind === FormKind.bTo5Practicum) {
+      bTo5PracticumSection(generator, props);
     }
 
     // Total Score Summary

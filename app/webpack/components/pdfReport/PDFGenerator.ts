@@ -1,6 +1,6 @@
 import jsPDF, { jsPDFOptions } from "jspdf";
 import autoTable, { UserOptions, Styles, RowInput } from "jspdf-autotable";
-import Color from "./styledComponents/colors";
+import Color from "../../styledComponents/colors";
 
 type startYType = number | "RELATIVE";
 
@@ -65,7 +65,8 @@ class PDFGenerator {
   }
 
   public dualNestedTables(options: DualTableI) {
-    options.startY = options.startY ? options.startY : "RELATIVE";
+    options.startY =
+      typeof options.startY === "number" ? options.startY : "RELATIVE";
 
     // Required to generate nested tables this way as per jsPDF documentation
     const nestedTableCell = {
