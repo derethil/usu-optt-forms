@@ -4,7 +4,7 @@ export enum formOptions {
   bTo5Practicum = "bTo5Practicum",
 }
 
-const CURRENT_FORM: formOptions = formOptions.severePracticum;
+const CURRENT_FORM: formOptions = formOptions.bTo5Practicum;
 
 export default CURRENT_FORM;
 

@@ -11,27 +11,38 @@ import Color from "../styledComponents/colors";
 type PraiseDataRowProps = {
   data: IPraiseData;
   setData: (updatedValues: Partial<IPraiseData>) => void;
+  balancedVaried?: boolean;
 };
 
-const PraiseDataRow = ({ data, setData }: PraiseDataRowProps) => {
+const PraiseDataRow = (props: PraiseDataRowProps) => {
+  const { data, setData, balancedVaried } = props;
+
+  const displayData = [
+    { display: "General Praise", score: data.praise.general },
+    { display: "Academic Praise", score: data.praise.academic },
+    { display: "Behavioral Praise", score: data.praise.behavioral },
+    { display: "Redirect/Reprimand", score: data.praise.reprimand },
+    { display: "Praise Ratio", score: dataUtils.getPraiseRatio(data) },
+    {
+      display: "Percent Specific",
+      score: getPercent(
+        data.praise.academic + data.praise.behavioral,
+        dataUtils.getPraiseSum(data)
+      ),
+    },
+  ];
+
+  if (balancedVaried) {
+    displayData.push({
+      display: "Balanced Varied Praise",
+      score: getPercent(
+        data.praise.academic,
+        data.praise.academic + data.praise.behavioral
+      ),
+    });
+  }
   return (
-    <DataRow
-      title="Praise Type"
-      displayData={[
-        { display: "General Praise", score: data.praise.general },
-        { display: "Academic Praise", score: data.praise.academic },
-        { display: "Behavioral Praise", score: data.praise.behavioral },
-        { display: "Redirect/Reprimand", score: data.praise.reprimand },
-        { display: "Praise Ratio", score: dataUtils.getPraiseRatio(data) },
-        {
-          display: "Percent Specific",
-          score: getPercent(
-            data.praise.academic + data.praise.behavioral,
-            dataUtils.getPraiseSum(data)
-          ),
-        },
-      ]}
-    >
+    <DataRow title="Praise Type" displayData={displayData}>
       <ButtonsWrapper>
         <CounterButton
           color={Color.accents.yellow}

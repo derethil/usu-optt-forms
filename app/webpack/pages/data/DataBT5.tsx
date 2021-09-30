@@ -264,7 +264,7 @@ const DataBT5 = (props: Props) => {
         </ButtonsWrapper>
       </DataRow>
 
-      <PraiseDataRow data={props.data} setData={props.setData} />
+      <PraiseDataRow data={props.data} setData={props.setData} balancedVaried />
       <DataRow
         title="Error Correction"
         displayData={[
