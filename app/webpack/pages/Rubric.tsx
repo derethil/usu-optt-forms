@@ -5,7 +5,7 @@ import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
 import { ScoresState, Section } from "../types/types";
 import { PageContent } from "../styledComponents/style";
-import ScoreTotals from "../components/ScoreTotals";
+import ScoreTotals from "../components/rubric/ScoreTotals";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 import { generateScoreData } from "../utils/scoreUtils";

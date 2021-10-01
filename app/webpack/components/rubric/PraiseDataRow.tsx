@@ -1,12 +1,12 @@
 import React from "react";
 
-import DataRow from "./DataRow";
-import CounterButton from "./CounterButton";
-import { IPraiseData } from "../types/dataTypes";
-import { getPercent } from "../utils/utils";
-import { ButtonsWrapper } from "../styledComponents/style";
-import * as dataUtils from "../utils/dataUtils";
-import Color from "../styledComponents/colors";
+import DataRow from "../DataRow";
+import CounterButton from "../CounterButton";
+import { IPraiseData } from "../../types/dataTypes";
+import { getPercent } from "../../utils/utils";
+import { ButtonsWrapper } from "../../styledComponents/style";
+import * as dataUtils from "../../utils/dataUtils";
+import Color from "../../styledComponents/colors";
 
 type PraiseDataRowProps = {
   data: IPraiseData;

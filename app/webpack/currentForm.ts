@@ -5,7 +5,7 @@ export enum formOptions {
   reading = "reading",
 }
 
-const CURRENT_FORM: formOptions = formOptions.bTo5Practicum;
+const CURRENT_FORM: formOptions = formOptions.reading;
 
 export default CURRENT_FORM;
 

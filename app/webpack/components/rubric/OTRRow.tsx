@@ -1,14 +1,14 @@
 import React from "react";
 
-import { ICues } from "../types/dataTypes";
-import { ITimer } from "../types/types";
+import { ICues } from "../../types/dataTypes";
+import { ITimer } from "../../types/types";
 
-import DataRow from "./DataRow";
-import CounterButton from "./CounterButton";
-import { ButtonsWrapper } from "../styledComponents/style";
+import DataRow from "../DataRow";
+import CounterButton from "../CounterButton";
+import { ButtonsWrapper } from "../../styledComponents/style";
 
-import * as dataUtils from "../utils/dataUtils";
-import Color from "../styledComponents/colors";
+import * as dataUtils from "../../utils/dataUtils";
+import Color from "../../styledComponents/colors";
 
 type PraiseDataRowProps = {
   data: ICues;

@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
-import PraiseDataRow from "../../components/PraiseDataRow";
-import OTRRow from "../../components/OTRRow";
+import PraiseDataRow from "../../components/rubric/PraiseDataRow";
+import OTRRow from "../../components/rubric/OTRRow";
 import Card from "../../components/Card";
 
 import { ITimer } from "../../types/types";

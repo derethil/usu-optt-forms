@@ -1,35 +1,31 @@
 import { Section } from "../types/types";
 import currentForm, { formOptions } from "../currentForm";
-import _studentTeachingRubric from "../../rubrics/studentTeaching.json";
-import _severePracticumRubric from "../../rubrics/severePracticum.json";
-import _bTo5PracticumRubric from "../../rubrics/bTo5Practicum.json";
-import _readingRubric from "../../rubrics/readingRubric.json";
+import studentTeachingRubric from "../../rubrics/studentTeaching.json";
+import severePracticumRubric from "../../rubrics/severePracticum.json";
+import bTo5PracticumRubric from "../../rubrics/bTo5Practicum.json";
+import readingRubric from "../../rubrics/readingRubric.json";
 
 import {
   defaultStudentTeachingData,
   defaultSeverePracticumData,
   defaultBT5PracticumData,
 } from "../defaults/defaultData";
+import { DataSchema } from "../types/dataTypes";
 
 export const getRubric = (): Section[] => {
-  const studentTeachingRubric = _studentTeachingRubric as Section[];
-  const severePracticumRubric = _severePracticumRubric as Section[];
-  const bTo5PracticumRubric = _bTo5PracticumRubric as Section[];
-  const readingRubric = _readingRubric as Section[];
-
   switch (currentForm) {
     case formOptions.studentTeaching:
-      return studentTeachingRubric;
+      return studentTeachingRubric as Section[];
     case formOptions.severePracticum:
-      return severePracticumRubric;
+      return severePracticumRubric as Section[];
     case formOptions.bTo5Practicum:
-      return bTo5PracticumRubric;
+      return bTo5PracticumRubric as Section[];
     case formOptions.reading:
-      return readingRubric;
+      return readingRubric as Section[];
   }
 };
 
-export const getDefaultData = () => {
+export const getDefaultData = (): DataSchema => {
   switch (currentForm) {
     case formOptions.studentTeaching:
       return defaultStudentTeachingData;
@@ -42,7 +38,7 @@ export const getDefaultData = () => {
   }
 };
 
-export const getTitle = () => {
+export const getTitle = (): string => {
   switch (currentForm) {
     case formOptions.studentTeaching:
       return "Student Teaching Form";

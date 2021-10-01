@@ -3,7 +3,7 @@ import React from "react";
 import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
-import PraiseDataRow from "../../components/PraiseDataRow";
+import PraiseDataRow from "../../components/rubric/PraiseDataRow";
 import Card from "../../components/Card";
 
 import { ITimer } from "../../types/types";
