@@ -111,12 +111,20 @@ export interface IBT5PracticumData extends IPraiseData, Mapping<any> {
   };
 }
 
+// ---- MM READING ----
+
+export interface IReadingData extends IPraiseData, ICues {
+  sequence: SignalSequence;
+  errors: ErrorCorrection;
+}
+
 // ---- UNIFIED TYPE ----
 
 export enum FormKind {
   studentTeaching = "studentTeaching",
   severePracticum = "severePracticum",
   bTo5Practicum = "bTo5Practicum",
+  reading = "reading",
 }
 
 export type DataSchema =
@@ -128,4 +136,7 @@ export type DataSchema =
     } & ISeverePracticumData)
   | ({
       formKind: FormKind.bTo5Practicum;
-    } & IBT5PracticumData);
+    } & IBT5PracticumData)
+  | ({
+      formKind: FormKind.reading;
+    } & IReadingData);

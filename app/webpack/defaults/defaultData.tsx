@@ -6,6 +6,7 @@ import {
   IStudentTeachingData,
   DataSchema,
   IBT5PracticumData,
+  IReadingData,
 } from "../types/dataTypes";
 
 const defaultSequence = {
@@ -112,6 +113,21 @@ const bTo5PracticumData: IBT5PracticumData = {
   },
 };
 
+// -------- MM READING --------
+
+const readingData: IReadingData = {
+  praise: defaultPraise,
+  sequence: {
+    correct: defaultSequence,
+    incorrect: defaultSequence,
+  },
+  errors: {
+    correct: defaultCorrection,
+    incorrect: defaultCorrection,
+  },
+  cues: defaultCues,
+};
+
 // -------- DATA FOR UNIFIED TYPE ------
 
 export const defaultStudentTeachingData: DataSchema = {
@@ -127,4 +143,9 @@ export const defaultSeverePracticumData: DataSchema = {
 export const defaultBT5PracticumData: DataSchema = {
   formKind: FormKind.bTo5Practicum,
   ...bTo5PracticumData,
+};
+
+export const defaultReadingData: DataSchema = {
+  formKind: FormKind.reading,
+  ...readingData,
 };
