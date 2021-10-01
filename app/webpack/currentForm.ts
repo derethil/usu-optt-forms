@@ -5,7 +5,7 @@ export enum formOptions {
   reading = "reading",
 }
 
-const CURRENT_FORM: formOptions = formOptions.reading;
+const CURRENT_FORM: formOptions = formOptions.studentTeaching;
 
 export default CURRENT_FORM;
 
