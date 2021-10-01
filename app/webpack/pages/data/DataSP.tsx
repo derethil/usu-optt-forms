@@ -9,7 +9,11 @@ import OTRRow from "../../components/rubric/OTRRow";
 import Card from "../../components/Card";
 
 import { ITimer } from "../../types/types";
-import { ISeverePracticumData, ISequence } from "../../types/dataTypes";
+import {
+  ISeverePracticumData,
+  ISequence,
+  IReadingData,
+} from "../../types/dataTypes";
 
 import { getPercent } from "../../utils/utils";
 
@@ -28,12 +32,12 @@ const TwoRowButtons = styled.div`
 interface DataSPProps {
   title: string;
   timer: ITimer;
-  data: ISeverePracticumData;
+  data: ISeverePracticumData | IReadingData;
   setData: (updatedValues: Partial<ISeverePracticumData>) => void;
   resetCallback?: () => void;
 }
 
-const DataSP = (props: DataSPProps) => {
+const DataSPR = (props: DataSPProps) => {
   const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
     props.setData({
       [sequenceKey]: {
@@ -271,4 +275,4 @@ const DataSP = (props: DataSPProps) => {
   );
 };
 
-export default DataSP;
+export default DataSPR;

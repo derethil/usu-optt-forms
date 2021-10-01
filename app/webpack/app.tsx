@@ -6,7 +6,7 @@ import logo from "../static/img/horizontal_logo.png";
 
 import FormHome from "./pages/FormHome";
 import DataST from "./pages/data/DataST";
-import DataSP from "./pages/data/DataSP";
+import DataSPR from "./pages/data/DataSP";
 import Rubric from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
@@ -117,7 +117,7 @@ export const App = () => {
     </FormRoute>,
     // ------ SEVERE PRACTICUM ------
     <FormRoute path="/data1" for={formOptions.severePracticum} key={2}>
-      <DataSP
+      <DataSPR
         data={data1}
         setData={setData1}
         timer={timer1}
@@ -133,6 +133,25 @@ export const App = () => {
         timer={timer1}
         title="Data 1"
         resetCallback={resetData1}
+      />
+    </FormRoute>,
+    // ------ MM READING ------
+    <FormRoute path="/decoding" for={formOptions.reading} key={4}>
+      <DataSPR
+        data={data1}
+        setData={setData1}
+        timer={timer1}
+        title="Decoding Data"
+        resetCallback={resetData1}
+      />
+    </FormRoute>,
+    <FormRoute path="/reading" for={formOptions.reading} key={5}>
+      <DataSPR
+        data={data2}
+        setData={setData2}
+        timer={timer2}
+        title="Story Reading Data"
+        resetCallback={resetData2}
       />
     </FormRoute>,
   ];

@@ -113,9 +113,12 @@ export interface IBT5PracticumData extends IPraiseData, Mapping<any> {
 
 // ---- MM READING ----
 
-export interface IReadingData extends IPraiseData, ICues {
-  sequence: SignalSequence;
-  errors: ErrorCorrection;
+export interface IReadingData
+  extends IPraiseData,
+    ICues,
+    Mapping<SignalSequence | ErrorCorrection | any> {
+  signalSequence: SignalSequence;
+  errorCorrection: ErrorCorrection;
 }
 
 // ---- UNIFIED TYPE ----

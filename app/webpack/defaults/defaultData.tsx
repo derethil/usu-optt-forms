@@ -117,11 +117,11 @@ const bTo5PracticumData: IBT5PracticumData = {
 
 const readingData: IReadingData = {
   praise: defaultPraise,
-  sequence: {
+  signalSequence: {
     correct: defaultSequence,
     incorrect: defaultSequence,
   },
-  errors: {
+  errorCorrection: {
     correct: defaultCorrection,
     incorrect: defaultCorrection,
   },

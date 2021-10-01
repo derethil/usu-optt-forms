@@ -48,13 +48,29 @@ const StyledLink = styled(NavLink)`
 const generateLinks = (): JSX.Element[] => {
   const endpoints = [
     { name: "Home", endpoint: "/" },
-    { name: "Data 1", endpoint: "/data1" },
     { name: "Rubric", endpoint: "/rubric" },
     { name: "Feedback", endpoint: "/feedback" },
   ];
 
   if (currentForm === formOptions.studentTeaching) {
-    endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
+  }
+
+  switch (currentForm) {
+    case formOptions.studentTeaching:
+      endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
+      endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
+      break;
+    case formOptions.severePracticum:
+      endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
+      break;
+    case formOptions.bTo5Practicum:
+      endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
+    case formOptions.reading:
+      endpoints.splice(1, 0, { name: "Decoding Data", endpoint: "/decoding" });
+      endpoints.splice(2, 0, {
+        name: "Story Reading Data",
+        endpoint: "/reading",
+      });
   }
 
   const links = endpoints.map(({ name, endpoint }, index) => {

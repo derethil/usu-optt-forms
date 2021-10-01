@@ -9,6 +9,7 @@ import {
   defaultStudentTeachingData,
   defaultSeverePracticumData,
   defaultBT5PracticumData,
+  defaultReadingData,
 } from "../defaults/defaultData";
 import { DataSchema } from "../types/dataTypes";
 
@@ -34,7 +35,7 @@ export const getDefaultData = (): DataSchema => {
     case formOptions.bTo5Practicum:
       return defaultBT5PracticumData;
     case formOptions.reading:
-      return defaultStudentTeachingData; // TODO
+      return defaultReadingData;
   }
 };
 
