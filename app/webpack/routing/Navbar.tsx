@@ -52,25 +52,24 @@ const generateLinks = (): JSX.Element[] => {
     { name: "Feedback", endpoint: "/feedback" },
   ];
 
-  if (currentForm === formOptions.studentTeaching) {
-  }
-
   switch (currentForm) {
     case formOptions.studentTeaching:
       endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
       endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
       break;
     case formOptions.severePracticum:
-      endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
+      endpoints.splice(1, 0, { name: "Data", endpoint: "/data" });
       break;
     case formOptions.bTo5Practicum:
-      endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
+      endpoints.splice(1, 0, { name: "Data", endpoint: "/data" });
+      break;
     case formOptions.reading:
       endpoints.splice(1, 0, { name: "Decoding Data", endpoint: "/decoding" });
       endpoints.splice(2, 0, {
         name: "Story Reading Data",
         endpoint: "/reading",
       });
+      break;
   }
 
   const links = endpoints.map(({ name, endpoint }, index) => {

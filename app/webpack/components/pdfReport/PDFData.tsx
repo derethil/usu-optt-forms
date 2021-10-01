@@ -14,7 +14,7 @@ import { getPercent } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
 import studentTeachingSection from "./studentTeaching";
-import severePracticumSection from "./severePracticum";
+import severePracticumReadingSection from "./severePracticum";
 import bTo5PracticumSection from "./bTo5Practicum";
 
 export type PDFDataProps = {
@@ -77,15 +77,33 @@ export const PDFData = (props: PDFDataProps) => {
 
     // Observations
 
+    generator.table({
+      // startY: 18,
+      head: ["Data"],
+    });
+
     if (
       props.data1.formKind === FormKind.studentTeaching &&
       props.data2.formKind === FormKind.studentTeaching
     ) {
       studentTeachingSection(generator, props);
     } else if (props.data1.formKind === FormKind.severePracticum) {
-      severePracticumSection(generator, props);
+      severePracticumReadingSection(generator, props.data1, props.timer1);
     } else if (props.data1.formKind === FormKind.bTo5Practicum) {
       bTo5PracticumSection(generator, props);
+    } else if (props.data1.formKind === FormKind.reading) {
+      severePracticumReadingSection(
+        generator,
+        props.data1,
+        props.timer1,
+        "Decoding Data"
+      );
+      severePracticumReadingSection(
+        generator,
+        props.data2,
+        props.timer2,
+        "Story Reading Data"
+      );
     }
 
     // Total Score Summary

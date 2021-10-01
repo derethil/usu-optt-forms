@@ -1,5 +1,5 @@
 import PDFGenerator from "./PDFGenerator";
-import { FormKind } from "../../types/dataTypes";
+import { DataSchema, FormKind } from "../../types/dataTypes";
 import {
   getOTRRate,
   getPraiseRatio,
@@ -9,20 +9,21 @@ import { genSPError, genSPSequence } from "../../utils/pdfUtils";
 import { getPercent } from "../../utils/utils";
 import { PDFDataProps } from "./PDFData";
 import Color from "../../styledComponents/colors";
+import { ITimer } from "../../types/types";
 
-const severePracticumSection = (
+const severePracticumReadingSection = (
   generator: PDFGenerator,
-  props: PDFDataProps
+  data: DataSchema,
+  timer: ITimer,
+  title: string = "Observation Data"
 ) => {
-  if (props.data1.formKind === FormKind.severePracticum) {
-    generator.table({
-      // startY: 18,
-      head: ["Data"],
-    });
-
+  if (
+    data.formKind === FormKind.severePracticum ||
+    data.formKind === FormKind.reading
+  ) {
     generator.dualNestedTables({
-      startY: "RELATIVE",
-      head: ["Observation Data", "                             "],
+      startY: (generator.pdf as any).lastAutoTable.finalY + 2,
+      head: [title, "                             "],
       headStyles: { fillColor: Color.blues.blue },
       nestedTableHeight: 54,
       nestedHeads: [
@@ -30,8 +31,8 @@ const severePracticumSection = (
         ["Error Corrections", "Correct | Incorrect"],
       ],
       nestedBodies: [
-        genSPSequence(props.data1.signalSequence),
-        genSPError(props.data1.errorCorrection),
+        genSPSequence(data.signalSequence),
+        genSPError(data.errorCorrection),
       ],
     });
 
@@ -40,20 +41,17 @@ const severePracticumSection = (
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["General Praise", props.data1.praise.general],
-        ["Academic Praise", props.data1.praise.academic],
-        ["Behavior Praise", props.data1.praise.behavioral],
-        ["Redirect/Reprimant", props.data1.praise.reprimand],
-        [
-          "Total Praise Statements",
-          getPraiseSum({ praise: props.data1.praise }),
-        ],
-        ["Praise Ratio", getPraiseRatio({ praise: props.data1.praise })],
+        ["General Praise", data.praise.general],
+        ["Academic Praise", data.praise.academic],
+        ["Behavior Praise", data.praise.behavioral],
+        ["Redirect/Reprimant", data.praise.reprimand],
+        ["Total Praise Statements", getPraiseSum({ praise: data.praise })],
+        ["Praise Ratio", getPraiseRatio({ praise: data.praise })],
         [
           "Percent Specific",
           getPercent(
-            props.data1.praise.academic + props.data1.praise.behavioral,
-            getPraiseSum({ praise: props.data1.praise })
+            data.praise.academic + data.praise.behavioral,
+            getPraiseSum({ praise: data.praise })
           ),
         ],
       ],
@@ -64,13 +62,13 @@ const severePracticumSection = (
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["Group Responses", props.data1.cues.group],
-        ["Individual Responses", props.data1.cues.individual],
-        ["Total OTR", props.data1.cues.individual + props.data1.cues.group],
-        ["Responses/min", getOTRRate({ cues: props.data1.cues }, props.timer1)],
+        ["Group Responses", data.cues.group],
+        ["Individual Responses", data.cues.individual],
+        ["Total OTR", data.cues.individual + data.cues.group],
+        ["Responses/min", getOTRRate({ cues: data.cues }, timer)],
       ],
     });
   }
 };
 
-export default severePracticumSection;
+export default severePracticumReadingSection;

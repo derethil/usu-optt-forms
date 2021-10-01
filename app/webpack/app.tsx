@@ -116,7 +116,7 @@ export const App = () => {
       />
     </FormRoute>,
     // ------ SEVERE PRACTICUM ------
-    <FormRoute path="/data1" for={formOptions.severePracticum} key={2}>
+    <FormRoute path="/data" for={formOptions.severePracticum} key={2}>
       <DataSPR
         data={data1}
         setData={setData1}
@@ -126,7 +126,7 @@ export const App = () => {
       />
     </FormRoute>,
     // ------ BT5 PRACTICUM ------
-    <FormRoute path="/data1" for={formOptions.bTo5Practicum} key={3}>
+    <FormRoute path="/data" for={formOptions.bTo5Practicum} key={3}>
       <DataBT5
         data={data1}
         setData={setData1}

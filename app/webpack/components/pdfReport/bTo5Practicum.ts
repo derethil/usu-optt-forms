@@ -39,11 +39,7 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
       props.data1.errorCorrection.delayedTest;
 
     generator.table({
-      // startY: 18,
-      head: ["Data"],
-    });
-
-    generator.table({
+      startY: (generator.pdf as any).lastAutoTable.finalY + 2,
       head: ["Instructional Sequence", ""],
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },

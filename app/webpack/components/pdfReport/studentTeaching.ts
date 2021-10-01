@@ -12,13 +12,8 @@ const studentTeachingSection = (
     props.data1.formKind === FormKind.studentTeaching &&
     props.data2.formKind === FormKind.studentTeaching
   ) {
-    generator.table({
-      // startY: 18,
-      head: ["Data"],
-    });
-
     generator.dualNestedTables({
-      startY: "RELATIVE",
+      startY: (generator.pdf as any).lastAutoTable.finalY + 2,
       head: ["Observation 1", "Observation 2"],
       headStyles: { fillColor: Color.blues.blue },
       nestedTableHeight: 71,
