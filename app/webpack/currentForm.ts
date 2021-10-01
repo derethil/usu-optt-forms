@@ -2,6 +2,7 @@ export enum formOptions {
   studentTeaching = "studentTeaching",
   severePracticum = "severePracticum",
   bTo5Practicum = "bTo5Practicum",
+  reading = "reading",
 }
 
 const CURRENT_FORM: formOptions = formOptions.bTo5Practicum;

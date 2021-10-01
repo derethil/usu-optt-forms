@@ -3,6 +3,7 @@ import currentForm, { formOptions } from "../currentForm";
 import _studentTeachingRubric from "../../rubrics/studentTeaching.json";
 import _severePracticumRubric from "../../rubrics/severePracticum.json";
 import _bTo5PracticumRubric from "../../rubrics/bTo5Practicum.json";
+import _readingRubric from "../../rubrics/readingRubric.json";
 
 import {
   defaultStudentTeachingData,
@@ -14,6 +15,7 @@ export const getRubric = (): Section[] => {
   const studentTeachingRubric = _studentTeachingRubric as Section[];
   const severePracticumRubric = _severePracticumRubric as Section[];
   const bTo5PracticumRubric = _bTo5PracticumRubric as Section[];
+  const readingRubric = _readingRubric as Section[];
 
   switch (currentForm) {
     case formOptions.studentTeaching:
@@ -22,6 +24,8 @@ export const getRubric = (): Section[] => {
       return severePracticumRubric;
     case formOptions.bTo5Practicum:
       return bTo5PracticumRubric;
+    case formOptions.reading:
+      return readingRubric;
   }
 };
 
@@ -33,6 +37,8 @@ export const getDefaultData = () => {
       return defaultSeverePracticumData;
     case formOptions.bTo5Practicum:
       return defaultBT5PracticumData;
+    case formOptions.reading:
+      return defaultStudentTeachingData; // TODO
   }
 };
 
@@ -44,5 +50,7 @@ export const getTitle = () => {
       return "Severe Practicum Form";
     case formOptions.bTo5Practicum:
       return "Birth to 5 Form";
+    case formOptions.reading:
+      return "MM Reading Form";
   }
 };

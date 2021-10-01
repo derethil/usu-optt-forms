@@ -1,0 +1,359 @@
+[
+  {
+    "sectionTitle": "Presentation",
+    "rows": [
+      {
+        "area": "Prepatation",
+        "options": [
+          {
+            "content": "Started on time, all materials present",
+            "score": 2
+          },
+          {
+            "content": "Started late, some materials missing",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Format",
+        "options": [
+          {
+            "content": "Followed script, format or plan of written program",
+            "score": 7
+          },
+          {
+            "content": "Followed format/script/lesson plan in written program, but was not fluent",
+            "score": 5
+          },
+          {
+            "content": "Followed portions format/script/lesson plan in written program",
+            "score": 3
+          },
+          {
+            "content": "Did not follow format/script/lesson plan",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Signal",
+        "options": [
+          {
+            "content": "Correct signal sequence included 90% or more of the time",
+            "score": 10
+          },
+          {
+            "content": "Correct signal sequence included 70% - 89% of the time",
+            "score": 5
+          },
+          {
+            "content": "Correct signal sequence included less than 69% of the time",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Group Awareness",
+        "options": [
+          {
+            "content": "Frequent eye contact and frequent scanning of group",
+            "score": 3
+          },
+          {
+            "content": "Some eye contact and/or infrequent scanning of group",
+            "score": 1
+          },
+          {
+            "content": "Little or not eye contact and/or not scanning of group",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Opportunities To Respond",
+        "options": [
+          {
+            "content": "Consistently included opportunities to respond and relevant combinations of individual/group/dispersed turns",
+            "score": 8
+          },
+          {
+            "content": "Inconsistently included opportunities to respond, and/or lacks relevant combinations of individual/group/dispersed turns",
+            "score": 5
+          },
+          {
+            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual/group/dispersed turns",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Error Correction",
+        "tooltip": "3 Components of Quality Error Correction<br>1. Model<br>2. Test<br>3. Delayed Test",
+        "options": [
+          {
+            "content": "All components present 90% or more of the time",
+            "score": 6
+          },
+          {
+            "content": "One or more components present 70-89% of the time; all components must be 70% or greater",
+            "score": 3
+          },
+          {
+            "content": "One or more components present less than 70% of the time",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Time Efficiency",
+        "options": [
+          {
+            "content": "Efficient use of time and progresses through lesson appropriately, efficient transitions",
+            "score": 4
+          },
+          {
+            "content": "Partially efficient use of time and/or progresses through parts of lesson appropriately, some efficient transitions",
+            "score": 2
+          },
+          {
+            "content": "Inefficient use of time and/or does not progress through lesson appropriately, inefficient transitions",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Verbal Presentation",
+        "options": [
+          {
+            "content": "Appropriate enthusiasm, tone, and volume, relates positive attitude, age appropriate, consistently uses smooth phrasing and emphasizes key words",
+            "score": 5
+          },
+          {
+            "content": "Little/excessive enthusiasm, tone, and volume, interferes with student learning/behavior, generally uses smooth phrasing and generally emphasizes key words",
+            "score": 3
+          },
+          {
+            "content": "Little or no enthusiasm, tone, and volume, interferes with student learning/behavior, does not use smooth phrasing, no emphasis of key words",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Feedback and Management",
+    "rows": [
+      {
+        "area": "Expectations",
+        "options": [
+          {
+            "content": "Positively stated at beginning of lesson, and provides necessary directions to start lesson, find page, get supplies, etc.",
+            "score": 1
+          },
+          {
+            "content": "Negatively states or does not state behavior expectations",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Behavior Management",
+        "options": [
+          {
+            "content": "Consistently follows classroom management plan to address appropriate and problem behaviors",
+            "score": 10
+          },
+          {
+            "content": "Consistently follows classroom management plan to address appropriate and problem behaviors, some or most of the time",
+            "score": 7
+          },
+          {
+            "content": "Inconsistently follows classroom management plan to address appropriate and problem behaviors",
+            "score": 5
+          },
+          {
+            "content": "Does not follow classroom management plan",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Praise Ratio",
+        "options": [
+          {
+            "content": "Praise/redirect ratio at least 3:1; praise rate appropriate for group/individual",
+            "score": 5
+          },
+          {
+            "content": "Praise/redirect ratio of at least 2:1",
+            "score": 3
+          },
+          {
+            "content": "Praise/redirect ratio less than 2:1",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Reinforcement Quality",
+        "tooltip": "4 Components of Quality Reinforcement<br>1. Varied (academic & behavior)<br>2. Contigent<br>3. Descriptive<br>4. Non-disruptive",
+        "options": [
+          {
+            "content": "All 4 components observed",
+            "score": 4
+          },
+          {
+            "content": "2-3 Components observed",
+            "score": 2
+          },
+          {
+            "content": "0-1 components observed",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Data Collection",
+    "rows": [
+      {
+        "area": "Recording",
+        "options": [
+          {
+            "content": "Data recorded accurately and aligned to objective, information on data sheet complete",
+            "score": 4
+          },
+          {
+            "content": "No data recorded or recorded inaccurately, data recorded does not align to the objective",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Documentation",
+        "options": [
+          {
+            "content": "Records indicate data has been recorded previously with a minimum of 5 data points, form is neat and legible",
+            "score": 4
+          },
+          {
+            "content": "No records of data recorded previously, form not legible or easily understood",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Decision Making",
+        "options": [
+          {
+            "content": "Appropriate instructional/behavior management decisions made and based on recorded data and objective",
+            "score": 4
+          },
+          {
+            "content": "Instructional/behavior management decisions made subjectively, but not based on recorded data",
+            "score": 2
+          },
+          {
+            "content": "Inappropriate instructional/behavior management decisions made",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Data Discussion",
+        "options": [
+          {
+            "content": "Able to articulate trends in data and identify need to change and appropriate actions to take",
+            "score": 4
+          },
+          {
+            "content": "With support articulates trends in data and identify need to change and appropriate actions to take",
+            "score": 2
+          },
+          {
+            "content": "Does not sufficiently articulate trends, needs, and actions to take",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Professionalism",
+    "tooltip": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
+    "rows": [
+      {
+        "area": "Dress and Hygiene",
+        "tooltip": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "options": [
+          {
+            "content": "Dresses appropriately and maintains good personal hygiene",
+            "score": "Yes"
+          },
+          {
+            "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
+            "score": -5
+          }
+        ]
+      },
+      {
+        "area": "Accepting Criticism",
+        "tooltip": "1. Accepts feedback and constructive criticism <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "options": [
+          {
+            "content": "Responds appropriately to constructive criticism",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not respond appropriately to constructive criticism",
+            "score": -5
+          }
+        ]
+      },
+      {
+        "area": "Implementing Changes",
+        "tooltip": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
+        "options": [
+          {
+            "content": "Correctly implements changes after being given feedback",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not correctly implement changes after being given feedback",
+            "score": -5
+          }
+        ]
+      },
+      {
+        "area": "Classroom Attitude",
+        "tooltip": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
+        "options": [
+          {
+            "content": "Exhibits positive and respectful attitude in the classroom",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not exhibit positive and respectful attitude in the classroom",
+            "score": -5
+          }
+        ]
+      },
+      {
+        "area": "Professional Attributes",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "options": [
+          {
+            "content": "Demonstrates many or all professional attributes",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
+            "score": -5
+          }
+        ]
+      }
+    ]
+  }
+]
