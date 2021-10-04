@@ -4,6 +4,7 @@ import studentTeachingRubric from "../../rubrics/studentTeaching.json";
 import severePracticumRubric from "../../rubrics/severePracticum.json";
 import bTo5PracticumRubric from "../../rubrics/bTo5Practicum.json";
 import readingRubric from "../../rubrics/readingRubric.json";
+import mathRubric from "../../rubrics/mathRubric.json";
 
 import {
   defaultStudentTeachingData,
@@ -23,6 +24,8 @@ export const getRubric = (): Section[] => {
       return bTo5PracticumRubric as Section[];
     case formOptions.reading:
       return readingRubric as Section[];
+    case formOptions.math:
+      return mathRubric as Section[];
   }
 };
 
@@ -35,6 +38,8 @@ export const getDefaultData = (): DataSchema => {
     case formOptions.bTo5Practicum:
       return defaultBT5PracticumData;
     case formOptions.reading:
+      return defaultReadingData;
+    case formOptions.math:
       return defaultReadingData;
   }
 };
@@ -49,5 +54,7 @@ export const getTitle = (): string => {
       return "Birth to 5 Form";
     case formOptions.reading:
       return "MM Reading Form";
+    case formOptions.math:
+      return "MM Math Form";
   }
 };

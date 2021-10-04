@@ -1,0 +1,588 @@
+[
+  {
+    "sectionTitle": "Opening",
+    "rows": [
+      {
+        "area": "Preparation",
+        "options": [
+          {
+            "content": "Started class on time and materials were ready and reminded pupils of expectations (at least one expectation reviewed)",
+            "score": 1
+          },
+          {
+            "content": "Started late > 1 minute after the bell or start time and/or some materials were not ready and/or did not remind pupils of expectation(s)",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Opening Time",
+        "options": [
+          {
+            "content": "Spent 10-20% on opening",
+            "score": 2
+          },
+          {
+            "content": "Spent 20-40% or 4-10% on opening",
+            "score": 1
+          },
+          {
+            "content": "No opening or spent >40% on opening",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Opening Materials",
+        "options": [
+          {
+            "content": "All material was necessary and practice was sufficient",
+            "score": 2
+          },
+          {
+            "content": "Some material was missing, practice was insufficient or excessive",
+            "score": 1
+          },
+          {
+            "content":  "No new material",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Activities",
+        "options": [
+          {
+            "content": "Activities engaged all pupils for all problems/tasks; response opportunities clearly directed",
+            "score": 4
+          },
+          {
+            "content": "Activities engaged some pupils for some problems/tasks",
+            "score": 2
+          },
+          {
+            "content": "Activities did not engage most pupils for most problems/tasks",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Monitoring",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y/N)<br>4. Provided re-teaching as appropriate",
+        "options": [
+          {
+            "content": "Included all 4 criteria",
+            "score": 4
+          },
+          {
+            "content": "Included 3 criteria",
+            "score": 2
+          },
+          {
+            "content": "Included 2 criteria",
+            "score": 1
+          },
+          {
+            "content": "Included 0-1 criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Lesson Introduction",
+        "options": [
+          {
+            "content": "May includ objective, link, and appropriate relevance",
+            "score": 1
+          },
+          {
+            "content": "Did not introduce the lesson",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Independent Practice",
+    "rows": [
+      {
+        "area": "Directions",
+        "options": [
+          {
+            "content": "Description of assignment included, completion time and follow-up (WA)",
+            "score": 2
+          },
+          {
+            "content": "Description of assignment included completion time, but there was no follow-up",
+            "score": 1
+          },
+          {
+            "content": "No description of assignment provided",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Problems",
+        "options": [
+          {
+            "content": "IP Problems were aligned to GP; varied problems and/or maintenance problems provided (included problems and answers in lesson plan or specified page numbers of text for where to find problems and answers)",
+            "score": 4
+          },
+          {
+            "content": "IP Problems were appropriate, no problem variety or maintenance problems provided",
+            "score": 2
+          },
+          {
+            "content": "IP problems were inappropriate, and no problem variety or maintenance problems provided",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Monitoring",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y/N)<br>4. Provided re-teaching as appropriate",
+        "options": [
+          {
+            "content": "Included all 4 criteria",
+            "score": 4
+          },
+          {
+            "content": "Included 3 criteria",
+            "score": 2
+          },
+          {
+            "content": "Included 2 criteria",
+            "score": 1
+          },
+          {
+            "content": "Included 0-1 criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area":"Time",
+        "options": [
+          {
+            "content": "Spent 20-30% of time on IP for the majority of pupils",
+            "score": 2
+          },
+          {
+            "content": "Spent 30-50% or 10-20% of time on IP for the majority of pupils",
+            "score": 1
+          },
+          {
+            "content": "Spent >50% or <10% of time on IP for the majority of pupils",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "New Material - Guided Practice",
+    "rows": [
+      {
+        "area": "New Material",
+        "tooltip": "1. Appropriate material (pupils knew prerequisites<br>2. Teachable Chunk, got through NM, GP, and IP<br>3. Made data based decisions to progress through new material and guided practice",
+        "options": [
+          {
+            "content": "All 3 criteria met",
+            "score": 4
+          },
+          {
+            "content": "2 criteria met",
+            "score": 2
+          },
+          {
+            "content": "1 criteria met",
+            "score": 1
+          },
+          {
+            "content": "Did not meet any criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Tasks",
+        "tooltip": "1. Clear steps/appropriate sequence within tasks<br>2. Prompted known steps/decisions & modeled (taught) new<br>3. Asked why questions to determine deeper understanding",
+        "options": [
+          {
+            "content": "All 3 criteria met",
+            "score": 4
+          },
+          {
+            "content": "2 criteria met",
+            "score": 2
+          },
+          {
+            "content": "1 criteria met",
+            "score": 1
+          },
+          {
+            "content": "Did not meet any criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Lesson Plan",
+        "tooltip": "1. Has detailed and simplified script in lesson plan<br>2. Follows NM and GP lesson plan unless pupil responses demonstrate a need to deviate<br>3. Problems aligned to instructional target<br>4. Sufficient problems (including problems and answers in lesson plan or specified page number of text for where to find problems and answers)",
+        "options": [
+          {
+            "content": "All 3 criteria met",
+            "score": 4
+          },
+          {
+            "content": "3 criteria met",
+            "score": 3
+          },
+          {
+            "content": "2 criteria met",
+            "score": 2
+          },
+          {
+            "content": "1 criteria met",
+            "score": 1
+          },
+          {
+            "content": "Did not meet any criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Guided Practice",
+        "tooltip": "1. Teacher and pupil did together - if in pairs/groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and learly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format/activities and problems aligned with lesson plan",
+        "options": [
+          {
+            "content": "All 5 criteria met",
+            "score": 4
+          },
+          {
+            "content": "4 criteria met",
+            "score": 3
+          },
+          {
+            "content": "3 criteria met",
+            "score": 2
+          },
+          {
+            "content": "2 criteria met",
+            "score": 1
+          },
+          {
+            "content": "Did not meet any criteria or only met 1 criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Support",
+        "tooltip": "1. Prompts/questions reduced & faded so pupils are prepared to do problems independent<br>2. Peer supports are used (Pair/Group work) and are gradually faded<br>3. Level of difficulty gradually increases<br>4. Students provided with tools that meet level of need and are gradually reduced (ex: written out strategy, concrete manipulatives, calculators, etc.)",
+        "options": [
+          {
+            "content": "3-4 criteria met",
+            "score": 3
+          },
+          {
+            "content": "2 criteria met",
+            "score": 2
+          },
+          {
+            "content": "1 criteria met",
+            "score": 1
+          },
+          {
+            "content": "Did not meet any criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Monitoring",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y/N)<br>4. Provided re-teaching as appropriate",
+        "options": [
+          {
+            "content": "Included all 4 criteria",
+            "score": 4
+          },
+          {
+            "content": "Included 3 criteria",
+            "score": 2
+          },
+          {
+            "content": "Included 2 criteria",
+            "score": 1
+          },
+          {
+            "content": "Included 0-1 criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Opportunities to Respond",
+        "options": [
+          {
+            "content": "4 or more response opportunities per minute",
+            "score": 2
+          },
+          {
+            "content": "2 -3 response opportunities per minute",
+            "score": 1
+          },
+          {
+            "content": "Less than two response opportunities per minute",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Engagement",
+        "options": [
+          {
+            "content": "Pupils engaged >90% of the time",
+            "score": 2
+          },
+          {
+            "content": "Pupils engaged 60-90% of the time",
+            "score": 1
+          },
+          {
+            "content": "Pupils engaged <60% of the time",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Time",
+        "options": [
+          {
+            "content": "Spent 30-70% of time on NM/GP",
+            "score": 2
+          },
+          {
+            "content": "Spent <30% or >70% of time on NM/GP",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Feedback and Monitoring",
+    "rows": [
+      {
+        "area": "Praise Appropriateness",
+        "options": [
+          {
+            "content": "80% or more of praise is appropriate",
+            "score": 1
+          },
+          {
+            "content": "Less than 80% of praise is appropriate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Praise Quality",
+        "tooltip": "4 Components of Quality Praise<br>1. Varied<br>2. Contigent<br>3. Descriptive<br>4. Non-disruptive",
+        "options": [
+          {
+            "content": "All 4 components observed",
+            "score": 3
+          },
+          {
+            "content": "3 Components observed",
+            "score": 2
+          },
+          {
+            "content": "2 components observed",
+            "score": 1
+          },
+          {
+            "content": "0-1 components observed"
+          }
+        ]
+      },
+      {
+        "area": "Praise Ratio",
+        "options": [
+          {
+            "content": "Praise/redirect ratio at least 4:1; praise rate appropriate for group/individual",
+            "score": 2
+          },
+          {
+            "content": "Praise/redirect ratio of at least 2:1",
+            "score": 1
+          },
+          {
+            "content": "Praise/redirect ratio less than 2:1",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Error Correction",
+        "options": [
+          {
+            "content": "Corrects all pupil errors. Follows each correction with independent correct response",
+            "score": 2
+          },
+          {
+            "content": "Corrects some pupil errors. Follows some with independent correction response",
+            "score": 1
+          },
+          {
+            "content": "Does not correct pupil errors",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Feedback",
+        "tooltip": "Good Feedback Criteria<br>1. Feedback arises naturally from pupil work<br>2. Feedback motivates pupil to persevere",
+        "options": [
+          {
+            "content": "Both criteria met",
+            "score": 2
+          },
+          {
+            "content": "1 or 2 criteria met",
+            "score": 1
+          },
+          {
+            "content": "No criteria met",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Behavior Management Plan",
+        "options": [
+          {
+            "content": "Student follows classroom management plan with positive consequences and follows plan for problem behavior",
+            "score": 4
+          },
+          {
+            "content": "Student sometimes follows classroom management plan or is inconsistent in following plan for problem behaviors",
+            "score": 2
+          },
+          {
+            "content": "Student does not follow behavior management plan",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Professionalism",
+    "tooltip": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
+    "rows": [
+      {
+        "area": "Dress and Hygiene",
+        "tooltip": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "options": [
+          {
+            "content": "Dresses appropriately and maintains good personal hygiene",
+            "score": "Yes"
+          },
+          {
+            "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Accepting Criticism",
+        "tooltip": "1. Accepts feedback and constructive criticism <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "options": [
+          {
+            "content": "Responds appropriately to constructive criticism",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not respond appropriately to constructive criticism",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Implementing Changes",
+        "tooltip": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
+        "options": [
+          {
+            "content": "Correctly implements changes after being given feedback",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not correctly implement changes after being given feedback",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Classroom Attitude",
+        "tooltip": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
+        "options": [
+          {
+            "content": "Exhibits positive and respectful attitude in the classroom",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not exhibit positive and respectful attitude in the classroom",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Professional Attributes",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "options": [
+          {
+            "content": "Demonstrates many or all professional attributes",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Interactions",
+        "tooltip": "Interacts appropriately and assigns tasks as needed to classroom staff, <br> related service personnel, classroom teachers, peer tutors and other school staff",
+        "options": [
+          {
+            "content": "Interacts appropriately almost all or all of the time",
+            "score": "Yes"
+          },
+          {
+            "content": "Interacts appropriately some or none of the time",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "area": "Assignments",
+        "tooltip": "1. Demonstrates adequate progress toward PPAT/assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
+        "options": [
+          {
+            "content": "Follows assignment procedure all or most of the time ",
+            "score": "Yes"
+          },
+          {
+            "content": "Does not follow assignment procedure",
+            "score": -3
+          }
+        ]
+      }
+    ]
+  }
+]
