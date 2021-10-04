@@ -49,6 +49,10 @@ const StyledLink = styled(NavLink)`
 
 // ---------- LINK GENERATION ----------
 
+type Routes = {
+  [key in formOptions]: JSX.Element[];
+};
+
 type Endpoint = {
   name: string;
   endpoint: string;
@@ -58,36 +62,32 @@ type Endpoints = {
   [key in formOptions]: Endpoint[];
 };
 
-const generateLinks = (): JSX.Element[] => {
-  const wrapEndpoints = (endpoints: Endpoint[]): Endpoint[] => {
+const generateLinks = (allRoutes: Routes): JSX.Element[] => {
+  const getEndpoints = (formRoutes: JSX.Element[]): Endpoint[] => {
+    const dynamicEndpoints = formRoutes.map((route) => {
+      return { name: String(route.key), endpoint: route.props["path"] };
+    });
+
     return [
       { name: "Home", endpoint: "/" },
-      ...endpoints,
       { name: "Rubric", endpoint: "/rubric" },
+      ...dynamicEndpoints,
       { name: "Feedback", endpoint: "/feedback" },
     ];
   };
 
   const endpoints: Endpoints = {
-    [formOptions.studentTeaching]: wrapEndpoints([
-      { name: "Data 1", endpoint: "/data1" },
-      { name: "Data 2", endpoint: "/data2" },
-    ]),
-    [formOptions.severePracticum]: wrapEndpoints([
-      { name: "Data", endpoint: "/data" },
-    ]),
-    [formOptions.bTo5Practicum]: wrapEndpoints([
-      { name: "Data", endpoint: "/data" },
-    ]),
-    [formOptions.reading]: wrapEndpoints([
-      { name: "Decoding Data", endpoint: "/decoding" },
-      { name: "Story Reading Data", endpoint: "/reading" },
-    ]),
-    [formOptions.math]: wrapEndpoints([
-      { name: "Opening", endpoint: "/opening" },
-      { name: "Independent Practice", endpoint: "/independent" },
-      { name: "New Material - Guided Practice", endpoint: "/guided" },
-    ]),
+    [formOptions.studentTeaching]: getEndpoints(
+      allRoutes[formOptions.studentTeaching]
+    ),
+    [formOptions.severePracticum]: getEndpoints(
+      allRoutes[formOptions.severePracticum]
+    ),
+    [formOptions.bTo5Practicum]: getEndpoints(
+      allRoutes[formOptions.bTo5Practicum]
+    ),
+    [formOptions.reading]: getEndpoints(allRoutes[formOptions.reading]),
+    [formOptions.math]: getEndpoints(allRoutes[formOptions.math]),
   };
 
   // ---------- REACT COMPONENT ----------
@@ -108,8 +108,13 @@ const generateLinks = (): JSX.Element[] => {
   return links;
 };
 
-const Navbar = (props: { studentTeacher: string }) => {
-  const links = generateLinks();
+type Props = {
+  studentTeacher: string;
+  dynamicRoutes: Routes;
+};
+
+const Navbar = (props: Props) => {
+  const links = generateLinks(props.dynamicRoutes);
 
   return (
     <NavbarContainer>

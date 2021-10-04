@@ -2,7 +2,7 @@ import React, { Props } from "react";
 import { Route } from "react-router-dom";
 
 type FormRouteProps = Route["props"] & {
-  for: string;
+  name: string;
 };
 
 const FormRoute = (props: FormRouteProps) => {

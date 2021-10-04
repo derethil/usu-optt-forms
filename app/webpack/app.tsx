@@ -96,98 +96,100 @@ export const App = () => {
     resetComments();
   };
 
+  let title;
+
   const dynamicRoutes = {
     // ------ STUDENT TEACHING ------
     [formOptions.studentTeaching]: [
-      <Route path="/data1">
+      <Route path="/data1" key={(title = "Data 1")}>
         <DataST
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="Data 1"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
-      <Route path="/data2">
+      <Route path="/data2" key={(title = "Data 2")}>
         <DataST
           data={data2}
           setData={setData2}
           timer={timer2}
-          title="Data 2"
+          title={title}
           resetCallback={resetData2}
         />
       </Route>,
     ],
     // ------ SEVERE PRACTICUM ------
     [formOptions.severePracticum]: [
-      <Route path="/data">
+      <Route path="/data" key={(title = "Data 1")}>
         <DataSPR
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="Data 2"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
     ],
     [formOptions.bTo5Practicum]: [
-      <Route path="/data">
+      <Route path="/data" key={(title = "Data 2")}>
         <DataBT5
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="Data 1"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
     ],
     // ------ READING ------
     [formOptions.reading]: [
-      <Route path="/decoding">
+      <Route path="/decoding" key={(title = "Decoding Data")}>
         <DataSPR
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="Decoding Data"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
-      <Route path="/reading">
+      <Route path="/reading" key={(title = "Story Reading Data")}>
         <DataSPR
           data={data2}
           setData={setData2}
           timer={timer2}
-          title="Story Reading Data"
+          title={title}
           resetCallback={resetData2}
         />
       </Route>,
     ],
     // ------ MATH ------
     [formOptions.math]: [
-      <Route path="/opening">
+      <Route path="/opening" key={(title = "Opening")}>
         <DataMath
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="Opening"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
-      <Route path="/independent">
+      <Route path="/independent" key={(title = "Independent Practice")}>
         <DataMath
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="Independent Practice"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
-      <Route path="/guided">
+      <Route path="/guided" key={(title = "New Material - Guided Practice")}>
         <DataMath
           data={data1}
           setData={setData1}
           timer={timer1}
-          title="New Material - Guided Practice"
+          title={title}
           resetCallback={resetData1}
         />
       </Route>,
@@ -202,7 +204,10 @@ export const App = () => {
           <Title>{FormData[currentForm].title}</Title>
         </PageHeader>
 
-        <Navbar studentTeacher={formInfo.studentTeacher} />
+        <Navbar
+          studentTeacher={formInfo.studentTeacher}
+          dynamicRoutes={dynamicRoutes}
+        />
 
         <Switch>
           <Route exact path="/" key="FormHome">
