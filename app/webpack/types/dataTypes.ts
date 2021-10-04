@@ -16,6 +16,11 @@ export interface ICues {
   };
 }
 
+interface IEngagement {
+  engaged: number;
+  notEngaged: number;
+}
+
 interface Mapping<T> {
   [key: string]: T;
 }
@@ -35,10 +40,7 @@ export interface IStudentTeachingData extends IPraiseData, ICues {
     incorrect: number;
     none: number;
   };
-  engagement: {
-    engaged: number;
-    notEngaged: number;
-  };
+  engagement: IEngagement;
   misc: {
     scanningCount: number;
     transitionCount: number;
@@ -121,6 +123,25 @@ export interface IReadingData
   errorCorrection: ErrorCorrection;
 }
 
+// ---- MM MATH ----
+
+export interface IMathData extends IPraiseData {
+  engagement: IEngagement;
+  cues: {
+    nonDirected: number;
+    group: number;
+    individual: number;
+  };
+  response: {
+    correct: number;
+    incorrect: number;
+  };
+  feedback: {
+    mtg: number;
+    notCorrected: number;
+  };
+}
+
 // ---- UNIFIED TYPE ----
 
 export enum FormKind {
@@ -128,6 +149,7 @@ export enum FormKind {
   severePracticum = "severePracticum",
   bTo5Practicum = "bTo5Practicum",
   reading = "reading",
+  math = "math",
 }
 
 export type DataSchema =
@@ -142,4 +164,7 @@ export type DataSchema =
     } & IBT5PracticumData)
   | ({
       formKind: FormKind.reading;
-    } & IReadingData);
+    } & IReadingData)
+  | ({
+      formKind: FormKind.math;
+    } & IMathData);

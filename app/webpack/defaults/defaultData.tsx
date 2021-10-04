@@ -7,6 +7,7 @@ import {
   DataSchema,
   IBT5PracticumData,
   IReadingData,
+  IMathData,
 } from "../types/dataTypes";
 
 const defaultSequence = {
@@ -42,6 +43,11 @@ const instructionalSequence = {
   all: 0,
 };
 
+const defaultEngagement = {
+  engaged: 0,
+  notEngaged: 0,
+};
+
 // ------- STUDENT TEACHING -------
 
 const studentTeachingData: IStudentTeachingData = {
@@ -52,10 +58,7 @@ const studentTeachingData: IStudentTeachingData = {
     incorrect: 0,
     none: 0,
   },
-  engagement: {
-    engaged: 0,
-    notEngaged: 0,
-  },
+  engagement: defaultEngagement,
   misc: {
     scanningCount: 0,
     transitionCount: 0,
@@ -128,6 +131,22 @@ const readingData: IReadingData = {
   cues: defaultCues,
 };
 
+// -------- MM MATH --------
+
+const mathData: IMathData = {
+  engagement: defaultEngagement,
+  cues: { nonDirected: 0, ...defaultCues },
+  response: {
+    correct: 0,
+    incorrect: 0,
+  },
+  feedback: {
+    mtg: 0,
+    notCorrected: 0,
+  },
+  praise: defaultPraise,
+};
+
 // -------- DATA FOR UNIFIED TYPE ------
 
 export const defaultStudentTeachingData: DataSchema = {
@@ -148,4 +167,9 @@ export const defaultBT5PracticumData: DataSchema = {
 export const defaultReadingData: DataSchema = {
   formKind: FormKind.reading,
   ...readingData,
+};
+
+export const defaultMathData: DataSchema = {
+  formKind: FormKind.math,
+  ...mathData,
 };
