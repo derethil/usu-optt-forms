@@ -221,18 +221,6 @@ export const App = () => {
 
           {...dynamicRoutes[currentForm]}
 
-          {currentForm === formOptions.severePracticum && (
-            <Route path="/data">
-              <DataSPR
-                data={data1}
-                setData={setData1}
-                timer={timer1}
-                title="Data 2"
-                resetCallback={resetData1}
-              />
-            </Route>
-          )}
-
           <Route path="/rubric" key="Rubric">
             <Rubric
               scores={scores}
