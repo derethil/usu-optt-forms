@@ -1,16 +1,16 @@
 import PDFGenerator from "./PDFGenerator";
-import { FormKind } from "../../types/dataTypes";
 import { genSTObservationBody } from "../../utils/pdfUtils";
 import { PDFDataProps } from "./PDFData";
 import Color from "../../styledComponents/colors";
+import { formOptions } from "../../currentForm";
 
 const studentTeachingSection = (
   generator: PDFGenerator,
   props: PDFDataProps
 ) => {
   if (
-    props.data1.formKind === FormKind.studentTeaching &&
-    props.data2.formKind === FormKind.studentTeaching
+    props.data1.currentForm === formOptions.studentTeaching &&
+    props.data2.currentForm === formOptions.studentTeaching
   ) {
     generator.dualNestedTables({
       startY: (generator.pdf as any).lastAutoTable.finalY + 2,

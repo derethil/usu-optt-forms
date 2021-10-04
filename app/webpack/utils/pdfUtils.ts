@@ -1,6 +1,4 @@
 import {
-  DataSchema,
-  FormKind,
   ICorrection,
   ISequence,
   ISeverePracticumData,

@@ -1,5 +1,5 @@
 import PDFGenerator from "./PDFGenerator";
-import { DataSchema, FormKind } from "../../types/dataTypes";
+import { DataSchema } from "../../types/dataTypes";
 import {
   getOTRRate,
   getPraiseRatio,
@@ -7,9 +7,9 @@ import {
 } from "../../utils/dataUtils";
 import { genSPError, genSPSequence } from "../../utils/pdfUtils";
 import { getPercent } from "../../utils/utils";
-import { PDFDataProps } from "./PDFData";
 import Color from "../../styledComponents/colors";
 import { ITimer } from "../../types/types";
+import { formOptions } from "../../currentForm";
 
 const severePracticumReadingSection = (
   generator: PDFGenerator,
@@ -18,8 +18,8 @@ const severePracticumReadingSection = (
   title: string = "Observation Data"
 ) => {
   if (
-    data.formKind === FormKind.severePracticum ||
-    data.formKind === FormKind.reading
+    data.currentForm === formOptions.severePracticum ||
+    data.currentForm === formOptions.reading
   ) {
     generator.dualNestedTables({
       startY: (generator.pdf as any).lastAutoTable.finalY + 2,

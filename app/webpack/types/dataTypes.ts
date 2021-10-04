@@ -1,5 +1,7 @@
 // ---- GENERAL ----
 
+import { formOptions } from "../currentForm";
+
 export interface IPraiseData {
   praise: {
     general: number;
@@ -144,27 +146,19 @@ export interface IMathData extends IPraiseData {
 
 // ---- UNIFIED TYPE ----
 
-export enum FormKind {
-  studentTeaching = "studentTeaching",
-  severePracticum = "severePracticum",
-  bTo5Practicum = "bTo5Practicum",
-  reading = "reading",
-  math = "math",
-}
-
 export type DataSchema =
   | ({
-      formKind: FormKind.studentTeaching;
+      currentForm: formOptions.studentTeaching;
     } & IStudentTeachingData)
   | ({
-      formKind: FormKind.severePracticum;
+      currentForm: formOptions.severePracticum;
     } & ISeverePracticumData)
   | ({
-      formKind: FormKind.bTo5Practicum;
+      currentForm: formOptions.bTo5Practicum;
     } & IBT5PracticumData)
   | ({
-      formKind: FormKind.reading;
+      currentForm: formOptions.reading;
     } & IReadingData)
   | ({
-      formKind: FormKind.math;
+      currentForm: formOptions.math;
     } & IMathData);

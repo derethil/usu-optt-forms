@@ -1,9 +1,9 @@
 import PDFGenerator from "./PDFGenerator";
-import { FormKind } from "../../types/dataTypes";
 import { getPercent } from "../../utils/utils";
 import { PDFDataProps } from "./PDFData";
 import * as dataUtils from "../../utils/dataUtils";
 import Color from "../../styledComponents/colors";
+import { formOptions } from "../../currentForm";
 
 // generator.table({
 //   head: ["Opportunities to Respond", ""],
@@ -17,7 +17,7 @@ import Color from "../../styledComponents/colors";
 // });
 
 const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
-  if (props.data1.formKind === FormKind.bTo5Practicum) {
+  if (props.data1.currentForm === formOptions.bTo5Practicum) {
     const correct = props.data1.sequence.correct;
     const incorrect = props.data1.sequence.incorrect;
 

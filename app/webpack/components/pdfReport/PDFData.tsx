@@ -3,7 +3,7 @@ import React from "react";
 import { ScoresState, ITimer, IFormInfo } from "../../types/types";
 
 import { IComments } from "../../defaults/defaults";
-import { DataSchema, FormKind } from "../../types/dataTypes";
+import { DataSchema } from "../../types/dataTypes";
 import { Button } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
@@ -16,6 +16,7 @@ import { generateScoreData } from "../../utils/scoreUtils";
 import studentTeachingSection from "./studentTeaching";
 import severePracticumReadingSection from "./severePracticum";
 import bTo5PracticumSection from "./bTo5Practicum";
+import { formOptions } from "../../currentForm";
 
 export type PDFDataProps = {
   scores: ScoresState;
@@ -83,15 +84,15 @@ export const PDFData = (props: PDFDataProps) => {
     });
 
     if (
-      props.data1.formKind === FormKind.studentTeaching &&
-      props.data2.formKind === FormKind.studentTeaching
+      props.data1.currentForm === formOptions.studentTeaching &&
+      props.data2.currentForm === formOptions.studentTeaching
     ) {
       studentTeachingSection(generator, props);
-    } else if (props.data1.formKind === FormKind.severePracticum) {
+    } else if (props.data1.currentForm === formOptions.severePracticum) {
       severePracticumReadingSection(generator, props.data1, props.timer1);
-    } else if (props.data1.formKind === FormKind.bTo5Practicum) {
+    } else if (props.data1.currentForm === formOptions.bTo5Practicum) {
       bTo5PracticumSection(generator, props);
-    } else if (props.data1.formKind === FormKind.reading) {
+    } else if (props.data1.currentForm === formOptions.reading) {
       severePracticumReadingSection(
         generator,
         props.data1,

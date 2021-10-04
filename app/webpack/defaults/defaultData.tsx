@@ -1,7 +1,7 @@
 // ------ GENERAL ------
 
+import { formOptions } from "../currentForm";
 import {
-  FormKind,
   ISeverePracticumData,
   IStudentTeachingData,
   DataSchema,
@@ -150,26 +150,26 @@ const mathData: IMathData = {
 // -------- DATA FOR UNIFIED TYPE ------
 
 export const defaultStudentTeachingData: DataSchema = {
-  formKind: FormKind.studentTeaching,
+  currentForm: formOptions.studentTeaching,
   ...studentTeachingData,
 };
 
 export const defaultSeverePracticumData: DataSchema = {
-  formKind: FormKind.severePracticum,
+  currentForm: formOptions.severePracticum,
   ...severePracticumData,
 };
 
 export const defaultBT5PracticumData: DataSchema = {
-  formKind: FormKind.bTo5Practicum,
+  currentForm: formOptions.bTo5Practicum,
   ...bTo5PracticumData,
 };
 
 export const defaultReadingData: DataSchema = {
-  formKind: FormKind.reading,
+  currentForm: formOptions.reading,
   ...readingData,
 };
 
 export const defaultMathData: DataSchema = {
-  formKind: FormKind.math,
+  currentForm: formOptions.math,
   ...mathData,
 };
