@@ -4,16 +4,16 @@ import {
   ISeverePracticumData,
   IStudentTeachingData,
 } from "../types/dataTypes";
-import { ITimer, ScoresState } from "../types/types";
+import { ITimer } from "../types/types";
 
 import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
 import * as utils from "./utils";
-import { getRubric } from "./formUtils";
-import { Section } from "../types/types";
 import { getPercent } from "./utils";
+import currentForm from "../currentForm";
+import FormData from "../FormData";
 
-const rubricData = getRubric();
+const rubricData = FormData[currentForm].rubric;
 
 export const genSTObservationBody = (
   observData: IStudentTeachingData,

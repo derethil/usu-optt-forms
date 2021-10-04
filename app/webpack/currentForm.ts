@@ -6,8 +6,10 @@ export enum formOptions {
   math = "math",
 }
 
-const CURRENT_FORM: formOptions = formOptions.math;
+console.log("formOptions", formOptions);
 
-export default CURRENT_FORM;
+const currentForm: formOptions = formOptions.math;
 
 // NOTE: When this is changed, the application data must be cleared using dev tools or the app will crash
+
+export default currentForm;

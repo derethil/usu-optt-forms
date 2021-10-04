@@ -12,16 +12,15 @@ import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
 import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
+import DataBT5 from "./pages/data/DataBT5";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section } from "./types/types";
-import { getRubric, getTitle } from "./utils/formUtils";
 import { defaultComments, defaultFormInfo } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
-import { getDefaultData } from "./utils/formUtils";
 import currentForm, { formOptions } from "./currentForm";
 import FormRoute from "./routing/FormRoute";
-import DataBT5 from "./pages/data/DataBT5";
+import FormData from "./FormData";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -39,7 +38,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 };
 
 export const App = () => {
-  const rubricData = getRubric();
+  const rubricData = FormData[currentForm].rubric;
 
   const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage(
     "formInfo",
@@ -70,11 +69,11 @@ export const App = () => {
 
   const [data1, setData1, resetData1] = useObjLocalStorage(
     "data1",
-    getDefaultData()
+    FormData[currentForm].defaultData
   );
   const [data2, setData2, resetData2] = useObjLocalStorage(
     "data2",
-    getDefaultData()
+    FormData[currentForm].defaultData
   );
 
   const timer1 = useTimer("timer1");
@@ -161,7 +160,7 @@ export const App = () => {
       <BrowserRouter>
         <PageHeader>
           <img alt="logo" width={300} src={logo} />
-          <Title>{getTitle()}</Title>
+          <Title>{FormData[currentForm].title}</Title>
         </PageHeader>
 
         <Navbar studentTeacher={formInfo.studentTeacher} />

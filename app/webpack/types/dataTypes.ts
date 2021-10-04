@@ -1,5 +1,4 @@
 // ---- GENERAL ----
-
 import { formOptions } from "../currentForm";
 
 export interface IPraiseData {

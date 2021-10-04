@@ -1,8 +1,8 @@
+import currentForm from "../currentForm";
+import FormData from "../FormData";
 import { ScoresState, Section } from "../types/types";
 
-import { getRubric } from "./formUtils";
-
-const rubricData = getRubric();
+const rubricData = FormData[currentForm].rubric;
 
 export const getSubtotal = (section: string, scores: ScoresState): number => {
   const sectionScores = scores[section];

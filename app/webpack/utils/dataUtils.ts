@@ -1,8 +1,9 @@
 import { ITimer } from "../types/types";
-import { getDefaultData } from "./formUtils";
 import { IPraiseData, IStudentTeachingData, ICues } from "../types/dataTypes";
+import currentForm from "../currentForm";
+import FormData from "../FormData";
 
-const defaultData = getDefaultData();
+const defaultData = FormData[currentForm].defaultData;
 
 // DATA FUNCTIONS
 

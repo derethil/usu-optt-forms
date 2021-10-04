@@ -1,8 +1,8 @@
 import React from "react";
 
+import { ScoresState } from "../../types/types";
 import { generateScoreData } from "../../utils/scoreUtils";
 import { getPercent } from "../../utils/utils";
-import { ScoresState, Section } from "../../types/types";
 
 import { DataWrapper, DataCell, DataRow } from "../../styledComponents/style";
 
