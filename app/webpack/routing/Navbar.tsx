@@ -70,6 +70,16 @@ const generateLinks = (): JSX.Element[] => {
         endpoint: "/reading",
       });
       break;
+    case formOptions.math:
+      endpoints.splice(1, 0, { name: "Opening", endpoint: "/opening" });
+      endpoints.splice(1, 0, {
+        name: "Independent Practice",
+        endpoint: "/independent",
+      });
+      endpoints.splice(1, 0, {
+        name: "New Material - Guided Practice",
+        endpoint: "/guided",
+      });
   }
 
   const links = endpoints.map(({ name, endpoint }, index) => {

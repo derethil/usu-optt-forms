@@ -7,12 +7,13 @@ import logo from "../static/img/horizontal_logo.png";
 import FormHome from "./pages/FormHome";
 import DataST from "./pages/data/DataST";
 import DataSPR from "./pages/data/DataSP";
+import DataBT5 from "./pages/data/DataBT5";
+import DataMath from "./pages/data/DataMath";
 import Rubric from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
 import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
-import DataBT5 from "./pages/data/DataBT5";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section } from "./types/types";
@@ -152,6 +153,34 @@ export const App = () => {
         timer={timer2}
         title="Story Reading Data"
         resetCallback={resetData2}
+      />
+    </FormRoute>,
+    // ------ MM MATH ------
+    <FormRoute path="/opening" for={formOptions.math} key={6}>
+      <DataMath
+        data={data1}
+        setData={setData1}
+        timer={timer1}
+        title="Opening"
+        resetCallback={resetData1}
+      />
+    </FormRoute>,
+    <FormRoute path="/independent" for={formOptions.math} key={7}>
+      <DataMath
+        data={data1}
+        setData={setData1}
+        timer={timer1}
+        title="Independent Practice"
+        resetCallback={resetData1}
+      />
+    </FormRoute>,
+    <FormRoute path="/guided" for={formOptions.math} key={8}>
+      <DataMath
+        data={data1}
+        setData={setData1}
+        timer={timer1}
+        title="New Material - Guided Practice"
+        resetCallback={resetData1}
       />
     </FormRoute>,
   ];
