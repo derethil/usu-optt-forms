@@ -8,12 +8,7 @@ import PraiseDataRow from "../../components/rubric/PraiseDataRow";
 import OTRRow from "../../components/rubric/OTRRow";
 import Card from "../../components/Card";
 
-import { ITimer } from "../../types/types";
-import {
-  ISeverePracticumData,
-  ISequence,
-  IReadingData,
-} from "../../types/dataTypes";
+import { ISeverePracticumData, IReadingData } from "../../types/dataTypes";
 
 import { getPercent } from "../../utils/utils";
 
@@ -23,21 +18,14 @@ import {
   ButtonsWrapper,
   cardContainerStyles,
 } from "../../styledComponents/style";
+import DataProps from "./DataProps";
 
 const TwoRowButtons = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-interface DataSPProps {
-  title: string;
-  timer: ITimer;
-  data: ISeverePracticumData | IReadingData;
-  setData: (updatedValues: Partial<ISeverePracticumData>) => void;
-  resetCallback?: () => void;
-}
-
-const DataSPR = (props: DataSPProps) => {
+const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
   const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
     props.setData({
       [sequenceKey]: {

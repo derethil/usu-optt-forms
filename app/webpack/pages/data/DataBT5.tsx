@@ -5,10 +5,8 @@ import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
 import PraiseDataRow from "../../components/rubric/PraiseDataRow";
-import OTRRow from "../../components/rubric/OTRRow";
 import Card from "../../components/Card";
 
-import { ITimer } from "../../types/types";
 import { IBT5PracticumData } from "../../types/dataTypes";
 
 import { getPercent } from "../../utils/utils";
@@ -19,21 +17,14 @@ import {
   ButtonsWrapper,
   cardContainerStyles,
 } from "../../styledComponents/style";
+import DataProps from "./DataProps";
 
 const TwoRowButtons = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-interface Props {
-  title: string;
-  timer: ITimer;
-  data: IBT5PracticumData;
-  setData: (updatedValues: Partial<IBT5PracticumData>) => void;
-  resetCallback?: () => void;
-}
-
-const DataBT5 = (props: Props) => {
+const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
   const updateSequence = (groupKey: string, newValue: object) => {
     props.setData({
       sequence: {

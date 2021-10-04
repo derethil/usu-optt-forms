@@ -495,7 +495,7 @@
           },
           {
             "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
-            "score": -1
+            "score": -5
           }
         ]
       },
@@ -509,7 +509,7 @@
           },
           {
             "content": "Does not respond appropriately to constructive criticism",
-            "score": -1
+            "score": -5
           }
         ]
       },
@@ -523,7 +523,7 @@
           },
           {
             "content": "Does not correctly implement changes after being given feedback",
-            "score": -1
+            "score": -5
           }
         ]
       },
@@ -537,7 +537,7 @@
           },
           {
             "content": "Does not exhibit positive and respectful attitude in the classroom",
-            "score": -1
+            "score": -5
           }
         ]
       },
@@ -551,35 +551,7 @@
           },
           {
             "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
-            "score": -1
-          }
-        ]
-      },
-      {
-        "area": "Interactions",
-        "tooltip": "Interacts appropriately and assigns tasks as needed to classroom staff, <br> related service personnel, classroom teachers, peer tutors and other school staff",
-        "options": [
-          {
-            "content": "Interacts appropriately almost all or all of the time",
-            "score": "Yes"
-          },
-          {
-            "content": "Interacts appropriately some or none of the time",
-            "score": -1
-          }
-        ]
-      },
-      {
-        "area": "Assignments",
-        "tooltip": "1. Demonstrates adequate progress toward PPAT/assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
-        "options": [
-          {
-            "content": "Follows assignment procedure all or most of the time ",
-            "score": "Yes"
-          },
-          {
-            "content": "Does not follow assignment procedure",
-            "score": -3
+            "score": -5
           }
         ]
       }

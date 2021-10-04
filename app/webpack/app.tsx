@@ -78,6 +78,7 @@ export const App = () => {
 
   const timer1 = useTimer("timer1");
   const timer2 = useTimer("timer2");
+  const timer3 = useTimer("timer3");
 
   const [comments, updateComments, resetComments] = useObjLocalStorage(
     "comments",
