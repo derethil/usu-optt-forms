@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import Color from "../styledComponents/colors";
 import currentForm, { formOptions } from "../currentForm";
 
+// ---------- STYLES ----------
+
 const activeClassName = "active";
 
 const NavbarContainer = styled.nav`
@@ -45,44 +47,52 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
+// ---------- LINK GENERATION ----------
+
+type Endpoint = {
+  name: string;
+  endpoint: string;
+};
+
+type Endpoints = {
+  [key in formOptions]: Endpoint[];
+};
+
 const generateLinks = (): JSX.Element[] => {
-  const endpoints = [
-    { name: "Home", endpoint: "/" },
-    { name: "Rubric", endpoint: "/rubric" },
-    { name: "Feedback", endpoint: "/feedback" },
-  ];
+  const wrapEndpoints = (endpoints: Endpoint[]): Endpoint[] => {
+    return [
+      { name: "Home", endpoint: "/" },
+      ...endpoints,
+      { name: "Rubric", endpoint: "/rubric" },
+      { name: "Feedback", endpoint: "/feedback" },
+    ];
+  };
 
-  switch (currentForm) {
-    case formOptions.studentTeaching:
-      endpoints.splice(1, 0, { name: "Data 1", endpoint: "/data1" });
-      endpoints.splice(2, 0, { name: "Data 2", endpoint: "/data2" });
-      break;
-    case formOptions.severePracticum:
-      endpoints.splice(1, 0, { name: "Data", endpoint: "/data" });
-      break;
-    case formOptions.bTo5Practicum:
-      endpoints.splice(1, 0, { name: "Data", endpoint: "/data" });
-      break;
-    case formOptions.reading:
-      endpoints.splice(1, 0, { name: "Decoding Data", endpoint: "/decoding" });
-      endpoints.splice(2, 0, {
-        name: "Story Reading Data",
-        endpoint: "/reading",
-      });
-      break;
-    case formOptions.math:
-      endpoints.splice(1, 0, { name: "Opening", endpoint: "/opening" });
-      endpoints.splice(1, 0, {
-        name: "Independent Practice",
-        endpoint: "/independent",
-      });
-      endpoints.splice(1, 0, {
-        name: "New Material - Guided Practice",
-        endpoint: "/guided",
-      });
-  }
+  const endpoints: Endpoints = {
+    [formOptions.studentTeaching]: wrapEndpoints([
+      { name: "Data 1", endpoint: "/data1" },
+      { name: "Data 2", endpoint: "/data2" },
+    ]),
+    [formOptions.severePracticum]: wrapEndpoints([
+      { name: "Data", endpoint: "/data" },
+    ]),
+    [formOptions.bTo5Practicum]: wrapEndpoints([
+      { name: "Data", endpoint: "/data" },
+    ]),
+    [formOptions.reading]: wrapEndpoints([
+      { name: "Decoding Data", endpoint: "/decoding" },
+      { name: "Story Reading Data", endpoint: "/reading" },
+    ]),
+    [formOptions.math]: wrapEndpoints([
+      { name: "Opening", endpoint: "/opening" },
+      { name: "Independent Practice", endpoint: "/independent" },
+      { name: "New Material - Guided Practice", endpoint: "/guided" },
+    ]),
+  };
 
-  const links = endpoints.map(({ name, endpoint }, index) => {
+  // ---------- REACT COMPONENT ----------
+
+  const links = endpoints[currentForm].map(({ name, endpoint }, index) => {
     return (
       <StyledLink
         activeClassName={activeClassName}
