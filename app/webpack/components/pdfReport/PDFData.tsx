@@ -45,7 +45,7 @@ export const PDFData = (props: PDFDataProps) => {
     generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05);
 
     generator.pdf.text(
-      `Observation Report (${formatDate(props.formInfo.date)})`,
+      `USU SPER Observation Report (${formatDate(props.formInfo.date)})`,
       14,
       18
     );
@@ -65,15 +65,6 @@ export const PDFData = (props: PDFDataProps) => {
         ["Program", props.formInfo.program],
         ["Other", props.formInfo.other],
       ],
-    });
-
-    // Section Summary
-
-    const { correct, possible, summary } = generateScoreData(props.scores);
-
-    generator.table({
-      head: ["Performance Summary", "Score"],
-      body: summary,
     });
 
     // Observations
@@ -108,6 +99,15 @@ export const PDFData = (props: PDFDataProps) => {
     }
 
     // Total Score Summary
+
+    // Section Summary
+
+    const { correct, possible, summary } = generateScoreData(props.scores);
+
+    generator.table({
+      head: ["Performance Summary", "Score"],
+      body: summary,
+    });
 
     generator.table({
       head: ["Total Score", ""],
