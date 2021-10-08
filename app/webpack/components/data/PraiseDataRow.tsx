@@ -22,6 +22,11 @@ const PraiseDataRow = (props: PraiseDataRowProps) => {
     { display: "Academic Praise", score: data.praise.academic },
     { display: "Behavioral Praise", score: data.praise.behavioral },
     { display: "Redirect/Reprimand", score: data.praise.reprimand },
+    {
+      display: "Total Praise",
+      score:
+        data.praise.academic + data.praise.general + data.praise.behavioral,
+    },
     { display: "Praise Ratio", score: dataUtils.getPraiseRatio(data) },
     {
       display: "Percent Specific",
