@@ -8,7 +8,7 @@ export interface Section {
       options: [
         {
           content: string;
-          score: number;
+          score: number | string;
         }
       ];
     }

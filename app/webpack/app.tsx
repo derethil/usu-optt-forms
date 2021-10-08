@@ -28,8 +28,13 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
   rubricData.forEach((section) => {
     initialState[section.sectionTitle] = {};
     section.rows.forEach((row) => {
+      const initialScore =
+        row.options[0].score === "Yes"
+          ? "Yes"
+          : String(row.options[row.options.length - 1].score);
+
       initialState[section.sectionTitle][row.area] = {
-        score: String(row.options[row.options.length - 1].score),
+        score: initialScore,
         comment: "",
       };
     });
