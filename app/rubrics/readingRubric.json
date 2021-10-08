@@ -3,7 +3,7 @@
     "sectionTitle": "Presentation",
     "rows": [
       {
-        "area": "Prepatation",
+        "area": "Preparation",
         "options": [
           {
             "content": "Started on time, all materials present",
@@ -197,7 +197,7 @@
       },
       {
         "area": "Reinforcement Quality",
-        "tooltip": "4 Components of Quality Reinforcement<br>1. Varied (academic & behavior)<br>2. Contigent<br>3. Descriptive<br>4. Non-disruptive",
+        "tooltip": "4 Components of Quality Reinforcement<br>1. Varied (academic & behavior)<br>2. Contingent<br>3. Descriptive<br>4. Non-disruptive",
         "options": [
           {
             "content": "All 4 components observed",

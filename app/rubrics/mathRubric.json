@@ -92,7 +92,7 @@
         "area": "Lesson Introduction",
         "options": [
           {
-            "content": "May includ objective, link, and appropriate relevance",
+            "content": "May include objective, link, and appropriate relevance",
             "score": 1
           },
           {
@@ -256,7 +256,7 @@
       },
       {
         "area": "Guided Practice",
-        "tooltip": "1. Teacher and pupil did together - if in pairs/groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and learly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format/activities and problems aligned with lesson plan",
+        "tooltip": "1. Teacher and pupil did together - if in pairs/groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and clearly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format/activities and problems aligned with lesson plan",
         "options": [
           {
             "content": "All 5 criteria met",
@@ -391,7 +391,7 @@
       },
       {
         "area": "Praise Quality",
-        "tooltip": "4 Components of Quality Praise<br>1. Varied<br>2. Contigent<br>3. Descriptive<br>4. Non-disruptive",
+        "tooltip": "4 Components of Quality Praise<br>1. Varied<br>2. Contingent<br>3. Descriptive<br>4. Non-disruptive",
         "options": [
           {
             "content": "All 4 components observed",
@@ -494,7 +494,7 @@
             "score": "Yes"
           },
           {
-            "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Does not dress appropriately and/or does not maintain personal hygiene",
             "score": -5
           }
         ]

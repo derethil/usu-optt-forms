@@ -20,7 +20,6 @@ import { ScoresState, Section } from "./types/types";
 import { defaultComments, defaultFormInfo } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
-import FormRoute from "./routing/FormRoute";
 import FormData from "./FormData";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {

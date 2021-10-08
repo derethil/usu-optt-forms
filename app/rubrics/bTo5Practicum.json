@@ -40,7 +40,7 @@
         "area": "Lesson Introduction",
         "options": [
           {
-            "content": "Included appropriate objective, link, and relavance statement",
+            "content": "Included appropriate objective, link, and relevance statement",
             "score": 1
           },
           {
@@ -156,7 +156,7 @@
         "area": "Preparation",
         "options": [
           {
-            "content": "Materials gathered and ready for use, students arrenge to optimize learning",
+            "content": "Materials gathered and ready for use, students arrange to optimize learning",
             "score": 2
           },
           {
@@ -358,7 +358,7 @@
       },
       {
         "area": "Reinforcement Quality",
-        "tooltip": "4 Components of Quality Reinforcement<br>1. Varied (academic & behavior)<br>2. Contigent<br>3. Descriptive<br>4. Non-disruptive",
+        "tooltip": "4 Components of Quality Reinforcement<br>1. Varied (academic & behavior)<br>2. Contingent<br>3. Descriptive<br>4. Non-disruptive",
         "options": [
           {
             "content": "All 4 components observed",
@@ -536,7 +536,7 @@
             "score": "Yes"
           },
           {
-            "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Does not dress appropriately and/or does not maintain personal hygiene",
             "score": -5
           }
         ]
