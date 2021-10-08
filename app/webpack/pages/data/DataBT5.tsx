@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
-import PraiseDataRow from "../../components/rubric/PraiseDataRow";
+import PraiseDataRow from "../../components/data/PraiseDataRow";
 import Card from "../../components/Card";
 
 import { IBT5PracticumData } from "../../types/dataTypes";

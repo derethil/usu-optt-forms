@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
-import PraiseDataRow from "../../components/rubric/PraiseDataRow";
-import OTRRow from "../../components/rubric/OTRRow";
+import PraiseDataRow from "../../components/data/PraiseDataRow";
+import OTRRow from "../../components/data/OTRRow";
 import Card from "../../components/Card";
 
 import { ISeverePracticumData, IReadingData } from "../../types/dataTypes";

@@ -121,7 +121,7 @@ export const PDFData = (props: PDFDataProps) => {
         "Story Reading Data"
       );
     }
-    // // Invdividual Scores
+    // // Individual Scores
 
     // generator.pdf.addPage();
 

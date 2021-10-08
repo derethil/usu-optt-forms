@@ -3,7 +3,7 @@ import React from "react";
 import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
-import PraiseDataRow from "../../components/rubric/PraiseDataRow";
+import PraiseDataRow from "../../components/data/PraiseDataRow";
 import Card from "../../components/Card";
 
 import { IStudentTeachingData } from "../../types/dataTypes";
@@ -18,6 +18,7 @@ import {
   cardContainerStyles,
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
+import OTRRow from "../../components/data/OTRRow";
 
 const DataST = (props: DataProps<IStudentTeachingData>) => {
   return (
@@ -31,6 +32,8 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
+
+      <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
 
       <PraiseDataRow data={props.data} setData={props.setData} />
 

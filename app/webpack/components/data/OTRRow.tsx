@@ -16,15 +16,15 @@ type PraiseDataRowProps = {
   setData: (updatedValues: Partial<ICues>) => void;
 };
 
-const PraiseDataRow = ({ data, setData, timer }: PraiseDataRowProps) => {
+const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
   return (
     <DataRow
       title="Cues / Directions / Opportunities to Respond"
       displayData={[
-        { display: "Individual Cues", score: data.cues.individual },
-        { display: "Group Cues", score: data.cues.group },
+        { display: "Individual Responses", score: data.cues.individual },
+        { display: "Group Responses", score: data.cues.group },
         {
-          display: "Total Cues",
+          display: "Total Responses",
           score: data.cues.individual + data.cues.group,
         },
         { display: "OTR Rate", score: dataUtils.getOTRRate(data, timer) },
@@ -52,4 +52,4 @@ const PraiseDataRow = ({ data, setData, timer }: PraiseDataRowProps) => {
   );
 };
 
-export default PraiseDataRow;
+export default OTRRow;

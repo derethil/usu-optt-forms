@@ -69,7 +69,7 @@ const Timer = ({ timer, resetCallback }: TimerProps) => {
     } else if (timer.isPaused) {
       return getButton("Resume", timer.handleResume);
     } else {
-      return getButton("Pause", timer.handlePause);
+      return getButton("Pause / Stop", timer.handlePause);
     }
   };
 
