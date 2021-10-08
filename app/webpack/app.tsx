@@ -126,7 +126,7 @@ export const App = () => {
     ],
     // ------ SEVERE PRACTICUM ------
     [formOptions.severePracticum]: [
-      <Route path="/data" key={(title = "Data 1")}>
+      <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}
           setData={setData1}

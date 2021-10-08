@@ -67,6 +67,30 @@ export const PDFData = (props: PDFDataProps) => {
       ],
     });
 
+    // Total Score Summary
+
+    // Section Summary
+
+    const { correct, possible, summary } = generateScoreData(props.scores);
+
+    generator.table({
+      head: ["Performance Summary", "Score"],
+      body: summary,
+    });
+
+    generator.table({
+      head: ["Total Score", ""],
+      columnStyles: {
+        1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 },
+      },
+      body: [
+        ["Total Correct", correct],
+        ["Total Possible", possible],
+        ["Percentage", getPercent(correct, possible)],
+        ["Letter Grade", getLetterGrade((correct / possible) * 100)],
+      ],
+    });
+
     // Observations
 
     generator.table({
@@ -97,31 +121,6 @@ export const PDFData = (props: PDFDataProps) => {
         "Story Reading Data"
       );
     }
-
-    // Total Score Summary
-
-    // Section Summary
-
-    const { correct, possible, summary } = generateScoreData(props.scores);
-
-    generator.table({
-      head: ["Performance Summary", "Score"],
-      body: summary,
-    });
-
-    generator.table({
-      head: ["Total Score", ""],
-      columnStyles: {
-        1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 },
-      },
-      body: [
-        ["Total Correct", correct],
-        ["Total Possible", possible],
-        ["Percentage", getPercent(correct, possible)],
-        ["Letter Grade", getLetterGrade((correct / possible) * 100)],
-      ],
-    });
-
     // // Invdividual Scores
 
     // generator.pdf.addPage();

@@ -90,7 +90,7 @@ const generateLinks = (allRoutes: Routes): JSX.Element[] => {
     [formOptions.math]: getEndpoints(allRoutes[formOptions.math]),
   };
 
-  // ---------- REACT COMPONENT ----------
+  // ---------- REACT COMPONENTS ----------
 
   const links = endpoints[currentForm].map(({ name, endpoint }, index) => {
     return (
