@@ -10,7 +10,7 @@ import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
 import { getLetterGrade, getScore } from "../../utils/pdfUtils";
-import { getPercent } from "../../utils/utils";
+import { getPercent, overrideRegex } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
 import studentTeachingSection from "./studentTeaching";
@@ -149,7 +149,11 @@ export const PDFData = (props: PDFDataProps) => {
           head: [sectionTitle, "  Score", "             Comments"],
           body: Object.entries(scoresObj).map(([rowTitle, rowInfo], rowIdx) => {
             const scoreDisplay = getScore(rowInfo, sectionIdx, rowIdx);
-            return [rowTitle, scoreDisplay, rowInfo.comment];
+            return [
+              rowTitle,
+              scoreDisplay,
+              rowInfo.comment.replace(overrideRegex, ""),
+            ];
           }),
         });
       }

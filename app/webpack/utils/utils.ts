@@ -23,3 +23,5 @@ export const getPercent = (subtotal: number, total: number): string => {
   const percent = (subtotal / total) * 100;
   return `${!isNaN(percent) ? percent.toFixed(0) : 0}%`;
 };
+
+export const overrideRegex = /(!OVERRIDE)=(\d+)/gi;

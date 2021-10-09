@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import SelectButton from "./SelectButton";
@@ -6,6 +6,7 @@ import IconTitle from "../IconTitle";
 import Color from "../../styledComponents/colors";
 
 import TextInput from "../TextInput";
+import { overrideRegex } from "../../utils/utils";
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -36,6 +37,24 @@ interface OptionRowCommentProps extends OptionRowProps {
 }
 
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
+  if ("comment" in props && props.scoreOptions) {
+    useEffect(() => {
+      const getNewScore = () => {
+        return props.comment.match(overrideRegex)![0].match(/\d+/gi)![0];
+      };
+
+      if (!props.scoreOptions!.includes(props.currSelection)) {
+        if (overrideRegex.test(props.comment)) {
+          props.updateSelection(getNewScore());
+        } else {
+          props.updateSelection(props.scoreOptions![-1]);
+        }
+      } else if (overrideRegex.test(props.comment)) {
+        props.updateSelection(getNewScore());
+      }
+    }, [props["comment"]]);
+  }
+
   const rowContents = props.contentOptions.map((content, idx) => {
     const score = props.scoreOptions ? props.scoreOptions[idx] : "";
     const compareTo = props.scoreOptions ? score : content;
@@ -71,7 +90,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
         value={props.comment}
         updateFormInfo={props.updateComment}
         field={`${props.title}-comment`}
-        placeholder={"Comment"}
+        placeholder="Comment"
         noLabel
         textArea
         inputClassNames={["option-row__textarea"]}
