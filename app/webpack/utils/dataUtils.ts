@@ -25,14 +25,6 @@ export const getCorrectionsSum = (data: IStudentTeachingData): number => {
 };
 
 export const getPraiseRatio = (data: IPraiseData): string => {
-  const gcd = (a: number, b: number): number => {
-    if (!b) return a;
-    return gcd(b, a % b);
-  };
-
-  const praiseSum = getPraiseSum(data);
-  const num1 = praiseSum / gcd(praiseSum, data.praise.reprimand);
-  const num2 = data.praise.reprimand / gcd(praiseSum, data.praise.reprimand);
-
-  return `${isNaN(num1) ? 0 : num1} : ${isNaN(num2) ? 0 : num2}`;
+  const ratio = getPraiseSum(data) / data.praise.reprimand;
+  return `${ratio.toFixed(2)} : 1`;
 };
