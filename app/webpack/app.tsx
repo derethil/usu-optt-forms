@@ -205,7 +205,7 @@ export const App = () => {
       <BrowserRouter>
         <PageHeader>
           <img alt="logo" width={300} src={logo} />
-          <Title>{FormData[currentForm].title}</Title>
+          <Title>{FormData[currentForm].title} Form</Title>
         </PageHeader>
 
         <Navbar

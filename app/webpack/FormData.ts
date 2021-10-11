@@ -23,28 +23,28 @@ const FormData: IFormData = {
   [formOptions.studentTeaching]: {
     rubric: studentTeachingRubric as Section[],
     defaultData: defaults.defaultStudentTeachingData,
-    title: "Student Teaching Form",
+    title: "Student Teaching",
     programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
   },
   [formOptions.severePracticum]: {
     rubric: severePracticumRubric as Section[],
     defaultData: defaults.defaultSeverePracticumData,
-    title: "Severe Practicum Form",
+    title: "Severe Practicum",
   },
   [formOptions.bTo5Practicum]: {
     rubric: bTo5PracticumRubric as Section[],
     defaultData: defaults.defaultBT5PracticumData,
-    title: "Birth to 5 Form",
+    title: "Birth to 5",
   },
   [formOptions.reading]: {
     rubric: readingRubric as Section[],
     defaultData: defaults.defaultReadingData,
-    title: "MM Reading Form",
+    title: "MM Reading",
   },
   [formOptions.math]: {
     rubric: mathRubric as Section[],
     defaultData: defaults.defaultMathData,
-    title: "MM Math Form",
+    title: "MM Math",
   },
 };
 

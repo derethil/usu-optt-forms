@@ -16,7 +16,8 @@ import { generateScoreData } from "../../utils/scoreUtils";
 import studentTeachingSection from "./studentTeaching";
 import severePracticumReadingSection from "./severePracticum";
 import bTo5PracticumSection from "./bTo5Practicum";
-import { formOptions } from "../../currentForm";
+import currentForm, { formOptions } from "../../currentForm";
+import FormData from "../../FormData";
 
 export type PDFDataProps = {
   scores: ScoresState;
@@ -45,7 +46,7 @@ export const PDFData = (props: PDFDataProps) => {
     generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05);
 
     generator.pdf.text(
-      `USU SPER Observation Report (${formatDate(props.formInfo.date)})`,
+      `USU SPER ${FormData[currentForm].title} Observation Report`,
       14,
       18
     );
@@ -62,9 +63,12 @@ export const PDFData = (props: PDFDataProps) => {
         ["Date", formatDate(props.formInfo.date)],
         ["Next Observation Date", formatDate(props.formInfo.nextDate)],
         ["Observation", props.formInfo.observation],
-        ["Program", props.formInfo.program],
         ["Other", props.formInfo.other],
-      ],
+      ].concat(
+        FormData[currentForm].programOptions
+          ? [["Program", props.formInfo.program]]
+          : []
+      ),
     });
 
     // Total Score Summary
