@@ -1,8 +1,6 @@
 import React from "react";
-import DatePicker from "react-datepicker";
-
-import "react-datepicker/dist/react-datepicker.css";
-
+import FormData from "../FormData";
+import currentForm from "../currentForm";
 import TextInput from "./TextInput";
 import OptionRow from "./optionRow";
 
@@ -63,15 +61,17 @@ const FormInfo = (props: FormInfoProps) => {
         titleStyles={{ color: Color.neutrals.grayDark }}
       />
 
-      <OptionRow
-        title={"Program"}
-        contentOptions={["Mild/Moderate", "Severe", "Birth to 5"]}
-        currSelection={props.formInfo.program}
-        updateSelection={(newSelection: string) =>
-          props.updateFormInfo({ program: newSelection })
-        }
-        titleStyles={{ color: Color.neutrals.grayDark }}
-      />
+      {FormData[currentForm].programOptions && (
+        <OptionRow
+          title={"Program"}
+          contentOptions={FormData[currentForm].programOptions!}
+          currSelection={props.formInfo.program}
+          updateSelection={(newSelection: string) =>
+            props.updateFormInfo({ program: newSelection })
+          }
+          titleStyles={{ color: Color.neutrals.grayDark }}
+        />
+      )}
     </div>
   );
 };

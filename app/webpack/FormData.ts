@@ -15,6 +15,7 @@ type IFormData = {
     rubric: Section[];
     defaultData: DataSchema;
     title: string;
+    programOptions?: string[];
   };
 };
 
@@ -23,6 +24,7 @@ const FormData: IFormData = {
     rubric: studentTeachingRubric as Section[],
     defaultData: defaults.defaultStudentTeachingData,
     title: "Student Teaching Form",
+    programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
   },
   [formOptions.severePracticum]: {
     rubric: severePracticumRubric as Section[],
