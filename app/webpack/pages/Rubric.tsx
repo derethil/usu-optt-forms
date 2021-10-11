@@ -47,8 +47,15 @@ const contentStyles = css`
 `;
 
 const cardContainerStyles = css`
-  max-width: 95%;
-  width: 1000em;
+  width: 75%;
+
+  @media (max-width: 1500px) {
+    width: 85%;
+  }
+
+  @media (max-width: 1200px) {
+    width: 95%;
+  }
 `;
 
 const CardTitleContainer = styled.div`
