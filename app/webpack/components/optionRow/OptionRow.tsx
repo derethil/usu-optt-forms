@@ -6,10 +6,22 @@ import IconTitle from "../IconTitle";
 
 import TextInput from "../TextInput";
 import { overrideRegex } from "../../utils/utils";
+import { CSSMixin } from "../../types/types";
 
 const OptionRowInput = styled(TextInput)`
   padding-top: 0px;
   height: 100%;
+`;
+
+const Title = styled.p<CSSMixin>`
+  ${(props) => props.mixin}
+`;
+
+const ButtonsWrapper = styled.div<CSSMixin>`
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  ${(props) => props.mixin};
 `;
 
 interface OptionRowProps {
@@ -30,16 +42,6 @@ interface OptionRowCommentProps extends OptionRowProps {
 }
 
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
-  const Title = styled.p`
-    ${props.titleStyles}
-  `;
-
-  const ButtonsWrapper = styled.div`
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-    ${props.wrapperStyles};
-  `;
   if ("comment" in props && props.scoreOptions) {
     useEffect(() => {
       const getNewScore = () => {
@@ -112,7 +114,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
         />
       );
     } else {
-      return <Title>{props.title}</Title>;
+      return <Title mixin={props.titleStyles}>{props.title}</Title>;
     }
   };
 
@@ -120,7 +122,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     <div>
       {renderTitle(props.tooltip)}
 
-      <ButtonsWrapper>{rowContents}</ButtonsWrapper>
+      <ButtonsWrapper mixin={props.wrapperStyles}>{rowContents}</ButtonsWrapper>
     </div>
   );
 };

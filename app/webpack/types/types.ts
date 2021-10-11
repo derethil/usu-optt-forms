@@ -1,3 +1,5 @@
+import { FlattenSimpleInterpolation } from "styled-components";
+
 export interface Section {
   sectionTitle: string;
   tooltip?: string;
@@ -43,4 +45,8 @@ export interface IFormInfo {
   observation: number;
   other: string;
   program: string;
+}
+
+export interface CSSMixin {
+  mixin?: FlattenSimpleInterpolation;
 }
