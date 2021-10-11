@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import Timer from "../../components/Timer";
 import CounterButton from "../../components/CounterButton";
@@ -63,7 +63,9 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
       <Card
         title={props.title}
         containerStyles={cardContainerStyles}
-        titleStyles={{ fontSize: "2rem" }}
+        titleStyles={css`
+          font-size: 2rem;
+        `}
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>

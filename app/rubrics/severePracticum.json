@@ -6,7 +6,7 @@
         "area": "Lesson Plan",
         "options": [
           {
-            "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals/obj., sufficient # of trials, items, types & available",
+            "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals / obj., sufficient # of trials, items, types & available",
             "score": 6
           },
           {
@@ -23,15 +23,15 @@
         "area": "Opening",
         "options": [
           {
-            "content": "Included appropriate review / maintenance / prerequisite, with clear format",
+            "content": "Included appropriate review  /  maintenance  /  prerequisite, with clear format",
             "score": 4
           },
           {
-            "content": "included inappropriate / partial review / maintenance / prerequisite, and/or unclear format",
+            "content": "included inappropriate  /  partial review  /  maintenance  /  prerequisite, and / or unclear format",
             "score": 2
           },
           {
-            "content": "Included inappropriate / no review / maintenance / prerequisite, and/or unclear format",
+            "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
             "score": 0
           }
         ]
@@ -44,11 +44,11 @@
             "score": 2
           },
           {
-            "content": "Included inappropriate/partial objective, link, and relevance statement",
+            "content": "Included inappropriate / partial objective, link, and relevance statement",
             "score": 1
           },
           {
-            "content": "Included inappropriate/no objective, link, and relevance statement",
+            "content": "Included inappropriate / no objective, link, and relevance statement",
             "score": 0
           }
         ]
@@ -108,24 +108,24 @@
         "area": "Independent Practice",
         "options": [
           {
-            "content": "Appropriate supervision/feedback, sufficient # of trials, varied examples, aligned to objective",
+            "content": "Appropriate supervision / feedback, sufficient # of trials, varied examples, aligned to objective",
             "score": 4
           },
           {
-            "content": "Inappropriate supervision/feedback, or not aligned to objective",
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
             "score": 2
           },
           {
-            "content": "Inappropriate supervision/feedback, or not aligned to objective",
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
             "score": 0
           }
         ]
       },
       {
-        "area": "Maintenance/Generalization",
+        "area": "Maintenance / Generalization",
         "options": [
           {
-            "content": "Generalized across materials, people and/or settings, scheduled practice opportunities, aligned to objective",
+            "content": "Generalized across materials, people and / or settings, scheduled practice opportunities, aligned to objective",
             "score": 2
           },
           {
@@ -147,7 +147,7 @@
             "score": 2
           },
           {
-            "content": "Did not start on time, some/all materials missing, ineffective arrangement",
+            "content": "Did not start on time, some / all materials missing, ineffective arrangement",
             "score": 0
           }
         ]
@@ -156,19 +156,19 @@
         "area": "Format",
         "options": [
           {
-            "content": "Followed format or script in written program / ETC",
+            "content": "Followed format or script in written program  /  ETC",
             "score": 8
           },
           {
-            "content": "Followed format or script in written program / ETC but was not fluent",
+            "content": "Followed format or script in written program  /  ETC but was not fluent",
             "score": 6
           },
           {
-            "content": "Followed portions of format of script of written program / ETC",
+            "content": "Followed portions of format of script of written program  /  ETC",
             "score": 4
           },
           {
-            "content": "Did not follow format and/or script in written program / ETC",
+            "content": "Did not follow format and / or script in written program  /  ETC",
             "score": 0
           }
         ]
@@ -181,11 +181,11 @@
             "score": 5
           },
           {
-            "content": "Some eye contact and/or infrequent scanning of group",
+            "content": "Some eye contact and / or infrequent scanning of group",
             "score": 3
           },
           {
-            "content": "Little or not eye contact and/or not scanning of group",
+            "content": "Little or not eye contact and / or not scanning of group",
             "score": 0
           }
         ]
@@ -215,11 +215,11 @@
             "score": 4
           },
           {
-            "content": "Little/excessive enthusiasm, tone, and volume, interferes with student learning/behavior, generally uses smooth phrasing and generally emphasizes key words",
+            "content": "Little / excessive enthusiasm, tone, and volume, interferes with student learning / behavior, generally uses smooth phrasing and generally emphasizes key words",
             "score": 2
           },
           {
-            "content": "Little or no enthusiasm, tone, and volume, interferes with student learning/behavior, does not use smooth phrasing, no emphasis of key words",
+            "content": "Little or no enthusiasm, tone, and volume, interferes with student learning / behavior, does not use smooth phrasing, no emphasis of key words",
             "score": 0
           }
         ]
@@ -254,7 +254,7 @@
             "score": 2
           },
           {
-            "content": "Negatively stated or not included, and/or does not provide necessary directions to start lesson, find page, get supplies, etc.",
+            "content": "Negatively stated or not included, and / or does not provide necessary directions to start lesson, find page, get supplies, etc.",
             "score": 0
           }
         ]
@@ -263,15 +263,15 @@
         "area": "Behavior Management",
         "options": [
           {
-            "content": "Consistently / effectively follows behavior management plan to address appropriate and problem behavior",
+            "content": "Consistently  /  effectively follows behavior management plan to address appropriate and problem behavior",
             "score": 5
           },
           {
-            "content": "Inconsistently / ineffectively follows behavior management plan to address appropriate and problem behavior",
+            "content": "Inconsistently  /  ineffectively follows behavior management plan to address appropriate and problem behavior",
             "score": 3
           },
           {
-            "content": "Does not consistently / effectively follow behavior management plan",
+            "content": "Does not consistently  /  effectively follow behavior management plan",
             "score": 0
           }
         ]
@@ -298,15 +298,15 @@
         "area": "Prompts",
         "options": [
           {
-            "content": "Consistently / effectively implemented prompting procedures, prompting procedures used appropriate for student(s)",
+            "content": "Consistently  /  effectively implemented prompting procedures, prompting procedures used appropriate for student(s)",
             "score": 4
           },
           {
-            "content": "Inconsistently / ineffectively implemented prompting procedures, prompting procedures used appropriate for student(s)",
+            "content": "Inconsistently  /  ineffectively implemented prompting procedures, prompting procedures used appropriate for student(s)",
             "score": 2
           },
           {
-            "content": "Does not consistently / effectively implement prompting procedures, incorrect prompting procedures used",
+            "content": "Does not consistently  /  effectively implement prompting procedures, incorrect prompting procedures used",
             "score": 0
           }
         ]
@@ -336,11 +336,11 @@
             "score": 4
           },
           {
-            "content": "Partially efficient use of time and/or progresses through parts of lesson appropriately, some efficient transitions",
+            "content": "Partially efficient use of time and / or progresses through parts of lesson appropriately, some efficient transitions",
             "score": 2
           },
           {
-            "content": "Inefficient use of time and/or does not progress through lesson appropriately, inefficient transitions",
+            "content": "Inefficient use of time and / or does not progress through lesson appropriately, inefficient transitions",
             "score": 0
           }
         ]
@@ -367,15 +367,15 @@
         "area": "Praise Ratio",
         "options": [
           {
-            "content": "Praise/redirect ratio at least 3:1; praise rate appropriate for group / individual",
+            "content": "Praise / redirect ratio at least 3:1; praise rate appropriate for group  /  individual",
             "score": 5
           },
           {
-            "content": "Praise/redirect ratio of at least 2:1",
+            "content": "Praise / redirect ratio of at least 2:1",
             "score": 3
           },
           {
-            "content": "Praise/redirect ratio less than 2:1",
+            "content": "Praise / redirect ratio less than 2:1",
             "score": 0
           }
         ]
@@ -384,15 +384,15 @@
         "area": "Opportunities to Respond",
         "options": [
           {
-            "content": "Consistently included frequent opportunities to respond and relevant combinations of individual/group/dispersed turns",
+            "content": "Consistently included frequent opportunities to respond and relevant combinations of individual / group / dispersed turns",
             "score": 6
           },
           {
-            "content": "Inconsistently included frequent opportunities to respond, and/or lacks relevant combinations of individual/group/dispersed turns",
+            "content": "Inconsistently included frequent opportunities to respond, and / or lacks relevant combinations of individual / group / dispersed turns",
             "score": 3
           },
           {
-            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual/group/dispersed turns",
+            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
             "score": 0
           }
         ]
@@ -432,15 +432,15 @@
         "area": "Decision Making",
         "options": [
           {
-            "content": "Appropriate instructional/behavior management decisions made and based on recorded data and objective",
+            "content": "Appropriate instructional / behavior management decisions made and based on recorded data and objective",
             "score": 4
           },
           {
-            "content": "Instructional/behavior management decisions made subjectively, but not based on recorded data",
+            "content": "Instructional / behavior management decisions made subjectively, but not based on recorded data",
             "score": 2
           },
           {
-            "content": "Inappropriate instructional/behavior management decisions made",
+            "content": "Inappropriate instructional / behavior management decisions made",
             "score": 0
           }
         ]
@@ -494,7 +494,7 @@
             "score": "Yes"
           },
           {
-            "content": "Does not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Does not dress appropriately and / or does not maintain personal hygiene",
             "score": -5
           }
         ]
@@ -543,7 +543,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",

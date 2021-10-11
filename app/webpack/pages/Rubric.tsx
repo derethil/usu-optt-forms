@@ -1,5 +1,5 @@
-import React, { CSSProperties } from "react";
-import styled from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
 
 import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
@@ -25,30 +25,31 @@ const RubricTitleContent = styled.h1`
   font-size: 1.33rem;
 `;
 
-const buttonStyles: CSSProperties = {
-  width: "10em",
-  textAlign: "center",
-  flexGrow: 1,
-  fontSize: "1.05rem",
-};
+const buttonStyles = css`
+  width: 10em;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 1.05rem;
+`;
 
-const cardTitleStyles: CSSProperties = {
-  paddingLeft: "1em",
-  paddingRight: "1em",
-};
+const cardTitleStyles = css`
+  padding-left: 1em;
+  padding-right: 1em;
+`;
 
-const rowTitleStyles: CSSProperties = {
-  fontSize: "1.33rem",
-  color: Color.neutrals.grayDarker,
-};
+const rowTitleStyles = css`
+  font-size: 1.33rem;
+  color: ${Color.neutrals.grayDarker};
+`;
 
-const contentStyles: CSSProperties = {
-  paddingTop: 0,
-};
+const contentStyles = css`
+  padding-top: 0;
+`;
 
-const cardContainerStyles: CSSProperties = {
-  width: "65vw",
-};
+const cardContainerStyles = css`
+  max-width: 95%;
+  width: 1000em;
+`;
 
 const CardTitleContainer = styled.div`
   display: flex;
@@ -67,7 +68,9 @@ const Rubric = (props: RubricProps) => {
           <IconTitle
             content={section.sectionTitle}
             tooltipContent={section.tooltip}
-            titleStyles={{ fontSize: "1.33rem" }}
+            titleStyles={css`
+              font-size: 1.33rem;
+            `}
           />
           <p>{sectionScore}</p>
         </CardTitleContainer>

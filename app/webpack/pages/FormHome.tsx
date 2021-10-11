@@ -11,6 +11,7 @@ import Card from "../components/Card";
 import { PageContent } from "../styledComponents/style";
 import { IComments } from "../defaults/defaults";
 import ConfirmModal from "../components/ConfirmModal";
+import { css } from "styled-components";
 
 type FormHomeProps = {
   formInfo: IFormInfo;
@@ -40,7 +41,10 @@ const FormHome = (props: FormHomeProps) => {
 
       <Card
         title="Form Actions"
-        contentStyles={{ display: "flex", justifyContent: "space-between" }}
+        contentStyles={css`
+          display: flex;
+          justify-content: space-between;
+        `}
       >
         <PDFData
           scores={props.scores}

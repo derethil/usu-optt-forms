@@ -7,6 +7,7 @@ import OptionRow from "./optionRow";
 import { IFormInfo } from "../types/types";
 import DateInput from "./DateInput";
 import Color from "../styledComponents/colors";
+import { css } from "styled-components";
 type FormInfoProps = {
   formInfo: IFormInfo;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
@@ -29,6 +30,7 @@ const FormInfo = (props: FormInfoProps) => {
         value={props.formInfo.supervisor}
         updateFormInfo={props.updateFormInfo}
         field="supervisor"
+        title="Supervisor / Coach"
       />
 
       <DateInput
@@ -45,12 +47,14 @@ const FormInfo = (props: FormInfoProps) => {
         updateFormInfo={props.updateFormInfo}
       />
 
-      {currentForm === formOptions.reading && (
+      {currentForm != formOptions.studentTeaching && (
         <TextInput
           value={props.formInfo.program}
           updateFormInfo={props.updateFormInfo}
           field="program"
-          title="Reading Program"
+          title={
+            currentForm === formOptions.reading ? "Reading Program" : undefined
+          }
         />
       )}
 
@@ -67,7 +71,9 @@ const FormInfo = (props: FormInfoProps) => {
         updateSelection={(newSelection: string) =>
           props.updateFormInfo({ observation: Number(newSelection) })
         }
-        titleStyles={{ color: Color.neutrals.grayDark }}
+        titleStyles={css`
+          color: ${Color.neutrals.grayDark};
+        `}
       />
 
       {FormData[currentForm].programOptions && (
@@ -78,7 +84,9 @@ const FormInfo = (props: FormInfoProps) => {
           updateSelection={(newSelection: string) =>
             props.updateFormInfo({ program: newSelection })
           }
-          titleStyles={{ color: Color.neutrals.grayDark }}
+          titleStyles={css`
+            color: ${Color.neutrals.grayDark};
+          `}
         />
       )}
     </div>

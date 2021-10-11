@@ -1,18 +1,11 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
+import styled, { FlattenSimpleInterpolation } from "styled-components";
 
 import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
-import Color from "../../styledComponents/colors";
 
 import TextInput from "../TextInput";
 import { overrideRegex } from "../../utils/utils";
-
-const ButtonsWrapper = styled.div`
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-`;
 
 const OptionRowInput = styled(TextInput)`
   padding-top: 0px;
@@ -26,9 +19,9 @@ interface OptionRowProps {
   updateSelection: (newSelection: string) => void;
   scoreOptions?: string[];
   tooltip?: string;
-  wrapperStyles?: React.CSSProperties;
-  buttonStyles?: React.CSSProperties;
-  titleStyles?: React.CSSProperties;
+  wrapperStyles?: FlattenSimpleInterpolation;
+  buttonStyles?: FlattenSimpleInterpolation;
+  titleStyles?: FlattenSimpleInterpolation;
 }
 
 interface OptionRowCommentProps extends OptionRowProps {
@@ -37,6 +30,16 @@ interface OptionRowCommentProps extends OptionRowProps {
 }
 
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
+  const Title = styled.p`
+    ${props.titleStyles}
+  `;
+
+  const ButtonsWrapper = styled.div`
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    ${props.wrapperStyles};
+  `;
   if ("comment" in props && props.scoreOptions) {
     useEffect(() => {
       const getNewScore = () => {
@@ -109,7 +112,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
         />
       );
     } else {
-      return <p style={props.titleStyles}>{props.title}</p>;
+      return <Title>{props.title}</Title>;
     }
   };
 
@@ -117,7 +120,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     <div>
       {renderTitle(props.tooltip)}
 
-      <ButtonsWrapper style={props.wrapperStyles}>{rowContents}</ButtonsWrapper>
+      <ButtonsWrapper>{rowContents}</ButtonsWrapper>
     </div>
   );
 };

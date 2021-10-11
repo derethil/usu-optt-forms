@@ -10,7 +10,7 @@
             "score": 1
           },
           {
-            "content": "Started late > 1 minute after the bell or start time and/or some materials were not ready and/or did not remind pupils of expectation(s)",
+            "content": "Started late > 1 minute after the bell or start time and / or some materials were not ready and / or did not remind pupils of expectation(s)",
             "score": 0
           }
         ]
@@ -53,22 +53,22 @@
         "area": "Activities",
         "options": [
           {
-            "content": "Activities engaged all pupils for all problems/tasks; response opportunities clearly directed",
+            "content": "Activities engaged all pupils for all problems / tasks; response opportunities clearly directed",
             "score": 4
           },
           {
-            "content": "Activities engaged some pupils for some problems/tasks",
+            "content": "Activities engaged some pupils for some problems / tasks",
             "score": 2
           },
           {
-            "content": "Activities did not engage most pupils for most problems/tasks",
+            "content": "Activities did not engage most pupils for most problems / tasks",
             "score": 0
           }
         ]
       },
       {
         "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y/N)<br>4. Provided re-teaching as appropriate",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
         "options": [
           {
             "content": "Included all 4 criteria",
@@ -127,7 +127,7 @@
         "area": "Problems",
         "options": [
           {
-            "content": "IP Problems were aligned to GP; varied problems and/or maintenance problems provided (included problems and answers in lesson plan or specified page numbers of text for where to find problems and answers)",
+            "content": "IP Problems were aligned to GP; varied problems and / or maintenance problems provided (included problems and answers in lesson plan or specified page numbers of text for where to find problems and answers)",
             "score": 4
           },
           {
@@ -142,7 +142,7 @@
       },
       {
         "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y/N)<br>4. Provided re-teaching as appropriate",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
         "options": [
           {
             "content": "Included all 4 criteria",
@@ -208,7 +208,7 @@
       },
       {
         "area": "Tasks",
-        "tooltip": "1. Clear steps/appropriate sequence within tasks<br>2. Prompted known steps/decisions & modeled (taught) new<br>3. Asked why questions to determine deeper understanding",
+        "tooltip": "1. Clear steps / appropriate sequence within tasks<br>2. Prompted known steps / decisions & modeled (taught) new<br>3. Asked why questions to determine deeper understanding",
         "options": [
           {
             "content": "All 3 criteria met",
@@ -256,7 +256,7 @@
       },
       {
         "area": "Guided Practice",
-        "tooltip": "1. Teacher and pupil did together - if in pairs/groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and clearly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format/activities and problems aligned with lesson plan",
+        "tooltip": "1. Teacher and pupil did together - if in pairs / groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and clearly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format / activities and problems aligned with lesson plan",
         "options": [
           {
             "content": "All 5 criteria met",
@@ -282,7 +282,7 @@
       },
       {
         "area": "Support",
-        "tooltip": "1. Prompts/questions reduced & faded so pupils are prepared to do problems independent<br>2. Peer supports are used (Pair/Group work) and are gradually faded<br>3. Level of difficulty gradually increases<br>4. Students provided with tools that meet level of need and are gradually reduced (ex: written out strategy, concrete manipulatives, calculators, etc.)",
+        "tooltip": "1. Prompts / questions reduced & faded so pupils are prepared to do problems independent<br>2. Peer supports are used (Pair / Group work) and are gradually faded<br>3. Level of difficulty gradually increases<br>4. Students provided with tools that meet level of need and are gradually reduced (ex: written out strategy, concrete manipulatives, calculators, etc.)",
         "options": [
           {
             "content": "3-4 criteria met",
@@ -304,7 +304,7 @@
       },
       {
         "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y/N)<br>4. Provided re-teaching as appropriate",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
         "options": [
           {
             "content": "Included all 4 criteria",
@@ -362,11 +362,11 @@
         "area": "Time",
         "options": [
           {
-            "content": "Spent 30-70% of time on NM/GP",
+            "content": "Spent 30-70% of time on NM / GP",
             "score": 2
           },
           {
-            "content": "Spent <30% or >70% of time on NM/GP",
+            "content": "Spent <30% or >70% of time on NM / GP",
             "score": 0
           }
         ]
@@ -414,15 +414,15 @@
         "area": "Praise Ratio",
         "options": [
           {
-            "content": "Praise/redirect ratio at least 4:1; praise rate appropriate for group/individual",
+            "content": "Praise / redirect ratio at least 4:1; praise rate appropriate for group / individual",
             "score": 2
           },
           {
-            "content": "Praise/redirect ratio of at least 2:1",
+            "content": "Praise / redirect ratio of at least 2:1",
             "score": 1
           },
           {
-            "content": "Praise/redirect ratio less than 2:1",
+            "content": "Praise / redirect ratio less than 2:1",
             "score": 0
           }
         ]
@@ -494,7 +494,7 @@
             "score": "Yes"
           },
           {
-            "content": "Does not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Does not dress appropriately and / or does not maintain personal hygiene",
             "score": -5
           }
         ]
@@ -543,7 +543,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",

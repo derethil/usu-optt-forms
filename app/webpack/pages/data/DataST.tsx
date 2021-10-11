@@ -19,6 +19,7 @@ import {
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
 import OTRRow from "../../components/data/OTRRow";
+import { css } from "styled-components";
 
 const DataST = (props: DataProps<IStudentTeachingData>) => {
   return (
@@ -26,7 +27,9 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
       <Card
         title={props.title}
         containerStyles={cardContainerStyles}
-        titleStyles={{ fontSize: "2rem" }}
+        titleStyles={css`
+          font-size: 2rem;
+        `}
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>

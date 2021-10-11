@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Color from "./colors";
 
 export const PageContent = styled.section`
@@ -94,4 +94,6 @@ export const ButtonsWrapper = styled.div`
   padding: 1em 0em;
 `;
 
-export const cardContainerStyles: React.CSSProperties = { width: "60em" };
+export const cardContainerStyles = css`
+  width: 60em;
+`;

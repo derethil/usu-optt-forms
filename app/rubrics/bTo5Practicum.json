@@ -6,7 +6,7 @@
         "area": "Lesson Plan",
         "options": [
           {
-            "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals/obj., sufficient # of trials, items, types & available",
+            "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals / obj., sufficient # of trials, items, types & available",
             "score": 4
           },
           {
@@ -23,15 +23,15 @@
         "area": "Opening",
         "options": [
           {
-            "content": "Included appropriate review / maintenance / prerequisite, with clear format",
+            "content": "Included appropriate review  /  maintenance  /  prerequisite, with clear format",
             "score": 2
           },
           {
-            "content": "included inappropriate / partial review / maintenance / prerequisite, and/or unclear format",
+            "content": "included inappropriate  /  partial review  /  maintenance  /  prerequisite, and / or unclear format",
             "score": 1
           },
           {
-            "content": "Included inappropriate / no review / maintenance / prerequisite, and/or unclear format",
+            "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
             "score": 0
           }
         ]
@@ -44,7 +44,7 @@
             "score": 1
           },
           {
-            "content": "Included inappropriate/no objective, link, and relevance statement",
+            "content": "Included inappropriate / no objective, link, and relevance statement",
             "score": 0
           }
         ]
@@ -104,24 +104,24 @@
         "area": "Independent Practice",
         "options": [
           {
-            "content": "Appropriate supervision/feedback, sufficient # of trials, varied examples, aligned to objective",
+            "content": "Appropriate supervision / feedback, sufficient # of trials, varied examples, aligned to objective",
             "score": 2
           },
           {
-            "content": "Inappropriate supervision/feedback, or not aligned to objective",
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
             "score": 1
           },
           {
-            "content": "Inappropriate supervision/feedback, or not aligned to objective",
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
             "score": 0
           }
         ]
       },
       {
-        "area": "Maintenance/Generalization",
+        "area": "Maintenance / Generalization",
         "options": [
           {
-            "content": "Generalized across materials, people and/or settings, scheduled practice opportunities, aligned to objective",
+            "content": "Generalized across materials, people and / or settings, scheduled practice opportunities, aligned to objective",
             "score": 2
           },
           {
@@ -160,7 +160,7 @@
             "score": 2
           },
           {
-            "content": "Some/all materials missing, ineffective arrangement",
+            "content": "Some / all materials missing, ineffective arrangement",
             "score": 0
           }
         ]
@@ -199,11 +199,11 @@
             "score": 4
           },
           {
-            "content": "Some eye contact and/or infrequent scanning of group",
+            "content": "Some eye contact and / or infrequent scanning of group",
             "score": 2
           },
           {
-            "content": "Little or no  eye contact and/or frequent scanning of group",
+            "content": "Little or no  eye contact and / or frequent scanning of group",
             "score": 0
           }
         ]
@@ -247,15 +247,15 @@
         "area": "Opportunities To Respond",
         "options": [
           {
-            "content": "Consistently included opportunities to respond and relevant combinations of individual/group/dispersed turns",
+            "content": "Consistently included opportunities to respond and relevant combinations of individual / group / dispersed turns",
             "score": 6
           },
           {
-            "content": "Inconsistently included opportunities to respond, and/or lacks relevant combinations of individual/group/dispersed turns",
+            "content": "Inconsistently included opportunities to respond, and / or lacks relevant combinations of individual / group / dispersed turns",
             "score": 3
           },
           {
-            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual/group/dispersed turns",
+            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
             "score": 0
           }
         ]
@@ -291,7 +291,7 @@
         "area": "Behavior Management",
         "options": [
           {
-            "content": "Follows class/indiv. plan for behavior, appropriate reinforcement schedule and student preferences",
+            "content": "Follows class / indiv. plan for behavior, appropriate reinforcement schedule and student preferences",
             "score": 3
           },
           {
@@ -299,7 +299,7 @@
             "score": 2
           },
           {
-            "content": "Does not consistently/effectively follow behavior management plan when student engages in problem behavior",
+            "content": "Does not consistently / effectively follow behavior management plan when student engages in problem behavior",
             "score": 0
           }
         ]
@@ -330,7 +330,7 @@
             "score": 3
           },
           {
-            "content": "Few individual turns and/or little active engagement, provides opp. to respond only to target students",
+            "content": "Few individual turns and / or little active engagement, provides opp. to respond only to target students",
             "score": 2
           },
           {
@@ -343,15 +343,15 @@
         "area": "Time Efficiency",
         "options": [
           {
-            "content": "Teacher uses all class time efficiently by providing multiple OTR, session begins/ends on time, smooth transition",
+            "content": "Teacher uses all class time efficiently by providing multiple OTR, session begins / ends on time, smooth transition",
             "score": 4
           },
           {
-            "content": "Teacher uses most of class time efficiently, session begins/ends on time, smooth transition",
+            "content": "Teacher uses most of class time efficiently, session begins / ends on time, smooth transition",
             "score": 2
           },
           {
-            "content": "Teacher makes inefficient use of time and/or time lost on non-instructional activities",
+            "content": "Teacher makes inefficient use of time and / or time lost on non-instructional activities",
             "score": 0
           }
         ]
@@ -391,15 +391,15 @@
         "area": "Praise Ratio",
         "options": [
           {
-            "content": "Praise/redirect ratio at least 3:1; praise rate appropriate for group/individual",
+            "content": "Praise / redirect ratio at least 3:1; praise rate appropriate for group / individual",
             "score": 5
           },
           {
-            "content": "Praise/redirect ratio of at least 2:1",
+            "content": "Praise / redirect ratio of at least 2:1",
             "score": 3
           },
           {
-            "content": "Praise/redirect ratio less than 2:1",
+            "content": "Praise / redirect ratio less than 2:1",
             "score": 0
           }
         ]
@@ -408,15 +408,15 @@
         "area": "Prompts",
         "options": [
           {
-            "content": "Consistently/effectively implemented prompting procedures, prompting procedures used appropriate for student(s) 80-100% of the time",
+            "content": "Consistently / effectively implemented prompting procedures, prompting procedures used appropriate for student(s) 80-100% of the time",
             "score": 4
           },
           {
-            "content": "Inconsistently/ineffectively implemented prompting procedures, prompting procedures used appropriate for student(s) 79-60% of the time",
+            "content": "Inconsistently / ineffectively implemented prompting procedures, prompting procedures used appropriate for student(s) 79-60% of the time",
             "score": 2
           },
           {
-            "content": "Does not consistently/effectively implement prompting procedures, incorrect prompting procedures used",
+            "content": "Does not consistently / effectively implement prompting procedures, incorrect prompting procedures used",
             "score": 0
           }
         ]
@@ -474,15 +474,15 @@
         "area": "Decision Making",
         "options": [
           {
-            "content": "Appropriate instructional/behavior management decisions made and based on recorded data and objective",
+            "content": "Appropriate instructional / behavior management decisions made and based on recorded data and objective",
             "score": 4
           },
           {
-            "content": "Instructional/behavior management decisions made subjectively, but not based on recorded data",
+            "content": "Instructional / behavior management decisions made subjectively, but not based on recorded data",
             "score": 2
           },
           {
-            "content": "Inappropriate instructional/behavior management decisions made",
+            "content": "Inappropriate instructional / behavior management decisions made",
             "score": 0
           }
         ]
@@ -536,7 +536,7 @@
             "score": "Yes"
           },
           {
-            "content": "Does not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Does not dress appropriately and / or does not maintain personal hygiene",
             "score": -5
           }
         ]
@@ -585,7 +585,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",

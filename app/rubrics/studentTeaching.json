@@ -17,7 +17,7 @@
       },
       {
         "area": "Components",
-        "tooltip": "1. Linked to sequenced IEP goal/objectives/instructional units<br/>2. Appropriate relevant chunking<br/>3. Sufficient number of trials and items<br/>4. Scaffolding – includes reduction  of support",
+        "tooltip": "1. Linked to sequenced IEP goal / objectives / instructional units<br / >2. Appropriate relevant chunking<br / >3. Sufficient number of trials and items<br / >4. Scaffolding – includes reduction  of support",
         "options": [
           {
             "content": "Lesson Plan includes all 4 components",
@@ -39,7 +39,7 @@
       },
       {
         "area": "Individualization",
-        "tooltip": "1. Matching/adapting content to learners,  <br/>2. Accounting for diversity of learners, <br/>3. Purpose/rationale for teaching content, <br/>4. Age/developmentally appropriate",
+        "tooltip": "1. Matching / adapting content to learners,  <br / >2. Accounting for diversity of learners, <br / >3. Purpose / rationale for teaching content, <br / >4. Age / developmentally appropriate",
         "options": [
           {
             "content": "Lesson plan includes all elements of individualization",
@@ -112,22 +112,22 @@
         "area": "Scanning",
         "options": [
           {
-            "content": "Frequent eye contact and frequent scanning of group/classroom",
+            "content": "Frequent eye contact and frequent scanning of group / classroom",
             "score": 3
           },
           {
-            "content": "Some eye contact and/or infrequent scanning of group/classroom",
+            "content": "Some eye contact and / or infrequent scanning of group / classroom",
             "score": 1
           },
           {
-            "content": "Little or no eye contact and/or no scanning of group/classroom",
+            "content": "Little or no eye contact and / or no scanning of group / classroom",
             "score": 0
           }
         ]
       },
       {
         "area": "Instruction",
-        "tooltip": "1. clear academic expectations/directions <br> 2.  New Material - succinct and engaging demonstration/modeling <br> (includes clear steps, prompted known steps/decisions and modeled/taught new steps/decisions) <br>  3. Guided/Individual Practice - appropriate scaffolding based on pupil responses <br>  4. teacher language is brief and consistent <br>  5. “thinks on feet” makes adjustments as needed",
+        "tooltip": "1. clear academic expectations / directions <br> 2.  New Material - succinct and engaging demonstration / modeling <br> (includes clear steps, prompted known steps / decisions and modeled / taught new steps / decisions) <br>  3. Guided / Individual Practice - appropriate scaffolding based on pupil responses <br>  4. teacher language is brief and consistent <br>  5. “thinks on feet” makes adjustments as needed",
         "options": [
           {
             "content": "Includes all aspects of proper instruction",
@@ -138,7 +138,7 @@
             "score": 6
           },
           {
-            "content": "Inconsistent instruction, lack of model, and/or minimal scaffolding",
+            "content": "Inconsistent instruction, lack of model, and / or minimal scaffolding",
             "score": 2
           },
           {
@@ -189,7 +189,7 @@
             "score": 3
           },
           {
-            "content": "Little/excessive enthusiasm, tone, and volume, or interferes with student learning and behavior",
+            "content": "Little / excessive enthusiasm, tone, and volume, or interferes with student learning and behavior",
             "score": 1
           },
           {
@@ -210,7 +210,7 @@
             "score": 1
           },
           {
-            "content": "Teacher makes inefficient use of time and/or time lost on non-instructional activities",
+            "content": "Teacher makes inefficient use of time and / or time lost on non-instructional activities",
             "score": 0
           }
         ]
@@ -235,7 +235,7 @@
       },
       {
         "area": "Engagement",
-        "tooltip": "1. Teacher arranges pupils, materials and environment to positively engage pupils <br> 2. Pupils are responding and attending most of the time <br> 3. Teacher and/or pupils follow general classroom and school routines <br> (i.e., gathering materials, transitions, circle time, interruptions, start up and ending routines, etc.)",
+        "tooltip": "1. Teacher arranges pupils, materials and environment to positively engage pupils <br> 2. Pupils are responding and attending most of the time <br> 3. Teacher and / or pupils follow general classroom and school routines <br> (i.e., gathering materials, transitions, circle time, interruptions, start up and ending routines, etc.)",
         "options": [
           {
             "content": "Includes all aspects of positive engagement most of the time",
@@ -255,7 +255,7 @@
         "area": "Reinforcement Quality",
         "options": [
           {
-            "content": "Reinforcement is immediate/timely, specific, consistent, varied, natural, contingent, balance between academic and behavior, and age appropriate",
+            "content": "Reinforcement is immediate / timely, specific, consistent, varied, natural, contingent, balance between academic and behavior, and age appropriate",
             "score": 6
           },
           {
@@ -276,37 +276,37 @@
         "area": "Praise Ratio",
         "options": [
           {
-            "content": "Praise/Redirect ratio of at least 3:1",
+            "content": "Praise / Redirect ratio of at least 3:1",
             "score": 3
           },
           {
-            "content": "Praise/Redirect ratio of at least 2:1",
+            "content": "Praise / Redirect ratio of at least 2:1",
             "score": 1
           },
           {
-            "content": "Praise/Redirect ratio less than 2:1",
+            "content": "Praise / Redirect ratio less than 2:1",
             "score": 0
           }
         ]
       },
       {
         "area": "Management",
-        "tooltip": "1. Consistently follows management plan effectively for problem/academic/social behaviors <br> 2. Consistently responds positively to appropriate academic/social behavior to enhance learning <br> (delivers consequences as indicated, restates relevant expectations, etc.)",
+        "tooltip": "1. Consistently follows management plan effectively for problem / academic / social behaviors <br> 2. Consistently responds positively to appropriate academic / social behavior to enhance learning <br> (delivers consequences as indicated, restates relevant expectations, etc.)",
         "options": [
           {
-            "content": "All problem behaviors addressed using effective management and/or always follows management plan for appropriate academic/social behavior",
+            "content": "All problem behaviors addressed using effective management and / or always follows management plan for appropriate academic / social behavior",
             "score": 10
           },
           {
-            "content": "Most problem behaviors addressed using management plan and/or most of the time follows management plan for appropriate academic/social behavior",
+            "content": "Most problem behaviors addressed using management plan and / or most of the time follows management plan for appropriate academic / social behavior",
             "score": 8
           },
           {
-            "content": "Some but not all problem behaviors addressed using management plan and/or sometimes follows management plan for appropriate academic/social behavior",
+            "content": "Some but not all problem behaviors addressed using management plan and / or sometimes follows management plan for appropriate academic / social behavior",
             "score": 5
           },
           {
-            "content": "Does not consistently/effectively follow management plan when student engages in problem behavior and/or follow management plan for appropriate academic/social behavior",
+            "content": "Does not consistently / effectively follow management plan when student engages in problem behavior and / or follow management plan for appropriate academic / social behavior",
             "score": 0
           }
         ]
@@ -320,7 +320,7 @@
         "area": "Recording",
         "options": [
           {
-            "content": "Data recorded, recorded accurately and aligned to IEP goals/objectives, data collected applicable to decision making",
+            "content": "Data recorded, recorded accurately and aligned to IEP goals / objectives, data collected applicable to decision making",
             "score": 4
           },
           {
@@ -341,7 +341,7 @@
             "score": 2
           },
           {
-            "content": "Data not up to date, inconsistently recorded and/or not available for observer",
+            "content": "Data not up to date, inconsistently recorded and / or not available for observer",
             "score": 0
           }
         ]
@@ -370,7 +370,7 @@
     "rows": [
       {
         "area": "Checklist",
-        "tooltip": "Mark N/A if student is an associate teacher",
+        "tooltip": "Mark N / A if student is an associate teacher",
         "options": [
           {
             "content": "90% or higher",
@@ -405,7 +405,7 @@
             "score": "Yes"
           },
           {
-            "content": "Does not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Does not dress appropriately and / or does not maintain personal hygiene",
             "score": -1
           }
         ]
@@ -454,7 +454,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",
@@ -482,7 +482,7 @@
       },
       {
         "area": "Assignments",
-        "tooltip": "1. Demonstrates adequate progress toward PPAT/assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
+        "tooltip": "1. Demonstrates adequate progress toward PPAT / assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
         "options": [
           {
             "content": "Follows assignment procedure all or most of the time ",

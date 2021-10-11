@@ -23,15 +23,15 @@
             "score": 7
           },
           {
-            "content": "Followed format/script/lesson plan in written program, but was not fluent",
+            "content": "Followed format / script / lesson plan in written program, but was not fluent",
             "score": 5
           },
           {
-            "content": "Followed portions format/script/lesson plan in written program",
+            "content": "Followed portions format / script / lesson plan in written program",
             "score": 3
           },
           {
-            "content": "Did not follow format/script/lesson plan",
+            "content": "Did not follow format / script / lesson plan",
             "score": 0
           }
         ]
@@ -61,11 +61,11 @@
             "score": 3
           },
           {
-            "content": "Some eye contact and/or infrequent scanning of group",
+            "content": "Some eye contact and / or infrequent scanning of group",
             "score": 1
           },
           {
-            "content": "Little or not eye contact and/or not scanning of group",
+            "content": "Little or not eye contact and / or not scanning of group",
             "score": 0
           }
         ]
@@ -74,15 +74,15 @@
         "area": "Opportunities To Respond",
         "options": [
           {
-            "content": "Consistently included opportunities to respond and relevant combinations of individual/group/dispersed turns",
+            "content": "Consistently included opportunities to respond and relevant combinations of individual / group / dispersed turns",
             "score": 8
           },
           {
-            "content": "Inconsistently included opportunities to respond, and/or lacks relevant combinations of individual/group/dispersed turns",
+            "content": "Inconsistently included opportunities to respond, and / or lacks relevant combinations of individual / group / dispersed turns",
             "score": 5
           },
           {
-            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual/group/dispersed turns",
+            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
             "score": 0
           }
         ]
@@ -113,11 +113,11 @@
             "score": 4
           },
           {
-            "content": "Partially efficient use of time and/or progresses through parts of lesson appropriately, some efficient transitions",
+            "content": "Partially efficient use of time and / or progresses through parts of lesson appropriately, some efficient transitions",
             "score": 2
           },
           {
-            "content": "Inefficient use of time and/or does not progress through lesson appropriately, inefficient transitions",
+            "content": "Inefficient use of time and / or does not progress through lesson appropriately, inefficient transitions",
             "score": 0
           }
         ]
@@ -130,11 +130,11 @@
             "score": 5
           },
           {
-            "content": "Little/excessive enthusiasm, tone, and volume, interferes with student learning/behavior, generally uses smooth phrasing and generally emphasizes key words",
+            "content": "Little / excessive enthusiasm, tone, and volume, interferes with student learning / behavior, generally uses smooth phrasing and generally emphasizes key words",
             "score": 3
           },
           {
-            "content": "Little or no enthusiasm, tone, and volume, interferes with student learning/behavior, does not use smooth phrasing, no emphasis of key words",
+            "content": "Little or no enthusiasm, tone, and volume, interferes with student learning / behavior, does not use smooth phrasing, no emphasis of key words",
             "score": 0
           }
         ]
@@ -182,15 +182,15 @@
         "area": "Praise Ratio",
         "options": [
           {
-            "content": "Praise/redirect ratio at least 3:1; praise rate appropriate for group/individual",
+            "content": "Praise / redirect ratio at least 3:1; praise rate appropriate for group / individual",
             "score": 5
           },
           {
-            "content": "Praise/redirect ratio of at least 2:1",
+            "content": "Praise / redirect ratio of at least 2:1",
             "score": 3
           },
           {
-            "content": "Praise/redirect ratio less than 2:1",
+            "content": "Praise / redirect ratio less than 2:1",
             "score": 0
           }
         ]
@@ -248,15 +248,15 @@
         "area": "Decision Making",
         "options": [
           {
-            "content": "Appropriate instructional/behavior management decisions made and based on recorded data and objective",
+            "content": "Appropriate instructional / behavior management decisions made and based on recorded data and objective",
             "score": 4
           },
           {
-            "content": "Instructional/behavior management decisions made subjectively, but not based on recorded data",
+            "content": "Instructional / behavior management decisions made subjectively, but not based on recorded data",
             "score": 2
           },
           {
-            "content": "Inappropriate instructional/behavior management decisions made",
+            "content": "Inappropriate instructional / behavior management decisions made",
             "score": 0
           }
         ]
@@ -293,7 +293,7 @@
             "score": "Yes"
           },
           {
-            "content": "Doess not dress appropriately and/or does not maintain personal hygiene",
+            "content": "Doess not dress appropriately and / or does not maintain personal hygiene",
             "score": -5
           }
         ]
@@ -342,7 +342,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self/social awareness, self/relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",

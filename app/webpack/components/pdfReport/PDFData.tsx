@@ -59,7 +59,7 @@ export const PDFData = (props: PDFDataProps) => {
       body: [
         ["Student Teacher", props.formInfo.studentTeacher],
         ["Cooperating Teacher", props.formInfo.cooperatingTeacher],
-        ["Supervisor", props.formInfo.supervisor],
+        ["Supervisor / Coach", props.formInfo.supervisor],
         ["Date", formatDate(props.formInfo.date)],
         ["Next Observation Date", formatDate(props.formInfo.nextDate)],
         ["Observation", props.formInfo.observation],

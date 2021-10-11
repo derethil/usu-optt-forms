@@ -1,15 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import * as Styles from "../styledComponents/style";
 
 import Card from "./Card";
 
-const cardContentStyles: React.CSSProperties = {
-  padding: "0em 1em",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-};
+const cardContentStyles = css`
+  padding: 0em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 const ObservDataWrapper = styled(Styles.DataWrapper)`
   width: 14em;
