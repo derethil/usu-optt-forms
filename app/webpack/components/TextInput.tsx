@@ -9,6 +9,7 @@ import {
 type TextInputProps = {
   value: string;
   field: string;
+  title?: string;
   updateFormInfo: (updatedValues: { [key: string]: string }) => void;
   noLabel?: boolean;
   placeholder?: string;
@@ -32,7 +33,11 @@ const TextInput = (props: TextInputProps) => {
 
   return (
     <InputContainer className={props.containerClassNames?.join(" ")}>
-      {!props.noLabel && <Label htmlFor={props.field}>{titleCased}</Label>}
+      {!props.noLabel && (
+        <Label htmlFor={props.field}>
+          {props.title ? props.title : titleCased}
+        </Label>
+      )}
       {props.textArea ? <InputTA {...inputProps} /> : <Input {...inputProps} />}
     </InputContainer>
   );

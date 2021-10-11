@@ -1,6 +1,6 @@
 import React from "react";
 import FormData from "../FormData";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 import TextInput from "./TextInput";
 import OptionRow from "./optionRow";
 
@@ -44,6 +44,15 @@ const FormInfo = (props: FormInfoProps) => {
         date={props.formInfo.nextDate}
         updateFormInfo={props.updateFormInfo}
       />
+
+      {currentForm === formOptions.reading && (
+        <TextInput
+          value={props.formInfo.program}
+          updateFormInfo={props.updateFormInfo}
+          field="program"
+          title="Reading Program"
+        />
+      )}
 
       <TextInput
         value={props.formInfo.other}

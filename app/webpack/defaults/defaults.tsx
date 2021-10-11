@@ -1,3 +1,5 @@
+import currentForm, { formOptions } from "../currentForm";
+
 export const defaultComments = {
   strengths: "",
   suggestions: "",
@@ -14,5 +16,5 @@ export const defaultFormInfo = {
   nextDate: new Date(),
   observation: 1,
   other: "",
-  program: "Mild/Moderate",
+  program: currentForm === formOptions.studentTeaching ? "Mild/Moderate" : "",
 };
