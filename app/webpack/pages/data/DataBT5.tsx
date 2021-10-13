@@ -106,6 +106,14 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
                 updateSequence("correct", { attention })
               }
             />
+            <CounterButton
+              color={Color.neutrals.grayDark}
+              content="Incorrect"
+              value={incorrect.attention}
+              onClick={(attention: number) =>
+                updateSequence("incorrect", { attention })
+              }
+            />
           </Styles.TwoButtonCol>
 
           <Styles.TwoButtonCol>
@@ -118,10 +126,8 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
-              value={incorrect.attention}
-              onClick={(attention: number) =>
-                updateSequence("incorrect", { attention })
-              }
+              value={incorrect.cue}
+              onClick={(cue: number) => updateSequence("incorrect", { cue })}
             />
           </Styles.TwoButtonCol>
 
@@ -135,9 +141,9 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
-              value={incorrect.attention}
-              onClick={(attention: number) =>
-                updateSequence("incorrect", { attention })
+              value={incorrect.pause}
+              onClick={(pause: number) =>
+                updateSequence("incorrect", { pause })
               }
             />
           </Styles.TwoButtonCol>
@@ -148,14 +154,6 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
               content="All Correct"
               value={correct.all}
               onClick={(all: number) => updateSequence("correct", { all })}
-            />
-            <CounterButton
-              color={Color.neutrals.grayDark}
-              content="Incorrect"
-              value={incorrect.pause}
-              onClick={(pause: number) =>
-                updateSequence("incorrect", { pause })
-              }
             />
           </Styles.TwoButtonCol>
         </Styles.TwoRowWrapper>

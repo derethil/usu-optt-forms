@@ -137,7 +137,7 @@ export const App = () => {
       </Route>,
     ],
     [formOptions.bTo5Practicum]: [
-      <Route path="/data" key={(title = "Data 2")}>
+      <Route path="/data" key={(title = "Data")}>
         <DataBT5
           data={data1}
           setData={setData1}
