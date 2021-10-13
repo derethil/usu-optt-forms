@@ -14,16 +14,8 @@ import { getPercent } from "../../utils/utils";
 
 import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
-import {
-  ButtonsWrapper,
-  cardContainerStyles,
-} from "../../styledComponents/style";
+import { cardContainerStyles } from "../../styledComponents/style";
 import DataProps from "./DataProps";
-
-const TwoRowButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
   const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
@@ -88,8 +80,8 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
           },
         ]}
       >
-        <TwoRowButtons>
-          <ButtonsWrapper>
+        <Styles.TwoRowWrapper>
+          <Styles.TwoButtonCol>
             <CounterButton
               color={Color.accents.greenLight}
               content="Correct Sequence"
@@ -99,37 +91,21 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
               }
             />
             <CounterButton
-              color={Color.accents.greenLight}
-              content="Cue"
-              value={signalCorrect.cue}
-              onClick={(cue: number) =>
-                setData("signalSequence", "correct", { cue })
-              }
-            />
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Pause"
-              value={signalCorrect.pause}
-              onClick={(pause: number) =>
-                setData("signalSequence", "correct", { pause })
-              }
-            />
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Signal"
-              value={signalCorrect.signal}
-              onClick={(signal: number) =>
-                setData("signalSequence", "correct", { signal })
-              }
-            />
-          </ButtonsWrapper>
-          <ButtonsWrapper>
-            <CounterButton
               color={Color.contextual.danger}
               content="Incorrect Sequence"
               value={signalIncorrect.sequence}
               onClick={(sequence: number) =>
                 setData("signalSequence", "incorrect", { sequence })
+              }
+            />
+          </Styles.TwoButtonCol>
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.accents.greenLight}
+              content="Cue"
+              value={signalCorrect.cue}
+              onClick={(cue: number) =>
+                setData("signalSequence", "correct", { cue })
               }
             />
             <CounterButton
@@ -140,12 +116,34 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
                 setData("signalSequence", "incorrect", { cue })
               }
             />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.accents.greenLight}
+              content="Pause"
+              value={signalCorrect.pause}
+              onClick={(pause: number) =>
+                setData("signalSequence", "correct", { pause })
+              }
+            />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.pause}
               onClick={(pause: number) =>
                 setData("signalSequence", "incorrect", { pause })
+              }
+            />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.accents.greenLight}
+              content="Signal"
+              value={signalCorrect.signal}
+              onClick={(signal: number) =>
+                setData("signalSequence", "correct", { signal })
               }
             />
             <CounterButton
@@ -156,8 +154,8 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
                 setData("signalSequence", "incorrect", { signal })
               }
             />
-          </ButtonsWrapper>
-        </TwoRowButtons>
+          </Styles.TwoButtonCol>
+        </Styles.TwoRowWrapper>
       </DataRow>
 
       <DataRow
@@ -186,8 +184,8 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
           },
         ]}
       >
-        <TwoRowButtons>
-          <ButtonsWrapper>
+        <Styles.TwoRowWrapper>
+          <Styles.TwoButtonCol>
             <CounterButton
               color={Color.contextual.info}
               content="Correct Sequence"
@@ -197,37 +195,22 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
               }
             />
             <CounterButton
-              color={Color.contextual.info}
-              content="Model"
-              value={errorCorrect.model}
-              onClick={(model: number) =>
-                setData("errorCorrection", "correct", { model })
-              }
-            />
-            <CounterButton
-              color={Color.contextual.info}
-              content="Test"
-              value={errorCorrect.test}
-              onClick={(test: number) =>
-                setData("errorCorrection", "correct", { test })
-              }
-            />
-            <CounterButton
-              color={Color.contextual.info}
-              content="Delayed Test"
-              value={errorCorrect.delayedTest}
-              onClick={(delayedTest: number) =>
-                setData("errorCorrection", "correct", { delayedTest })
-              }
-            />
-          </ButtonsWrapper>
-          <ButtonsWrapper>
-            <CounterButton
               color={Color.contextual.danger}
               content="Incorrect Sequence"
               value={errorIncorrect.sequence}
               onClick={(sequence: number) =>
                 setData("errorCorrection", "incorrect", { sequence })
+              }
+            />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.contextual.info}
+              content="Model"
+              value={errorCorrect.model}
+              onClick={(model: number) =>
+                setData("errorCorrection", "correct", { model })
               }
             />
             <CounterButton
@@ -238,12 +221,34 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
                 setData("errorCorrection", "incorrect", { model })
               }
             />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.contextual.info}
+              content="Test"
+              value={errorCorrect.test}
+              onClick={(test: number) =>
+                setData("errorCorrection", "correct", { test })
+              }
+            />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={errorIncorrect.test}
               onClick={(test: number) =>
                 setData("errorCorrection", "incorrect", { test })
+              }
+            />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.contextual.info}
+              content="Delayed Test"
+              value={errorCorrect.delayedTest}
+              onClick={(delayedTest: number) =>
+                setData("errorCorrection", "correct", { delayedTest })
               }
             />
             <CounterButton
@@ -254,8 +259,8 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
                 setData("errorCorrection", "incorrect", { delayedTest })
               }
             />
-          </ButtonsWrapper>
-        </TwoRowButtons>
+          </Styles.TwoButtonCol>
+        </Styles.TwoRowWrapper>
       </DataRow>
 
       <PraiseDataRow data={props.data} setData={props.setData} />

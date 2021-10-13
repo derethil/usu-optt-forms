@@ -94,6 +94,20 @@ export const ButtonsWrapper = styled.div`
   padding: 1em 0em;
 `;
 
+export const TwoRowWrapper = styled(ButtonsWrapper)`
+  height: 12em;
+`;
+
+export const TwoButtonCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > * {
+    height: 35%;
+  }
+`;
+
 export const cardContainerStyles = css`
   width: 60em;
 `;

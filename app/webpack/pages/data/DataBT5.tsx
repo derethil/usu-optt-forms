@@ -19,11 +19,6 @@ import {
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
 
-const TwoRowButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
   const updateSequence = (groupKey: string, newValue: object) => {
     props.setData({
@@ -101,8 +96,8 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
           },
         ]}
       >
-        <TwoRowButtons>
-          <ButtonsWrapper>
+        <Styles.TwoRowWrapper>
+          <Styles.TwoButtonCol>
             <CounterButton
               color={Color.accents.greenLight}
               content="Attention"
@@ -111,26 +106,15 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
                 updateSequence("correct", { attention })
               }
             />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
             <CounterButton
               color={Color.accents.greenLight}
               content="Cue"
               value={correct.cue}
               onClick={(cue: number) => updateSequence("correct", { cue })}
             />
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Pause"
-              value={correct.pause}
-              onClick={(pause: number) => updateSequence("correct", { pause })}
-            />
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="All Correct"
-              value={correct.all}
-              onClick={(all: number) => updateSequence("correct", { all })}
-            />
-          </ButtonsWrapper>
-          <ButtonsWrapper>
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
@@ -139,11 +123,31 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
                 updateSequence("incorrect", { attention })
               }
             />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.accents.greenLight}
+              content="Pause"
+              value={correct.pause}
+              onClick={(pause: number) => updateSequence("correct", { pause })}
+            />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
-              value={incorrect.cue}
-              onClick={(cue: number) => updateSequence("incorrect", { cue })}
+              value={incorrect.attention}
+              onClick={(attention: number) =>
+                updateSequence("incorrect", { attention })
+              }
+            />
+          </Styles.TwoButtonCol>
+
+          <Styles.TwoButtonCol>
+            <CounterButton
+              color={Color.accents.greenLight}
+              content="All Correct"
+              value={correct.all}
+              onClick={(all: number) => updateSequence("correct", { all })}
             />
             <CounterButton
               color={Color.neutrals.grayDark}
@@ -153,8 +157,8 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
                 updateSequence("incorrect", { pause })
               }
             />
-          </ButtonsWrapper>
-        </TwoRowButtons>
+          </Styles.TwoButtonCol>
+        </Styles.TwoRowWrapper>
       </DataRow>
 
       <DataRow
