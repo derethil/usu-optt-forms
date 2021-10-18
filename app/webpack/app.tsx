@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 
-import logo from "../static/img/horizontal_logo.png";
+import logo from "../static/img/usuHorizontalB64";
 
 import FormHome from "./pages/FormHome";
 import DataST from "./pages/data/DataST";
@@ -202,7 +202,7 @@ export const App = () => {
 
   return (
     <PageContainer>
-      <BrowserRouter>
+      <HashRouter>
         <PageHeader>
           <img alt="logo" width={300} src={logo} />
           <Title>{FormData[currentForm].title} Form</Title>
@@ -246,7 +246,7 @@ export const App = () => {
             <NotFound />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </PageContainer>
   );
 };
