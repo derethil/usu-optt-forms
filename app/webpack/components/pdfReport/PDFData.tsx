@@ -97,10 +97,10 @@ export const PDFData = (props: PDFDataProps) => {
 
     // Observations
 
-    generator.table({
-      // startY: 18,
-      head: ["Data"],
-    });
+    if (props.data1.currentForm !== formOptions.studentTeaching)
+      generator.table({
+        head: ["Data"],
+      });
 
     if (
       props.data1.currentForm === formOptions.studentTeaching &&
