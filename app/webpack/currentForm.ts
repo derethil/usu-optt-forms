@@ -6,7 +6,7 @@ export enum formOptions {
   math = "math",
 }
 
-const currentForm: formOptions = formOptions.bTo5Practicum;
+const currentForm: formOptions = formOptions.reading;
 
 // NOTE: When this is changed, the application data must be cleared using dev tools or the app will crash
 
