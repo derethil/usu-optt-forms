@@ -17,7 +17,7 @@
       },
       {
         "area": "Components",
-        "tooltip": "1. Linked to sequenced IEP goal / objectives / instructional units<br / >2. Appropriate relevant chunking<br / >3. Sufficient number of trials and items<br / >4. Scaffolding – includes reduction  of support",
+        "tooltip": "1. Linked to sequenced IEP goal / objectives / instructional units<br>2. Appropriate relevant chunking<br>3. Sufficient number of trials and items<br>4. Scaffolding – includes reduction  of support",
         "options": [
           {
             "content": "Lesson Plan includes all 4 components",
@@ -39,7 +39,7 @@
       },
       {
         "area": "Individualization",
-        "tooltip": "1. Matching / adapting content to learners,  <br / >2. Accounting for diversity of learners, <br / >3. Purpose / rationale for teaching content, <br / >4. Age / developmentally appropriate",
+        "tooltip": "1. Matching / adapting content to learners,  <br>2. Accounting for diversity of learners, <br>3. Purpose / rationale for teaching content, <br>4. Age / developmentally appropriate",
         "options": [
           {
             "content": "Lesson plan includes all elements of individualization",

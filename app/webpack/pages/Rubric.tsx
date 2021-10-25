@@ -72,7 +72,7 @@ const Rubric = (props: RubricProps) => {
               font-size: 1.33rem;
             `}
             iconStyles={css`
-              color: ${Color.lights.gray};
+              color: ${Color.lights.grayLighter};
             `}
           />
           <p>{sectionScore}</p>
