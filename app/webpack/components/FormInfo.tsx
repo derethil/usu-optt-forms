@@ -47,16 +47,19 @@ const FormInfo = (props: FormInfoProps) => {
         updateFormInfo={props.updateFormInfo}
       />
 
-      {currentForm != formOptions.studentTeaching && (
-        <TextInput
-          value={props.formInfo.program}
-          updateFormInfo={props.updateFormInfo}
-          field="program"
-          title={
-            currentForm === formOptions.reading ? "Reading Program" : undefined
-          }
-        />
-      )}
+      {currentForm != formOptions.studentTeaching &&
+        currentForm != formOptions.math && (
+          <TextInput
+            value={props.formInfo.program}
+            updateFormInfo={props.updateFormInfo}
+            field="program"
+            title={
+              currentForm === formOptions.reading
+                ? "Reading Program"
+                : undefined
+            }
+          />
+        )}
 
       <TextInput
         value={props.formInfo.other}
