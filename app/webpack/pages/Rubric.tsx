@@ -71,6 +71,9 @@ const Rubric = (props: RubricProps) => {
             titleStyles={css`
               font-size: 1.33rem;
             `}
+            iconStyles={css`
+              color: ${Color.lights.gray};
+            `}
           />
           <p>{sectionScore}</p>
         </CardTitleContainer>

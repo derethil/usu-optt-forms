@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { FlattenSimpleInterpolation } from "styled-components";
 import ReactTooltip from "react-tooltip";
 import { CSSMixin } from "../types/types";
@@ -12,10 +12,12 @@ type IconTitleProps = {
   content: string;
   tooltipContent: string;
   titleStyles?: FlattenSimpleInterpolation;
+  iconStyles?: FlattenSimpleInterpolation;
 };
 
-const Icon = styled.i`
+const Icon = styled.i<CSSMixin>`
   color: ${Color.neutrals.grayDarker};
+  ${(props) => props.mixin}
 `;
 
 const Title = styled.p<CSSMixin>`
@@ -24,16 +26,29 @@ const Title = styled.p<CSSMixin>`
 `;
 
 const IconTitle = (props: IconTitleProps) => {
+  const [randomID, setRandomID] = useState(String(Math.random()));
+
   return (
     <div className="title" style={{ display: "flex" }}>
       <Title mixin={props.titleStyles}>{props.content}</Title>
       <CenteredIconContainer
         className="hover-icon"
         data-tip={props.tooltipContent}
+        data-for={randomID}
       >
-        <Icon className="far fa-question-circle"></Icon>
-        <ReactTooltip place="top" type="dark" effect="solid" multiline={true} />
+        <Icon
+          className="far fa-question-circle"
+          mixin={props.iconStyles}
+        ></Icon>
       </CenteredIconContainer>
+      <ReactTooltip
+        place="top"
+        type="dark"
+        effect="solid"
+        multiline={true}
+        id={randomID}
+        offset={{ top: -20 }}
+      />
     </div>
   );
 };
