@@ -14,6 +14,7 @@ export interface ICues {
   cues: {
     individual: number;
     group: number;
+    nonDirected?: number;
   };
 }
 
@@ -126,13 +127,8 @@ export interface IReadingData
 
 // ---- MM MATH ----
 
-export interface IMathData extends IPraiseData {
+export interface IMathData extends IPraiseData, ICues {
   engagement: IEngagement;
-  cues: {
-    nonDirected: number;
-    group: number;
-    individual: number;
-  };
   response: {
     correct: number;
     incorrect: number;

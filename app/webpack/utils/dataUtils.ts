@@ -8,7 +8,11 @@ const defaultData = FormData[currentForm].defaultData;
 // DATA FUNCTIONS
 
 export const getOTRRate = (data: ICues, timer: ITimer): string => {
-  const OTRRate = ((data.cues.group + data.cues.individual) / timer.time) * 60;
+  const total =
+    data.cues.individual +
+    data.cues.group +
+    (data.cues.nonDirected ? data.cues.nonDirected : 0);
+  const OTRRate = (total / timer.time) * 60;
   return OTRRate.toFixed(2);
 };
 

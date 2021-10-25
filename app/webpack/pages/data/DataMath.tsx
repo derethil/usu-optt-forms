@@ -18,6 +18,7 @@ import {
   cardContainerStyles,
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
+import OTRRow from "../../components/data/OTRRow";
 
 const DataMath = (props: DataProps<IMathData>) => {
   return (
@@ -33,6 +34,10 @@ const DataMath = (props: DataProps<IMathData>) => {
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
+
+      <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
+
+      <PraiseDataRow data={props.data} setData={props.setData} />
     </Styles.PageContent>
   );
 };
