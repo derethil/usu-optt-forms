@@ -70,8 +70,8 @@ const generateLinks = (allRoutes: Routes): JSX.Element[] => {
 
     return [
       { name: "Home", endpoint: "/" },
-      { name: "Rubric", endpoint: "/rubric" },
       ...dynamicEndpoints,
+      { name: "Rubric", endpoint: "/rubric" },
       { name: "Feedback", endpoint: "/feedback" },
     ];
   };
