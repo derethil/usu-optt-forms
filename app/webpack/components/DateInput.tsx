@@ -23,6 +23,7 @@ const DateInput = (props: DateInputProps) => {
           props.updateFormInfo({ [props.field]: (date as Date).getTime() })
         }
         customInput={<Input />}
+        minDate={new Date()}
       />
     </InputContainer>
   );
