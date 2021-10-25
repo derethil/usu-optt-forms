@@ -15,14 +15,12 @@ const SelectButtonEl = styled(Button)<CSSMixin>`
   padding: 1em;
 
   height: auto;
-  min-height: 3em;
-  min-width: 3em;
 
   border: 3px solid ${Color.neutrals.grayDark};
 
   font-size: 1.2rem;
 
-  flex-grow: 1 1 auto;
+  flex-grow: 1;
 
   margin-right: 1em;
 

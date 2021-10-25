@@ -111,3 +111,10 @@ export const TwoButtonCol = styled.div`
 export const cardContainerStyles = css`
   width: 60em;
 `;
+
+export const buttonStyles = css`
+  width: 10em;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 1.05rem;
+`;

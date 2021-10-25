@@ -8,6 +8,7 @@ import { IFormInfo } from "../types/types";
 import DateInput from "./DateInput";
 import Color from "../styledComponents/colors";
 import { css } from "styled-components";
+import { buttonStyles } from "../styledComponents/style";
 type FormInfoProps = {
   formInfo: IFormInfo;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
@@ -90,6 +91,7 @@ const FormInfo = (props: FormInfoProps) => {
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
           `}
+          buttonStyles={buttonStyles}
         />
       )}
     </div>
