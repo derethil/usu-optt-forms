@@ -35,7 +35,130 @@ const DataMath = (props: DataProps<IMathData>) => {
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
+      <DataRow
+        title="Engagement"
+        displayData={[
+          { display: "Group Engaged", score: props.data.engagement.engaged },
+          {
+            display: "Group Not Engaged",
+            score: props.data.engagement.notEngaged,
+          },
+          {
+            display: "Percent Engaged",
+            score: getPercent(
+              props.data.engagement.engaged,
+              props.data.engagement.engaged + props.data.engagement.notEngaged
+            ),
+          },
+        ]}
+      >
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="Engaged"
+            value={props.data.engagement.engaged}
+            onClick={(engaged: number) =>
+              props.setData({
+                engagement: { ...props.data.engagement, engaged },
+              })
+            }
+          />
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="Not Engaged"
+            value={props.data.engagement.notEngaged}
+            onClick={(notEngaged: number) =>
+              props.setData({
+                engagement: { ...props.data.engagement, notEngaged },
+              })
+            }
+          />
+        </ButtonsWrapper>
+      </DataRow>
+
       <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
+
+      <DataRow
+        title="Response"
+        displayData={[
+          { display: "Correct Response", score: props.data.response.correct },
+          {
+            display: "Incorrect Response",
+            score: props.data.response.incorrect,
+          },
+          {
+            display: "Percent Correct",
+            score: getPercent(
+              props.data.response.correct,
+              props.data.response.correct + props.data.response.incorrect
+            ),
+          },
+        ]}
+      >
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.brick}
+            content="Correct"
+            value={props.data.response.correct}
+            onClick={(correct: number) =>
+              props.setData({
+                response: { ...props.data.response, correct },
+              })
+            }
+          />
+          <CounterButton
+            color={Color.accents.brick}
+            content="Incorrect"
+            value={props.data.response.incorrect}
+            onClick={(incorrect: number) =>
+              props.setData({
+                response: { ...props.data.response, incorrect },
+              })
+            }
+          />
+        </ButtonsWrapper>
+      </DataRow>
+
+      <DataRow
+        title="Feedback for Errors"
+        displayData={[
+          { display: "Model/Test or Guided", score: props.data.feedback.mtg },
+          {
+            display: "Not Corrected",
+            score: props.data.feedback.notCorrected,
+          },
+          {
+            display: "Percent Engaged",
+            score: getPercent(
+              props.data.feedback.mtg,
+              props.data.feedback.mtg + props.data.feedback.notCorrected
+            ),
+          },
+        ]}
+      >
+        <ButtonsWrapper>
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="Model/Test or Guided"
+            value={props.data.feedback.mtg}
+            onClick={(mtg: number) =>
+              props.setData({
+                feedback: { ...props.data.feedback, mtg },
+              })
+            }
+          />
+          <CounterButton
+            color={Color.accents.brightLight}
+            content="Not Corrected"
+            value={props.data.feedback.notCorrected}
+            onClick={(notCorrected: number) =>
+              props.setData({
+                feedback: { ...props.data.feedback, notCorrected },
+              })
+            }
+          />
+        </ButtonsWrapper>
+      </DataRow>
 
       <PraiseDataRow data={props.data} setData={props.setData} />
     </Styles.PageContent>
