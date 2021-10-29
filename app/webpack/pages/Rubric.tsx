@@ -3,16 +3,20 @@ import styled, { css } from "styled-components";
 
 import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
-import { ScoresState, Section } from "../types/types";
+import { ITimer, ScoresState, Section } from "../types/types";
 import { buttonStyles, PageContent } from "../styledComponents/style";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
 import { generateScoreData } from "../utils/scoreUtils";
+import Timer from "../components/Timer";
+import currentForm, { formOptions } from "../currentForm";
 
 type RubricProps = {
   scores: ScoresState;
   rubricData: Section[];
+  timer1: ITimer;
+  timer2: ITimer;
   updateScore: (
     section: string,
     row: string,
@@ -54,6 +58,10 @@ const cardContainerStyles = css`
 const CardTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const timerContentStyles = css`
+  margin-top: 0.5em;
 `;
 
 const Rubric = (props: RubricProps) => {
@@ -128,16 +136,38 @@ const Rubric = (props: RubricProps) => {
       );
     });
 
+    const isMathTimer =
+      currentForm == formOptions.math &&
+      (section.sectionTitle === "Independent Practice" ||
+        section.sectionTitle === "Opening");
+
     const sectionDiv = (
-      <Card
-        key={sectionIdx}
-        title={sectionTitle(section, sectionIdx)}
-        titleStyles={cardTitleStyles}
-        contentStyles={contentStyles}
-        containerStyles={cardContainerStyles}
-      >
-        {rows}
-      </Card>
+      <div key={sectionIdx}>
+        {isMathTimer && (
+          <Card
+            title={
+              <RubricTitleContent>{`${section.sectionTitle} Timer`}</RubricTitleContent>
+            }
+            titleStyles={cardTitleStyles}
+            contentStyles={contentStyles && timerContentStyles}
+            containerStyles={cardContainerStyles}
+          >
+            <Timer
+              timer={
+                section.sectionTitle === "Opening" ? props.timer1 : props.timer2
+              }
+            />
+          </Card>
+        )}
+        <Card
+          title={sectionTitle(section, sectionIdx)}
+          titleStyles={cardTitleStyles}
+          contentStyles={contentStyles}
+          containerStyles={cardContainerStyles}
+        >
+          {rows}
+        </Card>
+      </div>
     );
 
     return sectionDiv;

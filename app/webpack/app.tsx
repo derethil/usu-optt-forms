@@ -171,29 +171,11 @@ export const App = () => {
     ],
     // ------ MATH ------
     [formOptions.math]: [
-      <Route path="/opening" key={(title = "Opening")}>
-        <DataMath
-          data={data1}
-          setData={setData1}
-          timer={timer1}
-          title={title}
-          resetCallback={resetData1}
-        />
-      </Route>,
-      <Route path="/independent" key={(title = "Independent Practice")}>
-        <DataMath
-          data={data1}
-          setData={setData1}
-          timer={timer1}
-          title={title}
-          resetCallback={resetData1}
-        />
-      </Route>,
       <Route path="/guided" key={(title = "New Material - Guided Practice")}>
         <DataMath
           data={data1}
           setData={setData1}
-          timer={timer1}
+          timer={timer3}
           title={title}
           resetCallback={resetData1}
         />
@@ -236,6 +218,8 @@ export const App = () => {
               scores={scores}
               rubricData={rubricData}
               updateScore={updateScore}
+              timer1={timer1}
+              timer2={timer2}
             />
           </Route>
 

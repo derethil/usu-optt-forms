@@ -114,11 +114,9 @@ type Props = {
 };
 
 const Navbar = (props: Props) => {
-  const links = generateLinks(props.dynamicRoutes);
-
   return (
     <NavbarContainer>
-      {...links}
+      {...generateLinks(props.dynamicRoutes)}
 
       <StudentDisplay>{props.studentTeacher}</StudentDisplay>
     </NavbarContainer>
