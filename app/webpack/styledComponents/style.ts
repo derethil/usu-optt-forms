@@ -108,10 +108,6 @@ export const TwoButtonCol = styled.div`
   }
 `;
 
-export const cardContainerStyles = css`
-  width: 60em;
-`;
-
 export const buttonStyles = css`
   width: 10em;
   text-align: center;
@@ -121,4 +117,16 @@ export const buttonStyles = css`
 
 export const RubricTitleContent = styled.h1`
   font-size: 1.33rem;
+`;
+
+export const cardContainerStyles = css`
+  width: 75%;
+
+  @media (max-width: 1500px) {
+    width: 85%;
+  }
+
+  @media (max-width: 1200px) {
+    width: 95%;
+  }
 `;

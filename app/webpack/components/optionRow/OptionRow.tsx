@@ -24,8 +24,12 @@ const ButtonsWrapper = styled.div<CSSMixin>`
   ${(props) => props.mixin};
 `;
 
+const Container = styled.div<CSSMixin>`
+  ${(props) => props.mixin};
+`;
+
 interface OptionRowProps {
-  title: string;
+  title?: string;
   currSelection: string;
   contentOptions: string[];
   updateSelection: (newSelection: string) => void;
@@ -34,6 +38,7 @@ interface OptionRowProps {
   wrapperStyles?: FlattenSimpleInterpolation;
   buttonStyles?: FlattenSimpleInterpolation;
   titleStyles?: FlattenSimpleInterpolation;
+  containerStyles?: FlattenSimpleInterpolation;
 }
 
 interface OptionRowCommentProps extends OptionRowProps {
@@ -108,7 +113,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     if (tooltip) {
       return (
         <IconTitle
-          content={props.title}
+          content={props.title!}
           tooltipContent={tooltip}
           titleStyles={props.titleStyles}
         />
@@ -119,11 +124,11 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
   };
 
   return (
-    <div>
+    <Container mixin={props.containerStyles}>
       {renderTitle(props.tooltip)}
 
       <ButtonsWrapper mixin={props.wrapperStyles}>{rowContents}</ButtonsWrapper>
-    </div>
+    </Container>
   );
 };
 

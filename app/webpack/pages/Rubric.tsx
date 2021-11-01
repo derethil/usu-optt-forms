@@ -8,6 +8,7 @@ import {
   buttonStyles,
   PageContent,
   RubricTitleContent,
+  cardContainerStyles,
 } from "../styledComponents/style";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import Card from "../components/Card";
@@ -41,18 +42,6 @@ const rowTitleStyles = css`
 
 const contentStyles = css`
   padding-top: 0;
-`;
-
-const cardContainerStyles = css`
-  width: 75%;
-
-  @media (max-width: 1500px) {
-    width: 85%;
-  }
-
-  @media (max-width: 1200px) {
-    width: 95%;
-  }
 `;
 
 const CardTitleContainer = styled.div`

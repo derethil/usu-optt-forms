@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { css } from "styled-components";
 
-import Slider from "react-input-slider";
 import Card from "../../components/Card";
 import OptionRow from "../../components/optionRow";
 
-import { PageContent, RubricTitleContent } from "../../styledComponents/style";
+import {
+  cardContainerStyles,
+  PageContent,
+  RubricTitleContent,
+} from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
+import getNotebookCheck from "../../utils/notebookCheckUtils";
+import NotebookSlider from "./NotebookSlider";
 
 export default function NotebookCheck() {
   const [location, setLocation] = useState("Logan");
@@ -17,6 +22,7 @@ export default function NotebookCheck() {
     <PageContent>
       <Card
         title={<RubricTitleContent>Notebook Check Info</RubricTitleContent>}
+        containerStyles={cardContainerStyles}
       >
         <OptionRow
           title="Location"
@@ -41,6 +47,25 @@ export default function NotebookCheck() {
       <Card
         title={
           <IconTitle
+            content={`Notebook Check #${obsNumber}`}
+            tooltipContent={`Corresponds with observation #${obsNumber}`}
+            iconStyles={css`
+              color: ${Color.lights.grayLighter};
+            `}
+          />
+        }
+        containerStyles={cardContainerStyles}
+      >
+        {getNotebookCheck(location === "Logan", obsNumber).map(
+          (content, idx) => {
+            return <NotebookSlider content={content} key={idx} />;
+          }
+        )}
+      </Card>
+
+      <Card
+        title={
+          <IconTitle
             content="Final Notebook Check"
             tooltipContent="Completed by course instructor"
             iconStyles={css`
@@ -48,7 +73,12 @@ export default function NotebookCheck() {
             `}
           />
         }
-      />
+        containerStyles={cardContainerStyles}
+      >
+        {getNotebookCheck(location === "Logan").map((content, idx) => {
+          return <NotebookSlider content={content} key={idx} />;
+        })}
+      </Card>
     </PageContent>
   );
 }
