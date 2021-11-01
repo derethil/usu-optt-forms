@@ -1,0 +1,47 @@
+[
+  {
+    "logan": [1],
+    "nonLogan": [1],
+    "content": "Screening assessment copy with answer key included"
+  },
+  {
+    "logan": [1],
+    "nonLogan": [1],
+    "content": "Screening assessment scores are entered for each item and each student in the same excel format as demonstrated in class. Instructional level is also included"
+  },
+  {
+    "logan": [1, 2, 3, 4, 5, -1],
+    "nonLogan": [1, 2, 3, 4, 5, -1],
+    "content": "Lesson Plans are typed and up to date, and include: lesson objective, learning set, new material, guided practice, independent practice, and data-based decision making."
+  },
+  {
+    "logan": [1, 2, 3, 4, 5, -1],
+    "nonLogan": [1, 2, 3, 4, 5, -1],
+    "content": "Data are entered daily (source, # questions, % score, obj.) for all students, and are up to date."
+  },
+  {
+    "logan": [1, 2, 3, 4, 5, -1],
+    "nonLogan": [],
+    "content": "Peer coaching observations and reflection records are up to date (in binder in the classroom, not in google notebook)"
+  },
+  {
+    "logan": [2, 3],
+    "nonLogan": [2, 3],
+    "content": "Goals and objectives are included. Objectives include conditions, observable behaviors, criteria for acceptable performance, and evaluation procedures."
+  },
+  {
+    "logan": [2],
+    "nonLogan": [2],
+    "content": "A sample progress monitoring assessment that will be used is included"
+  },
+  {
+    "logan": [2, 3, 4, 5, -1],
+    "nonLogan": [2, 3, 4, 5, -1],
+    "content": "Progress Monitoring data entered for one assessment (for whole class)"
+  },
+  {
+    "logan": [-1],
+    "nonLogan": [-1],
+    "content": "End of semester summary of progress is included: 20 points for reflection on teaching practices, 30 points for reflection on student progress (15 points daily data, 15 points progress monitoring data)."
+  }
+]
