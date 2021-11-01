@@ -4,7 +4,11 @@ import styled, { css } from "styled-components";
 import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
 import { ITimer, ScoresState, Section } from "../types/types";
-import { buttonStyles, PageContent } from "../styledComponents/style";
+import {
+  buttonStyles,
+  PageContent,
+  RubricTitleContent,
+} from "../styledComponents/style";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
@@ -24,10 +28,6 @@ type RubricProps = {
     newComment: string
   ) => void;
 };
-
-const RubricTitleContent = styled.h1`
-  font-size: 1.33rem;
-`;
 
 const cardTitleStyles = css`
   padding-left: 1em;

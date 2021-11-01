@@ -118,3 +118,7 @@ export const buttonStyles = css`
   flex-grow: 1;
   font-size: 1.05rem;
 `;
+
+export const RubricTitleContent = styled.h1`
+  font-size: 1.33rem;
+`;
