@@ -21,6 +21,7 @@ import { defaultComments, defaultFormInfo } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
+import NotebookCheck from "./pages/data/NotebookCheck";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -171,7 +172,10 @@ export const App = () => {
     ],
     // ------ MATH ------
     [formOptions.math]: [
-      <Route path="/guided" key={(title = "New Material - Guided Practice")}>
+      <Route
+        path="/new_material"
+        key={(title = "New Material - Guided Practice")}
+      >
         <DataMath
           data={data1}
           setData={setData1}
@@ -179,6 +183,9 @@ export const App = () => {
           title={title}
           resetCallback={resetData1}
         />
+      </Route>,
+      <Route path="/notebook_check" key={(title = "Notebook Check")}>
+        <NotebookCheck />
       </Route>,
     ],
   };
