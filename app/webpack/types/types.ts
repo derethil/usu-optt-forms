@@ -36,6 +36,11 @@ export interface ITimer {
   handleReset: () => void;
 }
 
+export enum Location {
+  logan = "Logan",
+  optt = "OPTT",
+}
+
 export interface IFormInfo {
   studentTeacher: string;
   cooperatingTeacher: string;
@@ -45,6 +50,7 @@ export interface IFormInfo {
   observation: number;
   other: string;
   program: string;
+  location: Location;
 }
 
 export interface CSSMixin {

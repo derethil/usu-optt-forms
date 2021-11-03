@@ -1,4 +1,5 @@
 import currentForm, { formOptions } from "../currentForm";
+import { Location } from "../types/types";
 
 export const defaultComments = {
   strengths: "",
@@ -17,4 +18,5 @@ export const defaultFormInfo = {
   observation: 1,
   other: "",
   program: currentForm === formOptions.studentTeaching ? "Mild/Moderate" : "",
+  location: Location.logan,
 };

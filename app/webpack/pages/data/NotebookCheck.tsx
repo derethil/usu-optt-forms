@@ -13,11 +13,21 @@ import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
 import getNotebookCheck from "../../utils/notebookCheckUtils";
 import NotebookSlider from "./NotebookSlider";
+import { IFormInfo, Location } from "../../types/types";
 
-export default function NotebookCheck() {
-  const [location, setLocation] = useState("Logan");
-  const [obsNumber, setObsNumber] = useState(1);
+interface Props {
+  obsNumber: number;
+  location: Location;
+  setObsNumber: (newValue: number) => void;
+  setLocation: (newValue: Location) => void;
+}
 
+export default function NotebookCheck({
+  obsNumber,
+  location,
+  setObsNumber,
+  setLocation,
+}: Props) {
   return (
     <PageContent>
       <Card
@@ -27,8 +37,10 @@ export default function NotebookCheck() {
         <OptionRow
           title="Location"
           currSelection={location}
-          contentOptions={["Logan", "OPTT"]}
-          updateSelection={(newSelection) => setLocation(newSelection)}
+          contentOptions={[Location.logan, Location.optt]}
+          updateSelection={(newSelection) =>
+            setLocation(newSelection as Location)
+          }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
           `}
@@ -37,7 +49,9 @@ export default function NotebookCheck() {
           title="Observation / Notebook Check Number"
           currSelection={obsNumber.toString()}
           contentOptions={[...Array(5)].map((_, i) => (i + 1).toString())}
-          updateSelection={(newSelection) => setObsNumber(Number(newSelection))}
+          updateSelection={(newSelection: string) =>
+            setObsNumber(Number(newSelection))
+          }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
           `}
@@ -56,7 +70,7 @@ export default function NotebookCheck() {
         }
         containerStyles={cardContainerStyles}
       >
-        {getNotebookCheck(location === "Logan", obsNumber).map(
+        {getNotebookCheck(location === Location.logan, obsNumber).map(
           (content, idx) => {
             return <NotebookSlider content={content} key={idx} />;
           }
@@ -75,7 +89,7 @@ export default function NotebookCheck() {
         }
         containerStyles={cardContainerStyles}
       >
-        {getNotebookCheck(location === "Logan").map((content, idx) => {
+        {getNotebookCheck(location === Location.logan).map((content, idx) => {
           return <NotebookSlider content={content} key={idx} />;
         })}
       </Card>

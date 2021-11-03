@@ -16,7 +16,7 @@ import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
-import { ScoresState, Section } from "./types/types";
+import { ScoresState, Section, Location } from "./types/types";
 import { defaultComments, defaultFormInfo } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
@@ -185,7 +185,16 @@ export const App = () => {
         />
       </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>
-        <NotebookCheck />
+        <NotebookCheck
+          obsNumber={formInfo.observation}
+          location={formInfo.location}
+          setLocation={(location: Location) => {
+            updateFormInfo({ location });
+          }}
+          setObsNumber={(observation: number) => {
+            updateFormInfo({ observation });
+          }}
+        />
       </Route>,
     ],
   };
