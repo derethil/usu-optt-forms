@@ -12,7 +12,7 @@ import {
 import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
 import getNotebookCheck from "../../utils/notebookCheckUtils";
-import NotebookSlider from "./NotebookSlider";
+import NotebookCheckRow from "./NotebookCheckRow";
 import { IFormInfo, Location } from "../../types/types";
 
 interface Props {
@@ -72,7 +72,7 @@ export default function NotebookCheck({
       >
         {getNotebookCheck(location === Location.logan, obsNumber).map(
           (content, idx) => {
-            return <NotebookSlider content={content} key={idx} />;
+            return <NotebookCheckRow content={content} key={idx} />;
           }
         )}
       </Card>
@@ -90,7 +90,7 @@ export default function NotebookCheck({
         containerStyles={cardContainerStyles}
       >
         {getNotebookCheck(location === Location.logan).map((content, idx) => {
-          return <NotebookSlider content={content} key={idx} />;
+          return <NotebookCheckRow content={content} key={idx} />;
         })}
       </Card>
     </PageContent>

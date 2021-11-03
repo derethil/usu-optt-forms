@@ -31,7 +31,7 @@ interface Props {
   content: string;
 }
 
-export default function NotebookSlider(props: Props) {
+export default function NotebookCheckRow(props: Props) {
   const [sliderValue, setSliderValue] = useState(0);
   return (
     <NotebookSliderContainer>
