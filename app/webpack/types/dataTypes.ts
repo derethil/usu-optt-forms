@@ -157,3 +157,21 @@ export type DataSchema =
   | ({
       currentForm: formOptions.math;
     } & IMathData);
+
+// ------ NOTEBOOK CHECK ------
+
+export interface CheckRow {
+  content: string;
+  score: number;
+}
+
+export interface INotebookCheck {
+  numbered: CheckRow[];
+  final: CheckRow[];
+}
+
+export interface NotebookCheckContent {
+  logan: number[];
+  nonLogan: number[];
+  content: string;
+}

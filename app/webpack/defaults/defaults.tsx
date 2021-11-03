@@ -1,4 +1,5 @@
 import currentForm, { formOptions } from "../currentForm";
+import { CheckRow } from "../types/dataTypes";
 import { Location } from "../types/types";
 
 export const defaultComments = {
@@ -19,4 +20,9 @@ export const defaultFormInfo = {
   other: "",
   program: currentForm === formOptions.studentTeaching ? "Mild/Moderate" : "",
   location: Location.logan,
+};
+
+export const defaultNotebookCheck = {
+  numbered: [] as CheckRow[],
+  final: [] as CheckRow[],
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDom from "react-dom";
 import { Switch, Route, HashRouter } from "react-router-dom";
 
@@ -17,11 +17,17 @@ import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section, Location } from "./types/types";
-import { defaultComments, defaultFormInfo } from "./defaults/defaults";
+import {
+  defaultComments,
+  defaultFormInfo,
+  defaultNotebookCheck,
+} from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
 import NotebookCheck from "./pages/data/NotebookCheck";
+
+import getNotebookCheck from "./utils/notebookCheckUtils";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -50,6 +56,21 @@ export const App = () => {
     "formInfo",
     defaultFormInfo
   );
+
+  const [checks, setChecks] = useObjLocalStorage(
+    "notebookChecks",
+    defaultNotebookCheck
+  );
+
+  useEffect(() => {
+    const numbered = getNotebookCheck(
+      formInfo.location === Location.logan,
+      formInfo.observation
+    );
+    const final = getNotebookCheck(formInfo.location === Location.logan);
+
+    setChecks({ numbered, final });
+  }, [formInfo.observation, formInfo.location]);
 
   const [scores, updateScores, resetScores] = useObjLocalStorage(
     "scores",
@@ -186,6 +207,7 @@ export const App = () => {
       </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>
         <NotebookCheck
+          checks={checks}
           obsNumber={formInfo.observation}
           location={formInfo.location}
           setLocation={(location: Location) => {
@@ -194,6 +216,7 @@ export const App = () => {
           setObsNumber={(observation: number) => {
             updateFormInfo({ observation });
           }}
+          setChecks={setChecks}
         />
       </Route>,
     ],

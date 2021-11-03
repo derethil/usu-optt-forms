@@ -29,17 +29,21 @@ const ContentStyles = styled.p`
 
 interface Props {
   content: string;
+  listId: number;
+  score: number;
+  updateCheck: (newValue: number) => void;
 }
 
 export default function NotebookCheckRow(props: Props) {
-  const [sliderValue, setSliderValue] = useState(0);
   return (
     <NotebookSliderContainer>
       <ContentStyles>{props.content}</ContentStyles>
       <OptionRow
-        currSelection={String(sliderValue)}
+        currSelection={String(props.score)}
         contentOptions={[...Array(6)].map((_, i) => (i * 2).toString())}
-        updateSelection={(newSelection) => setSliderValue(Number(newSelection))}
+        updateSelection={(newSelection) =>
+          props.updateCheck(Number(newSelection))
+        }
         titleStyles={css`
           color: ${Color.neutrals.grayDark};
         `}

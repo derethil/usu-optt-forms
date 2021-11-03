@@ -13,21 +13,35 @@ import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
 import getNotebookCheck from "../../utils/notebookCheckUtils";
 import NotebookCheckRow from "./NotebookCheckRow";
-import { IFormInfo, Location } from "../../types/types";
+import { Location } from "../../types/types";
+import { INotebookCheck } from "../../types/dataTypes";
 
 interface Props {
+  checks: INotebookCheck;
   obsNumber: number;
   location: Location;
   setObsNumber: (newValue: number) => void;
   setLocation: (newValue: Location) => void;
+  setChecks: (newValue: Partial<INotebookCheck>) => void;
 }
 
 export default function NotebookCheck({
+  checks,
   obsNumber,
   location,
   setObsNumber,
   setLocation,
+  setChecks,
 }: Props) {
+  const handleupdateCheck = (
+    score: number,
+    index: number,
+    key: keyof typeof checks
+  ): void => {
+    const checksArr = [...checks[key]];
+    checksArr[index] = { content: checksArr[index].content, score };
+    setChecks({ [key]: checksArr });
+  };
   return (
     <PageContent>
       <Card
@@ -70,11 +84,19 @@ export default function NotebookCheck({
         }
         containerStyles={cardContainerStyles}
       >
-        {getNotebookCheck(location === Location.logan, obsNumber).map(
-          (content, idx) => {
-            return <NotebookCheckRow content={content} key={idx} />;
-          }
-        )}
+        {checks.numbered.map((content, idx) => {
+          return (
+            <NotebookCheckRow
+              content={content.content}
+              score={content.score}
+              key={idx}
+              listId={idx}
+              updateCheck={(score: number) => {
+                handleupdateCheck(score, idx, "numbered");
+              }}
+            />
+          );
+        })}
       </Card>
 
       <Card
@@ -89,8 +111,18 @@ export default function NotebookCheck({
         }
         containerStyles={cardContainerStyles}
       >
-        {getNotebookCheck(location === Location.logan).map((content, idx) => {
-          return <NotebookCheckRow content={content} key={idx} />;
+        {checks.final.map((content, idx) => {
+          return (
+            <NotebookCheckRow
+              content={content.content}
+              score={content.score}
+              key={idx}
+              listId={idx}
+              updateCheck={(score: number) => {
+                handleupdateCheck(score, idx, "final");
+              }}
+            />
+          );
         })}
       </Card>
     </PageContent>
