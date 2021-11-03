@@ -13,7 +13,7 @@ const TimerDisplay = styled.h2`
   justify-content: center;
 
   font-size: 2rem;
-  flex-grow: 1;
+  width: 33%;
 
   border-radius: 0.75em;
   border: 3px solid ${Color.neutrals.grayDark};
@@ -32,10 +32,10 @@ const TimerContent = styled.div`
 `;
 
 const TimerButton = styled(Button)`
-  flex-grow: 1;
   font-weight: 600;
   font-size: 1.5rem;
   color: ${Color.lights.white};
+  width: 33%;
 
   :nth-child(2) {
     margin-right: 1em;
