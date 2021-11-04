@@ -245,6 +245,8 @@ export const App = () => {
               data2={data2}
               timer1={timer1}
               timer2={timer2}
+              timer3={timer3}
+              checks={checks}
               resetAll={resetAll}
               updateFormInfo={updateFormInfo}
             />

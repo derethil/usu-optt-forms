@@ -3,7 +3,7 @@ import React from "react";
 import { ScoresState, ITimer, IFormInfo } from "../../types/types";
 
 import { IComments } from "../../defaults/defaults";
-import { DataSchema } from "../../types/dataTypes";
+import { DataSchema, INotebookCheck } from "../../types/dataTypes";
 import { Button } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
@@ -18,13 +18,16 @@ import severePracticumReadingSection from "./severePracticum";
 import bTo5PracticumSection from "./bTo5Practicum";
 import currentForm, { formOptions } from "../../currentForm";
 import FormData from "../../FormData";
+import mathGuidedPractice from "./math";
 
 export type PDFDataProps = {
   scores: ScoresState;
+  checks: INotebookCheck;
   data1: DataSchema;
   data2: DataSchema;
   timer1: ITimer;
   timer2: ITimer;
+  timer3: ITimer;
   formInfo: IFormInfo;
   comments: IComments;
 };
@@ -124,6 +127,14 @@ export const PDFData = (props: PDFDataProps) => {
         props.timer2,
         "Story Reading Data"
       );
+    } else if (props.data1.currentForm === formOptions.math) {
+      mathGuidedPractice(
+        generator,
+        props.data1,
+        props.timer1,
+        props.timer2,
+        props.timer3
+      );
     }
     // // Individual Scores
 
@@ -162,6 +173,37 @@ export const PDFData = (props: PDFDataProps) => {
         });
       }
     );
+
+    if (props.data1.currentForm === formOptions.math) {
+      generator.table({
+        columnStyles: {
+          0: { halign: "center" },
+          1: { cellWidth: 50, halign: "center" },
+        },
+        head: [
+          `Notebook Check #${props.formInfo.observation}`,
+          "                  Score",
+        ],
+        body: props.checks.numbered.map(({ score, content }) => {
+          console.log(content);
+          console.log(score);
+          return [content, String(score)];
+        }),
+      });
+
+      generator.table({
+        columnStyles: {
+          0: { halign: "center" },
+          1: { cellWidth: 50, halign: "center" },
+        },
+        head: [`Final Notebook Check`, "                   Score"],
+        body: props.checks.final.map(({ score, content }) => {
+          console.log(content);
+          console.log(score);
+          return [content, String(score)];
+        }),
+      });
+    }
 
     // Feedback
 

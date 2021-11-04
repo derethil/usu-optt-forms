@@ -2,7 +2,7 @@ import React from "react";
 
 import { IFormInfo, ITimer, ScoresState } from "../types/types";
 
-import { DataSchema } from "../types/dataTypes";
+import { DataSchema, INotebookCheck } from "../types/dataTypes";
 
 import { PDFData } from "../components/pdfReport/PDFData";
 import ScoreTotals from "../components/rubric/ScoreTotals";
@@ -16,12 +16,14 @@ import { css } from "styled-components";
 type FormHomeProps = {
   formInfo: IFormInfo;
   updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
+  checks: INotebookCheck;
   scores: ScoresState;
   data1: DataSchema;
   data2: DataSchema;
   comments: IComments;
   timer1: ITimer;
   timer2: ITimer;
+  timer3: ITimer;
   resetAll: () => void;
 };
 
@@ -48,10 +50,12 @@ const FormHome = (props: FormHomeProps) => {
       >
         <PDFData
           scores={props.scores}
+          checks={props.checks}
           data1={props.data1}
           data2={props.data2}
           timer1={props.timer1}
           timer2={props.timer2}
+          timer3={props.timer3}
           formInfo={props.formInfo}
           comments={props.comments}
         />
