@@ -5,14 +5,16 @@ import { generateScoreData } from "../../utils/scoreUtils";
 import { getPercent } from "../../utils/utils";
 
 import { DataWrapper, DataCell, DataRow } from "../../styledComponents/style";
+import { useAppSelector } from "../../hooks/hooks";
+import { selectRubric } from "../../slices/rubricSlice";
 
 type ScoreTotalProps = {
-  scores: ScoresState;
   displaySections?: boolean;
 };
 
-const ScoreTotals = ({ scores, displaySections = true }: ScoreTotalProps) => {
-  const { correct, possible, summary } = generateScoreData(scores);
+const ScoreTotals = ({ displaySections = true }: ScoreTotalProps) => {
+  const rubricScores = useAppSelector(selectRubric);
+  const { score, possible, summary } = generateScoreData(rubricScores);
 
   const subtotals = summary.map((section, index) => {
     const sectionTitle = section[0];
@@ -32,13 +34,13 @@ const ScoreTotals = ({ scores, displaySections = true }: ScoreTotalProps) => {
       <DataRow style={{ marginTop: displaySections ? "2em" : "0" }}>
         <DataCell>Total Score:</DataCell>
         <DataCell>
-          {correct} / {possible}
+          {score} / {possible}
         </DataCell>
       </DataRow>
 
       <DataRow>
         <DataCell>Percentage:</DataCell>
-        <DataCell>{getPercent(correct, possible)}</DataCell>
+        <DataCell>{getPercent(score, possible)}</DataCell>
       </DataRow>
     </DataWrapper>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDom from "react-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
@@ -18,73 +18,23 @@ import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
-import { ScoresState, Section, Location } from "./types/types";
 import { defaultComments, defaultNotebookCheck } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
 import NotebookCheck from "./pages/data/NotebookCheck";
 
-import getNotebookCheck from "./utils/notebookCheckUtils";
-import {
-  resetFormInfo,
-  selectFormInfo,
-  setFormInfo,
-} from "./slices/formInfoSlice";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-
-const getInitialState = (rubricData: Section[]): ScoresState => {
-  let initialState: ScoresState = {};
-
-  rubricData.forEach((section) => {
-    initialState[section.sectionTitle] = {};
-    section.rows.forEach((row) => {
-      const initialScore =
-        row.options[0].score === "Yes"
-          ? "Yes"
-          : String(row.options[row.options.length - 1].score);
-
-      initialState[section.sectionTitle][row.area] = {
-        score: initialScore,
-        comment: "",
-      };
-    });
-  });
-  return initialState;
-};
+import { resetFormInfo } from "./slices/formInfoSlice";
+import { useAppDispatch } from "./hooks/hooks";
+import { resetRubric } from "./slices/rubricSlice";
 
 export const App = () => {
-  const rubricData = FormData[currentForm].rubric;
-
-  const formInfo = useAppSelector(selectFormInfo);
   const dispatch = useAppDispatch();
-
-  const [scores, updateScores, resetScores] = useObjLocalStorage(
-    "scores",
-    getInitialState(rubricData)
-  );
 
   const [checks, setChecks] = useObjLocalStorage(
     "notebookChecks",
     defaultNotebookCheck
   );
-
-  const updateScore = (
-    section: string,
-    row: string,
-    newScore: string,
-    newComment: string
-  ) => {
-    updateScores({
-      [section]: {
-        ...scores[section],
-        [row]: {
-          score: newScore,
-          comment: newComment,
-        },
-      },
-    });
-  };
 
   const [data1, setData1, resetData1] = useObjLocalStorage(
     "data1",
@@ -105,7 +55,7 @@ export const App = () => {
   );
 
   const resetAll = (): void => {
-    resetScores();
+    dispatch(resetRubric());
     resetData1();
     resetData2();
     timer1.handleReset();
@@ -217,7 +167,6 @@ export const App = () => {
           <Route exact path="/" key="FormHome">
             <FormHome
               comments={comments}
-              scores={scores}
               data1={data1}
               data2={data2}
               timer1={timer1}
@@ -231,13 +180,7 @@ export const App = () => {
           {...dynamicRoutes[currentForm]}
 
           <Route path="/rubric" key="Rubric">
-            <Rubric
-              scores={scores}
-              rubricData={rubricData}
-              updateScore={updateScore}
-              timer1={timer1}
-              timer2={timer2}
-            />
+            <Rubric timer1={timer1} timer2={timer2} />
           </Route>
 
           <Route path="/feedback" key="Feedback">
@@ -263,6 +206,3 @@ const RootComponent = () => {
 
 const entry = document.getElementById("app-root");
 ReactDom.render(<RootComponent />, entry);
-function useSelector() {
-  throw new Error("Function not implemented.");
-}

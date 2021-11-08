@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ITimer, ScoresState } from "../types/types";
+import { ITimer } from "../types/types";
 
 import { DataSchema, INotebookCheck } from "../types/dataTypes";
 
@@ -12,12 +12,9 @@ import { PageContent } from "../styledComponents/style";
 import { IComments } from "../defaults/defaults";
 import ConfirmModal from "../components/ConfirmModal";
 import { css } from "styled-components";
-import { selectFormInfo } from "../slices/formInfoSlice";
-import { useAppSelector } from "../hooks/hooks";
 
 type FormHomeProps = {
   checks: INotebookCheck;
-  scores: ScoresState;
   data1: DataSchema;
   data2: DataSchema;
   comments: IComments;
@@ -28,8 +25,6 @@ type FormHomeProps = {
 };
 
 const FormHome = (props: FormHomeProps) => {
-  const formInfo = useAppSelector(selectFormInfo);
-
   return (
     <PageContent>
       <Card title="General Information">
@@ -37,7 +32,7 @@ const FormHome = (props: FormHomeProps) => {
       </Card>
 
       <Card title="Scores">
-        <ScoreTotals scores={props.scores} />
+        <ScoreTotals />
       </Card>
 
       <Card
@@ -48,7 +43,6 @@ const FormHome = (props: FormHomeProps) => {
         `}
       >
         <PDFData
-          scores={props.scores}
           checks={props.checks}
           data1={props.data1}
           data2={props.data2}

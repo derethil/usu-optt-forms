@@ -16,18 +16,17 @@ import Color from "../styledComponents/colors";
 import { generateScoreData } from "../utils/scoreUtils";
 import Timer from "../components/Timer";
 import currentForm, { formOptions } from "../currentForm";
+import {
+  selectRubric,
+  setRubricComment,
+  setRubricScore,
+} from "../slices/rubricSlice";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import FormData from "../FormData";
 
 type RubricProps = {
-  scores: ScoresState;
-  rubricData: Section[];
   timer1: ITimer;
   timer2: ITimer;
-  updateScore: (
-    section: string,
-    row: string,
-    newScore: string,
-    newComment: string
-  ) => void;
 };
 
 const cardTitleStyles = css`
@@ -54,7 +53,11 @@ const timerContentStyles = css`
 `;
 
 const Rubric = (props: RubricProps) => {
-  const { correct, possible, summary } = generateScoreData(props.scores);
+  const rubricData = FormData[currentForm].rubric;
+  const rubricScores = useAppSelector(selectRubric);
+  const { score, possible, summary } = generateScoreData(rubricScores);
+
+  const dispatch = useAppDispatch();
 
   const sectionTitle = (section: Section, index: number) => {
     const sectionScore = summary[index][1];
@@ -85,14 +88,14 @@ const Rubric = (props: RubricProps) => {
     }
   };
 
-  const sections = props.rubricData.map((section, sectionIdx) => {
+  const sections = rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
       const currContentOptions = row.options.map((option) => option.content);
       const currScoreOptions = row.options.map((option) =>
         String(option.score)
       );
 
-      const { score, comment } = props.scores[section.sectionTitle][row.area];
+      const { score, comment } = rubricScores[section.sectionTitle][row.area];
 
       return (
         <OptionRow
@@ -103,22 +106,24 @@ const Rubric = (props: RubricProps) => {
           title={row.area}
           currSelection={score}
           updateSelection={(newSelection) => {
-            props.updateScore(
-              section.sectionTitle,
-              row.area,
-              newSelection,
-              comment
+            dispatch(
+              setRubricScore({
+                section: section.sectionTitle,
+                row: row.area,
+                newScore: newSelection,
+              })
             );
           }}
           buttonStyles={buttonStyles}
           titleStyles={rowTitleStyles}
           comment={comment}
           updateComment={(updatedValues: { [key: string]: string }) => {
-            props.updateScore(
-              section.sectionTitle,
-              row.area,
-              score,
-              Object.values(updatedValues)[0]
+            dispatch(
+              setRubricComment({
+                section: section.sectionTitle,
+                row: row.area,
+                newComment: Object.values(updatedValues)[0],
+              })
             );
           }}
         />
@@ -170,7 +175,7 @@ const Rubric = (props: RubricProps) => {
         titleStyles={cardTitleStyles}
         containerStyles={cardContainerStyles}
       >
-        <ScoreTotals scores={props.scores} displaySections={false} />
+        <ScoreTotals displaySections={false} />
       </Card>
     </PageContent>
   );

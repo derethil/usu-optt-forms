@@ -46,12 +46,12 @@ export const getMaxSubtotal = (
 };
 
 export const generateScoreData = (scores: ScoresState) => {
-  let correct = 0;
+  let score = 0;
   let possible = 0;
 
   const summary = rubricData.map((section) => {
     const subtotal = getSubtotal(section.sectionTitle, scores);
-    correct += subtotal;
+    score += subtotal;
 
     const currPossible = getMaxSubtotal(
       section.sectionTitle,
@@ -63,5 +63,5 @@ export const generateScoreData = (scores: ScoresState) => {
     return [section.sectionTitle, `${subtotal} / ${currPossible}`];
   });
 
-  return { correct, possible, summary };
+  return { score, possible, summary };
 };

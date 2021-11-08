@@ -21,9 +21,9 @@ import FormData from "../../FormData";
 import mathGuidedPractice from "./math";
 import { selectFormInfo } from "../../slices/formInfoSlice";
 import { useAppSelector } from "../../hooks/hooks";
+import { selectRubric } from "../../slices/rubricSlice";
 
 export type PDFDataProps = {
-  scores: ScoresState;
   checks: INotebookCheck;
   data1: DataSchema;
   data2: DataSchema;
@@ -39,6 +39,7 @@ const formatDate = (date: string) => {
 
 export const PDFData = (props: PDFDataProps) => {
   const formInfo = useAppSelector(selectFormInfo);
+  const rubricScores = useAppSelector(selectRubric);
 
   const generatePDF = () => {
     // Setup
@@ -81,7 +82,7 @@ export const PDFData = (props: PDFDataProps) => {
 
     // Section Summary
 
-    const { correct, possible, summary } = generateScoreData(props.scores);
+    const { score, possible, summary } = generateScoreData(rubricScores);
 
     generator.table({
       head: ["Performance Summary", "Score"],
@@ -94,10 +95,10 @@ export const PDFData = (props: PDFDataProps) => {
         1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 },
       },
       body: [
-        ["Total Correct", correct],
+        ["Total Correct", score],
         ["Total Possible", possible],
-        ["Percentage", getPercent(correct, possible)],
-        ["Letter Grade", getLetterGrade((correct / possible) * 100)],
+        ["Percentage", getPercent(score, possible)],
+        ["Letter Grade", getLetterGrade((score / possible) * 100)],
       ],
     });
 
@@ -148,7 +149,7 @@ export const PDFData = (props: PDFDataProps) => {
       head: ["Scores"],
     });
 
-    Object.entries(props.scores).forEach(
+    Object.entries(rubricScores).forEach(
       ([sectionTitle, scoresObj], sectionIdx) => {
         const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
 
