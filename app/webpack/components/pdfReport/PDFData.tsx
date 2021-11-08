@@ -189,8 +189,6 @@ export const PDFData = (props: PDFDataProps) => {
           "                  Score",
         ],
         body: props.checks.numbered.map(({ score, content }) => {
-          console.log(content);
-          console.log(score);
           return [content, String(score)];
         }),
       });
@@ -202,8 +200,6 @@ export const PDFData = (props: PDFDataProps) => {
         },
         head: [`Final Notebook Check`, "                   Score"],
         body: props.checks.final.map(({ score, content }) => {
-          console.log(content);
-          console.log(score);
           return [content, String(score)];
         }),
       });

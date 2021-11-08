@@ -7,10 +7,7 @@ import PraiseDataRow from "../../components/data/PraiseDataRow";
 import Card from "../../components/Card";
 
 import { IMathData } from "../../types/dataTypes";
-
-import * as dataUtils from "../../utils/dataUtils";
 import { getPercent } from "../../utils/utils";
-
 import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import {
