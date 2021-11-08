@@ -31,10 +31,7 @@ const FormHome = (props: FormHomeProps) => {
   return (
     <PageContent>
       <Card title="General Information">
-        <FormInfo
-          formInfo={props.formInfo}
-          updateFormInfo={props.updateFormInfo}
-        />
+        <FormInfo />
       </Card>
 
       <Card title="Scores">

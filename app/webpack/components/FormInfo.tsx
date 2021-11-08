@@ -9,27 +9,34 @@ import DateInput from "./DateInput";
 import Color from "../styledComponents/colors";
 import { css } from "styled-components";
 import { buttonStyles } from "../styledComponents/style";
-type FormInfoProps = {
-  formInfo: IFormInfo;
-  updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
-};
+type FormInfoProps = {};
+
+import { useAppSelector, useAppDispatch } from "../hooks/hooks";
+import { setFormInfo, selectFormInfo } from "../slices/formInfoSlice";
 
 const FormInfo = (props: FormInfoProps) => {
+  const formInfo = useAppSelector(selectFormInfo);
+  const dispatch = useAppDispatch();
+
+  const updateFormInfo = (updatedValues: { [key: string]: string }) => {
+    dispatch(setFormInfo(updatedValues));
+  };
+
   return (
     <div>
       <TextInput
-        value={props.formInfo.studentTeacher}
-        updateFormInfo={props.updateFormInfo}
+        value={formInfo.studentTeacher}
+        updateFormInfo={updateFormInfo}
         field="studentTeacher"
       />
       <TextInput
-        value={props.formInfo.cooperatingTeacher}
-        updateFormInfo={props.updateFormInfo}
+        value={formInfo.cooperatingTeacher}
+        updateFormInfo={updateFormInfo}
         field="cooperatingTeacher"
       />
       <TextInput
-        value={props.formInfo.supervisor}
-        updateFormInfo={props.updateFormInfo}
+        value={formInfo.supervisor}
+        updateFormInfo={updateFormInfo}
         field="supervisor"
         title="Supervisor / Coach"
       />
@@ -37,22 +44,22 @@ const FormInfo = (props: FormInfoProps) => {
       <DateInput
         field="date"
         label="Observation Date"
-        date={props.formInfo.date}
-        updateFormInfo={props.updateFormInfo}
+        date={formInfo.date}
+        updateFormInfo={updateFormInfo}
       />
 
       <DateInput
         label="Next Observation Date"
         field="nextDate"
-        date={props.formInfo.nextDate}
-        updateFormInfo={props.updateFormInfo}
+        date={formInfo.nextDate}
+        updateFormInfo={updateFormInfo}
       />
 
       {currentForm != formOptions.studentTeaching &&
         currentForm != formOptions.math && (
           <TextInput
-            value={props.formInfo.program}
-            updateFormInfo={props.updateFormInfo}
+            value={formInfo.program}
+            updateFormInfo={updateFormInfo}
             field="program"
             title={
               currentForm === formOptions.reading
@@ -63,17 +70,17 @@ const FormInfo = (props: FormInfoProps) => {
         )}
 
       <TextInput
-        value={props.formInfo.other}
-        updateFormInfo={props.updateFormInfo}
+        value={formInfo.other}
+        updateFormInfo={updateFormInfo}
         field="other"
       />
 
       <OptionRow
         title={"Observation Number"}
         contentOptions={["1", "2", "3", "4", "5"]}
-        currSelection={props.formInfo.observation.toString()}
+        currSelection={formInfo.observation.toString()}
         updateSelection={(newSelection: string) =>
-          props.updateFormInfo({ observation: Number(newSelection) })
+          updateFormInfo({ observation: newSelection })
         }
         titleStyles={css`
           color: ${Color.neutrals.grayDark};
@@ -84,9 +91,9 @@ const FormInfo = (props: FormInfoProps) => {
         <OptionRow
           title={"Program"}
           contentOptions={FormData[currentForm].programOptions!}
-          currSelection={props.formInfo.program}
+          currSelection={formInfo.program}
           updateSelection={(newSelection: string) =>
-            props.updateFormInfo({ program: newSelection })
+            updateFormInfo({ program: newSelection })
           }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};

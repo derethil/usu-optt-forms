@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "../store/store";
 
 // Provide an additional function to reset state back to initial value
 export const useDefaultState = (initialValue: any) => {
@@ -18,3 +20,6 @@ export const useDefaultObjState = <T extends object>(initialValue: T) => {
     () => setValue(initialValue),
   ] as [T, (updatedValues: Partial<T>) => void, () => void];
 };
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDom from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
 import { Switch, Route, HashRouter } from "react-router-dom";
 
 import logo from "../static/img/usuHorizontalB64";
@@ -278,7 +280,11 @@ export const App = () => {
 };
 
 const RootComponent = () => {
-  return <App />;
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 };
 
 const entry = document.getElementById("app-root");
