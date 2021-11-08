@@ -120,7 +120,7 @@ export const App = () => {
     resetData2();
     timer1.handleReset();
     timer2.handleReset();
-    resetFormInfo();
+    dispatch(resetFormInfo());
     resetComments();
   };
 
