@@ -32,7 +32,7 @@ export type PDFDataProps = {
   comments: IComments;
 };
 
-const formatDate = (date: Date) => {
+const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString();
 };
 

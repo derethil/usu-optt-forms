@@ -1,6 +1,6 @@
 import currentForm, { formOptions } from "../currentForm";
 import { CheckRow } from "../types/dataTypes";
-import { Location } from "../types/types";
+import { IFormInfo, Location } from "../types/types";
 
 export const defaultComments = {
   strengths: "",
@@ -10,12 +10,12 @@ export const defaultComments = {
 
 export type IComments = typeof defaultComments;
 
-export const defaultFormInfo = {
+export const defaultFormInfo: IFormInfo = {
   studentTeacher: "",
   cooperatingTeacher: "",
   supervisor: "",
-  date: new Date(),
-  nextDate: new Date(),
+  date: new Date().toUTCString(),
+  nextDate: new Date().toUTCString(),
   observation: 1,
   other: "",
   program: currentForm === formOptions.studentTeaching ? "Mild/Moderate" : "",

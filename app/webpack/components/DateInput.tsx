@@ -21,7 +21,7 @@ const DateInput = (props: DateInputProps) => {
         id={props.field}
         onChange={(date) =>
           props.updateFormInfo({
-            [props.field]: String((date as Date).getTime()),
+            [props.field]: (date as Date).toUTCString(),
           })
         }
         customInput={<Input />}

@@ -44,14 +44,14 @@ const FormInfo = (props: FormInfoProps) => {
       <DateInput
         field="date"
         label="Observation Date"
-        date={formInfo.date}
+        date={new Date(formInfo.date)}
         updateFormInfo={updateFormInfo}
       />
 
       <DateInput
         label="Next Observation Date"
         field="nextDate"
-        date={formInfo.nextDate}
+        date={new Date(formInfo.nextDate)}
         updateFormInfo={updateFormInfo}
       />
 
