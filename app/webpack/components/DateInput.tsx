@@ -2,13 +2,12 @@ import React from "react";
 import DatePicker from "react-datepicker";
 
 import { InputContainer, Label, Input } from "../styledComponents/input";
-import { IFormInfo } from "../types/types";
 
 type DateInputProps = {
   date: Date;
   field: string;
   label: string;
-  updateFormInfo: (updatedFormInfo: { [key: string]: string }) => void;
+  updateForm: (updatedInfo: { [key: string]: string }) => void;
 };
 
 const DateInput = (props: DateInputProps) => {
@@ -20,7 +19,7 @@ const DateInput = (props: DateInputProps) => {
         selected={new Date(props.date)}
         id={props.field}
         onChange={(date) =>
-          props.updateFormInfo({
+          props.updateForm({
             [props.field]: (date as Date).toUTCString(),
           })
         }

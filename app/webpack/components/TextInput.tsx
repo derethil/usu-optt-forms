@@ -10,7 +10,7 @@ type TextInputProps = {
   value: string;
   field: string;
   title?: string;
-  updateFormInfo: (updatedValues: { [key: string]: string }) => void;
+  updateForm: (updatedValues: { [key: string]: string }) => void;
   noLabel?: boolean;
   placeholder?: string;
   textArea?: boolean;
@@ -25,7 +25,7 @@ const TextInput = (props: TextInputProps) => {
   const inputProps = {
     value: props.value,
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      props.updateFormInfo({ [props.field]: e.target.value }),
+      props.updateForm({ [props.field]: e.target.value }),
     id: props.field,
     placeholder: props.placeholder,
     className: props.inputClassNames?.join(" "),

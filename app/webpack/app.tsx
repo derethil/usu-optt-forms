@@ -19,17 +19,19 @@ import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
 import { ScoresState, Section, Location } from "./types/types";
-import {
-  defaultComments,
-  defaultFormInfo,
-  defaultNotebookCheck,
-} from "./defaults/defaults";
+import { defaultComments, defaultNotebookCheck } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
 import NotebookCheck from "./pages/data/NotebookCheck";
 
 import getNotebookCheck from "./utils/notebookCheckUtils";
+import {
+  resetFormInfo,
+  selectFormInfo,
+  setFormInfo,
+} from "./slices/formInfoSlice";
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -54,10 +56,8 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
 export const App = () => {
   const rubricData = FormData[currentForm].rubric;
 
-  const [formInfo, updateFormInfo, resetFormInfo] = useObjLocalStorage(
-    "formInfo",
-    defaultFormInfo
-  );
+  const formInfo = useAppSelector(selectFormInfo);
+  const dispatch = useAppDispatch();
 
   const [checks, setChecks] = useObjLocalStorage(
     "notebookChecks",
@@ -208,18 +208,7 @@ export const App = () => {
         />
       </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>
-        <NotebookCheck
-          checks={checks}
-          obsNumber={formInfo.observation}
-          location={formInfo.location}
-          setLocation={(location: Location) => {
-            updateFormInfo({ location });
-          }}
-          setObsNumber={(observation: number) => {
-            updateFormInfo({ observation });
-          }}
-          setChecks={setChecks}
-        />
+        <NotebookCheck checks={checks} setChecks={setChecks} />
       </Route>,
     ],
   };
@@ -232,15 +221,11 @@ export const App = () => {
           <Title>{FormData[currentForm].title} Form</Title>
         </PageHeader>
 
-        <Navbar
-          studentTeacher={formInfo.studentTeacher}
-          dynamicRoutes={dynamicRoutes}
-        />
+        <Navbar dynamicRoutes={dynamicRoutes} />
 
         <Switch>
           <Route exact path="/" key="FormHome">
             <FormHome
-              formInfo={formInfo}
               comments={comments}
               scores={scores}
               data1={data1}
@@ -250,7 +235,6 @@ export const App = () => {
               timer3={timer3}
               checks={checks}
               resetAll={resetAll}
-              updateFormInfo={updateFormInfo}
             />
           </Route>
 
@@ -289,3 +273,6 @@ const RootComponent = () => {
 
 const entry = document.getElementById("app-root");
 ReactDom.render(<RootComponent />, entry);
+function useSelector() {
+  throw new Error("Function not implemented.");
+}

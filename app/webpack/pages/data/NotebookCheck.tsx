@@ -11,29 +11,22 @@ import {
 } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
-import getNotebookCheck from "../../utils/notebookCheckUtils";
 import NotebookCheckRow from "./NotebookCheckRow";
 import { Location } from "../../types/types";
 import { INotebookCheck } from "../../types/dataTypes";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { selectCheckInfo, setFormInfo } from "../../slices/formInfoSlice";
 
 interface Props {
   checks: INotebookCheck;
-  obsNumber: number;
-  location: Location;
-  setObsNumber: (newValue: number) => void;
-  setLocation: (newValue: Location) => void;
   setChecks: (newValue: Partial<INotebookCheck>) => void;
 }
 
-export default function NotebookCheck({
-  checks,
-  obsNumber,
-  location,
-  setObsNumber,
-  setLocation,
-  setChecks,
-}: Props) {
-  const handleupdateCheck = (
+export default function NotebookCheck({ checks, setChecks }: Props) {
+  const { location, observation } = useAppSelector(selectCheckInfo);
+  const dispatch = useAppDispatch();
+
+  const handleUpdateCheck = (
     score: number,
     index: number,
     key: keyof typeof checks
@@ -53,7 +46,7 @@ export default function NotebookCheck({
           currSelection={location}
           contentOptions={[Location.logan, Location.optt]}
           updateSelection={(newSelection) =>
-            setLocation(newSelection as Location)
+            dispatch(setFormInfo({ location: newSelection as Location }))
           }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
@@ -61,10 +54,10 @@ export default function NotebookCheck({
         />
         <OptionRow
           title="Observation / Notebook Check Number"
-          currSelection={obsNumber.toString()}
+          currSelection={observation.toString()}
           contentOptions={[...Array(5)].map((_, i) => (i + 1).toString())}
           updateSelection={(newSelection: string) =>
-            setObsNumber(Number(newSelection))
+            dispatch(setFormInfo({ observation: Number(newSelection) }))
           }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
@@ -75,8 +68,8 @@ export default function NotebookCheck({
       <Card
         title={
           <IconTitle
-            content={`Notebook Check #${obsNumber}`}
-            tooltipContent={`Corresponds with observation #${obsNumber}`}
+            content={`Notebook Check #${observation}`}
+            tooltipContent={`Corresponds with observation #${observation}`}
             iconStyles={css`
               color: ${Color.lights.grayLighter};
             `}
@@ -92,7 +85,7 @@ export default function NotebookCheck({
               key={idx}
               listId={idx}
               updateCheck={(score: number) => {
-                handleupdateCheck(score, idx, "numbered");
+                handleUpdateCheck(score, idx, "numbered");
               }}
             />
           );
@@ -119,7 +112,7 @@ export default function NotebookCheck({
               key={idx}
               listId={idx}
               updateCheck={(score: number) => {
-                handleupdateCheck(score, idx, "final");
+                handleUpdateCheck(score, idx, "final");
               }}
             />
           );

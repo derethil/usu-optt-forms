@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Color from "../styledComponents/colors";
 import currentForm, { formOptions } from "../currentForm";
+import { useAppSelector } from "../hooks/hooks";
+import { selectStudentTeacher } from "../slices/formInfoSlice";
 
 // ---------- STYLES ----------
 
@@ -109,16 +111,17 @@ const generateLinks = (allRoutes: Routes): JSX.Element[] => {
 };
 
 type Props = {
-  studentTeacher: string;
   dynamicRoutes: Routes;
 };
 
 const Navbar = (props: Props) => {
+  const studentTeacher = useAppSelector(selectStudentTeacher);
+
   return (
     <NavbarContainer>
       {...generateLinks(props.dynamicRoutes)}
 
-      <StudentDisplay>{props.studentTeacher}</StudentDisplay>
+      <StudentDisplay>{studentTeacher}</StudentDisplay>
     </NavbarContainer>
   );
 };

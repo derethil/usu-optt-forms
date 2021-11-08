@@ -26,17 +26,17 @@ const FormInfo = (props: FormInfoProps) => {
     <div>
       <TextInput
         value={formInfo.studentTeacher}
-        updateFormInfo={updateFormInfo}
+        updateForm={updateFormInfo}
         field="studentTeacher"
       />
       <TextInput
         value={formInfo.cooperatingTeacher}
-        updateFormInfo={updateFormInfo}
+        updateForm={updateFormInfo}
         field="cooperatingTeacher"
       />
       <TextInput
         value={formInfo.supervisor}
-        updateFormInfo={updateFormInfo}
+        updateForm={updateFormInfo}
         field="supervisor"
         title="Supervisor / Coach"
       />
@@ -45,21 +45,21 @@ const FormInfo = (props: FormInfoProps) => {
         field="date"
         label="Observation Date"
         date={new Date(formInfo.date)}
-        updateFormInfo={updateFormInfo}
+        updateForm={updateFormInfo}
       />
 
       <DateInput
         label="Next Observation Date"
         field="nextDate"
         date={new Date(formInfo.nextDate)}
-        updateFormInfo={updateFormInfo}
+        updateForm={updateFormInfo}
       />
 
       {currentForm != formOptions.studentTeaching &&
         currentForm != formOptions.math && (
           <TextInput
             value={formInfo.program}
-            updateFormInfo={updateFormInfo}
+            updateForm={updateFormInfo}
             field="program"
             title={
               currentForm === formOptions.reading
@@ -71,7 +71,7 @@ const FormInfo = (props: FormInfoProps) => {
 
       <TextInput
         value={formInfo.other}
-        updateFormInfo={updateFormInfo}
+        updateForm={updateFormInfo}
         field="other"
       />
 

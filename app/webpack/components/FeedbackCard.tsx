@@ -17,7 +17,7 @@ const FeedbackCard = (props: FeedbackCardProps) => {
     <Card title={`${props.title}:`}>
       <TextInput
         value={props.comment}
-        updateFormInfo={props.updateComments}
+        updateForm={props.updateComments}
         field={props.feedbackType}
         noLabel
         placeholder={props.title}

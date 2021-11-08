@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IFormInfo, ITimer, ScoresState } from "../types/types";
+import { ITimer, ScoresState } from "../types/types";
 
 import { DataSchema, INotebookCheck } from "../types/dataTypes";
 
@@ -12,10 +12,10 @@ import { PageContent } from "../styledComponents/style";
 import { IComments } from "../defaults/defaults";
 import ConfirmModal from "../components/ConfirmModal";
 import { css } from "styled-components";
+import { selectFormInfo } from "../slices/formInfoSlice";
+import { useAppSelector } from "../hooks/hooks";
 
 type FormHomeProps = {
-  formInfo: IFormInfo;
-  updateFormInfo: (updatedFormInfo: Partial<IFormInfo>) => void;
   checks: INotebookCheck;
   scores: ScoresState;
   data1: DataSchema;
@@ -28,6 +28,8 @@ type FormHomeProps = {
 };
 
 const FormHome = (props: FormHomeProps) => {
+  const formInfo = useAppSelector(selectFormInfo);
+
   return (
     <PageContent>
       <Card title="General Information">
@@ -53,7 +55,6 @@ const FormHome = (props: FormHomeProps) => {
           timer1={props.timer1}
           timer2={props.timer2}
           timer3={props.timer3}
-          formInfo={props.formInfo}
           comments={props.comments}
         />
 

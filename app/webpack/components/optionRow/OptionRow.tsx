@@ -98,7 +98,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
       <OptionRowInput
         key={props.contentOptions.length + 1}
         value={props.comment}
-        updateFormInfo={props.updateComment}
+        updateForm={props.updateComment}
         field={`${props.title}-comment`}
         placeholder="Comment"
         noLabel

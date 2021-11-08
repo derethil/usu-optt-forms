@@ -19,6 +19,8 @@ import bTo5PracticumSection from "./bTo5Practicum";
 import currentForm, { formOptions } from "../../currentForm";
 import FormData from "../../FormData";
 import mathGuidedPractice from "./math";
+import { selectFormInfo } from "../../slices/formInfoSlice";
+import { useAppSelector } from "../../hooks/hooks";
 
 export type PDFDataProps = {
   scores: ScoresState;
@@ -28,7 +30,6 @@ export type PDFDataProps = {
   timer1: ITimer;
   timer2: ITimer;
   timer3: ITimer;
-  formInfo: IFormInfo;
   comments: IComments;
 };
 
@@ -37,6 +38,8 @@ const formatDate = (date: string) => {
 };
 
 export const PDFData = (props: PDFDataProps) => {
+  const formInfo = useAppSelector(selectFormInfo);
+
   const generatePDF = () => {
     // Setup
     const generator = new PDFGenerator({
@@ -60,16 +63,16 @@ export const PDFData = (props: PDFDataProps) => {
       startY: 24.5,
       head: ["Information", ""],
       body: [
-        ["Student Teacher", props.formInfo.studentTeacher],
-        ["Cooperating Teacher", props.formInfo.cooperatingTeacher],
-        ["Supervisor / Coach", props.formInfo.supervisor],
-        ["Date", formatDate(props.formInfo.date)],
-        ["Next Observation Date", formatDate(props.formInfo.nextDate)],
-        ["Observation", props.formInfo.observation],
-        ["Other", props.formInfo.other],
+        ["Student Teacher", formInfo.studentTeacher],
+        ["Cooperating Teacher", formInfo.cooperatingTeacher],
+        ["Supervisor / Coach", formInfo.supervisor],
+        ["Date", formatDate(formInfo.date)],
+        ["Next Observation Date", formatDate(formInfo.nextDate)],
+        ["Observation", formInfo.observation],
+        ["Other", formInfo.other],
       ].concat(
         FormData[currentForm].programOptions
-          ? [["Program", props.formInfo.program]]
+          ? [["Program", formInfo.program]]
           : []
       ),
     });
@@ -181,7 +184,7 @@ export const PDFData = (props: PDFDataProps) => {
           1: { cellWidth: 50, halign: "center" },
         },
         head: [
-          `Notebook Check #${props.formInfo.observation}`,
+          `Notebook Check #${formInfo.observation}`,
           "                  Score",
         ],
         body: props.checks.numbered.map(({ score, content }) => {
@@ -230,7 +233,7 @@ export const PDFData = (props: PDFDataProps) => {
     // Save
 
     generator.pdf.save(
-      `${props.formInfo.studentTeacher} ${new Date(props.formInfo.date)
+      `${formInfo.studentTeacher} ${new Date(formInfo.date)
         .toISOString()
         .slice(0, 10)}.pdf`
     );
