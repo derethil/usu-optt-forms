@@ -24,6 +24,7 @@ export const formInfoSlice = createSlice({
 export const { setFormInfo, resetFormInfo } = formInfoSlice.actions;
 
 export const selectFormInfo = (state: RootState) => state.formInfo;
+
 export const selectStudentTeacher = (state: RootState) =>
   state.formInfo.studentTeacher;
 
