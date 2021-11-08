@@ -59,24 +59,14 @@ export const App = () => {
   const formInfo = useAppSelector(selectFormInfo);
   const dispatch = useAppDispatch();
 
-  const [checks, setChecks] = useObjLocalStorage(
-    "notebookChecks",
-    defaultNotebookCheck
-  );
-
-  useEffect(() => {
-    const numbered = getNotebookCheck(
-      formInfo.location === Location.logan,
-      formInfo.observation
-    );
-    const final = getNotebookCheck(formInfo.location === Location.logan);
-
-    setChecks({ numbered, final });
-  }, [formInfo.observation, formInfo.location]);
-
   const [scores, updateScores, resetScores] = useObjLocalStorage(
     "scores",
     getInitialState(rubricData)
+  );
+
+  const [checks, setChecks] = useObjLocalStorage(
+    "notebookChecks",
+    defaultNotebookCheck
   );
 
   const updateScore = (

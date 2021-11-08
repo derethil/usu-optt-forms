@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { css } from "styled-components";
 
 import Card from "../../components/Card";
@@ -16,6 +16,7 @@ import { Location } from "../../types/types";
 import { INotebookCheck } from "../../types/dataTypes";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { selectCheckInfo, setFormInfo } from "../../slices/formInfoSlice";
+import getNotebookCheck from "../../utils/notebookCheckUtils";
 
 interface Props {
   checks: INotebookCheck;
@@ -26,6 +27,14 @@ export default function NotebookCheck({ checks, setChecks }: Props) {
   const { location, observation } = useAppSelector(selectCheckInfo);
   const dispatch = useAppDispatch();
 
+  // Change the notebook check score rows depending on location and observation #
+  useEffect(() => {
+    const numbered = getNotebookCheck(location === Location.logan, observation);
+    const final = getNotebookCheck(location === Location.logan);
+
+    setChecks({ numbered, final });
+  }, [observation, location]);
+
   const handleUpdateCheck = (
     score: number,
     index: number,
@@ -35,6 +44,7 @@ export default function NotebookCheck({ checks, setChecks }: Props) {
     checksArr[index] = { content: checksArr[index].content, score };
     setChecks({ [key]: checksArr });
   };
+
   return (
     <PageContent>
       <Card
