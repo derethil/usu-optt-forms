@@ -27,6 +27,7 @@ import NotebookCheck from "./pages/data/NotebookCheck";
 import { resetFormInfo } from "./slices/formInfoSlice";
 import { useAppDispatch } from "./hooks/hooks";
 import { resetRubric } from "./slices/rubricSlice";
+import { resetFeedback } from "./slices/feedbackSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -49,19 +50,15 @@ export const App = () => {
   const timer2 = useTimer("timer2");
   const timer3 = useTimer("timer3");
 
-  const [comments, updateComments, resetComments] = useObjLocalStorage(
-    "comments",
-    defaultComments
-  );
-
   const resetAll = (): void => {
     dispatch(resetRubric());
     resetData1();
     resetData2();
     timer1.handleReset();
     timer2.handleReset();
+    timer3.handleReset();
     dispatch(resetFormInfo());
-    resetComments();
+    dispatch(resetFeedback());
   };
 
   let title;
@@ -166,7 +163,6 @@ export const App = () => {
         <Switch>
           <Route exact path="/" key="FormHome">
             <FormHome
-              comments={comments}
               data1={data1}
               data2={data2}
               timer1={timer1}
@@ -183,9 +179,7 @@ export const App = () => {
             <Rubric timer1={timer1} timer2={timer2} />
           </Route>
 
-          <Route path="/feedback" key="Feedback">
-            <FeedbackPage comments={comments} updateComments={updateComments} />
-          </Route>
+          <Route path="/feedback" key="Feedback" component={FeedbackPage} />
 
           <Route key="NotFound">
             <NotFound />

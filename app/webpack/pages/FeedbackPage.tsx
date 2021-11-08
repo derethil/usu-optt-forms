@@ -3,34 +3,34 @@ import React from "react";
 import { IComments } from "../defaults/defaults";
 import { PageContent } from "../styledComponents/style";
 import FeedbackCard from "../components/FeedbackCard";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { selectFeedback, setFeedback } from "../slices/feedbackSlice";
 
-type feedbackPageProps = {
-  comments: IComments;
-  updateComments: (updatedComments: { [key: string]: string }) => void;
-};
+const FeedbackPage = () => {
+  const dispatch = useAppDispatch();
+  const feedback = useAppSelector(selectFeedback);
 
-const FeedbackPage = (props: feedbackPageProps) => {
   return (
     <PageContent className="feedback">
       <FeedbackCard
         title="Strengths"
         feedbackType="strengths"
-        comment={props.comments.strengths}
-        updateComments={props.updateComments}
+        feedback={feedback.strengths}
+        updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
       />
 
       <FeedbackCard
         title="Suggestions"
         feedbackType="suggestions"
-        comment={props.comments.suggestions}
-        updateComments={props.updateComments}
+        feedback={feedback.suggestions}
+        updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
       />
 
       <FeedbackCard
         title="Next Focus"
         feedbackType="nextFocus"
-        comment={props.comments.nextFocus}
-        updateComments={props.updateComments}
+        feedback={feedback.nextFocus}
+        updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
       />
     </PageContent>
   );

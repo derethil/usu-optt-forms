@@ -22,6 +22,7 @@ import mathGuidedPractice from "./math";
 import { selectFormInfo } from "../../slices/formInfoSlice";
 import { useAppSelector } from "../../hooks/hooks";
 import { selectRubric } from "../../slices/rubricSlice";
+import { selectFeedback } from "../../slices/feedbackSlice";
 
 export type PDFDataProps = {
   checks: INotebookCheck;
@@ -30,7 +31,6 @@ export type PDFDataProps = {
   timer1: ITimer;
   timer2: ITimer;
   timer3: ITimer;
-  comments: IComments;
 };
 
 const formatDate = (date: string) => {
@@ -40,6 +40,7 @@ const formatDate = (date: string) => {
 export const PDFData = (props: PDFDataProps) => {
   const formInfo = useAppSelector(selectFormInfo);
   const rubricScores = useAppSelector(selectRubric);
+  const feedback = useAppSelector(selectFeedback);
 
   const generatePDF = () => {
     // Setup
@@ -211,13 +212,13 @@ export const PDFData = (props: PDFDataProps) => {
       head: ["Feedback"],
     });
 
-    const feedback = [
-      ["Strengths", props.comments.strengths],
-      ["Suggestions", props.comments.suggestions],
-      ["Next Focus", props.comments.nextFocus],
+    const feedbackRows = [
+      ["Strengths", feedback.strengths],
+      ["Suggestions", feedback.suggestions],
+      ["Next Focus", feedback.nextFocus],
     ];
 
-    feedback.forEach(([title, comment], index) => {
+    feedbackRows.forEach(([title, comment], index) => {
       const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
       generator.table({
         startY: index === 0 ? startY : "RELATIVE",

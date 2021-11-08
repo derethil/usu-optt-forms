@@ -17,7 +17,6 @@ type FormHomeProps = {
   checks: INotebookCheck;
   data1: DataSchema;
   data2: DataSchema;
-  comments: IComments;
   timer1: ITimer;
   timer2: ITimer;
   timer3: ITimer;
@@ -49,7 +48,6 @@ const FormHome = (props: FormHomeProps) => {
           timer1={props.timer1}
           timer2={props.timer2}
           timer3={props.timer3}
-          comments={props.comments}
         />
 
         <ConfirmModal handleConfirm={props.resetAll} />
