@@ -22,16 +22,12 @@ export const notebookChecksSlice = createSlice({
       const { score, index, key } = action.payload;
       state[key][index] = { content: state[key][index].content, score };
     },
-    setCurrentChecks: (state, action: PayloadAction<INotebookCheck>) => {
-      return { ...action.payload };
-    },
     resetNotebookChecks: () => {
       return initialState;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(setLocationOrObservation, (state, action) => {
-      console.log("Am I being ran?");
       const { location, observation } = action.payload;
 
       const numbered = getNotebookCheck(
@@ -45,7 +41,7 @@ export const notebookChecksSlice = createSlice({
   },
 });
 
-export const { setNotebookChecks, setCurrentChecks, resetNotebookChecks } =
+export const { setNotebookChecks, resetNotebookChecks } =
   notebookChecksSlice.actions;
 
 export const selectNotebookChecks = (state: RootState) => state.notebookChecks;

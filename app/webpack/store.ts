@@ -15,6 +15,7 @@ import formInfoReducer from "./slices/formInfoSlice";
 import rubricReducer from "./slices/rubricSlice";
 import feedbackReducer from "./slices/feedbackSlice";
 import notebookChecksReducer from "./slices/notebookChecksSlice";
+import currentForm from "./currentForm";
 
 const reducers = combineReducers({
   formInfo: formInfoReducer,
@@ -24,7 +25,7 @@ const reducers = combineReducers({
 });
 
 const persistConfig = {
-  key: "root",
+  key: currentForm,
   storage,
 };
 
