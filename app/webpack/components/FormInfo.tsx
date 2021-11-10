@@ -4,7 +4,7 @@ import currentForm, { formOptions } from "../currentForm";
 import TextInput from "./TextInput";
 import OptionRow from "./optionRow";
 
-import { IFormInfo } from "../types/types";
+import { IFormInfo, LocationObservationType } from "../types/types";
 import DateInput from "./DateInput";
 import Color from "../styledComponents/colors";
 import { css } from "styled-components";
@@ -12,7 +12,11 @@ import { buttonStyles } from "../styledComponents/style";
 type FormInfoProps = {};
 
 import { useAppSelector, useAppDispatch } from "../hooks/hooks";
-import { setFormInfo, selectFormInfo } from "../slices/formInfoSlice";
+import {
+  setFormInfo,
+  selectFormInfo,
+  setLocationOrObservation,
+} from "../slices/formInfoSlice";
 
 const FormInfo = (props: FormInfoProps) => {
   const formInfo = useAppSelector(selectFormInfo);
@@ -20,6 +24,12 @@ const FormInfo = (props: FormInfoProps) => {
 
   const updateFormInfo = (updatedValues: { [key: string]: string }) => {
     dispatch(setFormInfo(updatedValues));
+  };
+
+  const updateObservation = (updatedValues: { observation: number }) => {
+    const location = formInfo.location;
+    const observation = updatedValues.observation;
+    dispatch(setLocationOrObservation({ location, observation }));
   };
 
   return (
@@ -80,7 +90,7 @@ const FormInfo = (props: FormInfoProps) => {
         contentOptions={["1", "2", "3", "4", "5"]}
         currSelection={formInfo.observation.toString()}
         updateSelection={(newSelection: string) =>
-          updateFormInfo({ observation: newSelection })
+          updateObservation({ observation: Number(newSelection) })
         }
         titleStyles={css`
           color: ${Color.neutrals.grayDark};

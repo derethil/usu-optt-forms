@@ -2,6 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { defaultNotebookCheck } from "../defaults/defaults";
 import { RootState } from "../store";
 import { INotebookCheck } from "../types/dataTypes";
+import { Location } from "../types/types";
+import getNotebookCheck from "../utils/notebookCheckUtils";
+import { setFormInfo, setLocationOrObservation } from "./formInfoSlice";
 
 const initialState: INotebookCheck = defaultNotebookCheck;
 
@@ -25,6 +28,20 @@ export const notebookChecksSlice = createSlice({
     resetNotebookChecks: () => {
       return initialState;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(setLocationOrObservation, (state, action) => {
+      console.log("Am I being ran?");
+      const { location, observation } = action.payload;
+
+      const numbered = getNotebookCheck(
+        location === Location.logan,
+        observation
+      );
+      const final = getNotebookCheck(location === Location.logan);
+
+      return { numbered, final };
+    });
   },
 });
 

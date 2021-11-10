@@ -14,11 +14,13 @@ import IconTitle from "../../components/IconTitle";
 import NotebookCheckRow from "./NotebookCheckRow";
 import { Location } from "../../types/types";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { selectCheckInfo, setFormInfo } from "../../slices/formInfoSlice";
-import getNotebookCheck from "../../utils/notebookCheckUtils";
+import {
+  selectCheckInfo,
+  setFormInfo,
+  setLocationOrObservation,
+} from "../../slices/formInfoSlice";
 import {
   selectNotebookChecks,
-  setCurrentChecks,
   setNotebookChecks,
 } from "../../slices/notebookChecksSlice";
 
@@ -27,13 +29,17 @@ export default function NotebookCheck() {
   const checks = useAppSelector(selectNotebookChecks);
   const dispatch = useAppDispatch();
 
-  // Change the notebook check score rows depending on location and observation #
-  useEffect(() => {
-    const numbered = getNotebookCheck(location === Location.logan, observation);
-    const final = getNotebookCheck(location === Location.logan);
-
-    dispatch(setCurrentChecks({ numbered, final }));
-  }, [observation, location]);
+  const updateRelevantFormInfo = (updatedValues: {
+    location: Location;
+    observation: typeof observation;
+  }) => {
+    dispatch(
+      setLocationOrObservation({
+        location: updatedValues.location,
+        observation: updatedValues.observation,
+      })
+    );
+  };
 
   return (
     <PageContent>
@@ -46,7 +52,10 @@ export default function NotebookCheck() {
           currSelection={location}
           contentOptions={[Location.logan, Location.optt]}
           updateSelection={(newSelection) =>
-            dispatch(setFormInfo({ location: newSelection as Location }))
+            updateRelevantFormInfo({
+              location: newSelection as Location,
+              observation,
+            })
           }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
@@ -57,7 +66,10 @@ export default function NotebookCheck() {
           currSelection={observation.toString()}
           contentOptions={[...Array(5)].map((_, i) => (i + 1).toString())}
           updateSelection={(newSelection: string) =>
-            dispatch(setFormInfo({ observation: Number(newSelection) }))
+            updateRelevantFormInfo({
+              location,
+              observation: Number(newSelection),
+            })
           }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};

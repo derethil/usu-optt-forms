@@ -1,3 +1,4 @@
+import { PayloadAction } from "@reduxjs/toolkit";
 import { FlattenSimpleInterpolation } from "styled-components";
 
 export interface Section {
@@ -56,3 +57,8 @@ export interface IFormInfo {
 export interface CSSMixin {
   mixin?: FlattenSimpleInterpolation;
 }
+
+export type LocationObservationType = Pick<
+  IFormInfo,
+  "location" | "observation"
+>;
