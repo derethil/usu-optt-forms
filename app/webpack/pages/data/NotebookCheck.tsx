@@ -13,7 +13,6 @@ import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
 import NotebookCheckRow from "./NotebookCheckRow";
 import { Location } from "../../types/types";
-import { INotebookCheck } from "../../types/dataTypes";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { selectCheckInfo, setFormInfo } from "../../slices/formInfoSlice";
 import getNotebookCheck from "../../utils/notebookCheckUtils";
