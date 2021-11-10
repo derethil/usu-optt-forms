@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { defaultFormInfo } from "../defaults/defaults";
-import { RootState } from "../store/store";
+import { RootState } from "../store";
 import { IFormInfo } from "../types/types";
 
 const initialState: IFormInfo = defaultFormInfo;

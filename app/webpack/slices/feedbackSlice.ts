@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { defaultComments, IComments } from "../defaults/defaults";
-import { RootState } from "../store/store";
+import { RootState } from "../store";
 
 const initialState: IComments = defaultComments;
 

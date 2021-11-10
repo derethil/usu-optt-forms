@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import type { RootState, AppDispatch } from "../store/store";
+import type { RootState, AppDispatch } from "../store";
 
 // Provide an additional function to reset state back to initial value
 export const useDefaultState = (initialValue: any) => {

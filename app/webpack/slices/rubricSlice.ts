@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import currentForm from "../currentForm";
 import FormData from "../FormData";
-import { RootState } from "../store/store";
+import { RootState } from "../store";
 import { ScoresState, Section } from "../types/types";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
