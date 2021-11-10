@@ -17,14 +17,15 @@ import { INotebookCheck } from "../../types/dataTypes";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { selectCheckInfo, setFormInfo } from "../../slices/formInfoSlice";
 import getNotebookCheck from "../../utils/notebookCheckUtils";
+import {
+  selectNotebookChecks,
+  setCurrentChecks,
+  setNotebookChecks,
+} from "../../slices/notebookChecksSlice";
 
-interface Props {
-  checks: INotebookCheck;
-  setChecks: (newValue: Partial<INotebookCheck>) => void;
-}
-
-export default function NotebookCheck({ checks, setChecks }: Props) {
+export default function NotebookCheck() {
   const { location, observation } = useAppSelector(selectCheckInfo);
+  const checks = useAppSelector(selectNotebookChecks);
   const dispatch = useAppDispatch();
 
   // Change the notebook check score rows depending on location and observation #
@@ -32,18 +33,8 @@ export default function NotebookCheck({ checks, setChecks }: Props) {
     const numbered = getNotebookCheck(location === Location.logan, observation);
     const final = getNotebookCheck(location === Location.logan);
 
-    setChecks({ numbered, final });
+    dispatch(setCurrentChecks({ numbered, final }));
   }, [observation, location]);
-
-  const handleUpdateCheck = (
-    score: number,
-    index: number,
-    key: keyof typeof checks
-  ): void => {
-    const checksArr = [...checks[key]];
-    checksArr[index] = { content: checksArr[index].content, score };
-    setChecks({ [key]: checksArr });
-  };
 
   return (
     <PageContent>
@@ -87,15 +78,15 @@ export default function NotebookCheck({ checks, setChecks }: Props) {
         }
         containerStyles={cardContainerStyles}
       >
-        {checks.numbered.map((content, idx) => {
+        {checks.numbered.map((content, index) => {
           return (
             <NotebookCheckRow
               content={content.content}
               score={content.score}
-              key={idx}
-              listId={idx}
+              key={index}
+              listId={index}
               updateCheck={(score: number) => {
-                handleUpdateCheck(score, idx, "numbered");
+                dispatch(setNotebookChecks({ score, index, key: "numbered" }));
               }}
             />
           );
@@ -114,15 +105,15 @@ export default function NotebookCheck({ checks, setChecks }: Props) {
         }
         containerStyles={cardContainerStyles}
       >
-        {checks.final.map((content, idx) => {
+        {checks.final.map((content, index) => {
           return (
             <NotebookCheckRow
               content={content.content}
               score={content.score}
-              key={idx}
-              listId={idx}
+              key={index}
+              listId={index}
               updateCheck={(score: number) => {
-                handleUpdateCheck(score, idx, "final");
+                dispatch(setNotebookChecks({ score, index, key: "final" }));
               }}
             />
           );

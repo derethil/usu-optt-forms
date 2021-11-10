@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import formInfoReducer from "./slices/formInfoSlice";
 import rubricReducer from "./slices/rubricSlice";
 import feedbackReducer from "./slices/feedbackSlice";
+import notebookChecksReducer from "./slices/notebookChecksSlice";
 
 const store = configureStore({
   reducer: {
     formInfo: formInfoReducer,
     rubric: rubricReducer,
     feedback: feedbackReducer,
+    notebookChecks: notebookChecksReducer,
   },
 });
 

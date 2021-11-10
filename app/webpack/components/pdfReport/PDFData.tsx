@@ -23,9 +23,9 @@ import { selectFormInfo } from "../../slices/formInfoSlice";
 import { useAppSelector } from "../../hooks/hooks";
 import { selectRubric } from "../../slices/rubricSlice";
 import { selectFeedback } from "../../slices/feedbackSlice";
+import { selectNotebookChecks } from "../../slices/notebookChecksSlice";
 
 export type PDFDataProps = {
-  checks: INotebookCheck;
   data1: DataSchema;
   data2: DataSchema;
   timer1: ITimer;
@@ -41,6 +41,7 @@ export const PDFData = (props: PDFDataProps) => {
   const formInfo = useAppSelector(selectFormInfo);
   const rubricScores = useAppSelector(selectRubric);
   const feedback = useAppSelector(selectFeedback);
+  const checks = useAppSelector(selectNotebookChecks);
 
   const generatePDF = () => {
     // Setup
@@ -189,7 +190,7 @@ export const PDFData = (props: PDFDataProps) => {
           `Notebook Check #${formInfo.observation}`,
           "                  Score",
         ],
-        body: props.checks.numbered.map(({ score, content }) => {
+        body: checks.numbered.map(({ score, content }) => {
           return [content, String(score)];
         }),
       });
@@ -200,7 +201,7 @@ export const PDFData = (props: PDFDataProps) => {
           1: { cellWidth: 50, halign: "center" },
         },
         head: [`Final Notebook Check`, "                   Score"],
-        body: props.checks.final.map(({ score, content }) => {
+        body: checks.final.map(({ score, content }) => {
           return [content, String(score)];
         }),
       });

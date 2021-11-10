@@ -14,7 +14,6 @@ import ConfirmModal from "../components/ConfirmModal";
 import { css } from "styled-components";
 
 type FormHomeProps = {
-  checks: INotebookCheck;
   data1: DataSchema;
   data2: DataSchema;
   timer1: ITimer;
@@ -42,7 +41,6 @@ const FormHome = (props: FormHomeProps) => {
         `}
       >
         <PDFData
-          checks={props.checks}
           data1={props.data1}
           data2={props.data2}
           timer1={props.timer1}

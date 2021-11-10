@@ -32,11 +32,6 @@ import { resetFeedback } from "./slices/feedbackSlice";
 export const App = () => {
   const dispatch = useAppDispatch();
 
-  const [checks, setChecks] = useObjLocalStorage(
-    "notebookChecks",
-    defaultNotebookCheck
-  );
-
   const [data1, setData1, resetData1] = useObjLocalStorage(
     "data1",
     FormData[currentForm].defaultData
@@ -145,7 +140,7 @@ export const App = () => {
         />
       </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>
-        <NotebookCheck checks={checks} setChecks={setChecks} />
+        <NotebookCheck />
       </Route>,
     ],
   };
@@ -168,7 +163,6 @@ export const App = () => {
               timer1={timer1}
               timer2={timer2}
               timer3={timer3}
-              checks={checks}
               resetAll={resetAll}
             />
           </Route>
