@@ -31,7 +31,6 @@ export const notebookChecksSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(setLocationOrObservation, (state, action) => {
-      console.log("Am I being ran?");
       const { location, observation } = action.payload;
 
       const numbered = getNotebookCheck(
