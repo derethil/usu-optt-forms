@@ -18,7 +18,6 @@ import NotFound from "./pages/NotFound";
 import useTimer from "./hooks/useTimer";
 
 import { useObjLocalStorage } from "./hooks/localStorage";
-import { defaultComments, defaultNotebookCheck } from "./defaults/defaults";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
@@ -28,6 +27,7 @@ import { resetFormInfo } from "./slices/formInfoSlice";
 import { useAppDispatch } from "./hooks/hooks";
 import { resetRubric } from "./slices/rubricSlice";
 import { resetFeedback } from "./slices/feedbackSlice";
+import { resetNotebookChecks } from "./slices/notebookChecksSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -54,6 +54,7 @@ export const App = () => {
     timer3.handleReset();
     dispatch(resetFormInfo());
     dispatch(resetFeedback());
+    dispatch(resetNotebookChecks());
   };
 
   let title;
