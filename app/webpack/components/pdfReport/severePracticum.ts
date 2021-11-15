@@ -8,13 +8,13 @@ import {
 import { genSPError, genSPSequence } from "../../utils/pdfUtils";
 import { getPercent } from "../../utils/utils";
 import Color from "../../styledComponents/colors";
-import { ITimer } from "../../slices/timersSlice";
+import { ITimerState } from "../../slices/timersSlice";
 import { formOptions } from "../../currentForm";
 
 const severePracticumReadingSection = (
   generator: PDFGenerator,
   data: DataSchema,
-  timer: ITimer,
+  timer: ITimerState,
   title: string = "Observation Data"
 ) => {
   if (

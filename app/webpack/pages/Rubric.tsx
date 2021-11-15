@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
-import { ScoresState, Section } from "../types/types";
+import { Section } from "../types/types";
 import {
   buttonStyles,
   PageContent,
@@ -23,13 +23,11 @@ import {
 } from "../slices/rubricSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import FormData from "../FormData";
-import { ITimer, ITimerActions } from "../slices/timersSlice";
+import { ITimer } from "../slices/timersSlice";
 
 type RubricProps = {
   timer1: ITimer;
   timer2: ITimer;
-  timerActions1: ITimerActions;
-  timerActions2: ITimerActions;
 };
 
 const cardTitleStyles = css`
@@ -152,11 +150,6 @@ const Rubric = (props: RubricProps) => {
             <Timer
               timer={
                 section.sectionTitle === "Opening" ? props.timer1 : props.timer2
-              }
-              timerActions={
-                section.sectionTitle === "Opening"
-                  ? props.timerActions1
-                  : props.timerActions2
               }
             />
           </Card>

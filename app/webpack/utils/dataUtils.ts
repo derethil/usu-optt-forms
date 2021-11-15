@@ -1,4 +1,4 @@
-import { ITimer } from "../slices/timersSlice";
+import { ITimerState } from "../slices/timersSlice";
 import { IPraiseData, IStudentTeachingData, ICues } from "../types/dataTypes";
 import currentForm from "../currentForm";
 import FormData from "../FormData";
@@ -7,7 +7,7 @@ const defaultData = FormData[currentForm].defaultData;
 
 // DATA FUNCTIONS
 
-export const getOTRRate = (data: ICues, timer: ITimer): string => {
+export const getOTRRate = (data: ICues, timer: ITimerState): string => {
   const total =
     data.cues.individual +
     data.cues.group +

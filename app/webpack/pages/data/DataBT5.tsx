@@ -18,8 +18,10 @@ import {
   cardContainerStyles,
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
+import { useAppSelector } from "../../hooks/hooks";
 
 const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
+  const timerState = useAppSelector(props.timer.selector);
   const updateSequence = (groupKey: string, newValue: object) => {
     props.setData({
       sequence: {
@@ -64,11 +66,7 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer
-          timer={props.timer}
-          timerActions={props.timerActions}
-          resetCallback={props.resetCallback}
-        />
+        <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
       <DataRow
@@ -172,7 +170,7 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
           { display: "Cue", score: correct.cue + correct.all },
           {
             display: "Rate of Interaction",
-            score: ((totalInteractions / props.timer.value) * 60).toFixed(2),
+            score: ((totalInteractions / timerState.value) * 60).toFixed(2),
           },
         ]}
       >

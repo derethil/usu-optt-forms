@@ -4,7 +4,7 @@ import {
   ISeverePracticumData,
   IStudentTeachingData,
 } from "../types/dataTypes";
-import { ITimer } from "../slices/timersSlice";
+import { ITimerState } from "../slices/timersSlice";
 
 import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
@@ -17,7 +17,7 @@ const rubricData = FormData[currentForm].rubric;
 
 export const genSTObservationBody = (
   observData: IStudentTeachingData,
-  timer: ITimer
+  timer: ITimerState
 ) => {
   return [
     ["Time", formatTime(timer.value)],
@@ -86,7 +86,7 @@ export const getScore = (
 
 export const genSPObservationBody = (
   data: ISeverePracticumData,
-  timer: ITimer
+  timer: ITimerState
 ) => {
   const signalCorrect = data.signalSequence.correct;
   const signalIncorrect = data.signalSequence.incorrect;

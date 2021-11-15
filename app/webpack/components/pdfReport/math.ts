@@ -3,16 +3,16 @@ import { DataSchema } from "../../types/dataTypes";
 
 import { getPercent } from "../../utils/utils";
 import Color from "../../styledComponents/colors";
-import { ITimer } from "../../slices/timersSlice";
+import { ITimerState } from "../../slices/timersSlice";
 import { formOptions } from "../../currentForm";
 import { formatTime } from "../../utils/timerUtils";
 
 export default function mathGuidedPractice(
   generator: PDFGenerator,
   data: DataSchema,
-  openingTimer: ITimer,
-  guidedTimer: ITimer,
-  independentTimer: ITimer
+  openingTimer: ITimerState,
+  guidedTimer: ITimerState,
+  independentTimer: ITimerState
 ) {
   if (data.currentForm !== formOptions.math) return;
   generator.table({

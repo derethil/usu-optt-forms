@@ -16,6 +16,7 @@ import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import { cardContainerStyles } from "../../styledComponents/style";
 import DataProps from "./DataProps";
+import { useAppSelector } from "../../hooks/hooks";
 
 const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
   const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
@@ -51,11 +52,7 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer
-          timer={props.timer}
-          timerActions={props.timerActions}
-          resetCallback={props.resetCallback}
-        />
+        <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
       <DataRow

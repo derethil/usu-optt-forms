@@ -9,6 +9,7 @@ import { ButtonsWrapper } from "../../styledComponents/style";
 
 import * as dataUtils from "../../utils/dataUtils";
 import Color from "../../styledComponents/colors";
+import { useAppSelector } from "../../hooks/hooks";
 
 type PraiseDataRowProps = {
   data: ICues;
@@ -17,6 +18,8 @@ type PraiseDataRowProps = {
 };
 
 const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
+  const timerState = useAppSelector(timer.selector);
+
   const total =
     data.cues.individual +
     data.cues.group +
@@ -34,7 +37,7 @@ const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
         ]
       : []),
     { display: "Total Responses", score: total },
-    { display: "OTR Rate", score: dataUtils.getOTRRate(data, timer) },
+    { display: "OTR Rate", score: dataUtils.getOTRRate(data, timerState) },
   ];
 
   return (

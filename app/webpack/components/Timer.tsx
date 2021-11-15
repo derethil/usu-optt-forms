@@ -5,8 +5,9 @@ import { formatTime } from "../utils/timerUtils";
 
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
-import { ITimer, ITimerActions } from "../slices/timersSlice";
+import { ITimer } from "../slices/timersSlice";
 import { useDispatch } from "react-redux";
+import { useAppSelector } from "../hooks/hooks";
 
 const TimerDisplay = styled.h2`
   display: flex;
@@ -45,24 +46,24 @@ const TimerButton = styled(Button)`
 
 type TimerProps = {
   timer: ITimer;
-  timerActions: ITimerActions;
   resetCallback?: () => void;
 };
 
-const Timer = ({ timer, timerActions, resetCallback }: TimerProps) => {
+const Timer = ({ timer, resetCallback }: TimerProps) => {
   const dispatch = useDispatch();
+  const timerState = useAppSelector(timer.selector);
 
-  const count = useRef<NodeJS.Timeout | null>(null);
+  const counter = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (!timer.isPaused) {
-      count.current = setInterval(() => {
-        dispatch(timerActions.increment());
+    if (!timerState.isPaused) {
+      counter.current = setInterval(() => {
+        dispatch(timer.actions.increment());
       }, 1000);
     } else {
-      clearInterval(count.current as NodeJS.Timeout);
+      clearInterval(counter.current as NodeJS.Timeout);
     }
-  }, [timer.isActive, timer.isPaused]);
+  }, [timerState.isActive, timerState.isPaused]);
 
   const currentButton = () => {
     const getButton = (text: string, onClick: () => void) => {
@@ -80,23 +81,23 @@ const Timer = ({ timer, timerActions, resetCallback }: TimerProps) => {
       );
     };
 
-    if (!timer.isActive) {
-      return getButton("Start", timerActions.start);
-    } else if (timer.isPaused) {
-      return getButton("Resume", timerActions.resume);
+    if (!timerState.isActive) {
+      return getButton("Start", timer.actions.start);
+    } else if (timerState.isPaused) {
+      return getButton("Resume", timer.actions.resume);
     } else {
-      return getButton("Pause / Stop", timerActions.pause);
+      return getButton("Pause / Stop", timer.actions.pause);
     }
   };
 
   const handleResetClicked = () => {
-    dispatch(timerActions.reset());
+    dispatch(timer.actions.reset());
     if (resetCallback) resetCallback();
   };
 
   return (
     <TimerContent>
-      <TimerDisplay>{formatTime(timer.value)}</TimerDisplay>
+      <TimerDisplay>{formatTime(timerState.value)}</TimerDisplay>
 
       {currentButton()}
 

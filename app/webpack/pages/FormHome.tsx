@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ITimer } from "../slices/timersSlice";
+import { ITimerState } from "../slices/timersSlice";
 
 import { DataSchema } from "../types/dataTypes";
 
@@ -15,9 +15,9 @@ import { css } from "styled-components";
 type FormHomeProps = {
   data1: DataSchema;
   data2: DataSchema;
-  timer1: ITimer;
-  timer2: ITimer;
-  timer3: ITimer;
+  timer1: ITimerState;
+  timer2: ITimerState;
+  timer3: ITimerState;
   resetAll: () => void;
 };
 

@@ -1,10 +1,6 @@
 import React from "react";
-
-import { ScoresState, IFormInfo } from "../../types/types";
-import { ITimer } from "../../slices/timersSlice";
-
-import { IComments } from "../../defaults/defaults";
-import { DataSchema, INotebookCheck } from "../../types/dataTypes";
+import { ITimerState } from "../../slices/timersSlice";
+import { DataSchema } from "../../types/dataTypes";
 import { Button } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
@@ -29,9 +25,9 @@ import { selectNotebookChecks } from "../../slices/notebookChecksSlice";
 export type PDFDataProps = {
   data1: DataSchema;
   data2: DataSchema;
-  timer1: ITimer;
-  timer2: ITimer;
-  timer3: ITimer;
+  timer1: ITimerState;
+  timer2: ITimerState;
+  timer3: ITimerState;
 };
 
 const formatDate = (date: string) => {

@@ -33,11 +33,7 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer
-          timer={props.timer}
-          timerActions={props.timerActions}
-          resetCallback={props.resetCallback}
-        />
+        <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
       <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
