@@ -16,28 +16,36 @@ import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import { cardContainerStyles } from "../../styledComponents/style";
 import DataProps from "./DataProps";
-import { useAppSelector } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { formOptions } from "../../currentForm";
 
 const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
+  const data = useAppSelector(props.data.selector);
+  const dispatch = useAppDispatch();
+
+  if (data.currentForm !== formOptions.severePracticum) return <div></div>;
+
   const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
-    props.setData({
-      [sequenceKey]: {
-        ...props.data[sequenceKey],
-        [groupKey]: {
-          ...props.data[sequenceKey][groupKey],
-          ...newValue,
+    dispatch(
+      props.data.actions.setData({
+        [sequenceKey]: {
+          ...data[sequenceKey],
+          [groupKey]: {
+            ...data[sequenceKey][groupKey],
+            ...newValue,
+          },
         },
-      },
-    });
+      })
+    );
   };
 
-  const signalCorrect = props.data.signalSequence.correct;
-  const signalIncorrect = props.data.signalSequence.incorrect;
+  const signalCorrect = data.signalSequence.correct;
+  const signalIncorrect = data.signalSequence.incorrect;
 
   const totalSequences = signalCorrect.sequence + signalIncorrect.sequence;
 
-  const errorCorrect = props.data.errorCorrection.correct;
-  const errorIncorrect = props.data.errorCorrection.incorrect;
+  const errorCorrect = data.errorCorrection.correct;
+  const errorIncorrect = data.errorCorrection.incorrect;
 
   const totalErrors = errorCorrect.sequence + errorIncorrect.sequence;
 
@@ -264,9 +272,9 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
         </Styles.TwoRowWrapper>
       </DataRow>
 
-      <PraiseDataRow data={props.data} setData={props.setData} />
+      <PraiseDataRow data={props.data} />
 
-      <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
+      <OTRRow dataSlice={props.data} timer={props.timer} />
     </Styles.PageContent>
   );
 };

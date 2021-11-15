@@ -7,15 +7,20 @@ import { getPercent } from "../../utils/utils";
 import { ButtonsWrapper } from "../../styledComponents/style";
 import * as dataUtils from "../../utils/dataUtils";
 import Color from "../../styledComponents/colors";
+import { IDataSlice } from "../../slices/dataSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { formOptions } from "../../currentForm";
 
 type PraiseDataRowProps = {
-  data: IPraiseData;
-  setData: (updatedValues: Partial<IPraiseData>) => void;
+  data: IDataSlice;
   balancedVaried?: boolean;
 };
 
 const PraiseDataRow = (props: PraiseDataRowProps) => {
-  const { data, setData, balancedVaried } = props;
+  const data = useAppSelector(props.data.selector);
+  const dispatch = useAppDispatch();
+
+  const setData = props.data.actions.setData;
 
   const displayData = [
     { display: "General Praise", score: data.praise.general },
@@ -37,7 +42,7 @@ const PraiseDataRow = (props: PraiseDataRowProps) => {
     },
   ];
 
-  if (balancedVaried) {
+  if (props.balancedVaried) {
     displayData.push({
       display: "Balanced Varied Praise",
       score: getPercent(
@@ -53,32 +58,32 @@ const PraiseDataRow = (props: PraiseDataRowProps) => {
           color={Color.accents.yellow}
           content="General"
           value={data.praise.general}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, general: newValue } })
+          onClick={(general: number) =>
+            dispatch(setData({ praise: { ...data.praise, general } }))
           }
         />
         <CounterButton
           color={Color.accents.yellow}
           content="Academic"
           value={data.praise.academic}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, academic: newValue } })
+          onClick={(academic: number) =>
+            dispatch(setData({ praise: { ...data.praise, academic } }))
           }
         />
         <CounterButton
           color={Color.accents.yellow}
           content="Behavioral"
           value={data.praise.behavioral}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, behavioral: newValue } })
+          onClick={(behavioral: number) =>
+            dispatch(setData({ praise: { ...data.praise, behavioral } }))
           }
         />
         <CounterButton
           color={Color.contextual.danger}
           content="Redirect/Reprimand"
           value={data.praise.reprimand}
-          onClick={(newValue: number) =>
-            setData({ praise: { ...data.praise, reprimand: newValue } })
+          onClick={(reprimand: number) =>
+            dispatch(setData({ praise: { ...data.praise, reprimand } }))
           }
         />
       </ButtonsWrapper>

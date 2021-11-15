@@ -20,16 +20,8 @@ import {
 import OTRRow from "../../components/data/OTRRow";
 import { css } from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { ITimer } from "../../slices/timersSlice";
-import { IDataSlice } from "../../slices/dataSlice";
 import { formOptions } from "../../currentForm";
-
-interface DataProps<T> {
-  title: string;
-  timer: ITimer;
-  data: IDataSlice;
-  resetCallback?: () => void;
-}
+import DataProps from "./DataProps";
 
 const DataST = (props: DataProps<IStudentTeachingData>) => {
   const data = useAppSelector(props.data.selector);
@@ -53,9 +45,9 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
-      {/* <OTRRow data={data} setData={props.setData} timer={props.timer} /> */}
+      <OTRRow dataSlice={props.data} timer={props.timer} />
 
-      {/* <PraiseDataRow data={data} setData={props.setData} /> */}
+      <PraiseDataRow data={props.data} />
 
       <DataRow
         title="Corrections"

@@ -1,10 +1,10 @@
+import { IDataSlice } from "../../slices/dataSlice";
 import { ITimer } from "../../slices/timersSlice";
 
 interface DataProps<T> {
   title: string;
   timer: ITimer;
-  data: T;
-  setData: (updatedValues: Partial<T>) => void;
+  data: IDataSlice;
   resetCallback?: () => void;
 }
 

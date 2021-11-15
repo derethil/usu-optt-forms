@@ -30,25 +30,13 @@ import { resetRubric } from "./slices/rubricSlice";
 import { resetFeedback } from "./slices/feedbackSlice";
 import { resetNotebookChecks } from "./slices/notebookChecksSlice";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
-import {
-  data1 as dataReducer1,
-  data2 as dataReducer2,
-} from "./slices/dataSlice";
+import { data1, data2 } from "./slices/dataSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
 
-  const [data1, setData1, resetData1] = useObjLocalStorage(
-    "data1",
-    FormData[currentForm].defaultData
-  );
-  const [data2, setData2, resetData2] = useObjLocalStorage(
-    "data2",
-    FormData[currentForm].defaultData
-  );
-
-  const dataState1 = useAppSelector(dataReducer1.selector);
-  const dataState2 = useAppSelector(dataReducer2.selector);
+  const dataState1 = useAppSelector(data1.selector);
+  const dataState2 = useAppSelector(data2.selector);
 
   const timerState1 = useAppSelector(timer1.selector);
   const timerState2 = useAppSelector(timer2.selector);
@@ -56,8 +44,8 @@ export const App = () => {
 
   const resetAll = (): void => {
     dispatch(resetRubric());
-    resetData1();
-    resetData2();
+    dispatch(data1.actions.resetData());
+    dispatch(data2.actions.resetData());
     dispatch(timer1.actions.reset());
     dispatch(timer2.actions.reset());
     dispatch(timer3.actions.reset());
@@ -73,18 +61,18 @@ export const App = () => {
     [formOptions.studentTeaching]: [
       <Route path="/data1" key={(title = "Data 1")}>
         <DataST
-          data={dataReducer1}
+          data={data1}
           timer={timer1}
           title={title}
-          resetCallback={resetData1}
+          resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
       <Route path="/data2" key={(title = "Data 2")}>
         <DataST
-          data={dataReducer2}
+          data={data2}
           timer={timer2}
           title={title}
-          resetCallback={resetData2}
+          resetCallback={() => dispatch(data2.actions.resetData())}
         />
       </Route>,
     ],
@@ -93,10 +81,9 @@ export const App = () => {
       <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}
-          setData={setData1}
           timer={timer1}
           title={title}
-          resetCallback={resetData1}
+          resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
     ],
@@ -105,10 +92,9 @@ export const App = () => {
       <Route path="/data" key={(title = "Data")}>
         <DataBT5
           data={data1}
-          setData={setData1}
           timer={timer1}
           title={title}
-          resetCallback={resetData1}
+          resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
     ],
@@ -117,19 +103,17 @@ export const App = () => {
       <Route path="/decoding" key={(title = "Decoding Data")}>
         <DataSPR
           data={data1}
-          setData={setData1}
           timer={timer1}
           title={title}
-          resetCallback={resetData1}
+          resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
       <Route path="/reading" key={(title = "Story Reading Data")}>
         <DataSPR
           data={data2}
-          setData={setData2}
           timer={timer2}
           title={title}
-          resetCallback={resetData2}
+          resetCallback={() => dispatch(data2.actions.resetData())}
         />
       </Route>,
     ],
@@ -141,10 +125,9 @@ export const App = () => {
       >
         <DataMath
           data={data1}
-          setData={setData1}
           timer={timer3}
           title={title}
-          resetCallback={resetData1}
+          resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>

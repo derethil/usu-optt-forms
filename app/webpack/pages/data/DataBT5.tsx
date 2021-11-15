@@ -18,23 +18,32 @@ import {
   cardContainerStyles,
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
-import { useAppSelector } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { formOptions } from "../../currentForm";
 
 const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
   const timerState = useAppSelector(props.timer.selector);
+  const data = useAppSelector(props.data.selector);
+  const dispatch = useAppDispatch();
+
+  const setData = props.data.actions.setData;
+
+  if (data.currentForm !== formOptions.bTo5Practicum) return <div></div>;
+
   const updateSequence = (groupKey: string, newValue: object) => {
-    props.setData({
-      sequence: {
-        ...props.data.sequence,
-        [groupKey]: {
-          ...props.data.sequence[groupKey],
-          ...newValue,
+    dispatch(
+      setData({
+        sequence: {
+          ...data.sequence,
+          [groupKey]: {
+            ...data.sequence[groupKey],
+            ...newValue,
+          },
         },
-      },
-    });
+      })
+    );
   };
 
-  const data = props.data;
   const correct = data.sequence.correct;
   const incorrect = data.sequence.incorrect;
 
@@ -180,9 +189,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Comment"
             value={data.interactions.comment}
             onClick={(comment: number) =>
-              props.setData({
-                interactions: { ...props.data.interactions, comment },
-              })
+              dispatch(
+                setData({
+                  interactions: { ...data.interactions, comment },
+                })
+              )
             }
           />
           <CounterButton
@@ -190,9 +201,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Question"
             value={data.interactions.question}
             onClick={(question: number) =>
-              props.setData({
-                interactions: { ...props.data.interactions, question },
-              })
+              dispatch(
+                setData({
+                  interactions: { ...data.interactions, question },
+                })
+              )
             }
           />
           <CounterButton
@@ -200,9 +213,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Non-Target Cue"
             value={data.interactions.nonTargetCue}
             onClick={(nonTargetCue: number) =>
-              props.setData({
-                interactions: { ...props.data.interactions, nonTargetCue },
-              })
+              dispatch(
+                setData({
+                  interactions: { ...data.interactions, nonTargetCue },
+                })
+              )
             }
           />
         </ButtonsWrapper>
@@ -223,9 +238,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Group"
             value={data.responses.group}
             onClick={(group: number) =>
-              props.setData({
-                responses: { ...props.data.responses, group },
-              })
+              dispatch(
+                setData({
+                  responses: { ...data.responses, group },
+                })
+              )
             }
           />
           <CounterButton
@@ -233,9 +250,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Individual"
             value={data.responses.individual}
             onClick={(individual: number) =>
-              props.setData({
-                responses: { ...props.data.responses, individual },
-              })
+              dispatch(
+                setData({
+                  responses: { ...data.responses, individual },
+                })
+              )
             }
           />
           <CounterButton
@@ -243,9 +262,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Vocal"
             value={data.responses.vocal}
             onClick={(vocal: number) =>
-              props.setData({
-                responses: { ...props.data.responses, vocal },
-              })
+              dispatch(
+                setData({
+                  responses: { ...data.responses, vocal },
+                })
+              )
             }
           />
           <CounterButton
@@ -253,15 +274,17 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Non-Vocal"
             value={data.responses.nonVocal}
             onClick={(nonVocal: number) =>
-              props.setData({
-                responses: { ...props.data.responses, nonVocal },
-              })
+              dispatch(
+                setData({
+                  responses: { ...data.responses, nonVocal },
+                })
+              )
             }
           />
         </ButtonsWrapper>
       </DataRow>
 
-      <PraiseDataRow data={props.data} setData={props.setData} balancedVaried />
+      <PraiseDataRow data={props.data} balancedVaried />
       <DataRow
         title="Error Correction"
         displayData={[
@@ -287,12 +310,14 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Response Error"
             value={data.errorCorrection.responseError}
             onClick={(responseError: number) =>
-              props.setData({
-                errorCorrection: {
-                  ...props.data.errorCorrection,
-                  responseError,
-                },
-              })
+              dispatch(
+                setData({
+                  errorCorrection: {
+                    ...data.errorCorrection,
+                    responseError,
+                  },
+                })
+              )
             }
           />
           <CounterButton
@@ -300,9 +325,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Prompt"
             value={data.errorCorrection.prompt}
             onClick={(prompt: number) =>
-              props.setData({
-                errorCorrection: { ...props.data.errorCorrection, prompt },
-              })
+              dispatch(
+                setData({
+                  errorCorrection: { ...data.errorCorrection, prompt },
+                })
+              )
             }
           />
           <CounterButton
@@ -310,9 +337,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Test"
             value={data.errorCorrection.test}
             onClick={(test: number) =>
-              props.setData({
-                errorCorrection: { ...props.data.errorCorrection, test },
-              })
+              dispatch(
+                setData({
+                  errorCorrection: { ...data.errorCorrection, test },
+                })
+              )
             }
           />
           <CounterButton
@@ -320,9 +349,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Delayed Test"
             value={data.errorCorrection.delayedTest}
             onClick={(delayedTest: number) =>
-              props.setData({
-                errorCorrection: { ...props.data.errorCorrection, delayedTest },
-              })
+              dispatch(
+                setData({
+                  errorCorrection: { ...data.errorCorrection, delayedTest },
+                })
+              )
             }
           />
         </ButtonsWrapper>
@@ -348,7 +379,7 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="LTM/ID'ed Prompt"
             value={data.prompts.ltm}
             onClick={(ltm: number) =>
-              props.setData({ prompts: { ...props.data.prompts, ltm } })
+              dispatch(setData({ prompts: { ...data.prompts, ltm } }))
             }
           />
           <CounterButton
@@ -356,9 +387,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
             content="Inconsistent Prompt"
             value={data.prompts.inconsistent}
             onClick={(inconsistent: number) =>
-              props.setData({
-                prompts: { ...props.data.prompts, inconsistent },
-              })
+              dispatch(
+                setData({
+                  prompts: { ...data.prompts, inconsistent },
+                })
+              )
             }
           />
         </ButtonsWrapper>

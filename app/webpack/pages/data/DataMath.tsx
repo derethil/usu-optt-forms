@@ -17,8 +17,17 @@ import {
 import DataProps from "./DataProps";
 import OTRRow from "../../components/data/OTRRow";
 import { timer1 } from "../../slices/timersSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { formOptions } from "../../currentForm";
 
 const DataMath = (props: DataProps<IMathData>) => {
+  const data = useAppSelector(props.data.selector);
+  const dispatch = useAppDispatch();
+
+  const setData = props.data.actions.setData;
+
+  if (data.currentForm !== formOptions.math) return <div></div>;
+
   return (
     <Styles.PageContent>
       <Card
@@ -36,16 +45,16 @@ const DataMath = (props: DataProps<IMathData>) => {
       <DataRow
         title="Engagement"
         displayData={[
-          { display: "Group Engaged", score: props.data.engagement.engaged },
+          { display: "Group Engaged", score: data.engagement.engaged },
           {
             display: "Group Not Engaged",
-            score: props.data.engagement.notEngaged,
+            score: data.engagement.notEngaged,
           },
           {
             display: "Percent Engaged",
             score: getPercent(
-              props.data.engagement.engaged,
-              props.data.engagement.engaged + props.data.engagement.notEngaged
+              data.engagement.engaged,
+              data.engagement.engaged + data.engagement.notEngaged
             ),
           },
         ]}
@@ -54,41 +63,45 @@ const DataMath = (props: DataProps<IMathData>) => {
           <CounterButton
             color={Color.accents.brightLight}
             content="Engaged"
-            value={props.data.engagement.engaged}
+            value={data.engagement.engaged}
             onClick={(engaged: number) =>
-              props.setData({
-                engagement: { ...props.data.engagement, engaged },
-              })
+              dispatch(
+                setData({
+                  engagement: { ...data.engagement, engaged },
+                })
+              )
             }
           />
           <CounterButton
             color={Color.accents.brightLight}
             content="Not Engaged"
-            value={props.data.engagement.notEngaged}
+            value={data.engagement.notEngaged}
             onClick={(notEngaged: number) =>
-              props.setData({
-                engagement: { ...props.data.engagement, notEngaged },
-              })
+              dispatch(
+                setData({
+                  engagement: { ...data.engagement, notEngaged },
+                })
+              )
             }
           />
         </ButtonsWrapper>
       </DataRow>
 
-      <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
+      <OTRRow dataSlice={props.data} timer={props.timer} />
 
       <DataRow
         title="Response"
         displayData={[
-          { display: "Correct Response", score: props.data.response.correct },
+          { display: "Correct Response", score: data.response.correct },
           {
             display: "Incorrect Response",
-            score: props.data.response.incorrect,
+            score: data.response.incorrect,
           },
           {
             display: "Percent Correct",
             score: getPercent(
-              props.data.response.correct,
-              props.data.response.correct + props.data.response.incorrect
+              data.response.correct,
+              data.response.correct + data.response.incorrect
             ),
           },
         ]}
@@ -97,21 +110,25 @@ const DataMath = (props: DataProps<IMathData>) => {
           <CounterButton
             color={Color.accents.brick}
             content="Correct"
-            value={props.data.response.correct}
+            value={data.response.correct}
             onClick={(correct: number) =>
-              props.setData({
-                response: { ...props.data.response, correct },
-              })
+              dispatch(
+                setData({
+                  response: { ...data.response, correct },
+                })
+              )
             }
           />
           <CounterButton
             color={Color.accents.brick}
             content="Incorrect"
-            value={props.data.response.incorrect}
+            value={data.response.incorrect}
             onClick={(incorrect: number) =>
-              props.setData({
-                response: { ...props.data.response, incorrect },
-              })
+              dispatch(
+                setData({
+                  response: { ...data.response, incorrect },
+                })
+              )
             }
           />
         </ButtonsWrapper>
@@ -120,16 +137,16 @@ const DataMath = (props: DataProps<IMathData>) => {
       <DataRow
         title="Feedback for Errors"
         displayData={[
-          { display: "Model/Test or Guided", score: props.data.feedback.mtg },
+          { display: "Model/Test or Guided", score: data.feedback.mtg },
           {
             display: "Not Corrected",
-            score: props.data.feedback.notCorrected,
+            score: data.feedback.notCorrected,
           },
           {
             display: "Percent Engaged",
             score: getPercent(
-              props.data.feedback.mtg,
-              props.data.feedback.mtg + props.data.feedback.notCorrected
+              data.feedback.mtg,
+              data.feedback.mtg + data.feedback.notCorrected
             ),
           },
         ]}
@@ -138,27 +155,31 @@ const DataMath = (props: DataProps<IMathData>) => {
           <CounterButton
             color={Color.accents.brightLight}
             content="Model/Test or Guided"
-            value={props.data.feedback.mtg}
+            value={data.feedback.mtg}
             onClick={(mtg: number) =>
-              props.setData({
-                feedback: { ...props.data.feedback, mtg },
-              })
+              dispatch(
+                setData({
+                  feedback: { ...data.feedback, mtg },
+                })
+              )
             }
           />
           <CounterButton
             color={Color.accents.brightLight}
             content="Not Corrected"
-            value={props.data.feedback.notCorrected}
+            value={data.feedback.notCorrected}
             onClick={(notCorrected: number) =>
-              props.setData({
-                feedback: { ...props.data.feedback, notCorrected },
-              })
+              dispatch(
+                setData({
+                  feedback: { ...data.feedback, notCorrected },
+                })
+              )
             }
           />
         </ButtonsWrapper>
       </DataRow>
 
-      <PraiseDataRow data={props.data} setData={props.setData} />
+      <PraiseDataRow data={props.data} />
     </Styles.PageContent>
   );
 };

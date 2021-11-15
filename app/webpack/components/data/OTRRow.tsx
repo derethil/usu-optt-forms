@@ -9,16 +9,21 @@ import { ButtonsWrapper } from "../../styledComponents/style";
 
 import * as dataUtils from "../../utils/dataUtils";
 import Color from "../../styledComponents/colors";
-import { useAppSelector } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { IDataSlice } from "../../slices/dataSlice";
 
 type PraiseDataRowProps = {
-  data: ICues;
+  dataSlice: IDataSlice;
   timer: ITimer;
-  setData: (updatedValues: Partial<ICues>) => void;
 };
 
-const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
+const OTRRow = ({ dataSlice, timer }: PraiseDataRowProps) => {
+  const dispatch = useAppDispatch();
+
   const timerState = useAppSelector(timer.selector);
+  const data = useAppSelector(dataSlice.selector);
+
+  const setData = dataSlice.actions.setData;
 
   const total =
     data.cues.individual +
@@ -37,7 +42,10 @@ const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
         ]
       : []),
     { display: "Total Responses", score: total },
-    { display: "OTR Rate", score: dataUtils.getOTRRate(data, timerState) },
+    {
+      display: "OTR Rate",
+      score: dataUtils.getOTRRate(data as ICues, timerState),
+    },
   ];
 
   return (
@@ -52,7 +60,7 @@ const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
             content="Non Directed"
             value={data.cues.nonDirected}
             onClick={(nonDirected: number) =>
-              setData({ cues: { ...data.cues, nonDirected } })
+              dispatch(setData({ cues: { ...data.cues, nonDirected } }))
             }
           />
         )}
@@ -61,7 +69,7 @@ const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
           content="Individual"
           value={data.cues.individual}
           onClick={(individual: number) =>
-            setData({ cues: { ...data.cues, individual } })
+            dispatch(setData({ cues: { ...data.cues, individual } }))
           }
         />
         <CounterButton
@@ -69,7 +77,7 @@ const OTRRow = ({ data, setData, timer }: PraiseDataRowProps) => {
           content="Group"
           value={data.cues.group}
           onClick={(group: number) =>
-            setData({ cues: { ...data.cues, group } })
+            dispatch(setData({ cues: { ...data.cues, group } }))
           }
         />
       </ButtonsWrapper>
