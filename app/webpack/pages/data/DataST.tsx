@@ -19,19 +19,25 @@ import {
 } from "../../styledComponents/style";
 import OTRRow from "../../components/data/OTRRow";
 import { css } from "styled-components";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { ITimer } from "../../slices/timersSlice";
+import { IDataSlice } from "../../slices/dataSlice";
+import { formOptions } from "../../currentForm";
 
 interface DataProps<T> {
   title: string;
   timer: ITimer;
-  data: T;
-  setData: (updatedValues: Partial<T>) => void;
+  data: IDataSlice;
   resetCallback?: () => void;
 }
 
 const DataST = (props: DataProps<IStudentTeachingData>) => {
+  const data = useAppSelector(props.data.selector);
   const dispatch = useAppDispatch();
+
+  const setData = props.data.actions.setData;
+
+  if (data.currentForm !== formOptions.studentTeaching) return <div></div>;
 
   return (
     <Styles.PageContent>
@@ -47,25 +53,25 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
-      <OTRRow data={props.data} setData={props.setData} timer={props.timer} />
+      {/* <OTRRow data={data} setData={props.setData} timer={props.timer} /> */}
 
-      <PraiseDataRow data={props.data} setData={props.setData} />
+      {/* <PraiseDataRow data={data} setData={props.setData} /> */}
 
       <DataRow
         title="Corrections"
         displayData={[
-          { display: "Correct", score: props.data.corrections.correct },
-          { display: "Not Correct", score: props.data.corrections.incorrect },
-          { display: "None", score: props.data.corrections.none },
+          { display: "Correct", score: data.corrections.correct },
+          { display: "Not Correct", score: data.corrections.incorrect },
+          { display: "None", score: data.corrections.none },
           {
             display: "Total Corrections",
-            score: dataUtils.getCorrectionsSum(props.data),
+            score: dataUtils.getCorrectionsSum(data),
           },
           {
             display: "Percent",
             score: getPercent(
-              props.data.corrections.correct,
-              dataUtils.getCorrectionsSum(props.data)
+              data.corrections.correct,
+              dataUtils.getCorrectionsSum(data)
             ),
           },
         ]}
@@ -74,31 +80,37 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
           <CounterButton
             color={Color.accents.brightLight}
             content="Correct"
-            value={props.data.corrections.correct}
+            value={data.corrections.correct}
             onClick={(newValue: number) =>
-              props.setData({
-                corrections: { ...props.data.corrections, correct: newValue },
-              })
+              dispatch(
+                setData({
+                  corrections: { ...data.corrections, correct: newValue },
+                })
+              )
             }
           />
           <CounterButton
             color={Color.accents.brightLight}
             content="Incorrect"
-            value={props.data.corrections.incorrect}
+            value={data.corrections.incorrect}
             onClick={(newValue: number) =>
-              props.setData({
-                corrections: { ...props.data.corrections, incorrect: newValue },
-              })
+              dispatch(
+                setData({
+                  corrections: { ...data.corrections, incorrect: newValue },
+                })
+              )
             }
           />
           <CounterButton
             color={Color.accents.brightLight}
             content="None"
-            value={props.data.corrections.none}
+            value={data.corrections.none}
             onClick={(newValue: number) =>
-              props.setData({
-                corrections: { ...props.data.corrections, none: newValue },
-              })
+              dispatch(
+                setData({
+                  corrections: { ...data.corrections, none: newValue },
+                })
+              )
             }
           />
         </ButtonsWrapper>
@@ -107,18 +119,17 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
       <DataRow
         title="Momentary Sample Time"
         displayData={[
-          { display: "Engaged", score: props.data.engagement.engaged },
-          { display: "Not Engaged", score: props.data.engagement.notEngaged },
+          { display: "Engaged", score: data.engagement.engaged },
+          { display: "Not Engaged", score: data.engagement.notEngaged },
           {
             display: "Total",
-            score:
-              props.data.engagement.engaged + props.data.engagement.notEngaged,
+            score: data.engagement.engaged + data.engagement.notEngaged,
           },
           {
             display: "Percent",
             score: getPercent(
-              props.data.engagement.engaged,
-              props.data.engagement.engaged + props.data.engagement.notEngaged
+              data.engagement.engaged,
+              data.engagement.engaged + data.engagement.notEngaged
             ),
           },
         ]}
@@ -127,22 +138,26 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
           <CounterButton
             color={Color.contextual.info}
             content="Engaged"
-            value={props.data.engagement.engaged}
+            value={data.engagement.engaged}
             onClick={(newValue: number) =>
-              props.setData({
-                engagement: { ...props.data.engagement, engaged: newValue },
-              })
+              dispatch(
+                setData({
+                  engagement: { ...data.engagement, engaged: newValue },
+                })
+              )
             }
           />
 
           <CounterButton
             color={Color.contextual.info}
             content="Not Engaged"
-            value={props.data.engagement.notEngaged}
+            value={data.engagement.notEngaged}
             onClick={(newValue: number) =>
-              props.setData({
-                engagement: { ...props.data.engagement, notEngaged: newValue },
-              })
+              dispatch(
+                setData({
+                  engagement: { ...data.engagement, notEngaged: newValue },
+                })
+              )
             }
           />
         </ButtonsWrapper>
@@ -153,11 +168,11 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
         displayData={[
           {
             display: "Occurrence of Scanning",
-            score: props.data.misc.scanningCount,
+            score: data.misc.scanningCount,
           },
           {
             display: "Number of Transitions",
-            score: props.data.misc.transitionCount,
+            score: data.misc.transitionCount,
           },
         ]}
       >
@@ -165,22 +180,26 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
           <CounterButton
             color={Color.accents.brick}
             content="Scanning"
-            value={props.data.misc.scanningCount}
+            value={data.misc.scanningCount}
             onClick={(newValue: number) =>
-              props.setData({
-                misc: { ...props.data.misc, scanningCount: newValue },
-              })
+              dispatch(
+                setData({
+                  misc: { ...data.misc, scanningCount: newValue },
+                })
+              )
             }
           />
 
           <CounterButton
             color={Color.accents.brick}
             content="Transition"
-            value={props.data.misc.transitionCount}
+            value={data.misc.transitionCount}
             onClick={(newValue: number) =>
-              props.setData({
-                misc: { ...props.data.misc, transitionCount: newValue },
-              })
+              dispatch(
+                setData({
+                  misc: { ...data.misc, transitionCount: newValue },
+                })
+              )
             }
           />
         </ButtonsWrapper>

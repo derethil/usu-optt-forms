@@ -11,14 +11,12 @@
 // };
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
 import { DataSchema } from "../types/dataTypes";
 
 const initialState: DataSchema = FormData[currentForm].defaultData;
-
-type SetDataAction = PayloadAction<Partial<Omit<DataSchema, "currentForm">>>;
 
 function createDataSlice(sliceName: string) {
   const slice = createSlice({
@@ -28,7 +26,7 @@ function createDataSlice(sliceName: string) {
       resetData: () => {
         return initialState;
       },
-      setData: (state, action: SetDataAction) => {
+      setData: (state, action) => {
         return { ...state, ...action.payload };
       },
     },
@@ -54,12 +52,17 @@ const dataSlice2 = createDataSlice("data2");
 export const dataReducer1 = dataSlice1.reducer;
 export const dataReducer2 = dataSlice2.reducer;
 
-export const data1 = {
+export interface IDataSlice {
+  selector: (state: RootState) => typeof initialState;
+  actions: typeof dataSlice1.actions;
+}
+
+export const data1: IDataSlice = {
   selector: dataSlice1.selectData,
   actions: dataSlice1.actions,
 };
 
-export const data2 = {
+export const data2: IDataSlice = {
   selector: dataSlice2.selectData,
   actions: dataSlice2.actions,
 };

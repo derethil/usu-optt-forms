@@ -1,5 +1,4 @@
-import { CaseReducerActions, createSlice } from "@reduxjs/toolkit";
-import { WritableDraft } from "immer/dist/internal";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export interface ITimerState {
@@ -7,14 +6,6 @@ export interface ITimerState {
   isActive: boolean;
   isPaused: boolean;
 }
-
-export type ITimerActions = CaseReducerActions<{
-  start: (state: WritableDraft<ITimerState>) => void;
-  pause: (state: WritableDraft<ITimerState>) => void;
-  resume: (state: WritableDraft<ITimerState>) => void;
-  reset: () => void;
-  increment: (state: WritableDraft<ITimerState>) => void;
-}>;
 
 const initialState: ITimerState = { value: 0, isActive: false, isPaused: true };
 
@@ -65,8 +56,8 @@ export const timerReducer2 = timerSlice2.reducer;
 export const timerReducer3 = timerSlice3.reducer;
 
 export interface ITimer {
-  selector: (state: RootState) => typeof initialState;
-  actions: ITimerActions;
+  selector: typeof timerSlice1.selectTimer;
+  actions: typeof timerSlice1.actions;
 }
 
 export const timer1: ITimer = {
