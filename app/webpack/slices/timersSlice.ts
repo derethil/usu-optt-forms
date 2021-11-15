@@ -25,8 +25,6 @@ export type ITimerActions = CaseReducerActions<{
 const initialState: ITimerState = { value: 0, isActive: false, isPaused: true };
 
 function createTimerSlice(sliceName: string) {
-  let countRef = undefined;
-
   const slice = createSlice({
     name: sliceName,
     initialState,
@@ -41,7 +39,7 @@ function createTimerSlice(sliceName: string) {
       resume: (state) => {
         state.isPaused = false;
       },
-      reset: (state) => {
+      reset: () => {
         return initialState;
       },
       increment: (state) => {
@@ -72,31 +70,22 @@ export const timerReducer1 = timerSlice1.reducer;
 export const timerReducer2 = timerSlice2.reducer;
 export const timerReducer3 = timerSlice3.reducer;
 
-const timerActions1: ITimerActions = timerSlice1.actions;
-const selectTimer1 = timerSlice1.selectTimer;
-
-const timerActions2: ITimerActions = timerSlice2.actions;
-const selectTimer2 = timerSlice2.selectTimer;
-
-const timerActions3: ITimerActions = timerSlice3.actions;
-const selectTimer3 = timerSlice3.selectTimer;
-
 export interface ITimer {
   selector: (state: RootState) => typeof initialState;
   actions: ITimerActions;
 }
 
 export const timer1: ITimer = {
-  selector: selectTimer1,
-  actions: timerActions1,
+  selector: timerSlice1.selectTimer,
+  actions: timerSlice1.actions,
 };
 
 export const timer2: ITimer = {
-  selector: selectTimer2,
-  actions: timerActions2,
+  selector: timerSlice2.selectTimer,
+  actions: timerSlice2.actions,
 };
 
 export const timer3: ITimer = {
-  selector: selectTimer3,
-  actions: timerActions3,
+  selector: timerSlice3.selectTimer,
+  actions: timerSlice3.actions,
 };
