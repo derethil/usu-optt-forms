@@ -51,7 +51,11 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={props.timer} resetCallback={props.resetCallback} />
+        <Timer
+          timer={props.timer}
+          timerActions={props.timerActions}
+          resetCallback={props.resetCallback}
+        />
       </Card>
 
       <DataRow

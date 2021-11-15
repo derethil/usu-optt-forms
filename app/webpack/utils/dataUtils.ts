@@ -1,4 +1,4 @@
-import { ITimer } from "../types/types";
+import { ITimer } from "../slices/timersSlice";
 import { IPraiseData, IStudentTeachingData, ICues } from "../types/dataTypes";
 import currentForm from "../currentForm";
 import FormData from "../FormData";
@@ -12,7 +12,7 @@ export const getOTRRate = (data: ICues, timer: ITimer): string => {
     data.cues.individual +
     data.cues.group +
     (data.cues.nonDirected ? data.cues.nonDirected : 0);
-  const OTRRate = (total / timer.time) * 60;
+  const OTRRate = (total / timer.value) * 60;
   return OTRRate.toFixed(2);
 };
 

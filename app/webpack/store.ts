@@ -11,17 +11,25 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import currentForm from "./currentForm";
 import formInfoReducer from "./slices/formInfoSlice";
 import rubricReducer from "./slices/rubricSlice";
 import feedbackReducer from "./slices/feedbackSlice";
 import notebookChecksReducer from "./slices/notebookChecksSlice";
-import currentForm from "./currentForm";
+import {
+  timerReducer1,
+  timerReducer2,
+  timerReducer3,
+} from "./slices/timersSlice";
 
 const reducers = combineReducers({
   formInfo: formInfoReducer,
   rubric: rubricReducer,
   feedback: feedbackReducer,
   notebookChecks: notebookChecksReducer,
+  timer1: timerReducer1,
+  timer2: timerReducer2,
+  timer3: timerReducer3,
 });
 
 const persistConfig = {

@@ -1,15 +1,14 @@
 import React from "react";
 
-import { ITimer } from "../types/types";
+import { ITimer } from "../slices/timersSlice";
 
-import { DataSchema, INotebookCheck } from "../types/dataTypes";
+import { DataSchema } from "../types/dataTypes";
 
 import { PDFData } from "../components/pdfReport/PDFData";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
 import { PageContent } from "../styledComponents/style";
-import { IComments } from "../defaults/defaults";
 import ConfirmModal from "../components/ConfirmModal";
 import { css } from "styled-components";
 

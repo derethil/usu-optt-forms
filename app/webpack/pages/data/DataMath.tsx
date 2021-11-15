@@ -16,8 +16,13 @@ import {
 } from "../../styledComponents/style";
 import DataProps from "./DataProps";
 import OTRRow from "../../components/data/OTRRow";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { selectTimer1, timerActions1 } from "../../slices/timersSlice";
 
 const DataMath = (props: DataProps<IMathData>) => {
+  const timer1 = useAppSelector(selectTimer1);
+  const dispatch = useAppDispatch();
+
   return (
     <Styles.PageContent>
       <Card
@@ -29,7 +34,11 @@ const DataMath = (props: DataProps<IMathData>) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={props.timer} resetCallback={props.resetCallback} />
+        <Timer
+          timer={timer1}
+          resetCallback={props.resetCallback}
+          timerActions={timerActions1}
+        />
       </Card>
 
       <DataRow

@@ -1,6 +1,7 @@
 import React from "react";
 
-import { ScoresState, ITimer, IFormInfo } from "../../types/types";
+import { ScoresState, IFormInfo } from "../../types/types";
+import { ITimer } from "../../slices/timersSlice";
 
 import { IComments } from "../../defaults/defaults";
 import { DataSchema, INotebookCheck } from "../../types/dataTypes";

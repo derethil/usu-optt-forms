@@ -64,7 +64,11 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
       ></Card>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={props.timer} resetCallback={props.resetCallback} />
+        <Timer
+          timer={props.timer}
+          timerActions={props.timerActions}
+          resetCallback={props.resetCallback}
+        />
       </Card>
 
       <DataRow
@@ -168,7 +172,7 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
           { display: "Cue", score: correct.cue + correct.all },
           {
             display: "Rate of Interaction",
-            score: ((totalInteractions / props.timer.time) * 60).toFixed(2),
+            score: ((totalInteractions / props.timer.value) * 60).toFixed(2),
           },
         ]}
       >

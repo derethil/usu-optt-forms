@@ -4,7 +4,7 @@ import {
   ISeverePracticumData,
   IStudentTeachingData,
 } from "../types/dataTypes";
-import { ITimer } from "../types/types";
+import { ITimer } from "../slices/timersSlice";
 
 import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
@@ -20,7 +20,7 @@ export const genSTObservationBody = (
   timer: ITimer
 ) => {
   return [
-    ["Time", formatTime(timer.time)],
+    ["Time", formatTime(timer.value)],
     ["OTR Rate", data.getOTRRate(observData, timer)],
     ["Praise Ratio", data.getPraiseRatio(observData)],
     [

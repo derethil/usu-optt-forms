@@ -67,7 +67,7 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
         ["Cue", correct.cue + correct.all],
         [
           "Rate of Interaction",
-          ((totalInteractions / props.timer1.time) * 60).toFixed(2),
+          ((totalInteractions / props.timer1.value) * 60).toFixed(2),
         ],
       ],
     });

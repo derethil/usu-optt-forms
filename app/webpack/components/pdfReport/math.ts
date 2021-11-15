@@ -3,7 +3,7 @@ import { DataSchema } from "../../types/dataTypes";
 
 import { getPercent } from "../../utils/utils";
 import Color from "../../styledComponents/colors";
-import { ITimer } from "../../types/types";
+import { ITimer } from "../../slices/timersSlice";
 import { formOptions } from "../../currentForm";
 import { formatTime } from "../../utils/timerUtils";
 
@@ -21,13 +21,13 @@ export default function mathGuidedPractice(
     headStyles: { fillColor: Color.blues.blue },
     columnStyles: { 1: { cellWidth: 50 } },
     body: [
-      ["Opening Time", formatTime(openingTimer.time)],
-      ["New Material Time", formatTime(guidedTimer.time)],
-      ["Independent Time", formatTime(independentTimer.time)],
+      ["Opening Time", formatTime(openingTimer.value)],
+      ["New Material Time", formatTime(guidedTimer.value)],
+      ["Independent Time", formatTime(independentTimer.value)],
       [
         "Total Time",
         formatTime(
-          independentTimer.time + guidedTimer.time + openingTimer.time
+          independentTimer.value + guidedTimer.value + openingTimer.value
         ),
       ],
     ],

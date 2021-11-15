@@ -25,10 +25,18 @@ import FormData from "./FormData";
 import NotebookCheck from "./pages/data/NotebookCheck";
 
 import { resetFormInfo } from "./slices/formInfoSlice";
-import { useAppDispatch } from "./hooks/hooks";
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { resetRubric } from "./slices/rubricSlice";
 import { resetFeedback } from "./slices/feedbackSlice";
 import { resetNotebookChecks } from "./slices/notebookChecksSlice";
+import {
+  selectTimer1,
+  selectTimer2,
+  selectTimer3,
+  timerActions1,
+  timerActions2,
+  timerActions3,
+} from "./slices/timersSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -42,17 +50,17 @@ export const App = () => {
     FormData[currentForm].defaultData
   );
 
-  const timer1 = useTimer("timer1");
-  const timer2 = useTimer("timer2");
-  const timer3 = useTimer("timer3");
+  const timer1 = useAppSelector(selectTimer1);
+  const timer2 = useAppSelector(selectTimer2);
+  const timer3 = useAppSelector(selectTimer3);
 
   const resetAll = (): void => {
     dispatch(resetRubric());
     resetData1();
     resetData2();
-    timer1.handleReset();
-    timer2.handleReset();
-    timer3.handleReset();
+    timerActions1.reset();
+    timerActions2.reset();
+    timerActions3.reset();
     dispatch(resetFormInfo());
     dispatch(resetFeedback());
     dispatch(resetNotebookChecks());
@@ -68,6 +76,7 @@ export const App = () => {
           data={data1}
           setData={setData1}
           timer={timer1}
+          timerActions={timerActions1}
           title={title}
           resetCallback={resetData1}
         />
@@ -77,6 +86,7 @@ export const App = () => {
           data={data2}
           setData={setData2}
           timer={timer2}
+          timerActions={timerActions2}
           title={title}
           resetCallback={resetData2}
         />
@@ -89,6 +99,7 @@ export const App = () => {
           data={data1}
           setData={setData1}
           timer={timer1}
+          timerActions={timerActions1}
           title={title}
           resetCallback={resetData1}
         />
@@ -101,6 +112,7 @@ export const App = () => {
           data={data1}
           setData={setData1}
           timer={timer1}
+          timerActions={timerActions1}
           title={title}
           resetCallback={resetData1}
         />
@@ -113,6 +125,7 @@ export const App = () => {
           data={data1}
           setData={setData1}
           timer={timer1}
+          timerActions={timerActions1}
           title={title}
           resetCallback={resetData1}
         />
@@ -122,6 +135,7 @@ export const App = () => {
           data={data2}
           setData={setData2}
           timer={timer2}
+          timerActions={timerActions2}
           title={title}
           resetCallback={resetData2}
         />
@@ -137,6 +151,7 @@ export const App = () => {
           data={data1}
           setData={setData1}
           timer={timer3}
+          timerActions={timerActions3}
           title={title}
           resetCallback={resetData1}
         />
@@ -172,7 +187,12 @@ export const App = () => {
           {...dynamicRoutes[currentForm]}
 
           <Route path="/rubric" key="Rubric">
-            <Rubric timer1={timer1} timer2={timer2} />
+            <Rubric
+              timer1={timer1}
+              timerActions1={timerActions1}
+              timerActions2={timerActions2}
+              timer2={timer2}
+            />
           </Route>
 
           <Route path="/feedback" key="Feedback" component={FeedbackPage} />

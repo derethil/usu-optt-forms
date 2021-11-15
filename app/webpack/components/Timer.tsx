@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import { formatTime } from "../utils/timerUtils";
-import { ITimer } from "../types/types";
 
 import { Button } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
+import { ITimer, ITimerActions } from "../slices/timersSlice";
+import { useDispatch } from "react-redux";
 
 const TimerDisplay = styled.h2`
   display: flex;
@@ -44,16 +45,31 @@ const TimerButton = styled(Button)`
 
 type TimerProps = {
   timer: ITimer;
+  timerActions: ITimerActions;
   resetCallback?: () => void;
 };
 
-const Timer = ({ timer, resetCallback }: TimerProps) => {
+const Timer = ({ timer, timerActions, resetCallback }: TimerProps) => {
+  const dispatch = useDispatch();
+
+  const count = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (!timer.isPaused) {
+      count.current = setInterval(() => {
+        dispatch(timerActions.increment());
+      }, 1000);
+    } else {
+      clearInterval(count.current as NodeJS.Timeout);
+    }
+  }, [timer.isActive, timer.isPaused]);
+
   const currentButton = () => {
     const getButton = (text: string, onClick: () => void) => {
       return (
         <TimerButton
           color={Color.blues.blue}
-          onClick={onClick}
+          onClick={() => dispatch(onClick())}
           style={{
             minWidth: "12em",
             border: `3px solid ${Color.neutrals.grayDark}`,
@@ -65,22 +81,22 @@ const Timer = ({ timer, resetCallback }: TimerProps) => {
     };
 
     if (!timer.isActive) {
-      return getButton("Start", timer.handleStart);
+      return getButton("Start", timerActions.start);
     } else if (timer.isPaused) {
-      return getButton("Resume", timer.handleResume);
+      return getButton("Resume", timerActions.resume);
     } else {
-      return getButton("Pause / Stop", timer.handlePause);
+      return getButton("Pause / Stop", timerActions.pause);
     }
   };
 
   const handleResetClicked = () => {
-    timer.handleReset();
+    dispatch(timerActions.reset());
     if (resetCallback) resetCallback();
   };
 
   return (
     <TimerContent>
-      <TimerDisplay>{formatTime(timer.time)}</TimerDisplay>
+      <TimerDisplay>{formatTime(timer.value)}</TimerDisplay>
 
       {currentButton()}
 

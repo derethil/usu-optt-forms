@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ICues } from "../../types/dataTypes";
-import { ITimer } from "../../types/types";
+import { ITimer } from "../../slices/timersSlice";
 
 import DataRow from "../DataRow";
 import CounterButton from "../CounterButton";
