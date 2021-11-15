@@ -1,6 +1,8 @@
 import currentForm, { formOptions } from "../currentForm";
 import { CheckRow } from "../types/dataTypes";
 import { IFormInfo, Location } from "../types/types";
+import notebookChecks from "../../rubrics/notebookChecks.json";
+import getNotebookCheck from "../utils/notebookCheckUtils";
 
 export const defaultComments = {
   strengths: "",
@@ -23,6 +25,6 @@ export const defaultFormInfo: IFormInfo = {
 };
 
 export const defaultNotebookCheck = {
-  numbered: [] as CheckRow[],
-  final: [] as CheckRow[],
+  numbered: getNotebookCheck(true, 1),
+  final: getNotebookCheck(true),
 };
