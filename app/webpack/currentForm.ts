@@ -6,6 +6,6 @@ export enum formOptions {
   math = "math",
 }
 
-const currentForm: formOptions = formOptions.severePracticum;
+const currentForm: formOptions = formOptions.studentTeaching;
 
 export default currentForm;
