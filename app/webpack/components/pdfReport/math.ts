@@ -6,6 +6,9 @@ import Color from "../../styledComponents/colors";
 import { ITimerState } from "../../slices/timersSlice";
 import { formOptions } from "../../currentForm";
 import { formatTime } from "../../utils/timerUtils";
+import { timer1, timer2, timer3 } from "../../slices/timersSlice";
+import { data1 } from "../../slices/dataSlice";
+import { useAppSelector } from "../../hooks/hooks";
 
 export default function mathGuidedPractice(
   generator: PDFGenerator,

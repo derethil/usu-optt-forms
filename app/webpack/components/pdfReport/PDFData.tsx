@@ -21,6 +21,11 @@ import { useAppSelector } from "../../hooks/hooks";
 import { selectRubric } from "../../slices/rubricSlice";
 import { selectFeedback } from "../../slices/feedbackSlice";
 import { selectNotebookChecks } from "../../slices/notebookChecksSlice";
+import { timer1, timer2, timer3 } from "../../slices/timersSlice";
+import {
+  data1 as dataReducer1,
+  data2 as dataReducer2,
+} from "../../slices/dataSlice";
 
 export type PDFDataProps = {
   data1: DataSchema;
@@ -34,11 +39,16 @@ const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString();
 };
 
-export const PDFData = (props: PDFDataProps) => {
+export const PDFData = () => {
   const formInfo = useAppSelector(selectFormInfo);
   const rubricScores = useAppSelector(selectRubric);
   const feedback = useAppSelector(selectFeedback);
   const checks = useAppSelector(selectNotebookChecks);
+  const data1 = useAppSelector(dataReducer1.selector);
+  const data2 = useAppSelector(dataReducer2.selector);
+  const timerState1 = useAppSelector(timer1.selector);
+  const timerState2 = useAppSelector(timer2.selector);
+  const timerState3 = useAppSelector(timer3.selector);
 
   const generatePDF = () => {
     // Setup
@@ -103,40 +113,40 @@ export const PDFData = (props: PDFDataProps) => {
 
     // Observations
 
-    if (props.data1.currentForm !== formOptions.studentTeaching)
+    if (data1.currentForm !== formOptions.studentTeaching)
       generator.table({
         head: ["Data"],
       });
 
     if (
-      props.data1.currentForm === formOptions.studentTeaching &&
-      props.data2.currentForm === formOptions.studentTeaching
+      data1.currentForm === formOptions.studentTeaching &&
+      data2.currentForm === formOptions.studentTeaching
     ) {
-      studentTeachingSection(generator, props);
-    } else if (props.data1.currentForm === formOptions.severePracticum) {
-      severePracticumReadingSection(generator, props.data1, props.timer1);
-    } else if (props.data1.currentForm === formOptions.bTo5Practicum) {
-      bTo5PracticumSection(generator, props);
-    } else if (props.data1.currentForm === formOptions.reading) {
+      studentTeachingSection(generator, data1, data2, timerState1, timerState2);
+    } else if (data1.currentForm === formOptions.severePracticum) {
+      severePracticumReadingSection(generator, data1, timerState1);
+    } else if (data1.currentForm === formOptions.bTo5Practicum) {
+      bTo5PracticumSection(generator, data1, timerState1);
+    } else if (data1.currentForm === formOptions.reading) {
       severePracticumReadingSection(
         generator,
-        props.data1,
-        props.timer1,
+        data1,
+        timerState1,
         "Decoding Data"
       );
       severePracticumReadingSection(
         generator,
-        props.data2,
-        props.timer2,
+        data2,
+        timerState2,
         "Story Reading Data"
       );
-    } else if (props.data1.currentForm === formOptions.math) {
+    } else if (data1.currentForm === formOptions.math) {
       mathGuidedPractice(
         generator,
-        props.data1,
-        props.timer1,
-        props.timer2,
-        props.timer3
+        data1,
+        timerState1,
+        timerState2,
+        timerState3
       );
     }
     // // Individual Scores
@@ -177,7 +187,7 @@ export const PDFData = (props: PDFDataProps) => {
       }
     );
 
-    if (props.data1.currentForm === formOptions.math) {
+    if (data1.currentForm === formOptions.math) {
       generator.table({
         columnStyles: {
           0: { halign: "center" },

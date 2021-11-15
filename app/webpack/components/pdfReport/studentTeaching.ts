@@ -1,16 +1,20 @@
 import PDFGenerator from "./PDFGenerator";
 import { genSTObservationBody } from "../../utils/pdfUtils";
-import { PDFDataProps } from "./PDFData";
 import Color from "../../styledComponents/colors";
 import { formOptions } from "../../currentForm";
+import { DataSchema } from "../../types/dataTypes";
+import { ITimerState } from "../../slices/timersSlice";
 
 const studentTeachingSection = (
   generator: PDFGenerator,
-  props: PDFDataProps
+  data1: DataSchema,
+  data2: DataSchema,
+  timer1: ITimerState,
+  timer2: ITimerState
 ) => {
   if (
-    props.data1.currentForm === formOptions.studentTeaching &&
-    props.data2.currentForm === formOptions.studentTeaching
+    data1.currentForm === formOptions.studentTeaching &&
+    data2.currentForm === formOptions.studentTeaching
   ) {
     generator.dualNestedTables({
       startY: (generator.pdf as any).lastAutoTable.finalY + 2,
@@ -22,8 +26,8 @@ const studentTeachingSection = (
         ["Area", "Score"],
       ],
       nestedBodies: [
-        genSTObservationBody(props.data1, props.timer1),
-        genSTObservationBody(props.data2, props.timer2),
+        genSTObservationBody(data1, timer1),
+        genSTObservationBody(data2, timer2),
       ],
     });
   }

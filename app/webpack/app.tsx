@@ -9,7 +9,7 @@ import logo from "../static/img/usuHorizontalB64";
 
 import FormHome from "./pages/FormHome";
 import DataST from "./pages/data/DataST";
-import DataSPR from "./pages/data/DataSP";
+import DataSPR from "./pages/data/DataSPR";
 import DataBT5 from "./pages/data/DataBT5";
 import DataMath from "./pages/data/DataMath";
 import Rubric from "./pages/Rubric";
@@ -148,14 +148,7 @@ export const App = () => {
 
         <Switch>
           <Route exact path="/" key="FormHome">
-            <FormHome
-              data1={data1}
-              data2={data2}
-              timer1={timerState1}
-              timer2={timerState2}
-              timer3={timerState3}
-              resetAll={resetAll}
-            />
+            <FormHome resetAll={resetAll} />
           </Route>
 
           {...dynamicRoutes[currentForm]}

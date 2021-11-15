@@ -4,27 +4,33 @@ import { PDFDataProps } from "./PDFData";
 import * as dataUtils from "../../utils/dataUtils";
 import Color from "../../styledComponents/colors";
 import { formOptions } from "../../currentForm";
+import { DataSchema } from "../../types/dataTypes";
+import { ITimerState } from "../../slices/timersSlice";
 
 // generator.table({
 //   head: ["Opportunities to Respond", ""],
 //   columnStyles: { 1: { cellWidth: 50 } },
 //   body: [
-//     ["Group Responses", props.data1.cues.group],
-//     ["Individual Responses", props.data1.cues.individual],
-//     ["Total OTR", props.data1.cues.individual + props.data1.cues.group],
-//     ["Responses/min", getOTRRate({ cues: props.data1.cues }, props.timer1)],
+//     ["Group Responses", data.cues.group],
+//     ["Individual Responses", data.cues.individual],
+//     ["Total OTR", data.cues.individual + data.cues.group],
+//     ["Responses/min", getOTRRate({ cues: data.cues }, props.timer1)],
 //   ],
 // });
 
-const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
-  if (props.data1.currentForm === formOptions.bTo5Practicum) {
-    const correct = props.data1.sequence.correct;
-    const incorrect = props.data1.sequence.incorrect;
+const bTo5PracticumSection = (
+  generator: PDFGenerator,
+  data: DataSchema,
+  timer: ITimerState
+) => {
+  if (data.currentForm === formOptions.bTo5Practicum) {
+    const correct = data.sequence.correct;
+    const incorrect = data.sequence.incorrect;
 
     const totalInteractions =
-      props.data1.interactions.comment +
-      props.data1.interactions.question +
-      props.data1.interactions.nonTargetCue +
+      data.interactions.comment +
+      data.interactions.question +
+      data.interactions.nonTargetCue +
       correct.cue +
       correct.all;
 
@@ -34,9 +40,9 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
     ).toFixed(2);
 
     const errorTotal =
-      props.data1.errorCorrection.prompt +
-      props.data1.errorCorrection.test +
-      props.data1.errorCorrection.delayedTest;
+      data.errorCorrection.prompt +
+      data.errorCorrection.test +
+      data.errorCorrection.delayedTest;
 
     generator.table({
       startY: (generator.pdf as any).lastAutoTable.finalY + 2,
@@ -47,7 +53,7 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
         ["Attention", `${correct.attention} | ${incorrect.attention}`],
         ["Cue", `${correct.cue} | ${incorrect.cue}`],
         ["Pause", `${correct.pause} | ${incorrect.pause}`],
-        ["All Correct", props.data1.sequence.correct.all],
+        ["All Correct", data.sequence.correct.all],
         ["Total Sequences", correct.all + Number(incorrectCount)],
         [
           "Percent Correct",
@@ -61,13 +67,13 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["Comment", props.data1.interactions.comment],
-        ["Question", props.data1.interactions.question],
-        ["Non-Target Cue", props.data1.interactions.nonTargetCue],
+        ["Comment", data.interactions.comment],
+        ["Question", data.interactions.question],
+        ["Non-Target Cue", data.interactions.nonTargetCue],
         ["Cue", correct.cue + correct.all],
         [
           "Rate of Interaction",
-          ((totalInteractions / props.timer1.value) * 60).toFixed(2),
+          ((totalInteractions / timer.value) * 60).toFixed(2),
         ],
       ],
     });
@@ -77,10 +83,10 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["Group", props.data1.responses.group],
-        ["Individual", props.data1.responses.individual],
-        ["Vocal", props.data1.responses.vocal],
-        ["Non-Vocal", props.data1.responses.nonVocal],
+        ["Group", data.responses.group],
+        ["Individual", data.responses.individual],
+        ["Vocal", data.responses.vocal],
+        ["Non-Vocal", data.responses.nonVocal],
       ],
     });
 
@@ -89,23 +95,23 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["General Praise", props.data1.praise.general],
-        ["Academic Praise", props.data1.praise.academic],
-        ["Behavioral Praise", props.data1.praise.behavioral],
-        ["Redirect/Reprimand", props.data1.praise.reprimand],
-        ["Praise Ratio", dataUtils.getPraiseRatio(props.data1)],
+        ["General Praise", data.praise.general],
+        ["Academic Praise", data.praise.academic],
+        ["Behavioral Praise", data.praise.behavioral],
+        ["Redirect/Reprimand", data.praise.reprimand],
+        ["Praise Ratio", dataUtils.getPraiseRatio(data)],
         [
           "Percent Specific",
           getPercent(
-            props.data1.praise.academic + props.data1.praise.behavioral,
-            dataUtils.getPraiseSum(props.data1)
+            data.praise.academic + data.praise.behavioral,
+            dataUtils.getPraiseSum(data)
           ),
         ],
         [
           "Balanced Varied Praise",
           getPercent(
-            props.data1.praise.academic,
-            props.data1.praise.academic + props.data1.praise.behavioral
+            data.praise.academic,
+            data.praise.academic + data.praise.behavioral
           ),
         ],
       ],
@@ -116,14 +122,14 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["Response Error", props.data1.errorCorrection.responseError],
-        ["Prompt", props.data1.errorCorrection.prompt],
-        ["Test", props.data1.errorCorrection.test],
-        ["Delayed Test", props.data1.errorCorrection.delayedTest],
+        ["Response Error", data.errorCorrection.responseError],
+        ["Prompt", data.errorCorrection.prompt],
+        ["Test", data.errorCorrection.test],
+        ["Delayed Test", data.errorCorrection.delayedTest],
         [
           "Error Correction",
           Math.round(
-            (errorTotal / (props.data1.errorCorrection.responseError * 3)) * 100
+            (errorTotal / (data.errorCorrection.responseError * 3)) * 100
           ) + "%",
         ],
       ],
@@ -134,13 +140,13 @@ const bTo5PracticumSection = (generator: PDFGenerator, props: PDFDataProps) => {
       headStyles: { fillColor: Color.blues.blue },
       columnStyles: { 1: { cellWidth: 50 } },
       body: [
-        ["LTM/ID'ed Prompt", props.data1.prompts.ltm],
-        ["Inconsistent Prompt", props.data1.prompts.inconsistent],
+        ["LTM/ID'ed Prompt", data.prompts.ltm],
+        ["Inconsistent Prompt", data.prompts.inconsistent],
         [
           "Prompt",
           getPercent(
-            props.data1.prompts.ltm,
-            props.data1.prompts.ltm + props.data1.prompts.inconsistent
+            data.prompts.ltm,
+            data.prompts.ltm + data.prompts.inconsistent
           ),
         ],
       ],

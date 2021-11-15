@@ -23,7 +23,11 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
   const data = useAppSelector(props.data.selector);
   const dispatch = useAppDispatch();
 
-  if (data.currentForm !== formOptions.severePracticum) return <div></div>;
+  if (
+    data.currentForm !== formOptions.severePracticum &&
+    data.currentForm !== formOptions.reading
+  )
+    return <div></div>;
 
   const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
     dispatch(

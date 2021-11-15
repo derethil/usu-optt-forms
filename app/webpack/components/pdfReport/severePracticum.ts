@@ -8,8 +8,9 @@ import {
 import { genSPError, genSPSequence } from "../../utils/pdfUtils";
 import { getPercent } from "../../utils/utils";
 import Color from "../../styledComponents/colors";
-import { ITimerState } from "../../slices/timersSlice";
+import { ITimerState, timer1 } from "../../slices/timersSlice";
 import { formOptions } from "../../currentForm";
+import { useAppSelector } from "../../hooks/hooks";
 
 const severePracticumReadingSection = (
   generator: PDFGenerator,
