@@ -3,4 +3,3 @@
 .flaskenv
 node_modules
 __pycache__
-*.zip
