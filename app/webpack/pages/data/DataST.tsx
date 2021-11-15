@@ -17,11 +17,22 @@ import {
   ButtonsWrapper,
   cardContainerStyles,
 } from "../../styledComponents/style";
-import DataProps from "./DataProps";
 import OTRRow from "../../components/data/OTRRow";
 import { css } from "styled-components";
+import { useAppDispatch } from "../../hooks/hooks";
+import { ITimer } from "../../slices/timersSlice";
+
+interface DataProps<T> {
+  title: string;
+  timer: ITimer;
+  data: T;
+  setData: (updatedValues: Partial<T>) => void;
+  resetCallback?: () => void;
+}
 
 const DataST = (props: DataProps<IStudentTeachingData>) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Styles.PageContent>
       <Card

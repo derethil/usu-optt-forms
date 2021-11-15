@@ -10,13 +10,15 @@
 //   });
 // };
 
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import currentForm from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
 import { DataSchema } from "../types/dataTypes";
 
 const initialState: DataSchema = FormData[currentForm].defaultData;
+
+type SetDataAction = PayloadAction<Partial<Omit<DataSchema, "currentForm">>>;
 
 function createDataSlice(sliceName: string) {
   const slice = createSlice({
@@ -25,6 +27,9 @@ function createDataSlice(sliceName: string) {
     reducers: {
       resetData: () => {
         return initialState;
+      },
+      setData: (state, action: SetDataAction) => {
+        return { ...state, ...action.payload };
       },
     },
   });

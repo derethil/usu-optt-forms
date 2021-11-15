@@ -30,6 +30,7 @@ import { resetRubric } from "./slices/rubricSlice";
 import { resetFeedback } from "./slices/feedbackSlice";
 import { resetNotebookChecks } from "./slices/notebookChecksSlice";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
+import { data1, data2 } from "./slices/dataSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -42,6 +43,8 @@ export const App = () => {
     "data2",
     FormData[currentForm].defaultData
   );
+
+  const dataState1 = useAppSelector(data1.selector);
 
   const timerState1 = useAppSelector(timer1.selector);
   const timerState2 = useAppSelector(timer2.selector);

@@ -1,11 +1,5 @@
-import {
-  CaseReducerActions,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { CaseReducerActions, createSlice } from "@reduxjs/toolkit";
 import { WritableDraft } from "immer/dist/internal";
-import { useRef } from "react";
-import { defaultComments, IComments } from "../defaults/defaults";
 import { RootState } from "../store";
 
 export interface ITimerState {
