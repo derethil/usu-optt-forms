@@ -53,11 +53,14 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
         return props.comment.match(overrideRegex)![0].match(/\d+/gi)![0];
       };
 
-      if (!props.scoreOptions!.includes(props.currSelection)) {
+      if (!props.scoreOptions?.includes(props.currSelection)) {
         if (overrideRegex.test(props.comment)) {
+          // If override is found in comment, override the score
           props.updateSelection(getNewScore());
-        } else {
-          props.updateSelection(props.scoreOptions![-1]);
+        } else if (props.currSelection !== "N/A") {
+          // Checking for N/A score is required here because it's not included in scoreOptions
+          // Otherwise this always runs and resets the score when override is not provided and score is N/A
+          props.updateSelection(props.scoreOptions?.pop()!);
         }
       } else if (overrideRegex.test(props.comment)) {
         props.updateSelection(getNewScore());
