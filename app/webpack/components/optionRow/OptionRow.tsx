@@ -49,22 +49,20 @@ interface OptionRowCommentProps extends OptionRowProps {
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
   if ("comment" in props && props.scoreOptions) {
     useEffect(() => {
-      const parseOverrideScore = () => {
-        return props.comment.match(overrideRegex)![0].match(/\d+/gi)![0];
-      };
-
       // If override is found in comment, override the score
       if (overrideRegex.test(props.comment)) {
-        props.updateSelection(parseOverrideScore());
+        props.updateSelection(
+          props.comment.match(overrideRegex)![0].match(/\d+/gi)![0]
+        );
       }
 
       // Reset score when override is removed
       if (
         !props.scoreOptions?.includes(props.currSelection) &&
         props.currSelection !== "N/A"
+      ) {
         // Checking for N/A score is required here because it's not included in scoreOptions
         // Otherwise this always runs and resets the score when override is not provided and score is N/A
-      ) {
         props.updateSelection(props.scoreOptions?.pop()!);
       }
     }, [props["comment"]]);
