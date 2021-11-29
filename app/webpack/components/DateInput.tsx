@@ -25,6 +25,7 @@ const DateInput = (props: DateInputProps) => {
         }
         customInput={<Input />}
         minDate={new Date()}
+        disabledKeyboardNavigation
       />
     </InputContainer>
   );
