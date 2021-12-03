@@ -46,6 +46,12 @@ const FormData: IFormData = {
     defaultData: defaults.defaultMathData,
     title: "MM Math",
   },
+  [formOptions.practicumChecklist]: {
+    title: "Practicum Classroom Checklist",
+    programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
+    rubric: [],
+    defaultData: {} as DataSchema,
+  },
 };
 
 export default FormData;

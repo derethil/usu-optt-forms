@@ -137,6 +137,7 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
+    [formOptions.practicumChecklist]: [] as JSX.Element[],
   };
 
   return (
