@@ -74,8 +74,6 @@ const generateLinks = (allRoutes: Routes): JSX.Element[] => {
       const routeEndpoints = [
         { name: "Home", endpoint: "/" },
         ...dynamicEndpoints,
-        { name: "Rubric", endpoint: "/rubric" },
-        { name: "Feedback", endpoint: "/feedback" },
       ];
 
       return { ...allEndpoints, [formType]: routeEndpoints };

@@ -47,6 +47,13 @@ export const App = () => {
 
   let title;
 
+  const sharedRoutes = [
+    <Route path="/rubric" key="Rubric">
+      <Rubric timer1={timer1} timer2={timer2} />
+    </Route>,
+    <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
+  ];
+
   const dynamicRoutes = {
     // ------ STUDENT TEACHING ------
     [formOptions.studentTeaching]: [
@@ -66,6 +73,7 @@ export const App = () => {
           resetCallback={() => dispatch(data2.actions.resetData())}
         />
       </Route>,
+      ...sharedRoutes,
     ],
     // ------ SEVERE PRACTICUM ------
     [formOptions.severePracticum]: [
@@ -77,6 +85,7 @@ export const App = () => {
           resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
+      ...sharedRoutes,
     ],
     // ------ BIRTH TO FIVE ------
     [formOptions.bTo5Practicum]: [
@@ -88,6 +97,7 @@ export const App = () => {
           resetCallback={() => dispatch(data1.actions.resetData())}
         />
       </Route>,
+      ...sharedRoutes,
     ],
     // ------ READING ------
     [formOptions.reading]: [
@@ -107,6 +117,7 @@ export const App = () => {
           resetCallback={() => dispatch(data2.actions.resetData())}
         />
       </Route>,
+      ...sharedRoutes,
     ],
     // ------ MATH ------
     [formOptions.math]: [
@@ -124,6 +135,7 @@ export const App = () => {
       <Route path="/notebook_check" key={(title = "Notebook Check")}>
         <NotebookCheck />
       </Route>,
+      ...sharedRoutes,
     ],
   };
 
@@ -143,12 +155,6 @@ export const App = () => {
           </Route>
 
           {...dynamicRoutes[currentForm]}
-
-          <Route path="/rubric" key="Rubric">
-            <Rubric timer1={timer1} timer2={timer2} />
-          </Route>
-
-          <Route path="/feedback" key="Feedback" component={FeedbackPage} />
 
           <Route key="NotFound">
             <NotFound />
