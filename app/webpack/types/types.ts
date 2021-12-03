@@ -1,4 +1,3 @@
-import { PayloadAction } from "@reduxjs/toolkit";
 import { FlattenSimpleInterpolation } from "styled-components";
 
 export interface Section {

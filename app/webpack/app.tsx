@@ -16,9 +16,7 @@ import Rubric from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
 import Navbar from "./routing/Navbar";
 import NotFound from "./pages/NotFound";
-import useTimer from "./hooks/useTimer";
 
-import { useObjLocalStorage } from "./hooks/localStorage";
 import { PageContainer, PageHeader, Title } from "./styledComponents/style";
 import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
@@ -34,13 +32,6 @@ import { data1, data2 } from "./slices/dataSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
-
-  const dataState1 = useAppSelector(data1.selector);
-  const dataState2 = useAppSelector(data2.selector);
-
-  const timerState1 = useAppSelector(timer1.selector);
-  const timerState2 = useAppSelector(timer2.selector);
-  const timerState3 = useAppSelector(timer3.selector);
 
   const resetAll = (): void => {
     dispatch(resetRubric());
