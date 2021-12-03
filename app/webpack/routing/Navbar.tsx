@@ -65,32 +65,23 @@ type Endpoints = {
 };
 
 const generateLinks = (allRoutes: Routes): JSX.Element[] => {
-  const getEndpoints = (formRoutes: JSX.Element[]): Endpoint[] => {
-    const dynamicEndpoints = formRoutes.map((route) => {
-      return { name: String(route.key), endpoint: route.props["path"] };
-    });
+  const endpoints = Object.entries(allRoutes).reduce(
+    (allEndpoints, [formType, formRoutes]) => {
+      const dynamicEndpoints = formRoutes.map((route) => {
+        return { name: String(route.key), endpoint: route.props["path"] };
+      });
 
-    return [
-      { name: "Home", endpoint: "/" },
-      ...dynamicEndpoints,
-      { name: "Rubric", endpoint: "/rubric" },
-      { name: "Feedback", endpoint: "/feedback" },
-    ];
-  };
+      const routeEndpoints = [
+        { name: "Home", endpoint: "/" },
+        ...dynamicEndpoints,
+        { name: "Rubric", endpoint: "/rubric" },
+        { name: "Feedback", endpoint: "/feedback" },
+      ];
 
-  const endpoints: Endpoints = {
-    [formOptions.studentTeaching]: getEndpoints(
-      allRoutes[formOptions.studentTeaching]
-    ),
-    [formOptions.severePracticum]: getEndpoints(
-      allRoutes[formOptions.severePracticum]
-    ),
-    [formOptions.bTo5Practicum]: getEndpoints(
-      allRoutes[formOptions.bTo5Practicum]
-    ),
-    [formOptions.reading]: getEndpoints(allRoutes[formOptions.reading]),
-    [formOptions.math]: getEndpoints(allRoutes[formOptions.math]),
-  };
+      return { ...allEndpoints, [formType]: routeEndpoints };
+    },
+    {}
+  ) as Endpoints;
 
   // ---------- REACT COMPONENTS ----------
 
