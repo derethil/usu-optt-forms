@@ -237,11 +237,11 @@ export const PDFData = () => {
     });
 
     // Save
-
+    const date = new Date(formInfo.date);
     generator.pdf.save(
-      `${formInfo.studentTeacher} ${new Date(formInfo.date)
-        .toISOString()
-        .slice(0, 10)}.pdf`
+      `${formInfo.studentTeacher} ${
+        date.getMonth() + 1
+      }-${date.getDate()}-${date.getFullYear()}.pdf`
     );
   };
 
