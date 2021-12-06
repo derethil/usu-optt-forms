@@ -29,6 +29,7 @@ import { resetFeedback } from "./slices/feedbackSlice";
 import { resetNotebookChecks } from "./slices/notebookChecksSlice";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
+import PracticumChecklist from "./pages/data/PracticumChecklist";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -137,7 +138,11 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
-    [formOptions.practicumChecklist]: [] as JSX.Element[],
+    [formOptions.practicumChecklist]: [
+      <Route path="/checklist" key="Checklist">
+        <PracticumChecklist />
+      </Route>,
+    ],
   };
 
   return (
