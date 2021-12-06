@@ -1,17 +1,15 @@
 import React from "react";
 
-import { ITimerState } from "../slices/timersSlice";
+import currentForm, { formOptions } from "../currentForm";
 
-import { IDataSlice } from "../slices/dataSlice";
-
-import { PDFData } from "../components/pdfReport/PDFData";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import FormInfo from "../components/FormInfo";
 import Card from "../components/Card";
-import { PageContent } from "../styledComponents/style";
+import PDFData from "../components/pdfReport/PDFData";
+
 import ConfirmModal from "../components/ConfirmModal";
+import { PageContent } from "../styledComponents/style";
 import { css } from "styled-components";
-import { useAppSelector } from "../hooks/hooks";
 
 type FormHomeProps = {
   resetAll: () => void;
@@ -24,9 +22,11 @@ const FormHome = (props: FormHomeProps) => {
         <FormInfo />
       </Card>
 
-      <Card title="Scores">
-        <ScoreTotals />
-      </Card>
+      {currentForm !== formOptions.practicumChecklist && (
+        <Card title="Scores">
+          <ScoreTotals />
+        </Card>
+      )}
 
       <Card
         title="Form Actions"

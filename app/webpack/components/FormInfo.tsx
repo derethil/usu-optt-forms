@@ -4,12 +4,10 @@ import currentForm, { formOptions } from "../currentForm";
 import TextInput from "./TextInput";
 import OptionRow from "./optionRow";
 
-import { IFormInfo, LocationObservationType } from "../types/types";
 import DateInput from "./DateInput";
 import Color from "../styledComponents/colors";
 import { css } from "styled-components";
 import { buttonStyles } from "../styledComponents/style";
-type FormInfoProps = {};
 
 import { useAppSelector, useAppDispatch } from "../hooks/hooks";
 import {
@@ -18,7 +16,7 @@ import {
   setLocationOrObservation,
 } from "../slices/formInfoSlice";
 
-const FormInfo = (props: FormInfoProps) => {
+const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);
   const dispatch = useAppDispatch();
 
@@ -48,25 +46,36 @@ const FormInfo = (props: FormInfoProps) => {
         value={formInfo.supervisor}
         updateForm={updateFormInfo}
         field="supervisor"
-        title="Supervisor / Coach"
+        title={
+          currentForm !== formOptions.practicumChecklist
+            ? "Supervisor / Coach"
+            : "District Coach"
+        }
       />
 
       <DateInput
         field="date"
-        label="Observation Date"
+        label={
+          currentForm !== formOptions.practicumChecklist
+            ? "Observation Date"
+            : "Date"
+        }
         date={new Date(formInfo.date)}
         updateForm={updateFormInfo}
       />
 
-      <DateInput
-        label="Next Observation Date"
-        field="nextDate"
-        date={new Date(formInfo.nextDate)}
-        updateForm={updateFormInfo}
-      />
+      {currentForm !== formOptions.practicumChecklist && (
+        <DateInput
+          label="Next Observation Date"
+          field="nextDate"
+          date={new Date(formInfo.nextDate)}
+          updateForm={updateFormInfo}
+        />
+      )}
 
-      {currentForm != formOptions.studentTeaching &&
-        currentForm != formOptions.math && (
+      {currentForm !== formOptions.studentTeaching &&
+        currentForm !== formOptions.practicumChecklist &&
+        currentForm !== formOptions.math && (
           <TextInput
             value={formInfo.program}
             updateForm={updateFormInfo}
@@ -85,17 +94,19 @@ const FormInfo = (props: FormInfoProps) => {
         field="other"
       />
 
-      <OptionRow
-        title={"Observation Number"}
-        contentOptions={["1", "2", "3", "4", "5"]}
-        currSelection={formInfo.observation.toString()}
-        updateSelection={(newSelection: string) =>
-          updateObservation({ observation: Number(newSelection) })
-        }
-        titleStyles={css`
-          color: ${Color.neutrals.grayDark};
-        `}
-      />
+      {currentForm !== formOptions.practicumChecklist && (
+        <OptionRow
+          title={"Observation Number"}
+          contentOptions={["1", "2", "3", "4", "5"]}
+          currSelection={formInfo.observation.toString()}
+          updateSelection={(newSelection: string) =>
+            updateObservation({ observation: Number(newSelection) })
+          }
+          titleStyles={css`
+            color: ${Color.neutrals.grayDark};
+          `}
+        />
+      )}
 
       {FormData[currentForm].programOptions && (
         <OptionRow
