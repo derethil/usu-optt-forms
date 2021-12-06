@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
-import Slider from "react-input-slider";
-import Color from "../../styledComponents/colors";
-import OptionRow from "../../components/optionRow";
+import Color from "../styledComponents/colors";
+import OptionRow from "./optionRow";
 
-const NotebookSliderContainer = styled.div`
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,18 +28,23 @@ const ContentStyles = styled.p`
 
 interface Props {
   content: string;
-  listId: number;
   score: number;
+  scoreOptions: (number | string)[];
   updateCheck: (newValue: number) => void;
 }
 
-export default function NotebookCheckRow(props: Props) {
+interface CommentProps extends Props {
+  comment: string;
+  updateComment: (updatedValues: { [key: string]: string }) => void;
+}
+
+export default function QuestionRow(props: Props | CommentProps) {
   return (
-    <NotebookSliderContainer>
+    <Container>
       <ContentStyles>{props.content}</ContentStyles>
       <OptionRow
         currSelection={String(props.score)}
-        contentOptions={[...Array(6)].map((_, i) => (i * 2).toString())}
+        contentOptions={props.scoreOptions.map((content) => content.toString())}
         updateSelection={(newSelection) =>
           props.updateCheck(Number(newSelection))
         }
@@ -49,6 +53,6 @@ export default function NotebookCheckRow(props: Props) {
         `}
         containerStyles={OptionRowWrapperStyles}
       />
-    </NotebookSliderContainer>
+    </Container>
   );
 }

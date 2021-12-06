@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { css } from "styled-components";
 
 import Card from "../../components/Card";
@@ -11,12 +11,11 @@ import {
 } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import IconTitle from "../../components/IconTitle";
-import NotebookCheckRow from "./NotebookCheckRow";
+import QuestionRow from "../../components/QuestionRow";
 import { Location } from "../../types/types";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import {
   selectCheckInfo,
-  setFormInfo,
   setLocationOrObservation,
 } from "../../slices/formInfoSlice";
 import {
@@ -91,11 +90,11 @@ export default function NotebookCheck() {
       >
         {checks.numbered.map((content, index) => {
           return (
-            <NotebookCheckRow
+            <QuestionRow
               content={content.content}
               score={content.score}
+              scoreOptions={[...Array(6)].map((_, i) => i * 2)}
               key={index}
-              listId={index}
               updateCheck={(score: number) => {
                 dispatch(setNotebookChecks({ score, index, key: "numbered" }));
               }}
@@ -118,11 +117,11 @@ export default function NotebookCheck() {
       >
         {checks.final.map((content, index) => {
           return (
-            <NotebookCheckRow
+            <QuestionRow
               content={content.content}
               score={content.score}
               key={index}
-              listId={index}
+              scoreOptions={[...Array(6)].map((_, i) => i * 2)}
               updateCheck={(score: number) => {
                 dispatch(setNotebookChecks({ score, index, key: "final" }));
               }}

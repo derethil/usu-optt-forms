@@ -39,7 +39,7 @@ const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString();
 };
 
-export const PDFData = () => {
+const PDFData = () => {
   const formInfo = useAppSelector(selectFormInfo);
   const rubricScores = useAppSelector(selectRubric);
   const feedback = useAppSelector(selectFeedback);
@@ -263,3 +263,5 @@ export const PDFData = () => {
     </Button>
   );
 };
+
+export default PDFData;
