@@ -5,9 +5,11 @@ import { IPracticumChecklist } from "../types/dataTypes";
 
 const initialState: IPracticumChecklist = defaultChecklistData;
 
-type TextOnlyKey = "lessonInfo" | "additionalInfo";
+const TextOnlyStr = ["lessonInfo", "additionalInfo"] as const;
 
-type ScoreOptionKey = keyof Omit<IPracticumChecklist, TextOnlyKey>;
+type TextOnly = typeof TextOnlyStr[number];
+type ScoreOptionKey = keyof Omit<IPracticumChecklist, TextOnly>;
+type TextOnlyKey = keyof Pick<IPracticumChecklist, TextOnly>;
 
 type setCommentAction = PayloadAction<{
   key: ScoreOptionKey;
@@ -20,7 +22,7 @@ type setScoreAction = PayloadAction<{
 }>;
 
 type setTextAction = PayloadAction<{
-  key: keyof Pick<IPracticumChecklist, TextOnlyKey>;
+  key: TextOnlyKey;
   text: string;
 }>;
 
@@ -56,3 +58,8 @@ export const {
 export const selectChecklist = (state: RootState) => state.checklist;
 
 export default checklistSlice.reducer;
+
+export const isTextOnly = (x: any): x is TextOnly => TextOnlyStr.includes(x);
+
+export const isScoreOption = (x: any): x is ScoreOptionKey =>
+  !TextOnlyStr.includes(x);

@@ -4,13 +4,28 @@ import Card from "../../components/Card";
 import QuestionRow from "../../components/QuestionRow";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import {
+  isScoreOption,
+  isTextOnly,
   selectChecklist,
   setChecklistComment,
   setChecklistScore,
+  setChecklistText,
 } from "../../slices/checklistSlice";
 import { cardContainerStyles, PageContent } from "../../styledComponents/style";
 
+import checklistJSON from "../../../rubrics/practicumChecklist.json";
+import {
+  IChecklistJSON,
+  IChecklistJSONRow,
+  IPracticumChecklist,
+} from "../../types/dataTypes";
+import QuestionText from "../../components/QuestionText";
+
 function PracticumChecklist() {
+  const checklistContents: [string, IChecklistJSONRow][] = Object.entries(
+    checklistJSON as IChecklistJSON
+  );
+
   const checklist = useAppSelector(selectChecklist);
   const dispatch = useAppDispatch();
 
@@ -30,23 +45,45 @@ function PracticumChecklist() {
       </Card>
 
       <Card title="Items" containerStyles={cardContainerStyles}>
-        <QuestionRow
-          content="Is there an established classroom / group schedule?"
-          score={checklist.schedule.score}
-          scoreOptions={["Yes", "No", "N/A"]}
-          updateScore={(score) => {
-            dispatch(setChecklistScore({ key: "schedule", score }));
-          }}
-          comment={checklist.schedule.comment}
-          updateComment={(updatedValues: { [key: string]: string }) => {
-            dispatch(
-              setChecklistComment({
-                key: "schedule",
-                comment: Object.values(updatedValues)[0],
-              })
+        {checklistContents.map(([keyStr, rowInfo], index) => {
+          const key = keyStr as keyof IPracticumChecklist;
+
+          if (isScoreOption(key)) {
+            return (
+              <QuestionRow
+                key={index}
+                content={rowInfo.content}
+                score={isScoreOption(keyStr) ? checklist[key].score : ""}
+                scoreOptions={["Yes", "No", "N/A"]}
+                updateScore={(score) => {
+                  dispatch(setChecklistScore({ key, score }));
+                }}
+                comment={checklist[key].comment}
+                updateComment={(updatedValues: { [key: string]: string }) => {
+                  dispatch(
+                    setChecklistComment({
+                      key,
+                      comment: Object.values(updatedValues)[0],
+                    })
+                  );
+                }}
+              />
             );
-          }}
-        />
+          } else if (isTextOnly(key)) {
+            return (
+              <QuestionText
+                content={rowInfo.content}
+                key={index}
+                value={checklist[key]}
+                updateValue={(newValues: { [key: string]: string }) => {
+                  dispatch(
+                    setChecklistText({ key, text: Object.values(newValues)[0] })
+                  );
+                }}
+              />
+            );
+          }
+        })}
       </Card>
     </PageContent>
   );

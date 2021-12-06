@@ -183,6 +183,11 @@ export interface IChecklistRow {
   comment: string;
 }
 
+export interface IChecklistJSONRow {
+  content: string;
+  textOnly?: boolean;
+}
+
 export interface IPracticumChecklist {
   schedule: IChecklistRow;
   targetGroup: IChecklistRow;
@@ -192,4 +197,15 @@ export interface IPracticumChecklist {
   paraProcedure: IChecklistRow;
   observationDate: IChecklistRow;
   additionalInfo: string;
+}
+
+export interface IChecklistJSON {
+  schedule: IChecklistJSONRow;
+  targetGroup: IChecklistJSONRow;
+  lessonInfo: IChecklistJSONRow;
+  curriculum: IChecklistJSONRow;
+  communicationProcedure: IChecklistJSONRow;
+  paraProcedure: IChecklistJSONRow;
+  observationDate: IChecklistJSONRow;
+  additionalInfo: IChecklistJSONRow;
 }
