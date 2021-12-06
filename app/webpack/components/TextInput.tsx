@@ -1,4 +1,5 @@
 import React from "react";
+import { FlattenSimpleInterpolation } from "styled-components";
 import {
   Label,
   InputContainer,
@@ -14,8 +15,8 @@ type TextInputProps = {
   noLabel?: boolean;
   placeholder?: string;
   textArea?: boolean;
-  inputClassNames?: string[];
-  containerClassNames?: string[];
+  containerStyles?: FlattenSimpleInterpolation;
+  inputStyles?: FlattenSimpleInterpolation;
 };
 
 const TextInput = (props: TextInputProps) => {
@@ -28,17 +29,20 @@ const TextInput = (props: TextInputProps) => {
       props.updateForm({ [props.field]: e.target.value }),
     id: props.field,
     placeholder: props.placeholder,
-    className: props.inputClassNames?.join(" "),
   };
 
   return (
-    <InputContainer className={props.containerClassNames?.join(" ")}>
+    <InputContainer mixin={props.containerStyles}>
       {!props.noLabel && (
         <Label htmlFor={props.field}>
           {props.title ? props.title : titleCased}
         </Label>
       )}
-      {props.textArea ? <InputTA {...inputProps} /> : <Input {...inputProps} />}
+      {props.textArea ? (
+        <InputTA {...inputProps} mixin={props.inputStyles} />
+      ) : (
+        <Input {...inputProps} />
+      )}
     </InputContainer>
   );
 };

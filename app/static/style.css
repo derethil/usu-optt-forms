@@ -18,22 +18,3 @@ body {
 .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
   left: -120px !important;
 }
-
-.option-row__textarea {
-  height: 100%;
-  border-radius: 0.75em;
-  resize: none;
-  padding: 8px;
-}
-
-.option-row__textarea:focus {
-  font-weight: inherit !important;
-  padding: 6px;
-  padding-bottom: 8px !important;
-}
-
-.option-row__container {
-  padding-top: 0 !important;
-  width: auto !important;
-  flex: 0 0 15em;
-}

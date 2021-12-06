@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styled, { FlattenSimpleInterpolation } from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
@@ -8,7 +8,7 @@ import TextInput from "../TextInput";
 import { overrideRegex } from "../../utils/utils";
 import { CSSMixin } from "../../types/types";
 
-const OptionRowInput = styled(TextInput)`
+export const OptionRowInput = styled(TextInput)`
   padding-top: 0px;
   height: 100%;
 `;
@@ -106,8 +106,21 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
         placeholder="Comment"
         noLabel
         textArea
-        inputClassNames={["option-row__textarea"]}
-        containerClassNames={["option-row__container"]}
+        inputStyles={css`
+          height: 100%;
+          border-radius: 0.75em;
+          resize: none;
+          padding: 8px;
+
+          &:focus {
+            font-weight: inherit;
+          }
+        `}
+        containerStyles={css`
+          padding-top: 0;
+          width: auto;
+          flex: 0 0 15em;
+        `}
       />
     );
   }

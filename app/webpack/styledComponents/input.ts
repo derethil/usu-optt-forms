@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { CSSMixin } from "../types/types";
 import Color from "./colors";
 
 export const Label = styled.label`
@@ -10,11 +11,12 @@ export const Label = styled.label`
   color: ${Color.neutrals.grayDark};
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<CSSMixin>`
   position: relative;
   padding: 15px 0 0;
   margin-bottom: 20px;
   width: 100%;
+  ${(props) => props.mixin};
 `;
 
 const InputStyles = css`
@@ -69,7 +71,7 @@ export const Input = styled.input`
   ${InputStyles};
 `;
 
-export const InputTA = styled.textarea`
+export const InputTA = styled.textarea<CSSMixin>`
   ${InputStyles};
   border: 2px solid ${Color.neutrals.gray};
   padding: 7px;
@@ -78,10 +80,11 @@ export const InputTA = styled.textarea`
   max-width: calc(100% - 18px);
   min-width: calc(100% - 18px);
   min-height: 5em;
+  ${(props) => props.mixin}
 
   &:focus {
     border: 3px solid ${Color.blues.blueDark};
-    padding-bottom: 7px;
-    margin-bottom: 0px;
+    /* padding-bottom: 7px;
+    margin-bottom: 0px; */
   }
 `;
