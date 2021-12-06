@@ -2,9 +2,18 @@ import React from "react";
 import { css } from "styled-components";
 import Card from "../../components/Card";
 import QuestionRow from "../../components/QuestionRow";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import {
+  selectChecklist,
+  setChecklistComment,
+  setChecklistScore,
+} from "../../slices/checklistSlice";
 import { cardContainerStyles, PageContent } from "../../styledComponents/style";
 
 function PracticumChecklist() {
+  const checklist = useAppSelector(selectChecklist);
+  const dispatch = useAppDispatch();
+
   return (
     <PageContent>
       <Card
@@ -23,11 +32,20 @@ function PracticumChecklist() {
       <Card title="Items" containerStyles={cardContainerStyles}>
         <QuestionRow
           content="Is there an established classroom / group schedule?"
-          score="Yes"
+          score={checklist.schedule.score}
           scoreOptions={["Yes", "No", "N/A"]}
-          updateCheck={() => console.log("")}
-          comment=""
-          updateComment={() => console.log("")}
+          updateScore={(score) => {
+            dispatch(setChecklistScore({ key: "schedule", score }));
+          }}
+          comment={checklist.schedule.comment}
+          updateComment={(updatedValues: { [key: string]: string }) => {
+            dispatch(
+              setChecklistComment({
+                key: "schedule",
+                comment: Object.values(updatedValues)[0],
+              })
+            );
+          }}
         />
       </Card>
     </PageContent>

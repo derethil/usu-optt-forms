@@ -1,0 +1,28 @@
+{
+  "schedule": {
+    "content": "Is there an established classroom/group schedule?"
+  },
+  "targetGroup": {
+    "content": "Has the OPTT student identified a target group or student to teach consistently and for their practicum observations?"
+  },
+  "lessonInfo": {
+    "content": "What time will the practicum lesson be taught and to what group of students?",
+    "textOnly": true
+  },
+  "curriculum": {
+    "content": "Has the OPTT student identified a curriculum they will use for their practicum observations? If yes, what is the curriculum? If no, what is the plan?"
+  },
+  "communicationProcedure": {
+    "content": "Have procedures been established for communication between the OPTT student and the coach?"
+  },
+  "paraProcedure": {
+    "content": "If OPTT student is a para, have they discussed practicum requirements with classroom teacher?"
+  },
+  "observationDate": {
+    "content": "Has the first observation been scheduled? What is the date?"
+  },
+  "additionalInfo": {
+    "content": "What additional information is important for USU to know about the classroom environment and implementation of practicum requirements?",
+    "textOnly": true
+  }
+}

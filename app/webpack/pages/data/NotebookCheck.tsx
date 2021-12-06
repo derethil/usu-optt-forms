@@ -95,8 +95,14 @@ export default function NotebookCheck() {
               score={content.score}
               scoreOptions={[...Array(6)].map((_, i) => i * 2)}
               key={index}
-              updateCheck={(score: number) => {
-                dispatch(setNotebookChecks({ score, index, key: "numbered" }));
+              updateScore={(score) => {
+                dispatch(
+                  setNotebookChecks({
+                    score: Number(score),
+                    index,
+                    key: "numbered",
+                  })
+                );
               }}
             />
           );
@@ -122,8 +128,14 @@ export default function NotebookCheck() {
               score={content.score}
               key={index}
               scoreOptions={[...Array(6)].map((_, i) => i * 2)}
-              updateCheck={(score: number) => {
-                dispatch(setNotebookChecks({ score, index, key: "final" }));
+              updateScore={(score) => {
+                dispatch(
+                  setNotebookChecks({
+                    score: Number(score),
+                    index,
+                    key: "final",
+                  })
+                );
               }}
             />
           );

@@ -30,7 +30,7 @@ interface Props {
   content: string;
   score: string | number;
   scoreOptions: (number | string)[];
-  updateCheck: (newValue: number) => void;
+  updateScore: (score: number | string) => void;
 }
 
 interface CommentProps extends Props {
@@ -45,9 +45,7 @@ export default function QuestionRow(props: Props | CommentProps) {
       <OptionRow
         currSelection={String(props.score)}
         contentOptions={props.scoreOptions.map((content) => content.toString())}
-        updateSelection={(newSelection) =>
-          props.updateCheck(Number(newSelection))
-        }
+        updateSelection={(newSelection) => props.updateScore(newSelection)}
         titleStyles={css`
           color: ${Color.neutrals.grayDark};
         `}
