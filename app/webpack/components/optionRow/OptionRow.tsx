@@ -47,7 +47,7 @@ interface OptionRowCommentProps extends OptionRowProps {
 }
 
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
-  if ("comment" in props && props.scoreOptions) {
+  if ("comment" in props && props.comment !== undefined && props.scoreOptions) {
     useEffect(() => {
       // If override is found in comment, override the score
       if (overrideRegex.test(props.comment)) {
@@ -96,7 +96,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     );
   }
 
-  if ("comment" in props) {
+  if ("comment" in props && props.comment !== undefined) {
     rowContents.push(
       <OptionRowInput
         key={props.contentOptions.length + 1}

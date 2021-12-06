@@ -28,7 +28,7 @@ const ContentStyles = styled.p`
 
 interface Props {
   content: string;
-  score: number;
+  score: string | number;
   scoreOptions: (number | string)[];
   updateCheck: (newValue: number) => void;
 }
@@ -52,6 +52,10 @@ export default function QuestionRow(props: Props | CommentProps) {
           color: ${Color.neutrals.grayDark};
         `}
         containerStyles={OptionRowWrapperStyles}
+        comment={"comment" in props ? props.comment : undefined}
+        updateComment={
+          "updateComment" in props ? props.updateComment : undefined
+        }
       />
     </Container>
   );
