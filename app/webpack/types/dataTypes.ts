@@ -175,3 +175,21 @@ export interface NotebookCheckContent {
   nonLogan: number[];
   content: string;
 }
+
+// ------ PRACTICUM CHECKLIST ------
+
+export interface IChecklistRow {
+  score: string;
+  comment: string;
+}
+
+export interface IPracticumChecklist {
+  schedule: IChecklistRow;
+  targetGroup: IChecklistRow;
+  lessonInfo: string;
+  curriculum: IChecklistRow;
+  communicationProcedure: IChecklistRow;
+  paraProcedure: IChecklistRow;
+  observationDate: IChecklistRow;
+  additionalInfo: string;
+}

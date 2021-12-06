@@ -16,6 +16,7 @@ import formInfoReducer from "./slices/formInfoSlice";
 import rubricReducer from "./slices/rubricSlice";
 import feedbackReducer from "./slices/feedbackSlice";
 import notebookChecksReducer from "./slices/notebookChecksSlice";
+import checklistReducer from "./slices/checklistSlice";
 import { dataReducer1, dataReducer2 } from "./slices/dataSlice";
 import {
   timerReducer1,
@@ -33,6 +34,7 @@ const reducers = combineReducers({
   timer3: timerReducer3,
   data1: dataReducer1,
   data2: dataReducer2,
+  checklist: checklistReducer,
 });
 
 const persistConfig = {

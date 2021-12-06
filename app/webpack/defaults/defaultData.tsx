@@ -1,6 +1,6 @@
 // ------ GENERAL ------
 
-import currentForm, { formOptions } from "../currentForm";
+import { formOptions } from "../currentForm";
 
 import {
   ISeverePracticumData,

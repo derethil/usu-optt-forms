@@ -1,7 +1,6 @@
 import currentForm, { formOptions } from "../currentForm";
-import { CheckRow } from "../types/dataTypes";
+import { IPracticumChecklist } from "../types/dataTypes";
 import { IFormInfo, Location } from "../types/types";
-import notebookChecks from "../../rubrics/notebookChecks.json";
 import getNotebookCheck from "../utils/notebookCheckUtils";
 
 export const defaultComments = {
@@ -27,4 +26,22 @@ export const defaultFormInfo: IFormInfo = {
 export const defaultNotebookCheck = {
   numbered: getNotebookCheck(true, 1),
   final: getNotebookCheck(true),
+};
+
+// -------- PRACTICUM CHECKLIST --------
+
+const defaultChecklistRow = {
+  score: "No",
+  comment: "",
+};
+
+export const defaultChecklistData: IPracticumChecklist = {
+  schedule: defaultChecklistRow,
+  targetGroup: defaultChecklistRow,
+  lessonInfo: "",
+  curriculum: defaultChecklistRow,
+  communicationProcedure: defaultChecklistRow,
+  paraProcedure: defaultChecklistRow,
+  observationDate: defaultChecklistRow,
+  additionalInfo: "",
 };
