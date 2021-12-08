@@ -22,14 +22,21 @@ const ContentStyles = styled.p`
 `;
 
 const TextAreaContainerStyles = css`
-  flex: 0 0 62.9%;
   border-left: 2px solid ${Color.neutrals.grayDarker};
   padding-left: 1em;
-  margin-bottom: 0px;
+  margin-bottom: -5px;
+  width: 65%;
 `;
 
-const TextArea = styled(TextInput)`
-  /* width: 65%; */
+const TextAreaStyles = css`
+  height: 100%;
+  border-radius: 0.75em;
+  resize: none;
+  padding: 8px;
+
+  &:focus {
+    font-weight: inherit;
+  }
 `;
 
 interface Props {
@@ -42,23 +49,14 @@ export default function QuestionText(props: Props) {
   return (
     <Container>
       <ContentStyles>{props.content}</ContentStyles>
-      <TextArea
+      <TextInput
         value={props.value}
         updateForm={props.updateValue}
         placeholder="Comment"
         field=""
         noLabel
         textArea
-        inputStyles={css`
-          height: 100%;
-          border-radius: 0.75em;
-          resize: none;
-          padding: 8px;
-
-          &:focus {
-            font-weight: inherit;
-          }
-        `}
+        inputStyles={TextAreaStyles}
         containerStyles={TextAreaContainerStyles}
       />
     </Container>
