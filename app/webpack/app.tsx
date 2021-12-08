@@ -23,13 +23,14 @@ import FormData from "./FormData";
 import NotebookCheck from "./pages/data/NotebookCheck";
 
 import { resetFormInfo } from "./slices/formInfoSlice";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import { useAppDispatch } from "./hooks/hooks";
 import { resetRubric } from "./slices/rubricSlice";
 import { resetFeedback } from "./slices/feedbackSlice";
 import { resetNotebookChecks } from "./slices/notebookChecksSlice";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
 import PracticumChecklist from "./pages/data/PracticumChecklist";
+import { resetChecklist } from "./slices/checklistSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -44,6 +45,7 @@ export const App = () => {
     dispatch(resetFormInfo());
     dispatch(resetFeedback());
     dispatch(resetNotebookChecks());
+    dispatch(resetChecklist());
   };
 
   let title;
