@@ -11,6 +11,7 @@ import ConfirmModal from "../components/ConfirmModal";
 import { PageContent } from "../styledComponents/style";
 import { css } from "styled-components";
 import PDFDataChecklist from "../components/pdfReport/pdfDataChecklist";
+import PracticumContent from "../components/practicumContent";
 
 type FormHomeProps = {
   resetAll: () => void;
@@ -23,9 +24,13 @@ const FormHome = (props: FormHomeProps) => {
         <FormInfo />
       </Card>
 
-      {currentForm !== formOptions.practicumChecklist && (
+      {currentForm !== formOptions.practicumChecklist ? (
         <Card title="Scores">
           <ScoreTotals />
+        </Card>
+      ) : (
+        <Card title="Practicum Content Areas">
+          <PracticumContent />
         </Card>
       )}
 
