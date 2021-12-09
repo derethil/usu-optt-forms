@@ -21,6 +21,7 @@ const NavbarContainer = styled.nav`
   font-size: 1.3em;
   background-color: ${Color.blues.blueDarker};
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
+  border-bottom: 2px solid ${Color.lights.white};
   /* border-bottom: 0.5em solid ${Color.lights.white}; */
 `;
 

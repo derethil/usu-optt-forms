@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 import Card from "../../components/Card";
 import QuestionRow from "../../components/QuestionRow";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
@@ -20,6 +20,13 @@ import {
   IPracticumChecklist,
 } from "../../types/dataTypes";
 import QuestionText from "../../components/QuestionText";
+import Color from "../../styledComponents/colors";
+
+const Link = styled.a`
+  color: ${Color.contextual.info};
+  /* font-weight: bold; */
+  text-decoration: none;
+`;
 
 function PracticumChecklist() {
   const checklistContents: [string, IChecklistJSONRow][] = Object.entries(
@@ -41,7 +48,10 @@ function PracticumChecklist() {
         District Coach: Please schedule time to meet with the OPTT student to
         discuss the following items during the first few weeks of school/the
         semester. Submit completed form to{" "}
-        <a href="mailto:usuobservations@usu.edu">usuobservations@usu.edu</a>
+        <Link href="mailto:usuobservations@usu.edu">
+          usuobservations@usu.edu
+        </Link>
+        .
       </Card>
 
       <Card title="Items" containerStyles={cardContainerStyles}>
