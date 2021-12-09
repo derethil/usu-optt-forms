@@ -10,6 +10,7 @@ import PDFData from "../components/pdfReport/PDFData";
 import ConfirmModal from "../components/ConfirmModal";
 import { PageContent } from "../styledComponents/style";
 import { css } from "styled-components";
+import PDFDataChecklist from "../components/pdfReport/pdfDataChecklist";
 
 type FormHomeProps = {
   resetAll: () => void;
@@ -35,7 +36,11 @@ const FormHome = (props: FormHomeProps) => {
           justify-content: space-between;
         `}
       >
-        <PDFData />
+        {currentForm === formOptions.practicumChecklist ? (
+          <PDFDataChecklist />
+        ) : (
+          <PDFData />
+        )}
 
         <ConfirmModal handleConfirm={props.resetAll} />
       </Card>
