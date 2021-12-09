@@ -8,7 +8,7 @@ export default function getNotebookCheck(
   const NotebookChecks: NotebookCheckContent[] = notebookChecks;
 
   return NotebookChecks.filter((obj) =>
-    // -1 is searched for when an obsNum isn't provided; i.e. when we want the "Final" notebook check
+    // -1 is searched for when an obsNum isn't provided, i.e. when we want the "Final" notebook check
     (locationIsLogan ? obj.logan : obj.nonLogan).includes(obsNum ? obsNum : -1)
   ).map((obj) => {
     return { score: 0, content: obj.content };
