@@ -8,6 +8,7 @@ const THeader = styled.thead`
 `;
 
 const Table = styled.table`
+  width: 100%;
   border-collapse: collapse;
   border-radius: 50px;
 
