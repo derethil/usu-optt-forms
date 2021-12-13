@@ -7,6 +7,6 @@ export enum formOptions {
   practicumChecklist = "practicumChecklist",
 }
 
-const currentForm: formOptions = formOptions.severePracticum;
+const currentForm: formOptions = formOptions.studentTeaching;
 
 export default currentForm;
