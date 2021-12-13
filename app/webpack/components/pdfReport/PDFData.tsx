@@ -158,28 +158,41 @@ const PDFData = () => {
       head: ["Scores"],
     });
 
+    const rubric = FormData[currentForm].rubric;
+
     Object.entries(rubricScores).forEach(
       ([sectionTitle, scoresObj], sectionIdx) => {
         const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
 
         generator.table({
           startY: sectionIdx === 0 ? startY : "RELATIVE",
-          headStyles: { fillColor: Color.blues.blue },
+          headStyles: {
+            fillColor: Color.blues.blue,
+            valign: "middle",
+            halign: "center",
+          },
           columnStyles: {
-            0: { cellWidth: 115, valign: "middle" },
+            0: { cellWidth: 35, valign: "middle" },
             1: { cellWidth: "auto", halign: "center", valign: "middle" },
-            2: {
+            2: { cellWidth: 25, halign: "center", valign: "middle" },
+            3: {
               cellWidth: 50,
               halign: "center",
               cellPadding: { horizontal: 5, vertical: 2 },
             },
           },
-          head: [sectionTitle, "  Score", "             Comments"],
+          head: [sectionTitle, "Description", "Score", "Comments"],
           body: Object.entries(scoresObj).map(([rowTitle, rowInfo], rowIdx) => {
-            const scoreDisplay = getScore(rowInfo, sectionIdx, rowIdx);
+            const selectedOption = rubric[sectionIdx].rows[rowIdx].options.find(
+              (option) => {
+                return String(option.score) === rowInfo.score;
+              }
+            );
+
             return [
               rowTitle,
-              scoreDisplay,
+              selectedOption!.content,
+              getScore(rowInfo, sectionIdx, rowIdx),
               rowInfo.comment.replace(overrideRegex, ""),
             ];
           }),
