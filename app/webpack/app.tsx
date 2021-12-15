@@ -140,10 +140,23 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
+    // ------ PRACTICUM CHECKLIST ------
     [formOptions.practicumChecklist]: [
       <Route path="/checklist" key="Checklist">
         <PracticumChecklist />
       </Route>,
+    ],
+    // ------ SELF EVALUATION ------
+    [formOptions.selfEvaluation]: [
+      <Route path="/data" key={(title = "Data")}>
+        <DataSPR
+          data={data1}
+          timer={timer1}
+          title={title}
+          resetCallback={() => dispatch(data1.actions.resetData())}
+        />
+      </Route>,
+      ...sharedRoutes,
     ],
   };
 

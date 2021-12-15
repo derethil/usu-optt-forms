@@ -7,7 +7,7 @@ import severePracticumRubric from "../rubrics/severePracticum.json";
 import bTo5PracticumRubric from "../rubrics/bTo5Practicum.json";
 import readingRubric from "../rubrics/readingRubric.json";
 import mathRubric from "../rubrics/mathRubric.json";
-
+import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
 import { formOptions } from "./currentForm";
 
 type IFormData = {
@@ -51,6 +51,12 @@ const FormData: IFormData = {
     programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
     rubric: [],
     defaultData: {} as DataSchema,
+  },
+  [formOptions.selfEvaluation]: {
+    title: "Self Evaluation",
+    programOptions: ["Mild/Moderate", "Severe", "Birth"],
+    rubric: selfEvaluationRubric as Section[],
+    defaultData: defaults.defaultSeverePracticumData,
   },
 };
 
