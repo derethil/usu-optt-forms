@@ -1,4 +1,5 @@
-import { FlattenSimpleInterpolation } from "styled-components";
+import { css, FlattenSimpleInterpolation } from "styled-components";
+import { SignalSequence } from "./dataTypes";
 
 export interface Section {
   sectionTitle: string;
@@ -61,3 +62,18 @@ export type LocationObservationType = Pick<
   IFormInfo,
   "location" | "observation"
 >;
+
+export interface DataProps<T> {
+  data: T;
+  setData: (sequenceKey: string, groupKey: string, newValue: object) => void;
+}
+
+export const WrapperMixin = css<{ oneRow: boolean }>`
+  ${(props) => (props.oneRow ? "height: 6em;" : "")};
+`;
+
+export const ColMixin = css<{ oneRow: boolean }>`
+  & > * {
+    ${(props) => (props.oneRow ? "height: 100%;" : "")};
+  }
+`;

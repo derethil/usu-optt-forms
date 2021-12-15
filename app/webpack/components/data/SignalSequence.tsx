@@ -4,15 +4,12 @@ import Color from "../../styledComponents/colors";
 
 import * as Styles from "../../styledComponents/style";
 import { SignalSequence } from "../../types/dataTypes";
+import { DataProps } from "../../types/types";
 import { getPercent } from "../../utils/utils";
 import CounterButton from "../CounterButton";
 import DataRow from "../DataRow";
 
-interface Props {
-  data: SignalSequence;
-  setData: (sequenceKey: string, groupKey: string, newValue: object) => void;
-  includeIncorrect?: boolean;
-}
+type Props = DataProps<SignalSequence> & { includeIncorrect?: boolean };
 
 function SignalSequence({ data, setData, includeIncorrect }: Props) {
   const signalCorrect = data.correct;

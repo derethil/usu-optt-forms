@@ -157,6 +157,7 @@ export const App = () => {
           timer={timer1}
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
+          errorOneRow
         />
       </Route>,
       ...sharedRoutes,

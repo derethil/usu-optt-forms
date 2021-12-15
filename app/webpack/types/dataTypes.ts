@@ -63,7 +63,7 @@ export interface SignalSequence extends Mapping<ISequence> {
   incorrect: ISequence;
 }
 
-interface ErrorCorrection extends Mapping<ICorrection> {
+export interface ErrorCorrection extends Mapping<ICorrection> {
   correct: ICorrection;
   incorrect: ICorrection;
 }
