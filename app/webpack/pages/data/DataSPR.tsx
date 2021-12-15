@@ -22,6 +22,7 @@ const DataSPR = (
   props: DataProps<ISeverePracticumData | IReadingData> & {
     includeIncorrect?: boolean;
     errorOneRow?: boolean;
+    guideTooltip?: boolean;
   }
 ) => {
   const data = useAppSelector(props.data.selector);
@@ -75,7 +76,11 @@ const DataSPR = (
 
       <PraiseDataRow data={props.data} />
 
-      <OTRRow dataSlice={props.data} timer={props.timer} />
+      <OTRRow
+        dataSlice={props.data}
+        timer={props.timer}
+        guideTooltip={props.guideTooltip ? true : false}
+      />
     </Styles.PageContent>
   );
 };

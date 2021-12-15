@@ -12,12 +12,13 @@ import Color from "../../styledComponents/colors";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { IDataSlice } from "../../slices/dataSlice";
 
-type PraiseDataRowProps = {
+type Props = {
   dataSlice: IDataSlice;
   timer: ITimer;
+  guideTooltip?: boolean;
 };
 
-const OTRRow = ({ dataSlice, timer }: PraiseDataRowProps) => {
+const OTRRow = ({ dataSlice, timer, guideTooltip }: Props) => {
   const dispatch = useAppDispatch();
 
   const timerState = useAppSelector(timer.selector);
@@ -48,10 +49,14 @@ const OTRRow = ({ dataSlice, timer }: PraiseDataRowProps) => {
     },
   ];
 
+  const tooltipContent =
+    "    • Reading Mastery/DI  type program should be a minimum of 7/minute in decoding and a minimum of 4/minute in story reading. <br>Use your judgement non-DI/RM type programs.<br>• Math, Life Skills, etc. use 4/minute as a guideline but use your judgment.";
+
   return (
     <DataRow
       title="Cues / Directions / Opportunities to Respond"
       displayData={displayData}
+      tooltip={guideTooltip ? tooltipContent : undefined}
     >
       <ButtonsWrapper>
         {data.cues.nonDirected !== undefined && (

@@ -158,6 +158,7 @@ export const App = () => {
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
           errorOneRow
+          guideTooltip
         />
       </Route>,
       ...sharedRoutes,

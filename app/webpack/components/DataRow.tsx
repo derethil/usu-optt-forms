@@ -1,8 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import Color from "../styledComponents/colors";
 import * as Styles from "../styledComponents/style";
 
 import Card from "./Card";
+import IconTitle from "./IconTitle";
 
 const cardContentStyles = css`
   padding: 0em 1em;
@@ -15,6 +17,11 @@ const ObservDataWrapper = styled(Styles.DataWrapper)`
   width: 14em;
 `;
 
+const CardTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 type dataEntryType = {
   display: string;
   score: string | number;
@@ -24,6 +31,7 @@ type DataRowProps = {
   displayData: dataEntryType[];
   title: string;
   children: React.ReactNode;
+  tooltip?: string;
 };
 
 const DataRow = (props: DataRowProps) => {
@@ -36,9 +44,27 @@ const DataRow = (props: DataRowProps) => {
     );
   });
 
+  const title = props.tooltip ? (
+    <CardTitleContainer>
+      <IconTitle
+        content={props.title}
+        tooltipContent={props.tooltip}
+        titleStyles={css`
+          font-size: 1.33rem;
+          margin: 0 0.5em 0 0;
+        `}
+        iconStyles={css`
+          color: ${Color.lights.grayLighter};
+        `}
+      />
+    </CardTitleContainer>
+  ) : (
+    props.title
+  );
+
   return (
     <Card
-      title={props.title}
+      title={title}
       containerStyles={Styles.cardContainerStyles}
       contentStyles={cardContentStyles}
     >
