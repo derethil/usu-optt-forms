@@ -1,0 +1,202 @@
+[
+  {
+    "sectionTitle": "Effective Teaching Cycle",
+    "rows": [
+      {
+        "area": "Opening",
+        "options": [
+          {
+            "content": "Included appropriate review  /  maintenance  /  prerequisite, with clear format",
+            "score": 2
+          },
+          {
+            "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Lesson Introduction",
+        "options": [
+          {
+            "content": "Included appropriate objective, link, and relevance statement",
+            "score": 1
+          },
+          {
+            "content": "Included inappropriate / partial objective, link, and relevance statement",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "New Material",
+        "options": [
+          {
+            "content": "Skill broken into clear steps, modeled skill, appropriate format, engages student",
+            "score": 4
+          },
+          {
+            "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Guided Practice",
+        "options": [
+          {
+            "content": "Appropriate cue and pace, necessary prompts, sufficient # of examples, aligned to objective",
+            "score": 4
+          },
+          {
+            "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Independent Practice",
+        "options": [
+          {
+            "content": "Appropriate supervision / feedback, sufficient # of trials, varied examples, aligned to objective",
+            "score": 3
+          },
+          {
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Maintenance / Generalization",
+        "options": [
+          {
+            "content": "Generalized across materials, people and / or settings, scheduled practice opportunities, aligned to objective",
+            "score": 2
+          },
+          {
+            "content": "Random or unpredictable practice opportunities, not aligned to objective",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Presentation, Management, Feedback & Data",
+    "rows": [
+      {
+        "area": "Format",
+        "options": [
+          {
+            "content": "Followed format or script in written program  /  ETC",
+            "score": 2
+          },
+          {
+            "content": "Followed portions of format of script of written program  /  ETC",
+            "score": 1
+          },
+          {
+            "content": "Did not follow format and / or script in written program  /  ETC",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Group Awareness",
+        "options": [
+          {
+            "content": "Frequent eye contact and frequent scanning of group",
+            "score": 2
+          },
+          {
+            "content": "Little or not eye contact and / or not scanning of group",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Signal Sequence",
+        "options": [
+          {
+            "content": "Correct sequence included 90-100% of the time (attention, cue, pause, signal), signal only needed when appropriate",
+            "score": 4
+          },
+          {
+            "content": "Correct sequence (see list) included 70-89% of the time",
+            "score": 2
+          },
+          {
+            "content": "Correct sequence (see list) included less than 69% of the time",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Error Correction",
+        "tooltip": "1. Model <br> 2. Test <br> 3. Delayed test",
+        "options": [
+          {
+            "content": "All components present 80% or more of the time",
+            "score": 4
+          },
+          {
+            "content": "All components present a minimum of 50% and at least one component present 70% or more of the time (see list)",
+            "score": 2
+          },
+          {
+            "content": "Ane or more components present less then 50% of the time (see list)",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Praise Ratio",
+        "options": [
+          {
+            "content": "Praise / redirect ratio at least 3:1; praise rate appropriate for group  /  individual",
+            "score": 4
+          },
+          {
+            "content": "Praise / redirect ratio of at least 2:1",
+            "score": 2
+          },
+          {
+            "content": "Praise / redirect ratio less than 2:1",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Opportunities to Respond",
+        "options": [
+          {
+            "content": "Consistently included frequent opportunities to respond and relevant combinations of individual / group / dispersed turns",
+            "score": 4
+          },
+          {
+            "content": "Inconsistently included frequent opportunities to respond, and / or lacks relevant combinations of individual / group / dispersed turns",
+            "score": 2
+          },
+          {
+            "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Recording",
+        "options": [
+          {
+            "content": "Data recorded accurately and aligned to objective, information on data sheet complete",
+            "score": 4
+          },
+          {
+            "content": "No data recorded or recorded inaccurately, data recorded does not align to the objective",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  }
+]
