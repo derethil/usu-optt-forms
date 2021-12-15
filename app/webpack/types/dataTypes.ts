@@ -58,7 +58,7 @@ export type ICorrection = {
   delayedTest: number;
 };
 
-interface SignalSequence extends Mapping<ISequence> {
+export interface SignalSequence extends Mapping<ISequence> {
   correct: ISequence;
   incorrect: ISequence;
 }

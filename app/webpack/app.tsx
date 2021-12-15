@@ -86,6 +86,7 @@ export const App = () => {
           timer={timer1}
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
+          includeIncorrect
         />
       </Route>,
       ...sharedRoutes,
@@ -110,6 +111,7 @@ export const App = () => {
           timer={timer1}
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
+          includeIncorrect
         />
       </Route>,
       <Route path="/reading" key={(title = "Story Reading Data")}>
@@ -118,6 +120,7 @@ export const App = () => {
           timer={timer2}
           title={title}
           resetCallback={() => dispatch(data2.actions.resetData())}
+          includeIncorrect
         />
       </Route>,
       ...sharedRoutes,

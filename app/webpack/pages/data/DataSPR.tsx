@@ -18,8 +18,13 @@ import { cardContainerStyles } from "../../styledComponents/style";
 import DataProps from "./DataProps";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { formOptions } from "../../currentForm";
+import SignalSequenceRow from "../../components/data/SignalSequence";
 
-const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
+const DataSPR = (
+  props: DataProps<ISeverePracticumData | IReadingData> & {
+    includeIncorrect?: boolean;
+  }
+) => {
   const data = useAppSelector(props.data.selector);
   const dispatch = useAppDispatch();
 
@@ -43,11 +48,6 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
     );
   };
 
-  const signalCorrect = data.signalSequence.correct;
-  const signalIncorrect = data.signalSequence.incorrect;
-
-  const totalSequences = signalCorrect.sequence + signalIncorrect.sequence;
-
   const errorCorrect = data.errorCorrection.correct;
   const errorIncorrect = data.errorCorrection.incorrect;
 
@@ -67,109 +67,11 @@ const DataSPR = (props: DataProps<ISeverePracticumData | IReadingData>) => {
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
-      <DataRow
-        title="Signal Sequence"
-        displayData={[
-          {
-            display: "Cue",
-            score: `${signalCorrect.cue} | ${signalIncorrect.cue}`,
-          },
-          {
-            display: "Pause",
-            score: `${signalCorrect.pause} | ${signalIncorrect.pause}`,
-          },
-          {
-            display: "Signal",
-            score: `${signalCorrect.signal} | ${signalIncorrect.signal}`,
-          },
-          { display: "All Correct", score: signalCorrect.sequence },
-          {
-            display: "Total Sequences",
-            score: totalSequences,
-          },
-          {
-            display: "Percent Correct",
-            score: getPercent(signalCorrect.sequence, totalSequences),
-          },
-        ]}
-      >
-        <Styles.TwoRowWrapper>
-          <Styles.TwoButtonCol>
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Correct Sequence"
-              value={signalCorrect.sequence}
-              onClick={(sequence: number) =>
-                setData("signalSequence", "correct", { sequence })
-              }
-            />
-            <CounterButton
-              color={Color.contextual.danger}
-              content="Incorrect Sequence"
-              value={signalIncorrect.sequence}
-              onClick={(sequence: number) =>
-                setData("signalSequence", "incorrect", { sequence })
-              }
-            />
-          </Styles.TwoButtonCol>
-          <Styles.TwoButtonCol>
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Cue"
-              value={signalCorrect.cue}
-              onClick={(cue: number) =>
-                setData("signalSequence", "correct", { cue })
-              }
-            />
-            <CounterButton
-              color={Color.neutrals.grayDark}
-              content="Incorrect"
-              value={signalIncorrect.cue}
-              onClick={(cue: number) =>
-                setData("signalSequence", "incorrect", { cue })
-              }
-            />
-          </Styles.TwoButtonCol>
-
-          <Styles.TwoButtonCol>
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Pause"
-              value={signalCorrect.pause}
-              onClick={(pause: number) =>
-                setData("signalSequence", "correct", { pause })
-              }
-            />
-            <CounterButton
-              color={Color.neutrals.grayDark}
-              content="Incorrect"
-              value={signalIncorrect.pause}
-              onClick={(pause: number) =>
-                setData("signalSequence", "incorrect", { pause })
-              }
-            />
-          </Styles.TwoButtonCol>
-
-          <Styles.TwoButtonCol>
-            <CounterButton
-              color={Color.accents.greenLight}
-              content="Signal"
-              value={signalCorrect.signal}
-              onClick={(signal: number) =>
-                setData("signalSequence", "correct", { signal })
-              }
-            />
-            <CounterButton
-              color={Color.neutrals.grayDark}
-              content="Incorrect"
-              value={signalIncorrect.signal}
-              onClick={(signal: number) =>
-                setData("signalSequence", "incorrect", { signal })
-              }
-            />
-          </Styles.TwoButtonCol>
-        </Styles.TwoRowWrapper>
-      </DataRow>
+      <SignalSequenceRow
+        data={data.signalSequence}
+        setData={setData}
+        includeIncorrect={props.includeIncorrect}
+      />
 
       <DataRow
         title="Error Correction"

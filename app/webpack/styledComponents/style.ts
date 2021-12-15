@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { CSSMixin } from "../types/types";
 import Color from "./colors";
 
 export const PageContent = styled.section`
@@ -87,18 +88,20 @@ export const DataCell = styled.p`
   }
 `;
 
-export const ButtonsWrapper = styled.div`
+export const ButtonsWrapper = styled.div<CSSMixin>`
   height: 6em;
   margin-right: 3em;
   display: flex;
   padding: 1em 0em;
+  ${(props) => props.mixin};
 `;
 
-export const TwoRowWrapper = styled(ButtonsWrapper)`
+export const TwoRowWrapper = styled(ButtonsWrapper)<CSSMixin>`
   height: 12em;
+  ${(props) => props.mixin};
 `;
 
-export const TwoButtonCol = styled.div`
+export const TwoButtonCol = styled.div<CSSMixin>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -106,6 +109,8 @@ export const TwoButtonCol = styled.div`
   & > * {
     height: 35%;
   }
+
+  ${(props) => props.mixin};
 `;
 
 export const buttonStyles = css`
