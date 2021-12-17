@@ -35,23 +35,31 @@ const FormInfo = () => {
       <TextInput
         value={formInfo.studentTeacher}
         updateForm={updateFormInfo}
-        field="studentTeacher"
-      />
-      <TextInput
-        value={formInfo.cooperatingTeacher}
-        updateForm={updateFormInfo}
-        field="cooperatingTeacher"
-      />
-      <TextInput
-        value={formInfo.supervisor}
-        updateForm={updateFormInfo}
-        field="supervisor"
-        title={
-          currentForm !== formOptions.practicumChecklist
-            ? "Supervisor / Coach"
-            : "District Coach"
+        field={
+          currentForm !== formOptions.selfEvaluation
+            ? "studentTeacher"
+            : "practicumStudent"
         }
       />
+      {currentForm !== formOptions.selfEvaluation && (
+        <>
+          <TextInput
+            value={formInfo.cooperatingTeacher}
+            updateForm={updateFormInfo}
+            field="cooperatingTeacher"
+          />
+          <TextInput
+            value={formInfo.supervisor}
+            updateForm={updateFormInfo}
+            field="supervisor"
+            title={
+              currentForm !== formOptions.practicumChecklist
+                ? "Supervisor / Coach"
+                : "District Coach"
+            }
+          />
+        </>
+      )}
 
       <DateInput
         field="date"
@@ -64,7 +72,9 @@ const FormInfo = () => {
         updateForm={updateFormInfo}
       />
 
-      {currentForm !== formOptions.practicumChecklist && (
+      {![formOptions.practicumChecklist, formOptions.selfEvaluation].includes(
+        currentForm
+      ) && (
         <DateInput
           label="Next Observation Date"
           field="nextDate"
@@ -73,8 +83,7 @@ const FormInfo = () => {
         />
       )}
 
-      {currentForm !== formOptions.studentTeaching &&
-        currentForm !== formOptions.practicumChecklist &&
+      {!FormData[currentForm].programOptions &&
         currentForm !== formOptions.math && (
           <TextInput
             value={formInfo.program}
@@ -88,16 +97,39 @@ const FormInfo = () => {
           />
         )}
 
-      <TextInput
-        value={formInfo.other}
-        updateForm={updateFormInfo}
-        field="other"
-      />
+      {currentForm !== formOptions.selfEvaluation && (
+        <TextInput
+          value={formInfo.other}
+          updateForm={updateFormInfo}
+          field="other"
+        />
+      )}
+
+      {currentForm === formOptions.selfEvaluation && (
+        <>
+          <TextInput
+            value={formInfo.goal1}
+            updateForm={updateFormInfo}
+            field="Goal 1"
+          />
+          <TextInput
+            value={formInfo.goal2}
+            updateForm={updateFormInfo}
+            field="Goal 2"
+          />
+        </>
+      )}
 
       {currentForm !== formOptions.practicumChecklist && (
         <OptionRow
           title={"Observation Number"}
-          contentOptions={["1", "2", "3", "4", "5"]}
+          contentOptions={[
+            "1",
+            "2",
+            "3",
+            "4",
+            ...(currentForm !== formOptions.selfEvaluation ? ["5"] : []),
+          ]}
           currSelection={formInfo.observation.toString()}
           updateSelection={(newSelection: string) =>
             updateObservation({ observation: Number(newSelection) })

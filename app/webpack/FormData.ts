@@ -54,7 +54,6 @@ const FormData: IFormData = {
   },
   [formOptions.selfEvaluation]: {
     title: "Self Evaluation",
-    programOptions: ["Mild/Moderate", "Severe", "Birth"],
     rubric: selfEvaluationRubric as Section[],
     defaultData: defaults.defaultSeverePracticumData,
   },
