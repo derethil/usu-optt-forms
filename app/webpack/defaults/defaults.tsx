@@ -21,6 +21,8 @@ export const defaultFormInfo: IFormInfo = {
   other: "",
   program: currentForm === formOptions.studentTeaching ? "Mild/Moderate" : "",
   location: Location.logan,
+  goal1: "",
+  goal2: "",
 };
 
 export const defaultNotebookCheck = {

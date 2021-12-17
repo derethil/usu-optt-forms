@@ -52,6 +52,8 @@ export interface IFormInfo {
   other: string;
   program: string;
   location: Location;
+  goal1: string;
+  goal2: string;
 }
 
 export interface CSSMixin {
