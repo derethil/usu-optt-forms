@@ -35,10 +35,11 @@ const FormInfo = () => {
       <TextInput
         value={formInfo.studentTeacher}
         updateForm={updateFormInfo}
-        field={
+        field="studentTeacher"
+        title={
           currentForm !== formOptions.selfEvaluation
-            ? "studentTeacher"
-            : "practicumStudent"
+            ? "Student Teacher"
+            : "Practicum Student"
         }
       />
       {currentForm !== formOptions.selfEvaluation && (
@@ -110,12 +111,14 @@ const FormInfo = () => {
           <TextInput
             value={formInfo.goal1}
             updateForm={updateFormInfo}
-            field="Goal 1"
+            field="goal1"
+            title="Goal 1"
           />
           <TextInput
             value={formInfo.goal2}
             updateForm={updateFormInfo}
-            field="Goal 2"
+            field="goal2"
+            title="Goal 2"
           />
         </>
       )}
