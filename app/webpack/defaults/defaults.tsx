@@ -7,6 +7,8 @@ export const defaultComments = {
   strengths: "",
   suggestions: "",
   nextFocus: "",
+  goal1: "",
+  goal2: "",
 };
 
 export type IComments = typeof defaultComments;

@@ -1,9 +1,10 @@
 import React from "react";
+import { IComments } from "../defaults/defaults";
 
 import Card from "./Card";
 import TextInput from "./TextInput";
 
-type Feedback = "strengths" | "suggestions" | "nextFocus";
+type Feedback = keyof IComments;
 
 type FeedbackCardProps = {
   title: string;
