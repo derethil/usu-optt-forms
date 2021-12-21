@@ -26,6 +26,7 @@ import {
   data1 as dataReducer1,
   data2 as dataReducer2,
 } from "../../slices/dataSlice";
+import selfEvaluationSection from "./selfEvaluation";
 
 export type PDFDataProps = {
   data1: DataSchema;
@@ -69,22 +70,34 @@ const PDFData = () => {
 
     // General Info
 
+    const selfEvalInfoBody = [
+      ["Practicum Student", formInfo.studentTeacher],
+      ["Date", formatDate(formInfo.date)],
+      ["Program", formInfo.program],
+      ["Goal 1", formInfo.goal1],
+      ["Goal 2", formInfo.goal2],
+      ["Observation", formInfo.observation],
+    ];
+
     generator.table({
       startY: 24.5,
       head: ["Information", ""],
-      body: [
-        ["Student Teacher", formInfo.studentTeacher],
-        ["Cooperating Teacher", formInfo.cooperatingTeacher],
-        ["Supervisor / Coach", formInfo.supervisor],
-        ["Date", formatDate(formInfo.date)],
-        ["Next Observation Date", formatDate(formInfo.nextDate)],
-        ["Observation", formInfo.observation],
-        ["Other", formInfo.other],
-      ].concat(
-        FormData[currentForm].programOptions
-          ? [["Program", formInfo.program]]
-          : []
-      ),
+      body:
+        currentForm === formOptions.selfEvaluation
+          ? selfEvalInfoBody
+          : [
+              ["Student Teacher", formInfo.studentTeacher],
+              ["Cooperating Teacher", formInfo.cooperatingTeacher],
+              ["Supervisor / Coach", formInfo.supervisor],
+              ["Date", formatDate(formInfo.date)],
+              ["Next Observation Date", formatDate(formInfo.nextDate)],
+              ["Observation", formInfo.observation],
+              ["Other", formInfo.other],
+            ].concat(
+              FormData[currentForm].programOptions
+                ? [["Program", formInfo.program]]
+                : []
+            ),
     });
 
     // Total Score Summary
@@ -113,16 +126,13 @@ const PDFData = () => {
 
     // Observations
 
-    if (data1.currentForm !== formOptions.studentTeaching)
-      generator.table({
-        head: ["Data"],
-      });
-
     if (
       data1.currentForm === formOptions.studentTeaching &&
       data2.currentForm === formOptions.studentTeaching
     ) {
       studentTeachingSection(generator, data1, data2, timerState1, timerState2);
+    } else if (currentForm === formOptions.selfEvaluation) {
+      selfEvaluationSection(generator, data1, timerState1);
     } else if (data1.currentForm === formOptions.severePracticum) {
       severePracticumReadingSection(generator, data1, timerState1);
     } else if (data1.currentForm === formOptions.bTo5Practicum) {
@@ -238,6 +248,10 @@ const PDFData = () => {
       ["Suggestions", feedback.suggestions],
       ["Next Focus", feedback.nextFocus],
     ];
+
+    if (currentForm === formOptions.selfEvaluation) {
+      feedbackRows.push(["Goal 1", feedback.goal1], ["Goal 2", feedback.goal2]);
+    }
 
     feedbackRows.forEach(([title, comment], index) => {
       const startY = (generator.pdf as any).lastAutoTable.finalY + 2;

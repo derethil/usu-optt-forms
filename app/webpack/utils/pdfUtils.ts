@@ -131,9 +131,9 @@ export const genSPSequence = (data: ISequences) => {
   const total = correct.sequence + incorrect.sequence;
 
   return [
-    ["Cue", `${correct.cue} | ${incorrect.cue}`],
-    ["Pause", `${correct.pause} | ${incorrect.pause}`],
-    ["Signal", `${correct.signal} | ${incorrect.signal}`],
+    ["Correct Cue", `${correct.cue}`],
+    ["Correct Pause", `${correct.pause}`],
+    ["Correct Signal", `${correct.signal}`],
     ["All Correct", `${correct.sequence}`],
     ["Total Sequences", total],
     ["% Correct", `${getPercent(correct.sequence, total)}`],
