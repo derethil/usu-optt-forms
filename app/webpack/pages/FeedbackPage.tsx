@@ -27,14 +27,14 @@ const FeedbackPage = () => {
         updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
       />
 
-      <FeedbackCard
-        title="Next Focus"
-        feedbackType="nextFocus"
-        feedback={feedback.nextFocus}
-        updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
-      />
-
-      {currentForm === formOptions.selfEvaluation && (
+      {currentForm !== formOptions.selfEvaluation ? (
+        <FeedbackCard
+          title="Next Focus"
+          feedbackType="nextFocus"
+          feedback={feedback.nextFocus}
+          updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
+        />
+      ) : (
         <>
           <FeedbackCard
             title="Goal 1"

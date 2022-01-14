@@ -26,7 +26,6 @@ import {
   data1 as dataReducer1,
   data2 as dataReducer2,
 } from "../../slices/dataSlice";
-import selfEvaluationSection from "./selfEvaluation";
 
 export type PDFDataProps = {
   data1: DataSchema;
@@ -249,6 +248,7 @@ const PDFData = () => {
     ];
 
     if (currentForm === formOptions.selfEvaluation) {
+      feedbackRows.pop();
       feedbackRows.push(["Goal 1", feedback.goal1], ["Goal 2", feedback.goal2]);
     }
 
