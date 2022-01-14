@@ -157,8 +157,8 @@ export const App = () => {
           timer={timer1}
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
-          errorOneRow
           guideTooltip
+          includeIncorrect
         />
       </Route>,
       ...sharedRoutes,
