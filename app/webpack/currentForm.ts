@@ -8,6 +8,6 @@ export enum formOptions {
   selfEvaluation = "selfEvaluation",
 }
 
-const currentForm: formOptions = formOptions.severePracticum;
+const currentForm: formOptions = formOptions.studentTeaching;
 
 export default currentForm;
