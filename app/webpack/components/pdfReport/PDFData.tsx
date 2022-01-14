@@ -126,14 +126,13 @@ const PDFData = () => {
 
     // Observations
 
-    if (
-      data1.currentForm === formOptions.studentTeaching &&
-      data2.currentForm === formOptions.studentTeaching
-    ) {
+    if (currentForm === formOptions.studentTeaching) {
       studentTeachingSection(generator, data1, data2, timerState1, timerState2);
-    } else if (currentForm === formOptions.selfEvaluation) {
-      selfEvaluationSection(generator, data1, timerState1);
-    } else if (data1.currentForm === formOptions.severePracticum) {
+    } else if (
+      [formOptions.severePracticum, formOptions.selfEvaluation].includes(
+        currentForm
+      )
+    ) {
       severePracticumReadingSection(generator, data1, timerState1);
     } else if (data1.currentForm === formOptions.bTo5Practicum) {
       bTo5PracticumSection(generator, data1, timerState1);
