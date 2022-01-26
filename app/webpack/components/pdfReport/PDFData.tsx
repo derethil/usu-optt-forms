@@ -27,8 +27,6 @@ import {
   data2 as dataReducer2,
 } from "../../slices/dataSlice";
 
-import { saveAs } from "file-saver";
-
 export type PDFDataProps = {
   data1: DataSchema;
   data2: DataSchema;
@@ -266,22 +264,11 @@ const PDFData = () => {
 
     // Save
     const date = new Date(formInfo.date);
-    const filename = `${formInfo.studentTeacher} ${
-      date.getMonth() + 1
-    }-${date.getDate()}-${date.getFullYear()}.pdf`;
-
-    // generator.pdf.save(
-    //   `${formInfo.studentTeacher} ${
-    //     date.getMonth() + 1
-    //   }-${date.getDate()}-${date.getFullYear()}.pdf`
-    // );
-
-    const blob = generator.pdf.output("blob");
-    // const blobUrl = URL.createObjectURL(blob);
-    // window.open(blobUrl);
-    // URL.revokeObjectURL(blobUrl);
-
-    saveAs(blob, filename);
+    generator.pdf.save(
+      `${formInfo.studentTeacher} ${
+        date.getMonth() + 1
+      }-${date.getDate()}-${date.getFullYear()}.pdf`
+    );
   };
 
   return (
