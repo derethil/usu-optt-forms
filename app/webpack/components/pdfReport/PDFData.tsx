@@ -197,10 +197,12 @@ const PDFData = () => {
               }
             );
 
+            const score = getScore(rowInfo, sectionIdx, rowIdx);
+
             return [
               rowTitle,
-              selectedOption!.content,
-              getScore(rowInfo, sectionIdx, rowIdx),
+              selectedOption ? selectedOption.content : score,
+              score,
               rowInfo.comment.replace(overrideRegex, ""),
             ];
           }),
