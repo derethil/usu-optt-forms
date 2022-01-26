@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import SelectButton from "./SelectButton";
@@ -47,6 +47,8 @@ interface OptionRowCommentProps extends OptionRowProps {
 }
 
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
+  const [override, setOverride] = useState(false);
+
   if ("comment" in props && props.comment !== undefined && props.scoreOptions) {
     useEffect(() => {
       // If override is found in comment, override the score
@@ -54,16 +56,13 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
         props.updateSelection(
           props.comment.match(overrideRegex)![0].match(/\d+/gi)![0]
         );
+        setOverride(true);
       }
 
       // Reset score when override is removed
-      if (
-        !props.scoreOptions?.includes(props.currSelection) &&
-        props.currSelection !== "N/A"
-      ) {
-        // Checking for N/A score is required here because it's not included in scoreOptions
-        // Otherwise this always runs and resets the score when override is not provided and score is N/A
+      if (override === true && !overrideRegex.test(props.comment)) {
         props.updateSelection(props.scoreOptions?.pop()!);
+        setOverride(false);
       }
     }, [props["comment"]]);
   }

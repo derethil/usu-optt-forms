@@ -203,7 +203,7 @@ const PDFData = () => {
               rowTitle,
               selectedOption ? selectedOption.content : score,
               score,
-              rowInfo.comment.replace(overrideRegex, ""),
+              rowInfo.comment.replace(overrideRegex, "").trim(),
             ];
           }),
         });
