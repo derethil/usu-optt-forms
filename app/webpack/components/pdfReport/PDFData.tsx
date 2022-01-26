@@ -210,6 +210,7 @@ const PDFData = () => {
       }
     );
 
+    // Add notebook check data if rubric is math
     if (data1.currentForm === formOptions.math) {
       generator.table({
         columnStyles: {

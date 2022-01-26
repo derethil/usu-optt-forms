@@ -17,7 +17,6 @@ import { selectChecklist } from "../../slices/checklistSlice";
 import { IChecklistJSONRow, IChecklistJSON } from "../../types/dataTypes";
 
 import checklistJSON from "../../../rubrics/practicumChecklist.json";
-import autoTable from "jspdf-autotable";
 
 export type PDFDataProps = {
   data1: DataSchema;

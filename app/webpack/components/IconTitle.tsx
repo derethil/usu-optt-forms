@@ -26,6 +26,7 @@ const Title = styled.p<CSSMixin>`
 `;
 
 const IconTitle = (props: IconTitleProps) => {
+  // Allows React to properly link each icon to its tooltip
   const [randomID, setRandomID] = useState(String(Math.random()));
 
   return (

@@ -49,6 +49,7 @@ interface OptionRowCommentProps extends OptionRowProps {
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
   const [override, setOverride] = useState(false);
 
+  // Override system (ex: !override = 10 in comment)
   if ("comment" in props && props.comment !== undefined && props.scoreOptions) {
     useEffect(() => {
       // If override is found in comment, override the score
@@ -83,6 +84,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     );
   });
 
+  // Push N/A as an option onto list if intended for scores
   if (props.scoreOptions) {
     rowContents.push(
       <SelectButton
@@ -95,6 +97,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     );
   }
 
+  // Push the comment box onto list if provided
   if ("comment" in props && props.comment !== undefined) {
     rowContents.push(
       <OptionRowInput

@@ -24,6 +24,7 @@ const FormInfo = () => {
     dispatch(setFormInfo(updatedValues));
   };
 
+  // Allows Notebook Check to change its options depending on observation #
   const updateObservation = (updatedValues: { observation: number }) => {
     const location = formInfo.location;
     const observation = updatedValues.observation;
