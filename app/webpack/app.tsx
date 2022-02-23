@@ -170,6 +170,12 @@ export const App = () => {
       <Route path="/behavior" key="Behavior">
         <STRubric index={STRIndex.behavior} />
       </Route>,
+      <Route path="/collaboration" key="Collaboration">
+        <STRubric index={STRIndex.collaboration} />
+      </Route>,
+      <Route path="/iep" key="IEP/IFSP">
+        <STRubric index={STRIndex.iep} />
+      </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
   };
