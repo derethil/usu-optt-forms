@@ -6,7 +6,7 @@ import subprocess
 from shutil import copyfile, make_archive, move
 
 STATIC_PATH = "./app/static"
-ZIP_PATH = "./zip/deploymentStructure"
+DIST_PATH = "./dist/deploymentStructure"
 
 
 forms = [
@@ -17,6 +17,7 @@ forms = [
     "math",
     "practicumChecklist",
     "selfEvaluation",
+    "STRubric",
 ]
 
 
@@ -35,17 +36,17 @@ def main():
         process = subprocess.Popen("npm run build", shell=True, stdout=subprocess.PIPE)
         process.wait()
 
-        print(f"Copying main.js to {ZIP_PATH}/{form}/main.js...")
+        print(f"Copying main.js to {DIST_PATH}/{form}/main.js...")
 
         copyfile(
             f"{STATIC_PATH}/js/main.js",
-            f"{ZIP_PATH}/{form}/main.js",
+            f"{DIST_PATH}/{form}/main.js",
         )
 
         print(f"{form} form build complete!\n")
 
-    make_archive("production", "zip", f"{ZIP_PATH}")
-    move("production.zip", "./zip/production.zip")
+    make_archive("production", "zip", f"{DIST_PATH}")
+    move("production.zip", "./dist/production.zip")
 
 
 if __name__ == "__main__":
