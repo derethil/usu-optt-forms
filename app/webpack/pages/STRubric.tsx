@@ -18,6 +18,7 @@ import TextScore from "../components/TextScore";
 import OptionRow from "../components/optionRow";
 import { selectQuestions, setQuestion } from "../slices/questionsSlice";
 import { ISTRubric } from "../types/dataTypes";
+import { afterGradedLists } from "../defaults/defaults";
 
 export enum STRIndex {
   "behavior" = 0,
@@ -28,6 +29,11 @@ export enum STRIndex {
 const cardTitleStyles = css`
   padding-left: 1em;
   padding-right: 1em;
+`;
+
+const ListItem = styled.li`
+  font-size: 1.05rem;
+  padding: 0.2em;
 `;
 
 const getQuestion = (index: number): keyof ISTRubric => {
@@ -92,13 +98,16 @@ const STRubric = ({ index }: { index: STRIndex }) => {
       </Card>
       <Card
         title={
-          <RubricTitleContent>
-            After Behavior Assignment is Graded:
-          </RubricTitleContent>
+          <RubricTitleContent>After Assignment is Graded:</RubricTitleContent>
         }
         titleStyles={cardTitleStyles}
         containerStyles={cardContainerStyles}
       >
+        <ol>
+          {afterGradedLists[index].map((step, index) => (
+            <ListItem key={index}>{step}</ListItem>
+          ))}
+        </ol>
         <OptionRow
           title="District Coach conferenced with the student teacher:"
           contentOptions={["Yes", "No"]}
@@ -107,7 +116,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
             dispatch(setQuestion({ [getQuestion(index)]: newSelection }));
           }}
           titleStyles={css`
-            color: ${Color.neutrals.grayDark};
+            color: ${Color.neutrals.blackLight};
           `}
           buttonStyles={buttonStyles}
         />
