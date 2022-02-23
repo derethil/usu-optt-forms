@@ -60,7 +60,7 @@ const FormData: IFormData = {
   [formOptions.STRubric]: {
     title: "OPTT ST Rubric",
     rubric: selfEvaluationRubric as Section[],
-    defaultData: defaults.defaultSeverePracticumData,
+    defaultData: defaults.defaultStudentTeachingData, // Easier to provide dummy data than rewrite for optional data
   },
 };
 

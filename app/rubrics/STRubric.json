@@ -1,0 +1,89 @@
+{
+  "behavior": {
+    "sectionTitle": "Behavioral Assessment and Reinforcement",
+    "rows": [
+      {
+        "criteria": "Classroom rules are listed.  Student wrote them if not previously stated.",
+        "points": 3
+      },
+      {
+        "criteria": "Operationally defines each rule.  Includes complete information about each rule including examples and non-examples. Includes reinforcers and consequences.",
+        "points": 4
+      },
+      {
+        "criteria": "Identify a procedure appropriate to the setting.  Operationally define the procedure.  Includes complete information about the procedure including examples and non-examples. Includes reinforcers and consequences.  Includes 3-4 sentences that describe how to teach students the procedure.",
+        "points": 5
+      },
+      {
+        "criteria": "Describes a reinforcement system with enough information that someone else could implement the system. Includes all components of option chosen.",
+        "points": 8
+      },
+      {
+        "criteria": "Reflected on the effectiveness and fidelity of implementation of the reinforcement system.  Discussed what went well and includes appropriate recommendations for future reinforcement systems.  Considered which reinforcement skills came easily and which skills to work on in the future.",
+        "points": 5
+      }
+    ]
+  },
+  "collaboration": {
+    "sectionTitle": "Collaboration Assignment",
+    "rows": [
+      {
+        "criteria": "Shares 5 instances of collaboration with school-based professionals. Indicates purpose of the collaboration and the individual they collaborated with.",
+        "points": 4
+      },
+      {
+        "criteria": "Describes the purpose of one collaboration",
+        "points": 4
+      },
+      {
+        "criteria": "Describes the school-based professionals and their role in the collaboration.",
+        "points": 4
+      },
+      {
+        "criteria": "Describes the collaboration",
+        "points": 4
+      },
+      {
+        "criteria": "Describes the follow-up with the collaboration",
+        "points": 4
+      },
+      {
+        "criteria": "Reflects on the collaboration. Discusses what went well and makes recommendations for improvement in future collaborations. Considers what collaborative skills came easily and what skills to work on in the future.",
+        "points": 5
+      }
+    ]
+  },
+  "iep": {
+    "sectionTitle": "IEP/IFSP",
+    "rows": [
+      {
+        "criteria": "Identified 3 specific areas of need as determined by assessments, referrals and classroom data for one student.  Areas of need should be aligned to the Utah Core, Essential Elements or the Early Childhood Core Standards.",
+        "points": 3
+      },
+      {
+        "criteria": "Identified a specific area of need and wrote a PLAAFP.  The PLAAFP statement included a summary of the assessment information and references the appropriate state standard.  A statement of impact is also included.",
+        "points": 3
+      },
+      {
+        "criteria": "Reported on formal and informal assessment data regarding the pupil's PLAAFP.  Conducted additional assessments as needed. Identifies if additional data is needed.  Conducts additional assessments if needed.  If no additional data were needed, explains why.",
+        "points": 3
+      },
+      {
+        "criteria": "Writes an IEP/IFSP goal that is clearly tied to the PLAAFP. The goal must be written in the appropriate format (specific behaviors, conditions (settings, materials, resources, criteria, and appropriate evaluation procedures) and include at least two objectives.  Includes the Utah Core, Essential Elements, and/or Early Childhood Standards associated with the goal.",
+        "points": 4
+      },
+      {
+        "criteria": "Describes how the IEP/IFSP goal is addressed within the pupil's daily schedule. Lists specifics about the pupil's schedule, accommodations, and any other additional instructional support/arrangements.",
+        "points": 4
+      },
+      {
+        "criteria": "Attends a meeting to report the data. Discusses the setting, the participants, the meeting and the conclusions of the data reporting meeting.",
+        "points": 4
+      },
+      {
+        "criteria": "Reflects on the data reporting meeting. Discusses what went well and makes recommendations for improvement in future data reporting opportunities.",
+        "points": 4
+      }
+    ]
+  }
+}
