@@ -163,6 +163,7 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
+    [formOptions.STRubric]: [...sharedRoutes],
   };
 
   return (

@@ -57,6 +57,11 @@ const FormData: IFormData = {
     rubric: selfEvaluationRubric as Section[],
     defaultData: defaults.defaultSeverePracticumData,
   },
+  [formOptions.STRubric]: {
+    title: "OPTT ST Rubric",
+    rubric: selfEvaluationRubric as Section[],
+    defaultData: defaults.defaultSeverePracticumData,
+  },
 };
 
 export default FormData;
