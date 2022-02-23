@@ -5,6 +5,7 @@ import {
   PageContent,
   RubricTitleContent,
   cardContainerStyles,
+  buttonStyles,
 } from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
@@ -14,6 +15,9 @@ import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import FormData from "../FormData";
 
 import TextScore from "../components/TextScore";
+import OptionRow from "../components/optionRow";
+import { selectQuestions, setQuestion } from "../slices/questionsSlice";
+import { ISTRubric } from "../types/dataTypes";
 
 export enum STRIndex {
   "behavior" = 0,
@@ -26,23 +30,23 @@ const cardTitleStyles = css`
   padding-right: 1em;
 `;
 
-const rowTitleStyles = css`
-  font-size: 1.33rem;
-  color: ${Color.neutrals.grayDarker};
-`;
+const getQuestion = (index: number): keyof ISTRubric => {
+  switch (index) {
+    case 0:
+      return "behaviorConferenced";
+    case 1:
+      return "collaborationConferenced";
+    case 2:
+      return "IEPConferenced";
+    default:
+      throw new Error("Unknown index");
+  }
+};
 
-const contentStyles = css`
-  padding-top: 0;
-`;
-
-const CardTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Rubric = ({ index }: { index: STRIndex }) => {
+const STRubric = ({ index }: { index: STRIndex }) => {
   const rubricData = FormData[currentForm].rubric[index];
   const rubricScores = useAppSelector(selectRubric);
+  const questions = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
 
   const updateScore = (
@@ -86,8 +90,30 @@ const Rubric = ({ index }: { index: STRIndex }) => {
       >
         {rows}
       </Card>
+      <Card
+        title={
+          <RubricTitleContent>
+            After Behavior Assignment is Graded:
+          </RubricTitleContent>
+        }
+        titleStyles={cardTitleStyles}
+        containerStyles={cardContainerStyles}
+      >
+        <OptionRow
+          title="District Coach conferenced with the student teacher:"
+          contentOptions={["Yes", "No"]}
+          currSelection={questions[getQuestion(index)]}
+          updateSelection={(newSelection) => {
+            dispatch(setQuestion({ [getQuestion(index)]: newSelection }));
+          }}
+          titleStyles={css`
+            color: ${Color.neutrals.grayDark};
+          `}
+          buttonStyles={buttonStyles}
+        />
+      </Card>
     </PageContent>
   );
 };
 
-export default Rubric;
+export default STRubric;

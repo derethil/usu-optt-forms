@@ -9,6 +9,7 @@ import {
   IBT5PracticumData,
   IReadingData,
   IMathData,
+  ISTRubric,
 } from "../types/dataTypes";
 
 const defaultSequence = {
@@ -173,4 +174,10 @@ export const defaultReadingData: DataSchema = {
 export const defaultMathData: DataSchema = {
   currentForm: formOptions.math,
   ...mathData,
+};
+
+export const defaultSTRData: ISTRubric = {
+  behaviorConferenced: "No",
+  collaborationConferenced: "No",
+  IEPConferenced: "No",
 };

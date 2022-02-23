@@ -1,5 +1,5 @@
 import * as defaults from "./defaults/defaultData";
-import { DataSchema } from "./types/dataTypes";
+import { DataSchema, ISTRubric } from "./types/dataTypes";
 import { Section } from "./types/types";
 
 import studentTeachingRubric from "../rubrics/studentTeaching.json";
@@ -17,6 +17,7 @@ type IFormData = {
     defaultData: DataSchema;
     title: string;
     programOptions?: string[];
+    questions?: ISTRubric;
   };
 };
 
@@ -61,7 +62,8 @@ const FormData: IFormData = {
   [formOptions.STRubric]: {
     title: "OPTT ST Rubric",
     rubric: STRubric as Section[],
-    defaultData: defaults.defaultStudentTeachingData, // Easier to provide dummy data than rewrite for optional data
+    defaultData: defaults.defaultStudentTeachingData,
+    questions: defaults.defaultSTRData,
   },
 };
 

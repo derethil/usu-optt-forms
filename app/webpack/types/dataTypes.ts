@@ -209,3 +209,15 @@ export interface IChecklistJSON {
   observationDate: IChecklistJSONRow;
   additionalInfo: IChecklistJSONRow;
 }
+
+// ------ OTT ST RUBRIC ------
+
+interface Test {
+  [index: string]: string;
+}
+
+export interface ISTRubric {
+  behaviorConferenced: string;
+  collaborationConferenced: string;
+  IEPConferenced: string;
+}
