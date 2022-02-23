@@ -8,6 +8,7 @@ import bTo5PracticumRubric from "../rubrics/bTo5Practicum.json";
 import readingRubric from "../rubrics/readingRubric.json";
 import mathRubric from "../rubrics/mathRubric.json";
 import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
+import STRubric from "../rubrics/STRubric.json";
 import { formOptions } from "./currentForm";
 
 type IFormData = {
@@ -59,7 +60,7 @@ const FormData: IFormData = {
   },
   [formOptions.STRubric]: {
     title: "OPTT ST Rubric",
-    rubric: selfEvaluationRubric as Section[],
+    rubric: STRubric as Section[],
     defaultData: defaults.defaultStudentTeachingData, // Easier to provide dummy data than rewrite for optional data
   },
 };

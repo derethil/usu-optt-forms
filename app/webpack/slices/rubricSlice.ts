@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
 import { ScoresState, Section } from "../types/types";
@@ -7,20 +7,36 @@ import { ScoresState, Section } from "../types/types";
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
 
-  rubricData.forEach((section) => {
-    initialState[section.sectionTitle] = {};
-    section.rows.forEach((row) => {
-      const initialScore =
-        row.options[0].score === "Yes"
-          ? "Yes"
-          : String(row.options[row.options.length - 1].score);
+  if (currentForm !== formOptions.STRubric) {
+    rubricData.forEach((section) => {
+      initialState[section.sectionTitle] = {};
+      section.rows.forEach((row) => {
+        const initialScore =
+          row.options[0].score === "Yes"
+            ? "Yes"
+            : String(row.options[row.options.length - 1].score);
 
+        initialState[section.sectionTitle][row.area] = {
+          score: initialScore,
+          comment: "",
+        };
+      });
+    });
+    return initialState;
+  }
+
+  rubricData.forEach((section, idx) => {
+    initialState[section.sectionTitle] = {};
+
+    section.rows.forEach((row) => {
       initialState[section.sectionTitle][row.area] = {
-        score: initialScore,
+        score: "0",
+        maxScore: String(row.options[0].score),
         comment: "",
       };
     });
   });
+
   return initialState;
 };
 

@@ -31,6 +31,7 @@ import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
 import PracticumChecklist from "./pages/data/PracticumChecklist";
 import { resetChecklist } from "./slices/checklistSlice";
+import STRubric, { STRIndex } from "./pages/STRubric";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -163,7 +164,12 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
-    [formOptions.STRubric]: [...sharedRoutes],
+    [formOptions.STRubric]: [
+      <Route path="/rubric" key="Rubric">
+        <STRubric index={STRIndex.behavior} />
+      </Route>,
+      <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
+    ],
   };
 
   return (

@@ -23,6 +23,7 @@ export interface ScoresState {
     [key: string]: {
       score: string;
       comment: string;
+      maxScore?: string;
     };
   };
 }
