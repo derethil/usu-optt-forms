@@ -165,7 +165,7 @@ export const App = () => {
       ...sharedRoutes,
     ],
     [formOptions.STRubric]: [
-      <Route path="/rubric" key="Rubric">
+      <Route path="/behavior" key="Behavior">
         <STRubric index={STRIndex.behavior} />
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
