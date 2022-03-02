@@ -6,6 +6,7 @@ import {
   RubricTitleContent,
   cardContainerStyles,
   buttonStyles,
+  CardTitleContainer,
 } from "../styledComponents/style";
 import Card from "../components/Card";
 import Color from "../styledComponents/colors";
@@ -19,6 +20,7 @@ import OptionRow from "../components/optionRow";
 import { selectQuestions, setQuestion } from "../slices/questionsSlice";
 import { ISTRubric } from "../types/dataTypes";
 import { afterGradedLists } from "../defaults/defaults";
+import { generateScoreData } from "../utils/scoreUtils";
 
 export enum STRIndex {
   "behavior" = 0,
@@ -54,6 +56,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
   const rubricScores = useAppSelector(selectRubric);
   const questions = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
+  const { score, possible, summary } = generateScoreData(rubricScores);
 
   const updateScore = (
     section: string,
@@ -89,7 +92,10 @@ const STRubric = ({ index }: { index: STRIndex }) => {
     <PageContent className="rubric">
       <Card
         title={
-          <RubricTitleContent>{rubricData.sectionTitle}</RubricTitleContent>
+          <CardTitleContainer>
+            <RubricTitleContent>{rubricData.sectionTitle}</RubricTitleContent>
+            <p>{summary[index][1]}</p>
+          </CardTitleContainer>
         }
         titleStyles={cardTitleStyles}
         containerStyles={cardContainerStyles}

@@ -9,6 +9,7 @@ import {
   PageContent,
   RubricTitleContent,
   cardContainerStyles,
+  CardTitleContainer,
 } from "../styledComponents/style";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import Card from "../components/Card";
@@ -42,11 +43,6 @@ const rowTitleStyles = css`
 
 const contentStyles = css`
   padding-top: 0;
-`;
-
-const CardTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
 `;
 
 const timerContentStyles = css`
