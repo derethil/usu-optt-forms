@@ -55,15 +55,39 @@ const Timer = ({ timer, resetCallback }: TimerProps) => {
 
   const counter = useRef<NodeJS.Timeout | null>(null);
 
+  // ------ TIMER LOGIC ------
+
   useEffect(() => {
     if (!timerState.isPaused) {
+      // If timer is active on mount or button click, continue to increment it
+      if (timerState.unmountTime) {
+        // If timer was unmounted while active, get the delta and add it
+        const deltaTime = Math.abs(
+          new Date().getTime() - new Date(timerState.unmountTime).getTime()
+        );
+
+        const seconds = Math.ceil(deltaTime / 1000);
+        dispatch(timer.actions.setValue(timerState.value + seconds));
+      }
+
       counter.current = setInterval(() => {
         dispatch(timer.actions.increment());
       }, 1000);
     } else {
+      // Otherwise clear the interval
       clearInterval(counter.current as NodeJS.Timeout);
     }
+
+    dispatch(timer.actions.resetUnmountTime());
+
+    return () => {
+      // Cleanup
+      dispatch(timer.actions.setUnmountTime(new Date().getTime()));
+      clearInterval(counter.current as NodeJS.Timeout);
+    };
   }, [timerState.isActive, timerState.isPaused]);
+
+  // ----- BUTTON LOGIC ------
 
   const currentButton = () => {
     const getButton = (text: string, onClick: () => void) => {
@@ -94,6 +118,8 @@ const Timer = ({ timer, resetCallback }: TimerProps) => {
     dispatch(timer.actions.reset());
     if (resetCallback) resetCallback();
   };
+
+  // ------ COMPONENT ------
 
   return (
     <TimerContent>

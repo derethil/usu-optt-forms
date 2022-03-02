@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export interface ITimerState {
   value: number;
   isActive: boolean;
   isPaused: boolean;
+  unmountTime?: number;
 }
 
 const initialState: ITimerState = { value: 0, isActive: false, isPaused: true };
@@ -29,6 +30,15 @@ function createTimerSlice(sliceName: string) {
       },
       increment: (state) => {
         state.value += 1;
+      },
+      setUnmountTime: (state, action: PayloadAction<number>) => {
+        state.unmountTime = action.payload;
+      },
+      resetUnmountTime: (state) => {
+        state.unmountTime = undefined;
+      },
+      setValue: (state, action: PayloadAction<number>) => {
+        state.value = action.payload;
       },
     },
   });
