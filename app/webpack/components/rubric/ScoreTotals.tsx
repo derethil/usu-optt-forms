@@ -7,6 +7,7 @@ import { getPercent } from "../../utils/utils";
 import { DataWrapper, DataCell, DataRow } from "../../styledComponents/style";
 import { useAppSelector } from "../../hooks/hooks";
 import { selectRubric } from "../../slices/rubricSlice";
+import currentForm, { formOptions } from "../../currentForm";
 
 type ScoreTotalProps = {
   displaySections?: boolean;
@@ -31,17 +32,21 @@ const ScoreTotals = ({ displaySections = true }: ScoreTotalProps) => {
     <DataWrapper>
       {displaySections && subtotals}
 
-      <DataRow style={{ marginTop: displaySections ? "2em" : "0" }}>
-        <DataCell>Total Score:</DataCell>
-        <DataCell>
-          {score} / {possible}
-        </DataCell>
-      </DataRow>
+      {currentForm != formOptions.STRubric && (
+        <>
+          <DataRow style={{ marginTop: displaySections ? "2em" : "0" }}>
+            <DataCell>Total Score:</DataCell>
+            <DataCell>
+              {score} / {possible}
+            </DataCell>
+          </DataRow>
 
-      <DataRow>
-        <DataCell>Percentage:</DataCell>
-        <DataCell>{getPercent(score, possible)}</DataCell>
-      </DataRow>
+          <DataRow>
+            <DataCell>Percentage:</DataCell>
+            <DataCell>{getPercent(score, possible)}</DataCell>
+          </DataRow>
+        </>
+      )}
     </DataWrapper>
   );
 };
