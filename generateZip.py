@@ -1,6 +1,6 @@
 #!/bin/python
 
-
+import sys
 import re
 import subprocess
 from shutil import copyfile, make_archive, move
@@ -30,13 +30,16 @@ def main():
             new_content = re.sub("formOptions\.\w+", f"formOptions.{form}", content)
             file.seek(0)
             file.write(new_content)
+            file.truncate()
 
         print(f"Running 'npm run build' on {form} form...")
 
-        process = subprocess.Popen("npm run build", shell=True, stdout=subprocess.PIPE)
+        process = subprocess.Popen(
+            "npm run build", shell=True, stderr=sys.stderr, stdout=sys.stdout
+        )
         process.wait()
 
-        print(f"Copying main.js to {DIST_PATH}/{form}/main.js...")
+        print(f"\nCopying main.js to {DIST_PATH}/{form}/main.js...")
 
         copyfile(
             f"{STATIC_PATH}/js/main.js",
