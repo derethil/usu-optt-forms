@@ -26,6 +26,7 @@ import {
   data1 as dataReducer1,
   data2 as dataReducer2,
 } from "../../slices/dataSlice";
+import { selectQuestions } from "../../slices/questionsSlice";
 
 export type PDFDataProps = {
   data1: DataSchema;
@@ -49,6 +50,9 @@ const PDFData = () => {
   const timerState1 = useAppSelector(timer1.selector);
   const timerState2 = useAppSelector(timer2.selector);
   const timerState3 = useAppSelector(timer3.selector);
+  const questions = useAppSelector(selectQuestions);
+
+  const isSTRubric = currentForm === formOptions.STRubric;
 
   const generatePDF = () => {
     // Setup
@@ -85,7 +89,12 @@ const PDFData = () => {
         currentForm === formOptions.selfEvaluation
           ? selfEvalInfoBody
           : [
-              ["Student Teacher", formInfo.studentTeacher],
+              [
+                currentForm === formOptions.studentTeaching
+                  ? "Student Teacher"
+                  : "Practicum Student",
+                formInfo.studentTeacher,
+              ],
               ["Cooperating Teacher", formInfo.cooperatingTeacher],
               ["Supervisor / Coach", formInfo.supervisor],
               ["Date", formatDate(formInfo.date)],
@@ -110,18 +119,20 @@ const PDFData = () => {
       body: summary,
     });
 
-    generator.table({
-      head: ["Total Score", ""],
-      columnStyles: {
-        1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 },
-      },
-      body: [
-        ["Total Correct", score],
-        ["Total Possible", possible],
-        ["Percentage", getPercent(score, possible)],
-        ["Letter Grade", getLetterGrade((score / possible) * 100)],
-      ],
-    });
+    if (!isSTRubric) {
+      generator.table({
+        head: ["Total Score", ""],
+        columnStyles: {
+          1: { cellWidth: 50, fontStyle: "bold", fontSize: 12 },
+        },
+        body: [
+          ["Total Correct", score],
+          ["Total Possible", possible],
+          ["Percentage", getPercent(score, possible)],
+          ["Letter Grade", getLetterGrade((score / possible) * 100)],
+        ],
+      });
+    }
 
     // Observations
 
@@ -172,6 +183,35 @@ const PDFData = () => {
       ([sectionTitle, scoresObj], sectionIdx) => {
         const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
 
+        const body = Object.entries(scoresObj).map(
+          ([rowTitle, rowInfo], rowIdx) => {
+            const selectedOption = rubric[sectionIdx].rows[rowIdx].options.find(
+              (option) => {
+                return String(option.score) === rowInfo.score;
+              }
+            );
+            const score = getScore(rowInfo, sectionIdx, rowIdx);
+
+            return isSTRubric
+              ? [rowTitle, score]
+              : [
+                  rowTitle,
+                  selectedOption ? selectedOption.content : score,
+                  score,
+                  rowInfo.comment.replace(overrideRegex, "").trim(),
+                ];
+          }
+        );
+
+        const conferenced = Object.values(questions);
+
+        if (isSTRubric) {
+          body.push([
+            "District Coach conferenced with the student teacher after grading?",
+            conferenced[sectionIdx],
+          ]);
+        }
+
         generator.table({
           startY: sectionIdx === 0 ? startY : "RELATIVE",
           headStyles: {
@@ -180,8 +220,13 @@ const PDFData = () => {
             halign: "center",
           },
           columnStyles: {
-            0: { cellWidth: 35, valign: "middle" },
-            1: { cellWidth: "auto", halign: "center", valign: "middle" },
+            0: { cellWidth: isSTRubric ? "auto" : 35, valign: "middle" },
+            1: {
+              cellWidth: isSTRubric ? 50 : "auto",
+              halign: "center",
+              valign: "middle",
+              cellPadding: { vertical: 4 },
+            },
             2: { cellWidth: 25, halign: "center", valign: "middle" },
             3: {
               cellWidth: 50,
@@ -189,23 +234,10 @@ const PDFData = () => {
               cellPadding: { horizontal: 5, vertical: 2 },
             },
           },
-          head: [sectionTitle, "Description", "Score", "Comments"],
-          body: Object.entries(scoresObj).map(([rowTitle, rowInfo], rowIdx) => {
-            const selectedOption = rubric[sectionIdx].rows[rowIdx].options.find(
-              (option) => {
-                return String(option.score) === rowInfo.score;
-              }
-            );
-
-            const score = getScore(rowInfo, sectionIdx, rowIdx);
-
-            return [
-              rowTitle,
-              selectedOption ? selectedOption.content : score,
-              score,
-              rowInfo.comment.replace(overrideRegex, "").trim(),
-            ];
-          }),
+          head: isSTRubric
+            ? [sectionTitle, "Score"]
+            : [sectionTitle, "Description", "Score", "Comments"],
+          body: body,
         });
       }
     );
@@ -245,9 +277,18 @@ const PDFData = () => {
     });
 
     const feedbackRows = [
-      ["Strengths", feedback.strengths],
-      ["Suggestions", feedback.suggestions],
-      ["Next Focus", feedback.nextFocus],
+      [
+        isSTRubric ? "Behavior Assignment Comments" : "Strengths",
+        feedback.strengths,
+      ],
+      [
+        isSTRubric ? "Collaboration Assignment Comments" : "Suggestions",
+        feedback.suggestions,
+      ],
+      [
+        isSTRubric ? "IEP/IFSP Assignment Comments" : "Next Focus",
+        feedback.nextFocus,
+      ],
     ];
 
     if (currentForm === formOptions.selfEvaluation) {

@@ -31,6 +31,8 @@ import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
 import PracticumChecklist from "./pages/data/PracticumChecklist";
 import { resetChecklist } from "./slices/checklistSlice";
+import STRubric, { STRIndex } from "./pages/STRubric";
+import { resetQuestions } from "./slices/questionsSlice";
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -46,6 +48,7 @@ export const App = () => {
     dispatch(resetFeedback());
     dispatch(resetNotebookChecks());
     dispatch(resetChecklist());
+    dispatch(resetQuestions());
   };
 
   let title;
@@ -162,6 +165,18 @@ export const App = () => {
         />
       </Route>,
       ...sharedRoutes,
+    ],
+    [formOptions.STRubric]: [
+      <Route path="/behavior" key="Behavior">
+        <STRubric index={STRIndex.behavior} />
+      </Route>,
+      <Route path="/collaboration" key="Collaboration">
+        <STRubric index={STRIndex.collaboration} />
+      </Route>,
+      <Route path="/iep" key="IEP/IFSP">
+        <STRubric index={STRIndex.iep} />
+      </Route>,
+      <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
   };
 

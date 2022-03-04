@@ -1,0 +1,89 @@
+[
+  {
+    "sectionTitle": "Behavioral Assessment and Reinforcement",
+    "rows": [
+      {
+        "area": "Classroom rules are listed.  Student wrote them if not previously stated.",
+        "options": [{"content": "", "score": 3}]
+      },
+      {
+        "area": "Operationally defines each rule.  Includes complete information about each rule including examples and non-examples. Includes reinforcers and consequences.",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Identify a procedure appropriate to the setting.  Operationally define the procedure.  Includes complete information about the procedure including examples and non-examples. Includes reinforcers and consequences.  Includes 3-4 sentences that describe how to teach students the procedure.",
+        "options": [{"content": "", "score": 5}]
+      },
+      {
+        "area": "Describes a reinforcement system with enough information that someone else could implement the system. Includes all components of option chosen. (See the assignment for a detailed description).",
+        "options": [{"content": "", "score": 8}]
+      },
+      {
+        "area": "Reflected on the effectiveness and fidelity of implementation of the reinforcement system.  Discussed what went well and includes appropriate recommendations for future reinforcement systems.  Considered which reinforcement skills came easily and which skills to work on in the future.",
+        "options": [{"content": "", "score": 5}]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Collaboration Assignment",
+    "rows": [
+      {
+        "area": "Shares 5 instances of collaboration with school-based professionals. Indicates purpose of the collaboration and the individual they collaborated with.",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Describes the purpose of one collaboration",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Describes the school-based professionals and their role in the collaboration.",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Describes the collaboration",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Describes the follow-up with the collaboration",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Reflects on the collaboration. Discusses what went well and makes recommendations for improvement in future collaborations. Considers what collaborative skills came easily and what skills to work on in the future.",
+        "options": [{"content": "", "score": 5}]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "IEP/IFSP",
+    "rows": [
+      {
+        "area": "Identified 3 specific areas of need as determined by assessments, referrals and classroom data for one student.  Areas of need should be aligned to the Utah Core, Essential Elements or the Early Childhood Core Standards.",
+        "options": [{"content": "", "score": 3}]
+      },
+      {
+        "area": "Identified a specific area of need and wrote a PLAAFP.  The PLAAFP statement included a summary of the assessment information and references the appropriate state standard.  A statement of impact is also included.",
+        "options": [{"content": "", "score": 3}]
+      },
+      {
+        "area": "Reported on formal and informal assessment data regarding the pupil's PLAAFP.  Conducted additional assessments as needed. Identifies if additional data is needed.  Conducts additional assessments if needed.  If no additional data were needed, explains why.",
+        "options": [{"content": "", "score": 3}]
+      },
+      {
+        "area": "Writes an IEP/IFSP goal that is clearly tied to the PLAAFP. The goal must be written in the appropriate format (specific behaviors, conditions (settings, materials, resources, area, and appropriate evaluation procedures) and include at least two objectives.  Includes the Utah Core, Essential Elements, and/or Early Childhood Standards associated with the goal.",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Describes how the IEP/IFSP goal is addressed within the pupil's daily schedule. Lists specifics about the pupil's schedule, accommodations, and any other additional instructional support/arrangements.",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Attends a meeting to report the data. Discusses the setting, the participants, the meeting and the conclusions of the data reporting meeting.",
+        "options": [{"content": "", "score": 4}]
+      },
+      {
+        "area": "Reflects on the data reporting meeting. Discusses what went well and makes recommendations for improvement in future data reporting opportunities.",
+        "options": [{"content": "", "score": 4}]
+      }
+    ]
+  }
+]

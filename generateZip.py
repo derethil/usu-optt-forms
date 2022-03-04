@@ -1,12 +1,12 @@
 #!/bin/python
 
-
+import sys
 import re
 import subprocess
 from shutil import copyfile, make_archive, move
 
 STATIC_PATH = "./app/static"
-ZIP_PATH = "./zip/deploymentStructure"
+DIST_PATH = "./dist/deploymentStructure"
 
 
 forms = [
@@ -17,6 +17,7 @@ forms = [
     "math",
     "practicumChecklist",
     "selfEvaluation",
+    "STRubric",
 ]
 
 
@@ -29,23 +30,26 @@ def main():
             new_content = re.sub("formOptions\.\w+", f"formOptions.{form}", content)
             file.seek(0)
             file.write(new_content)
+            file.truncate()
 
         print(f"Running 'npm run build' on {form} form...")
 
-        process = subprocess.Popen("npm run build", shell=True, stdout=subprocess.PIPE)
+        process = subprocess.Popen(
+            "npm run build", shell=True, stderr=sys.stderr, stdout=sys.stdout
+        )
         process.wait()
 
-        print(f"Copying main.js to {ZIP_PATH}/{form}/main.js...")
+        print(f"\nCopying main.js to {DIST_PATH}/{form}/main.js...")
 
         copyfile(
             f"{STATIC_PATH}/js/main.js",
-            f"{ZIP_PATH}/{form}/main.js",
+            f"{DIST_PATH}/{form}/main.js",
         )
 
         print(f"{form} form build complete!\n")
 
-    make_archive("production", "zip", f"{ZIP_PATH}")
-    move("production.zip", "./zip/production.zip")
+    make_archive("production", "zip", f"{DIST_PATH}")
+    move("production.zip", "./dist/production.zip")
 
 
 if __name__ == "__main__":

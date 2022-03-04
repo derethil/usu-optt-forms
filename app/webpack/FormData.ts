@@ -1,5 +1,5 @@
 import * as defaults from "./defaults/defaultData";
-import { DataSchema } from "./types/dataTypes";
+import { DataSchema, ISTRubric } from "./types/dataTypes";
 import { Section } from "./types/types";
 
 import studentTeachingRubric from "../rubrics/studentTeaching.json";
@@ -8,6 +8,7 @@ import bTo5PracticumRubric from "../rubrics/bTo5Practicum.json";
 import readingRubric from "../rubrics/readingRubric.json";
 import mathRubric from "../rubrics/mathRubric.json";
 import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
+import STRubric from "../rubrics/STRubric.json";
 import { formOptions } from "./currentForm";
 
 type IFormData = {
@@ -16,6 +17,7 @@ type IFormData = {
     defaultData: DataSchema;
     title: string;
     programOptions?: string[];
+    questions?: ISTRubric;
   };
 };
 
@@ -56,6 +58,12 @@ const FormData: IFormData = {
     title: "Self Evaluation",
     rubric: selfEvaluationRubric as Section[],
     defaultData: defaults.defaultSeverePracticumData,
+  },
+  [formOptions.STRubric]: {
+    title: "OPTT ST Rubric",
+    rubric: STRubric as Section[],
+    defaultData: defaults.defaultStudentTeachingData,
+    questions: defaults.defaultSTRData,
   },
 };
 

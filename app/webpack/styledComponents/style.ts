@@ -135,3 +135,8 @@ export const cardContainerStyles = css`
     width: 95%;
   }
 `;
+
+export const CardTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

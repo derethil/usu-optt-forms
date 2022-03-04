@@ -38,7 +38,7 @@ const FormInfo = () => {
         updateForm={updateFormInfo}
         field="studentTeacher"
         title={
-          currentForm !== formOptions.selfEvaluation
+          currentForm === formOptions.studentTeaching
             ? "Student Teacher"
             : "Practicum Student"
         }
@@ -63,30 +63,34 @@ const FormInfo = () => {
         </>
       )}
 
-      <DateInput
-        field="date"
-        label={
-          currentForm !== formOptions.practicumChecklist
-            ? "Observation Date"
-            : "Date"
-        }
-        date={new Date(formInfo.date)}
-        updateForm={updateFormInfo}
-      />
-
-      {![formOptions.practicumChecklist, formOptions.selfEvaluation].includes(
-        currentForm
-      ) && (
+      {currentForm !== formOptions.STRubric && (
         <DateInput
-          label="Next Observation Date"
-          field="nextDate"
-          date={new Date(formInfo.nextDate)}
+          field="date"
+          label={
+            currentForm !== formOptions.practicumChecklist
+              ? "Observation Date"
+              : "Date"
+          }
+          date={new Date(formInfo.date)}
           updateForm={updateFormInfo}
         />
       )}
 
+      {![formOptions.practicumChecklist, formOptions.selfEvaluation].includes(
+        currentForm
+      ) &&
+        currentForm !== formOptions.STRubric && (
+          <DateInput
+            label="Next Observation Date"
+            field="nextDate"
+            date={new Date(formInfo.nextDate)}
+            updateForm={updateFormInfo}
+          />
+        )}
+
       {!FormData[currentForm].programOptions &&
-        currentForm !== formOptions.math && (
+        currentForm !== formOptions.math &&
+        currentForm !== formOptions.STRubric && (
           <TextInput
             value={formInfo.program}
             updateForm={updateFormInfo}
@@ -124,25 +128,26 @@ const FormInfo = () => {
         </>
       )}
 
-      {currentForm !== formOptions.practicumChecklist && (
-        <OptionRow
-          title={"Observation Number"}
-          contentOptions={[
-            "1",
-            "2",
-            "3",
-            "4",
-            ...(currentForm !== formOptions.selfEvaluation ? ["5"] : []),
-          ]}
-          currSelection={formInfo.observation.toString()}
-          updateSelection={(newSelection: string) =>
-            updateObservation({ observation: Number(newSelection) })
-          }
-          titleStyles={css`
-            color: ${Color.neutrals.grayDark};
-          `}
-        />
-      )}
+      {currentForm !== formOptions.practicumChecklist &&
+        currentForm !== formOptions.STRubric && (
+          <OptionRow
+            title={"Observation Number"}
+            contentOptions={[
+              "1",
+              "2",
+              "3",
+              "4",
+              ...(currentForm !== formOptions.selfEvaluation ? ["5"] : []),
+            ]}
+            currSelection={formInfo.observation.toString()}
+            updateSelection={(newSelection: string) =>
+              updateObservation({ observation: Number(newSelection) })
+            }
+            titleStyles={css`
+              color: ${Color.neutrals.grayDark};
+            `}
+          />
+        )}
 
       {FormData[currentForm].programOptions && (
         <OptionRow

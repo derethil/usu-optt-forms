@@ -11,17 +11,19 @@ const FeedbackPage = () => {
   const dispatch = useAppDispatch();
   const feedback = useAppSelector(selectFeedback);
 
+  const isSTR = currentForm === formOptions.STRubric;
+
   return (
     <PageContent className="feedback">
       <FeedbackCard
-        title="Strengths"
+        title={isSTR ? "Behavior Assignment Comments" : "Strengths"}
         feedbackType="strengths"
         feedback={feedback.strengths}
         updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
       />
 
       <FeedbackCard
-        title="Suggestions"
+        title={isSTR ? "Collaboration Assignment Comments" : "Suggestions"}
         feedbackType="suggestions"
         feedback={feedback.suggestions}
         updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
@@ -29,7 +31,7 @@ const FeedbackPage = () => {
 
       {currentForm !== formOptions.selfEvaluation ? (
         <FeedbackCard
-          title="Next Focus"
+          title={isSTR ? "IEP/IFSP Assignment Comments" : "Next Focus"}
           feedbackType="nextFocus"
           feedback={feedback.nextFocus}
           updateFeedback={(newFeedback) => dispatch(setFeedback(newFeedback))}
