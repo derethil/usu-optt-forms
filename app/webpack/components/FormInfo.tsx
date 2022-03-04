@@ -38,7 +38,7 @@ const FormInfo = () => {
         updateForm={updateFormInfo}
         field="studentTeacher"
         title={
-          currentForm !== formOptions.selfEvaluation
+          currentForm === formOptions.studentTeaching
             ? "Student Teacher"
             : "Practicum Student"
         }
