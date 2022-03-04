@@ -6,7 +6,7 @@ import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
-import { getLetterGrade, getScore } from "../../utils/pdfUtils";
+import { formatDate, getLetterGrade, getScore } from "../../utils/pdfUtils";
 import { getPercent, overrideRegex } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
@@ -27,6 +27,7 @@ import {
   data2 as dataReducer2,
 } from "../../slices/dataSlice";
 import { selectQuestions } from "../../slices/questionsSlice";
+import generateFormInfoBody from "./formInfoGenerator";
 
 export type PDFDataProps = {
   data1: DataSchema;
@@ -34,10 +35,6 @@ export type PDFDataProps = {
   timer1: ITimerState;
   timer2: ITimerState;
   timer3: ITimerState;
-};
-
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString();
 };
 
 const PDFData = () => {
@@ -73,39 +70,10 @@ const PDFData = () => {
 
     // General Info
 
-    const selfEvalInfoBody = [
-      ["Practicum Student", formInfo.studentTeacher],
-      ["Date", formatDate(formInfo.date)],
-      ["Program", formInfo.program],
-      ["Goal 1", formInfo.goal1],
-      ["Goal 2", formInfo.goal2],
-      ["Observation", formInfo.observation],
-    ];
-
     generator.table({
       startY: 24.5,
       head: ["Information", ""],
-      body:
-        currentForm === formOptions.selfEvaluation
-          ? selfEvalInfoBody
-          : [
-              [
-                currentForm === formOptions.studentTeaching
-                  ? "Student Teacher"
-                  : "Practicum Student",
-                formInfo.studentTeacher,
-              ],
-              ["Cooperating Teacher", formInfo.cooperatingTeacher],
-              ["Supervisor / Coach", formInfo.supervisor],
-              ["Date", formatDate(formInfo.date)],
-              ["Next Observation Date", formatDate(formInfo.nextDate)],
-              ["Observation", formInfo.observation],
-              ["Other", formInfo.other],
-            ].concat(
-              FormData[currentForm].programOptions
-                ? [["Program", formInfo.program]]
-                : []
-            ),
+      body: generateFormInfoBody(formInfo),
     });
 
     // Total Score Summary

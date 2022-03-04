@@ -160,3 +160,7 @@ export const genSPError = (data: ICorrections) => {
     ["% Correct", `${getPercent(correct.sequence, total)}`],
   ];
 };
+
+export const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString();
+};
