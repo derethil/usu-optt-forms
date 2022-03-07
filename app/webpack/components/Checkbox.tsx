@@ -38,6 +38,8 @@ const StyledCheckbox = styled.div<Props>`
   border-radius: 3px;
   transition: all 150ms;
 
+  border: 2px solid ${(props) => Color.neutrals.grayDark};
+
   ${Icon} {
     visibility: ${(props) => (props.checked ? "visible" : "hidden")};
   }
