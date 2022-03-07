@@ -1,6 +1,7 @@
 import currentForm, { formOptions } from "../../currentForm";
 import { IFormInfo } from "../../types/types";
 import { formatDate } from "../../utils/pdfUtils";
+import { insertIf } from "../../utils/utils";
 
 export default function generateFormInfoBody(formInfo: IFormInfo) {
   const typeOfStudent =
@@ -13,7 +14,10 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
     ["Cooperating Teacher", formInfo.cooperatingTeacher],
     ["Supervisor / Coach", formInfo.supervisor],
     ["Observation Date", formatDate(formInfo.date)],
-    ["Next Observation Date", formatDate(formInfo.nextDate)],
+    ...insertIf(!formInfo.isLastObservation, [
+      "Next Observation Date",
+      formatDate(formInfo.nextDate),
+    ]),
     ["Observation Number", formInfo.observation],
     ["Other", formInfo.other],
   ];

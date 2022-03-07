@@ -17,10 +17,6 @@ function ErrorCorrection({ data, setData, oneRow }: Props) {
 
   const totalErrors = errorCorrect.sequence + errorIncorrect.sequence;
 
-  const insertIf = (condition: boolean, ...elements: any) => {
-    return condition ? elements : [];
-  };
-
   const WrapperMixin = oneRow
     ? css`
         height: 6em;

@@ -25,3 +25,7 @@ export const getPercent = (subtotal: number, total: number): string => {
 };
 
 export const overrideRegex = /(!OVERRIDE)=(\d+)/gi;
+
+export const insertIf = (condition: boolean, ...elements: any) => {
+  return condition ? elements : [];
+};
