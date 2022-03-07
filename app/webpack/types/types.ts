@@ -55,6 +55,7 @@ export interface IFormInfo {
   location: Location;
   goal1: string;
   goal2: string;
+  isLastObservation: boolean;
 }
 
 export interface CSSMixin {

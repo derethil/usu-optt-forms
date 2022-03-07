@@ -8,7 +8,7 @@ type DateInputProps = {
   field: string;
   label: string;
   updateForm: (updatedInfo: { [key: string]: string }) => void;
-};
+} & Omit<React.ComponentProps<typeof DatePicker>, "onChange">;
 
 const DateInput = (props: DateInputProps) => {
   return (
@@ -24,6 +24,7 @@ const DateInput = (props: DateInputProps) => {
         }
         customInput={<Input />}
         disabledKeyboardNavigation
+        disabled={props.disabled}
       />
     </InputContainer>
   );

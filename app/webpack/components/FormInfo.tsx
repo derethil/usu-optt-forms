@@ -85,6 +85,7 @@ const FormInfo = () => {
             field="nextDate"
             date={new Date(formInfo.nextDate)}
             updateForm={updateFormInfo}
+            disabled={formInfo.isLastObservation}
           />
         )}
 

@@ -25,6 +25,7 @@ export const defaultFormInfo: IFormInfo = {
   location: Location.logan,
   goal1: "",
   goal2: "",
+  isLastObservation: true,
 };
 
 export const defaultNotebookCheck = {

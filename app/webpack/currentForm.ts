@@ -9,6 +9,6 @@ export enum formOptions {
   STRubric = "STRubric",
 }
 
-const currentForm: formOptions = formOptions.STRubric;
+const currentForm: formOptions = formOptions.studentTeaching;
 
 export default currentForm;
