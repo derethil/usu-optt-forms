@@ -15,6 +15,8 @@ import {
   selectFormInfo,
   setLocationOrObservation,
 } from "../slices/formInfoSlice";
+import Checkbox from "./Checkbox";
+import CheckboxLabel from "./CheckboxLabel";
 
 const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);
@@ -80,13 +82,23 @@ const FormInfo = () => {
         currentForm
       ) &&
         currentForm !== formOptions.STRubric && (
-          <DateInput
-            label="Next Observation Date"
-            field="nextDate"
-            date={new Date(formInfo.nextDate)}
-            updateForm={updateFormInfo}
-            disabled={formInfo.isLastObservation}
-          />
+          <>
+            <DateInput
+              label="Next Observation Date"
+              field="nextDate"
+              date={new Date(formInfo.nextDate)}
+              updateForm={updateFormInfo}
+              disabled={formInfo.isLastObservation}
+            />
+
+            <CheckboxLabel
+              checked={formInfo.isLastObservation}
+              onChange={(e) =>
+                dispatch(setFormInfo({ isLastObservation: e.target.checked }))
+              }
+              label="This is the last observation for this student"
+            />
+          </>
         )}
 
       {!FormData[currentForm].programOptions &&
