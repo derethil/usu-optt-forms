@@ -15,8 +15,46 @@ import {
   selectFormInfo,
   setLocationOrObservation,
 } from "../slices/formInfoSlice";
-import Checkbox from "./Checkbox";
 import CheckboxLabel from "./CheckboxLabel";
+
+function programTitle(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.reading:
+    case formOptions.severeReadingPracticum:
+      return "Reading Program";
+    case formOptions.severeMLSPracticum:
+      return "Math/Life Skills Program";
+    default:
+      return "Program";
+  }
+}
+
+function studentTitle(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.studentTeaching:
+      return "Student Teacher";
+    default:
+      return "Practicum Student";
+  }
+}
+
+function superior(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.practicumChecklist:
+      return "District Coach";
+    default:
+      return "Supervisor / Coach";
+  }
+}
+
+function dateLabel(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.practicumChecklist:
+      return "Date";
+    default:
+      return "Observation Date";
+  }
+}
 
 const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);
@@ -39,11 +77,7 @@ const FormInfo = () => {
         value={formInfo.studentTeacher}
         updateForm={updateFormInfo}
         field="studentTeacher"
-        title={
-          currentForm === formOptions.studentTeaching
-            ? "Student Teacher"
-            : "Practicum Student"
-        }
+        title={studentTitle(currentForm)}
       />
       {currentForm !== formOptions.selfEvaluation && (
         <>
@@ -56,11 +90,7 @@ const FormInfo = () => {
             value={formInfo.supervisor}
             updateForm={updateFormInfo}
             field="supervisor"
-            title={
-              currentForm !== formOptions.practicumChecklist
-                ? "Supervisor / Coach"
-                : "District Coach"
-            }
+            title={superior(currentForm)}
           />
         </>
       )}
@@ -68,11 +98,7 @@ const FormInfo = () => {
       {currentForm !== formOptions.STRubric && (
         <DateInput
           field="date"
-          label={
-            currentForm !== formOptions.practicumChecklist
-              ? "Observation Date"
-              : "Date"
-          }
+          label={dateLabel(currentForm)}
           date={new Date(formInfo.date)}
           updateForm={updateFormInfo}
         />
@@ -108,11 +134,7 @@ const FormInfo = () => {
             value={formInfo.program}
             updateForm={updateFormInfo}
             field="program"
-            title={
-              currentForm === formOptions.reading
-                ? "Reading Program"
-                : undefined
-            }
+            title={programTitle(currentForm)}
           />
         )}
 
