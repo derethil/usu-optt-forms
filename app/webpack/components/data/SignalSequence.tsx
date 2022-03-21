@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import Color from "../../styledComponents/colors";
 
 import * as Styles from "../../styledComponents/style";
@@ -13,6 +13,14 @@ type Props = DataProps<SignalSequence> & {
   includeIncorrect?: boolean;
   signalTooltip?: boolean;
 };
+
+const DataSpacer = styled.div`
+  background-color: ${(props) => Color.neutrals.blackLight};
+  height: 100%;
+  width: 3px;
+  margin-right: 1em;
+  border-radius: 1px;
+`;
 
 function SignalSequence(props: Props) {
   const signalCorrect = props.data.correct;
@@ -128,6 +136,8 @@ function SignalSequence(props: Props) {
             />
           )}
         </Styles.TwoButtonCol>
+
+        {props.signalTooltip && <DataSpacer className="test" />}
 
         <Styles.TwoButtonCol mixin={ColMixin}>
           <CounterButton
