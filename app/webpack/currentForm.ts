@@ -1,6 +1,7 @@
 export enum formOptions {
   studentTeaching = "studentTeaching",
-  severePracticum = "severePracticum",
+  severeReadingPracticum = "severeReadingPracticum",
+  severeMLSPracticum = "severeMLSPracticum",
   bTo5Practicum = "bTo5Practicum",
   reading = "reading",
   math = "math",
@@ -9,6 +10,6 @@ export enum formOptions {
   STRubric = "STRubric",
 }
 
-const currentForm: formOptions = formOptions.studentTeaching;
+const currentForm: formOptions = formOptions.severeReadingPracticum;
 
 export default currentForm;

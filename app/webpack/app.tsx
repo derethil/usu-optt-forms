@@ -82,7 +82,19 @@ export const App = () => {
       ...sharedRoutes,
     ],
     // ------ SEVERE PRACTICUM ------
-    [formOptions.severePracticum]: [
+    [formOptions.severeReadingPracticum]: [
+      <Route path="/data" key={(title = "Data")}>
+        <DataSPR
+          data={data1}
+          timer={timer1}
+          title={title}
+          resetCallback={() => dispatch(data1.actions.resetData())}
+          includeIncorrect
+        />
+      </Route>,
+      ...sharedRoutes,
+    ],
+    [formOptions.severeMLSPracticum]: [
       <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}

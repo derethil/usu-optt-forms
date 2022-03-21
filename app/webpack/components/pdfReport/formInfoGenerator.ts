@@ -24,7 +24,8 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
 
   switch (currentForm) {
     case formOptions.studentTeaching:
-    case formOptions.severePracticum:
+    case formOptions.severeReadingPracticum:
+    case formOptions.severeMLSPracticum:
     case formOptions.bTo5Practicum:
       main.push(["Program", formInfo.program]);
       return main;

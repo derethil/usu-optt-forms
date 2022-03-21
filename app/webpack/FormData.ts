@@ -28,10 +28,15 @@ const FormData: IFormData = {
     title: "Student Teaching",
     programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
   },
-  [formOptions.severePracticum]: {
+  [formOptions.severeReadingPracticum]: {
     rubric: severePracticumRubric as Section[],
-    defaultData: defaults.defaultSeverePracticumData,
-    title: "Severe Practicum",
+    defaultData: defaults.defaultSevereReadingPracticumData,
+    title: "Severe Reading Practicum",
+  },
+  [formOptions.severeMLSPracticum]: {
+    rubric: severePracticumRubric as Section[],
+    defaultData: defaults.defaultSevereMLSPracticumData,
+    title: "Severe Math/Life Skills Practicum",
   },
   [formOptions.bTo5Practicum]: {
     rubric: bTo5PracticumRubric as Section[],
@@ -57,7 +62,7 @@ const FormData: IFormData = {
   [formOptions.selfEvaluation]: {
     title: "Self Evaluation",
     rubric: selfEvaluationRubric as Section[],
-    defaultData: defaults.defaultSeverePracticumData,
+    defaultData: defaults.defaultSevereReadingPracticumData,
   },
   [formOptions.STRubric]: {
     title: "OPTT ST Rubric",

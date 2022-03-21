@@ -107,9 +107,11 @@ const PDFData = () => {
     if (currentForm === formOptions.studentTeaching) {
       studentTeachingSection(generator, data1, data2, timerState1, timerState2);
     } else if (
-      [formOptions.severePracticum, formOptions.selfEvaluation].includes(
-        currentForm
-      )
+      [
+        formOptions.severeReadingPracticum,
+        formOptions.severeMLSPracticum,
+        formOptions.selfEvaluation,
+      ].includes(currentForm)
     ) {
       severePracticumReadingSection(generator, data1, timerState1);
     } else if (data1.currentForm === formOptions.bTo5Practicum) {

@@ -146,7 +146,10 @@ export type DataSchema =
       currentForm: formOptions.studentTeaching;
     } & IStudentTeachingData)
   | ({
-      currentForm: formOptions.severePracticum;
+      currentForm: formOptions.severeReadingPracticum;
+    } & ISeverePracticumData)
+  | ({
+      currentForm: formOptions.severeMLSPracticum;
     } & ISeverePracticumData)
   | ({
       currentForm: formOptions.bTo5Practicum;

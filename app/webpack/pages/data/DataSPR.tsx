@@ -29,7 +29,8 @@ const DataSPR = (
   const dispatch = useAppDispatch();
 
   if (
-    data.currentForm !== formOptions.severePracticum &&
+    data.currentForm !== formOptions.severeReadingPracticum &&
+    data.currentForm !== formOptions.severeMLSPracticum &&
     data.currentForm !== formOptions.reading
   )
     return <div></div>;

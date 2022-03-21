@@ -19,7 +19,8 @@ const severePracticumReadingSection = (
   title: string = "Observation Data"
 ) => {
   if (
-    data.currentForm === formOptions.severePracticum ||
+    data.currentForm === formOptions.severeReadingPracticum ||
+    data.currentForm === formOptions.severeMLSPracticum ||
     data.currentForm === formOptions.reading
   ) {
     generator.dualNestedTables({
