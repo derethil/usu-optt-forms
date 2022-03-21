@@ -3,3 +3,5 @@
 .flaskenv
 node_modules
 __pycache__
+dist
+app/static/js/main.js
