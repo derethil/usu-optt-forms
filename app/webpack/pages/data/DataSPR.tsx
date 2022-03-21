@@ -18,13 +18,14 @@ import { formOptions } from "../../currentForm";
 import SignalSequenceRow from "../../components/data/SignalSequence";
 import ErrorCorrectionRow from "../../components/data/ErrorCorrection";
 
-const DataSPR = (
-  props: DataProps<ISeverePracticumData | IReadingData> & {
-    includeIncorrect?: boolean;
-    errorOneRow?: boolean;
-    guideTooltip?: boolean;
-  }
-) => {
+type Props = DataProps<ISeverePracticumData | IReadingData> & {
+  includeIncorrect?: boolean;
+  errorOneRow?: boolean;
+  guideTooltip?: boolean;
+  signalTooltip?: boolean;
+};
+
+const DataSPR = (props: Props) => {
   const data = useAppSelector(props.data.selector);
   const dispatch = useAppDispatch();
 
@@ -67,6 +68,7 @@ const DataSPR = (
         data={data.signalSequence}
         setData={setData}
         includeIncorrect={props.includeIncorrect}
+        signalTooltip={props.signalTooltip}
       />
 
       <ErrorCorrectionRow

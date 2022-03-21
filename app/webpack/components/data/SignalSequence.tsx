@@ -9,21 +9,24 @@ import { getPercent } from "../../utils/utils";
 import CounterButton from "../CounterButton";
 import DataRow from "../DataRow";
 
-type Props = DataProps<SignalSequence> & { includeIncorrect?: boolean };
+type Props = DataProps<SignalSequence> & {
+  includeIncorrect?: boolean;
+  signalTooltip?: boolean;
+};
 
-function SignalSequence({ data, setData, includeIncorrect }: Props) {
-  const signalCorrect = data.correct;
-  const signalIncorrect = data.incorrect;
+function SignalSequence(props: Props) {
+  const signalCorrect = props.data.correct;
+  const signalIncorrect = props.data.incorrect;
 
   const totalSequences = signalCorrect.sequence + signalIncorrect.sequence;
 
-  const WrapperMixin = includeIncorrect
+  const WrapperMixin = props.includeIncorrect
     ? undefined
     : css`
         height: 6em;
       `;
 
-  const ColMixin = includeIncorrect
+  const ColMixin = props.includeIncorrect
     ? undefined
     : css`
         & > * {
@@ -34,6 +37,11 @@ function SignalSequence({ data, setData, includeIncorrect }: Props) {
   return (
     <DataRow
       title="Signal Sequence"
+      tooltip={
+        props.signalTooltip
+          ? "Cue and pause required, signal implemented when applicable for lesson"
+          : undefined
+      }
       displayData={[
         {
           display: "Cue",
@@ -65,16 +73,16 @@ function SignalSequence({ data, setData, includeIncorrect }: Props) {
             content="Correct Sequence"
             value={signalCorrect.sequence}
             onClick={(sequence: number) =>
-              setData("signalSequence", "correct", { sequence })
+              props.setData("signalSequence", "correct", { sequence })
             }
           />
-          {includeIncorrect && (
+          {props.includeIncorrect && (
             <CounterButton
               color={Color.contextual.danger}
               content="Incorrect Sequence"
               value={signalIncorrect.sequence}
               onClick={(sequence: number) =>
-                setData("signalSequence", "incorrect", { sequence })
+                props.setData("signalSequence", "incorrect", { sequence })
               }
             />
           )}
@@ -85,16 +93,16 @@ function SignalSequence({ data, setData, includeIncorrect }: Props) {
             content="Cue"
             value={signalCorrect.cue}
             onClick={(cue: number) =>
-              setData("signalSequence", "correct", { cue })
+              props.setData("signalSequence", "correct", { cue })
             }
           />
-          {includeIncorrect && (
+          {props.includeIncorrect && (
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.cue}
               onClick={(cue: number) =>
-                setData("signalSequence", "incorrect", { cue })
+                props.setData("signalSequence", "incorrect", { cue })
               }
             />
           )}
@@ -106,16 +114,16 @@ function SignalSequence({ data, setData, includeIncorrect }: Props) {
             content="Pause"
             value={signalCorrect.pause}
             onClick={(pause: number) =>
-              setData("signalSequence", "correct", { pause })
+              props.setData("signalSequence", "correct", { pause })
             }
           />
-          {includeIncorrect && (
+          {props.includeIncorrect && (
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.pause}
               onClick={(pause: number) =>
-                setData("signalSequence", "incorrect", { pause })
+                props.setData("signalSequence", "incorrect", { pause })
               }
             />
           )}
@@ -127,16 +135,16 @@ function SignalSequence({ data, setData, includeIncorrect }: Props) {
             content="Signal"
             value={signalCorrect.signal}
             onClick={(signal: number) =>
-              setData("signalSequence", "correct", { signal })
+              props.setData("signalSequence", "correct", { signal })
             }
           />
-          {includeIncorrect && (
+          {props.includeIncorrect && (
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={signalIncorrect.signal}
               onClick={(signal: number) =>
-                setData("signalSequence", "incorrect", { signal })
+                props.setData("signalSequence", "incorrect", { signal })
               }
             />
           )}

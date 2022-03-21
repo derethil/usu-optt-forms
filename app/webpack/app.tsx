@@ -102,6 +102,7 @@ export const App = () => {
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
           includeIncorrect
+          signalTooltip
         />
       </Route>,
       ...sharedRoutes,
