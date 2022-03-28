@@ -1,6 +1,4 @@
 .venv
-.envrc
-.flaskenv
 node_modules
 __pycache__
 dist
