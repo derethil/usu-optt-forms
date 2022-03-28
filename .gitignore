@@ -1,5 +1,6 @@
 .venv
 node_modules
 __pycache__
-dist
+dist/structure/*/main.js
+dist/production.zip
 app/static/js/main.js
