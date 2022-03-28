@@ -9,19 +9,11 @@ STATIC_PATH = "./app/static"
 DIST_PATH = "./dist/deploymentStructure"
 
 
-forms = [
-    "studentTeaching",
-    "severePracticum",
-    "bTo5Practicum",
-    "reading",
-    "math",
-    "practicumChecklist",
-    "selfEvaluation",
-    "STRubric",
-]
-
-
 def main():
+    with open("./app/webpack/currentForm.ts", "r") as file:
+        content = file.read()
+        forms = [form.replace('"', "") for form in re.findall('"\w+"', content)]
+
     for form in forms:
         print(f"Changing current form to {form}")
 
