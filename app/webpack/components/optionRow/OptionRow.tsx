@@ -8,6 +8,8 @@ import TextInput from "../TextInput";
 import { overrideRegex } from "../../utils/utils";
 import { CSSMixin } from "../../types/types";
 
+// General component to provide a list of options to select between.
+
 export const OptionRowInput = styled(TextInput)`
   padding-top: 0px;
   height: 100%;
@@ -49,7 +51,7 @@ interface OptionRowCommentProps extends OptionRowProps {
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
   const [override, setOverride] = useState(false);
 
-  // Override system (ex: !override = 10 in comment)
+  // Override system (ex: !override = 10 in comment will override the score)
   if ("comment" in props && props.comment !== undefined && props.scoreOptions) {
     useEffect(() => {
       // If override is found in comment, override the score
@@ -127,6 +129,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     );
   }
 
+  // Tooltip check moved here for readability
   const renderTitle = (tooltip?: string) => {
     if (tooltip) {
       return (

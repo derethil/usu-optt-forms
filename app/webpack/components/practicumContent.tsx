@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Color from "../styledComponents/colors";
 
+// Presentational component to show practicum content table
+
 const THeader = styled.thead`
   color: ${Color.lights.light};
   background-color: ${Color.blues.blue};

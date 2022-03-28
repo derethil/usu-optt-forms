@@ -5,6 +5,9 @@ import Color from "../styledComponents/colors";
 
 import TextInput from "./TextInput";
 
+// Used by STRubric to provide a different interface for grading.
+// Questions require a content and a maxScore and allow text input of anything up to max
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;

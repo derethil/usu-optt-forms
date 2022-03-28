@@ -6,7 +6,8 @@ import { CSSMixin } from "../types/types";
 import { CenteredIconContainer } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 
-// IconTitle Component
+// Provides a title with an icon to the right
+// When icon is hovered, a tooltip appears
 
 type IconTitleProps = {
   content: string;
@@ -27,7 +28,8 @@ const Title = styled.p<CSSMixin>`
 
 const IconTitle = (props: IconTitleProps) => {
   // Allows React to properly link each icon to its tooltip
-  const [randomID, setRandomID] = useState(String(Math.random()));
+  // This is needed when multiple tooltips are on the same page
+  const [randomID, _] = useState(String(Math.random()));
 
   return (
     <div className="title" style={{ display: "flex" }}>

@@ -11,11 +11,15 @@ import DataRow from "../DataRow";
 
 type Props = DataProps<ErrorCorrection> & { oneRow?: boolean };
 
+// Component to provide the Error Correction row on data pages.
+
 function ErrorCorrection({ data, setData, oneRow }: Props) {
   const errorCorrect = data.correct;
   const errorIncorrect = data.incorrect;
 
   const totalErrors = errorCorrect.sequence + errorIncorrect.sequence;
+
+  // There are two versions of Error Correction, one row or two rows of buttons
 
   const WrapperMixin = oneRow
     ? css`

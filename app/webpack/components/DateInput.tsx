@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 
 import { InputContainer, Label, Input } from "../styledComponents/input";
 
+// Wrapper around react-datepicker for custom use (mainly using a custom input field)
+
 type DateInputProps = {
   date: Date;
   field: string;

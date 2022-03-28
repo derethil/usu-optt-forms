@@ -9,6 +9,8 @@ import { getPercent } from "../../utils/utils";
 import CounterButton from "../CounterButton";
 import DataRow from "../DataRow";
 
+// Component to provide the Signal Sequence row on data pages.
+
 type Props = DataProps<SignalSequence> & {
   includeIncorrect?: boolean;
   signalTooltip?: boolean;
@@ -28,6 +30,7 @@ function SignalSequence(props: Props) {
 
   const totalSequences = signalCorrect.sequence + signalIncorrect.sequence;
 
+  // Two versions, css changes depending on how many button rows there are
   const WrapperMixin = props.includeIncorrect
     ? undefined
     : css`

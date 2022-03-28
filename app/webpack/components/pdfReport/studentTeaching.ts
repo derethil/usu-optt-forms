@@ -5,6 +5,8 @@ import { formOptions } from "../../currentForm";
 import { DataSchema } from "../../types/dataTypes";
 import { ITimerState } from "../../slices/timersSlice";
 
+// Procedure to generate the data section of report for studentTeaching form.
+
 const studentTeachingSection = (
   generator: PDFGenerator,
   data1: DataSchema,

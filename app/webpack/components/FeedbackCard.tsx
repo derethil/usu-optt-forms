@@ -4,6 +4,8 @@ import { IComments } from "../defaults/defaults";
 import Card from "./Card";
 import TextInput from "./TextInput";
 
+// Simple component that provides a card with only a single text area child
+
 type Feedback = keyof IComments;
 
 type FeedbackCardProps = {

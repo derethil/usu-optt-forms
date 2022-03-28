@@ -29,6 +29,8 @@ import {
 import { selectQuestions } from "../../slices/questionsSlice";
 import generateFormInfoBody from "./formInfoGenerator";
 
+// Component that provides PDF generation and the button to do so.
+
 export type PDFDataProps = {
   data1: DataSchema;
   data2: DataSchema;
@@ -38,6 +40,7 @@ export type PDFDataProps = {
 };
 
 const PDFData = () => {
+  // The report uses all data so we need to grab every state object
   const formInfo = useAppSelector(selectFormInfo);
   const rubricScores = useAppSelector(selectRubric);
   const feedback = useAppSelector(selectFeedback);
@@ -60,7 +63,7 @@ const PDFData = () => {
       font: "helvetica",
     });
 
-    generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05);
+    generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05); // Top-right USU logo
 
     generator.pdf.text(
       `USU SPER ${FormData[currentForm].title} Report`,
@@ -140,14 +143,14 @@ const PDFData = () => {
     }
     // // Individual Scores
 
-    // generator.pdf.addPage();
-
     generator.table({
       // startY: 18,
       head: ["Scores"],
     });
 
     const rubric = FormData[currentForm].rubric;
+
+    // Loops over the rubric and puts it in the correct format
 
     Object.entries(rubricScores).forEach(
       ([sectionTitle, scoresObj], sectionIdx) => {

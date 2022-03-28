@@ -9,6 +9,9 @@ import { ITimer } from "../slices/timersSlice";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../hooks/hooks";
 
+// Provides a timer display and buttons to control it
+// Intended to be put in a Card component
+
 const TimerDisplay = styled.h2`
   display: flex;
   align-items: center;

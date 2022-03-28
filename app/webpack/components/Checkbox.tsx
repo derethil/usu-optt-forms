@@ -4,6 +4,8 @@ import Color from "../styledComponents/colors";
 
 interface Props extends React.ComponentPropsWithRef<"input"> {}
 
+// Custom checkbox component to allow for greater control over styles
+
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;

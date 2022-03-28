@@ -4,6 +4,8 @@ import Color from "../styledComponents/colors";
 
 import { Button } from "../styledComponents/style";
 
+// Provides a simple button to increment data values on Data pages
+
 const CounterButtonEl = styled(Button)`
   padding: 0.5em 1em;
   border: 3px solid transparent;

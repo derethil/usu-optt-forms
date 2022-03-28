@@ -16,6 +16,8 @@ type PraiseDataRowProps = {
   balancedVaried?: boolean;
 };
 
+// Component to provide the praise/reprimand row on data pages.
+
 const PraiseDataRow = (props: PraiseDataRowProps) => {
   const data = useAppSelector(props.data.selector);
   const dispatch = useAppDispatch();

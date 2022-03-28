@@ -6,6 +6,8 @@ import * as Styles from "../styledComponents/style";
 import Card from "./Card";
 import IconTitle from "./IconTitle";
 
+// Wrapper around data rows to provide easy buttons/data display
+
 const cardContentStyles = css`
   padding: 0em 1em;
   display: flex;

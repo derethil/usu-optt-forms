@@ -7,6 +7,8 @@ import {
   InputTA,
 } from "../styledComponents/input";
 
+// Custom text input component
+
 type TextInputProps = {
   value: string;
   field: string;

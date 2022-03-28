@@ -7,16 +7,7 @@ import { formOptions } from "../../currentForm";
 import { DataSchema } from "../../types/dataTypes";
 import { ITimerState } from "../../slices/timersSlice";
 
-// generator.table({
-//   head: ["Opportunities to Respond", ""],
-//   columnStyles: { 1: { cellWidth: 50 } },
-//   body: [
-//     ["Group Responses", data.cues.group],
-//     ["Individual Responses", data.cues.individual],
-//     ["Total OTR", data.cues.individual + data.cues.group],
-//     ["Responses/min", getOTRRate({ cues: data.cues }, props.timer1)],
-//   ],
-// });
+// Procedure to generate the data section of report for birth to five practicum
 
 const bTo5PracticumSection = (
   generator: PDFGenerator,

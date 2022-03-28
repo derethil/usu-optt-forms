@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Color from "../styledComponents/colors";
 import Checkbox from "./Checkbox";
 
+// Wrapper around Checkbox to provide a label interface
+
 interface Props extends React.ComponentPropsWithRef<"input"> {
   label: string;
 }

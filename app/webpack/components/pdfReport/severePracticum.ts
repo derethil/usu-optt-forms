@@ -10,7 +10,8 @@ import { getPercent } from "../../utils/utils";
 import Color from "../../styledComponents/colors";
 import { ITimerState, timer1 } from "../../slices/timersSlice";
 import { formOptions } from "../../currentForm";
-import { useAppSelector } from "../../hooks/hooks";
+
+// Procedure to generate data section report from severePracticum form
 
 const severePracticumReadingSection = (
   generator: PDFGenerator,

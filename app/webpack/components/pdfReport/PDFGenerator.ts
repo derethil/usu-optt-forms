@@ -1,6 +1,9 @@
 import jsPDF, { jsPDFOptions } from "jspdf";
-import autoTable, { UserOptions, Styles, RowInput } from "jspdf-autotable";
+import autoTable, { Styles, RowInput } from "jspdf-autotable";
 import Color from "../../styledComponents/colors";
+
+// Provides a wrapper around autoTable to simplify usage
+// Includes relative positioning based on last table and creating a dualNestedTables function
 
 type startYType = number | "RELATIVE";
 

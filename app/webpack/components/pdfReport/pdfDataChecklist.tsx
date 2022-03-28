@@ -18,6 +18,8 @@ import { IChecklistJSONRow, IChecklistJSON } from "../../types/dataTypes";
 
 import checklistJSON from "../../../rubrics/practicumChecklist.json";
 
+// Procedure to generate the report for the practicumChecklist form
+
 export type PDFDataProps = {
   data1: DataSchema;
   data2: DataSchema;

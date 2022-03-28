@@ -5,6 +5,9 @@ import Color from "../styledComponents/colors";
 
 import TextInput from "./TextInput";
 
+// Text based question interface
+// Provides a question and then a comment box, no score selection
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;

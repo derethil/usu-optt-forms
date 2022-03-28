@@ -9,6 +9,8 @@ import { useAppSelector } from "../../hooks/hooks";
 import { selectRubric } from "../../slices/rubricSlice";
 import currentForm, { formOptions } from "../../currentForm";
 
+// Component to provide total score display on the Home page.
+
 type ScoreTotalProps = {
   displaySections?: boolean;
 };

@@ -18,6 +18,8 @@ type Props = {
   guideTooltip?: boolean;
 };
 
+// Component to provide the OTR Row on data pages.
+
 const OTRRow = ({ dataSlice, timer, guideTooltip }: Props) => {
   const dispatch = useAppDispatch();
 
@@ -50,7 +52,7 @@ const OTRRow = ({ dataSlice, timer, guideTooltip }: Props) => {
   ];
 
   const tooltipContent =
-    "    • Reading Mastery/DI  type program should be a minimum of 7/minute in decoding and a minimum of 4/minute in story reading. <br>Use your judgement non-DI/RM type programs.<br>• Math, Life Skills, etc. use 4/minute as a guideline but use your judgment.";
+    "Reading Mastery/DI type program should be a minimum of 7/minute in decoding and a minimum of 4/minute in story reading. <br>Use your judgement non-DI/RM type programs.<br>• Math, Life Skills, etc. use 4/minute as a guideline but use your judgment.";
 
   return (
     <DataRow

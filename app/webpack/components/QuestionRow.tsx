@@ -3,6 +3,9 @@ import styled, { css } from "styled-components";
 import Color from "../styledComponents/colors";
 import OptionRow from "./optionRow";
 
+// Component that provides a different interface for scoring
+// Provides a question with an OptionRow plus a comment box
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;

@@ -23,6 +23,9 @@ import {
   superior,
 } from "../utils/utils";
 
+// Component to provide the form on Home page with all the general info
+// The million conditional rendering checks are gross but it works and I couldn't think of a better way to implement it
+
 const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);
   const dispatch = useAppDispatch();

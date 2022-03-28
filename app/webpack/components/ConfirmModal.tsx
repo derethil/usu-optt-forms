@@ -6,6 +6,9 @@ import Color from "../styledComponents/colors";
 import { hexToRGBA } from "../utils/utils";
 import styled from "styled-components";
 
+// Component that provides a modal dialogue used for confirmation to rest the form.
+// This should be more generalized but it's not being used anywhere else so eh
+
 const customStyles = {
   overlay: {
     backgroundColor: `${hexToRGBA(Color.neutrals.black, 0.95)}`,

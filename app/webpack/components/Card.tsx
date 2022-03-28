@@ -4,6 +4,9 @@ import { Title } from "../styledComponents/style";
 import Color from "../styledComponents/colors";
 import { CSSMixin } from "../types/types";
 
+// Component to organize form into sections ("cards")
+// To use as a title, simply provide no children to component
+
 type CardProps = {
   title: React.ReactNode;
   children?: React.ReactNode;

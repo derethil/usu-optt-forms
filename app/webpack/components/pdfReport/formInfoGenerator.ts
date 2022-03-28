@@ -3,6 +3,8 @@ import { IFormInfo } from "../../types/types";
 import { formatDate } from "../../utils/pdfUtils";
 import { insertIf, programTitle, studentTitle } from "../../utils/utils";
 
+// Function to determine what the FormInfo should contain for the report
+
 export default function generateFormInfoBody(formInfo: IFormInfo) {
   const main = [
     [studentTitle(currentForm), formInfo.studentTeacher],
