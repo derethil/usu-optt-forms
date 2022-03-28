@@ -26,3 +26,7 @@ python generateZip.py
 *Note: This script runs switches to each form using `app/webpack/currentForm.ts` and builds the project for each one via `npm run build`. Additionally it creates a `production.zip` archive for ease of use.*
 
 You'll then need to SSH into USU's servers and replace the current files with the new versions stored in `dist/structure`. Contact your supervisor to get access.
+
+## Documentation
+
+More detailed documentation can be found in the `docs` folder.
