@@ -4,3 +4,5 @@ __pycache__
 dist/structure/*/main.js
 dist/production.zip
 app/static/js/main.js
+
+site
