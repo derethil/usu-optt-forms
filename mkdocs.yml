@@ -4,6 +4,17 @@ theme:
   name: material
   features:
     - navigation.instant
+  palette:
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
 
 repo_url: https://github.com/jarenglenn/usu-optt-forms/
 repo_name: jarenglenn/usu-optt-forms
