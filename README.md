@@ -36,4 +36,4 @@ You'll then need to SSH into USU's servers and replace the current files with th
 
 ## Documentation
 
-More detailed documentation can be found in the `docs` folder.
+More detailed documentation can be found on the documentation site at [https://jarenglenn.github.io/usu-optt-forms](https://jarenglenn.github.io/usu-optt-forms).
