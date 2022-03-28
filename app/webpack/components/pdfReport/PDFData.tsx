@@ -63,7 +63,7 @@ const PDFData = () => {
     generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05);
 
     generator.pdf.text(
-      `USU SPER ${FormData[currentForm].title} Observation Report`,
+      `USU SPER ${FormData[currentForm].title} Report`,
       14,
       18
     );

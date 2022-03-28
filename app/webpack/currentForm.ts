@@ -10,6 +10,6 @@ export enum formOptions {
   STRubric = "STRubric",
 }
 
-const currentForm: formOptions = formOptions.severeMLSPracticum;
+const currentForm: formOptions = formOptions.STRubric;
 
 export default currentForm;

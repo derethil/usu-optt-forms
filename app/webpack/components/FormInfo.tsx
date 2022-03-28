@@ -16,45 +16,12 @@ import {
   setLocationOrObservation,
 } from "../slices/formInfoSlice";
 import CheckboxLabel from "./CheckboxLabel";
-
-function programTitle(currentForm: formOptions) {
-  switch (currentForm) {
-    case formOptions.reading:
-    case formOptions.severeReadingPracticum:
-      return "Reading Program";
-    case formOptions.severeMLSPracticum:
-      return "Math/Life Skills Program";
-    default:
-      return "Program";
-  }
-}
-
-function studentTitle(currentForm: formOptions) {
-  switch (currentForm) {
-    case formOptions.studentTeaching:
-      return "Student Teacher";
-    default:
-      return "Practicum Student";
-  }
-}
-
-function superior(currentForm: formOptions) {
-  switch (currentForm) {
-    case formOptions.practicumChecklist:
-      return "District Coach";
-    default:
-      return "Supervisor / Coach";
-  }
-}
-
-function dateLabel(currentForm: formOptions) {
-  switch (currentForm) {
-    case formOptions.practicumChecklist:
-      return "Date";
-    default:
-      return "Observation Date";
-  }
-}
+import {
+  dateLabel,
+  programTitle,
+  studentTitle,
+  superior,
+} from "../utils/utils";
 
 const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);

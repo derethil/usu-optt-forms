@@ -1,16 +1,11 @@
 import currentForm, { formOptions } from "../../currentForm";
 import { IFormInfo } from "../../types/types";
 import { formatDate } from "../../utils/pdfUtils";
-import { insertIf } from "../../utils/utils";
+import { insertIf, programTitle, studentTitle } from "../../utils/utils";
 
 export default function generateFormInfoBody(formInfo: IFormInfo) {
-  const typeOfStudent =
-    currentForm === formOptions.studentTeaching
-      ? "Student Teacher"
-      : "Practicum Student";
-
   const main = [
-    [typeOfStudent, formInfo.studentTeacher],
+    [studentTitle(currentForm), formInfo.studentTeacher],
     ["Cooperating Teacher", formInfo.cooperatingTeacher],
     ["Supervisor / Coach", formInfo.supervisor],
     ["Observation Date", formatDate(formInfo.date)],
@@ -27,11 +22,8 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
     case formOptions.severeReadingPracticum:
     case formOptions.severeMLSPracticum:
     case formOptions.bTo5Practicum:
-      main.push(["Program", formInfo.program]);
-      return main;
-
     case formOptions.reading:
-      main.push(["Reading Program", formInfo.program]);
+      main.push([programTitle(currentForm), formInfo.program]);
       return main;
 
     case formOptions.math:
@@ -39,7 +31,7 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
 
     case formOptions.practicumChecklist:
       return [
-        [typeOfStudent, formInfo.studentTeacher],
+        [studentTitle(currentForm), formInfo.studentTeacher],
         ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["District Coach", formInfo.supervisor],
         ["Date", formInfo.date],
@@ -49,7 +41,7 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
 
     case formOptions.selfEvaluation:
       return [
-        [typeOfStudent, formInfo.studentTeacher],
+        [studentTitle(currentForm), formInfo.studentTeacher],
         ["Observation Date", formInfo.date],
         ["Program", formInfo.program],
         ["Goal 1", formInfo.goal1],
@@ -59,7 +51,7 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
 
     case formOptions.STRubric:
       return [
-        [typeOfStudent, formInfo.studentTeacher],
+        [studentTitle(currentForm), formInfo.studentTeacher],
         ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["Supervisor / Coach", formInfo.supervisor],
         ["Other", formInfo.other],

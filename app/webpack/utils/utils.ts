@@ -1,3 +1,5 @@
+import { formOptions } from "../currentForm";
+
 export const hexToRGBA = (h: string, opacity: number) => {
   let r = "0";
   let g = "0";
@@ -29,3 +31,42 @@ export const overrideRegex = /(!OVERRIDE)=(\d+)/gi;
 export const insertIf = (condition: boolean, ...elements: any) => {
   return condition ? elements : [];
 };
+
+export function programTitle(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.reading:
+    case formOptions.severeReadingPracticum:
+      return "Reading Program";
+    case formOptions.severeMLSPracticum:
+      return "Math/Life Skills Program";
+    default:
+      return "Program";
+  }
+}
+
+export function studentTitle(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.studentTeaching:
+      return "Student Teacher";
+    default:
+      return "Practicum Student";
+  }
+}
+
+export function superior(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.practicumChecklist:
+      return "District Coach";
+    default:
+      return "Supervisor / Coach";
+  }
+}
+
+export function dateLabel(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.practicumChecklist:
+      return "Date";
+    default:
+      return "Observation Date";
+  }
+}
