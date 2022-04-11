@@ -6,8 +6,7 @@ import subprocess
 from shutil import copyfile, make_archive, move
 
 STATIC_PATH = "./app/static"
-DIST_PATH = "./dist/deploymentStructure"
-
+DIST_PATH = "./dist/structure"
 
 def main():
     with open("./app/webpack/currentForm.ts", "r") as file:
