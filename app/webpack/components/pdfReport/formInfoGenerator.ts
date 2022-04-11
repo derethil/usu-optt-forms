@@ -56,6 +56,7 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
         [studentTitle(currentForm), formInfo.studentTeacher],
         ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["Supervisor / Coach", formInfo.supervisor],
+        ["Date", formatDate(formInfo.date)],
         ["Other", formInfo.other],
       ];
   }

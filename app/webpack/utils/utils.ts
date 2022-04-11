@@ -47,6 +47,7 @@ export function programTitle(currentForm: formOptions) {
 export function studentTitle(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.studentTeaching:
+    case formOptions.STRubric:
       return "Student Teacher";
     default:
       return "Practicum Student";
@@ -65,6 +66,7 @@ export function superior(currentForm: formOptions) {
 export function dateLabel(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.practicumChecklist:
+    case formOptions.STRubric:
       return "Date";
     default:
       return "Observation Date";

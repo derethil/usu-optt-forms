@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #f8f9fa;
 }
 
 .react-datepicker-wrapper {
@@ -16,4 +17,8 @@ body {
 
 .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
   left: -120px !important;
+}
+
+input[disabled] {
+  color: #ced4da;
 }

@@ -65,14 +65,12 @@ const FormInfo = () => {
         </>
       )}
 
-      {currentForm !== formOptions.STRubric && (
-        <DateInput
-          field="date"
-          label={dateLabel(currentForm)}
-          date={new Date(formInfo.date)}
-          updateForm={updateFormInfo}
-        />
-      )}
+      <DateInput
+        field="date"
+        label={dateLabel(currentForm)}
+        date={new Date(formInfo.date)}
+        updateForm={updateFormInfo}
+      />
 
       {![formOptions.practicumChecklist, formOptions.selfEvaluation].includes(
         currentForm
