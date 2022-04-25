@@ -492,25 +492,25 @@
         "options": [
           {
             "content": "Dresses appropriately and maintains good personal hygiene",
-            "score": "Yes"
+            "score": 1
           },
           {
             "content": "Does not dress appropriately and / or does not maintain personal hygiene",
-            "score": -5
+            "score": -1
           }
         ]
       },
       {
-        "area": "Accepting Criticism",
-        "tooltip": "1. Accepts feedback and constructive criticism <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "area": "Accepting Feedback",
+        "tooltip": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
         "options": [
           {
-            "content": "Responds appropriately to constructive criticism",
-            "score": "Yes"
+            "content": "Responds appropriately to feedback",
+            "score": 1
           },
           {
-            "content": "Does not respond appropriately to constructive criticism",
-            "score": -5
+            "content": "Does not respond appropriately to feedback",
+            "score": -1
           }
         ]
       },
@@ -520,11 +520,11 @@
         "options": [
           {
             "content": "Correctly implements changes after being given feedback",
-            "score": "Yes"
+            "score": 1
           },
           {
             "content": "Does not correctly implement changes after being given feedback",
-            "score": -5
+            "score": -1
           }
         ]
       },
@@ -534,11 +534,11 @@
         "options": [
           {
             "content": "Exhibits positive and respectful attitude in the classroom",
-            "score": "Yes"
+            "score": 1
           },
           {
             "content": "Does not exhibit positive and respectful attitude in the classroom",
-            "score": -5
+            "score": -1
           }
         ]
       },
@@ -548,11 +548,11 @@
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",
-            "score": "Yes"
+            "score": 1
           },
           {
             "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
-            "score": -5
+            "score": -1
           }
         ]
       }
