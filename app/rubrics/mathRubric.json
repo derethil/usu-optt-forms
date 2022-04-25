@@ -104,84 +104,6 @@
     ]
   },
   {
-    "sectionTitle": "Independent Practice",
-    "rows": [
-      {
-        "area": "Directions",
-        "options": [
-          {
-            "content": "Description of assignment included, completion time and follow-up (WA)",
-            "score": 2
-          },
-          {
-            "content": "Description of assignment included completion time, but there was no follow-up",
-            "score": 1
-          },
-          {
-            "content": "No description of assignment provided",
-            "score": 0
-          }
-        ]
-      },
-      {
-        "area": "Problems",
-        "options": [
-          {
-            "content": "IP Problems were aligned to GP; varied problems and / or maintenance problems provided (included problems and answers in lesson plan or specified page numbers of text for where to find problems and answers)",
-            "score": 4
-          },
-          {
-            "content": "IP Problems were appropriate, no problem variety or maintenance problems provided",
-            "score": 2
-          },
-          {
-            "content": "IP problems were inappropriate, and no problem variety or maintenance problems provided",
-            "score": 0
-          }
-        ]
-      },
-      {
-        "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
-        "options": [
-          {
-            "content": "Included all 4 criteria",
-            "score": 4
-          },
-          {
-            "content": "Included 3 criteria",
-            "score": 2
-          },
-          {
-            "content": "Included 2 criteria",
-            "score": 1
-          },
-          {
-            "content": "Included 0-1 criteria",
-            "score": 0
-          }
-        ]
-      },
-      {
-        "area":"Time",
-        "options": [
-          {
-            "content": "Spent 20-30% of time on IP for the majority of pupils",
-            "score": 2
-          },
-          {
-            "content": "Spent 30-50% or 10-20% of time on IP for the majority of pupils",
-            "score": 1
-          },
-          {
-            "content": "Spent >50% or <10% of time on IP for the majority of pupils",
-            "score": 0
-          }
-        ]
-      }
-    ]
-  },
-  {
     "sectionTitle": "New Material - Guided Practice",
     "rows": [
       {
@@ -367,6 +289,84 @@
           },
           {
             "content": "Spent <30% or >70% of time on NM / GP",
+            "score": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Independent Practice",
+    "rows": [
+      {
+        "area": "Directions",
+        "options": [
+          {
+            "content": "Description of assignment included, completion time and follow-up (WA)",
+            "score": 2
+          },
+          {
+            "content": "Description of assignment included completion time, but there was no follow-up",
+            "score": 1
+          },
+          {
+            "content": "No description of assignment provided",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Problems",
+        "options": [
+          {
+            "content": "IP Problems were aligned to GP; varied problems and / or maintenance problems provided (included problems and answers in lesson plan or specified page numbers of text for where to find problems and answers)",
+            "score": 4
+          },
+          {
+            "content": "IP Problems were appropriate, no problem variety or maintenance problems provided",
+            "score": 2
+          },
+          {
+            "content": "IP problems were inappropriate, and no problem variety or maintenance problems provided",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area": "Monitoring",
+        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
+        "options": [
+          {
+            "content": "Included all 4 criteria",
+            "score": 4
+          },
+          {
+            "content": "Included 3 criteria",
+            "score": 2
+          },
+          {
+            "content": "Included 2 criteria",
+            "score": 1
+          },
+          {
+            "content": "Included 0-1 criteria",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "area":"Time",
+        "options": [
+          {
+            "content": "Spent 20-30% of time on IP for the majority of pupils",
+            "score": 2
+          },
+          {
+            "content": "Spent 30-50% or 10-20% of time on IP for the majority of pupils",
+            "score": 1
+          },
+          {
+            "content": "Spent >50% or <10% of time on IP for the majority of pupils",
             "score": 0
           }
         ]
