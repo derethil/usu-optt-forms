@@ -1,6 +1,6 @@
 {
-  "name": "specialforms",
-  "version": "0.1.0",
+  "name": "usu-optt-forms",
+  "version": "1.0.0",
   "description": "A website to record student teaching data",
   "main": "index.js",
   "directories": {
