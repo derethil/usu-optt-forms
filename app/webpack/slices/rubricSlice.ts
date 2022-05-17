@@ -11,10 +11,11 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     rubricData.forEach((section) => {
       initialState[section.sectionTitle] = {};
       section.rows.forEach((row) => {
-        const initialScore =
-          row.options[0].score === "Yes"
-            ? "Yes"
-            : String(row.options[row.options.length - 1].score);
+        let minScore = Math.min(...row.options.map((e) => Number(e.score)));
+
+        const initialScore = row.options.map((e) => e.score).includes("Yes")
+          ? "Yes"
+          : String(minScore);
 
         initialState[section.sectionTitle][row.area] = {
           score: initialScore,
@@ -29,9 +30,10 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     initialState[section.sectionTitle] = {};
 
     section.rows.forEach((row) => {
+      let maxScore = Math.max(...row.options.map((e) => Number(e.score)));
       initialState[section.sectionTitle][row.area] = {
         score: "0",
-        maxScore: String(row.options[0].score),
+        maxScore: String(maxScore),
         comment: "",
       };
     });
