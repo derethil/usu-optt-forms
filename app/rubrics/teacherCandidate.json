@@ -8,6 +8,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Provides developmentally inappropriate instruction.",
               "Lacks awareness of developmental needs."
@@ -15,18 +16,21 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Creates lessons according to grade level Utah Core Standards."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Adds to or modifies lessons to provide varied learning experiences."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Implements learning experiences based on specific learners' developmental levels."
             ]
@@ -39,6 +43,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Works in isolation.",
               "Avoids communication or communicates ineffectively.",
@@ -47,12 +52,14 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Communicates about procedural issues, schedules, and requirements."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Responds to mentor inquiries/concerns about learner development and progress.",
               "Communicates about curriculum and instruction."
@@ -60,6 +67,7 @@
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Interacts with colleagues or families related to learner growth and development."
             ]
@@ -72,6 +80,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Not aware of learner differences.",
               "Not accepting of differences.",
@@ -80,6 +89,7 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Demonstrates awareness of learner diversity.",
               "Respects individual differences."
@@ -87,12 +97,14 @@
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Applies general strategies for diverse learners."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Applies understanding of specific strategies for learner diversity to encourage all learners to reach their full potential."
             ]
@@ -105,6 +117,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not have a schedule planned.",
               "has unorganized and lengthy transitions.",
@@ -113,18 +126,21 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Plans a schedule, routines, and behavioral expectations."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Communicates schedule, routines, and behavioral expectations to students."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Implements the daily schedule.",
               "Holds students accountable to follow routines and behavioral expectations."
@@ -138,6 +154,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Demonstrates negative demeanor.",
               "Reprimands frequently.",
@@ -146,12 +163,14 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Communicates with students using developmentally appropriate language."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Communicates explicitly the expectations for classroom interactions.",
               "Provides opportunities for teacher-student interactions.",
@@ -160,6 +179,7 @@
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "maintains positive interactions with and among students."
             ]
@@ -172,6 +192,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Uses time, space, and attention ineffectively.",
               "Does not have management plan."
@@ -179,6 +200,7 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Plans classroom management strategies.",
               "Plans instruction for the alloted time."
@@ -186,6 +208,7 @@
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Paces instruction appropriate for student learning.",
               "Addresses inappropriate student behavior."
@@ -193,6 +216,7 @@
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Implements classroom management strategies.",
               "Encourages learners tso be engaged with the content.",
@@ -212,18 +236,21 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Provides inaccurate lesson content."
             ]
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Demonstrates content knowledge."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Uses more than one way to explain concepts.",
               "uses accurate academic language."
@@ -231,6 +258,7 @@
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Model critical and/or creative thinking in the content area.",
               "Supports learner use of content-specific academic language."
@@ -244,18 +272,21 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not collect or use data."
             ]
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Collects data."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Analyzes data to document student learning.",
               "Uses formative assessment during instruction."
@@ -263,6 +294,7 @@
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Uses data to evaluate the outcomes of teaching.",
               "Monitors learning and adjusts instruction during the lesson."
@@ -276,6 +308,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not document learner progress.",
               "Does not provide feedback."
@@ -283,6 +316,7 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Documents learner progress.",
               "Provides general feedback."
@@ -290,12 +324,14 @@
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Provides specific and timely feedback."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Provides feedback to individuals and groups based on elements of quality work (e.g. rubrics, checklists, exemplars).",
               "Shares assessment feedback with parents/guardians under the direction of the mentor teacher."
@@ -309,6 +345,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not assess student learning.",
               "Assessment is inappropriate."
@@ -316,6 +353,7 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Plans assessment within lesson plans.",
               "Lesson plans include an assessment."
@@ -323,12 +361,14 @@
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Designs, selects, or adapts assessments that align with learning objectives."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Uses a variety of assessment formats to evaluate student learning."
             ]
@@ -341,6 +381,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Unfamiliar with Utah Core Standards",
               "Instructional materials do not align with standards.",
@@ -350,18 +391,21 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Includes Utah Core Standards in lesson plans."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Includes appropriate learning objectives based on Utah Core Standards."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Aligns daily  instruction with Utah Core Standards.",
               "Selects instructional materials that support standards."
@@ -375,24 +419,28 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not acknowledge the importance of integrating cross-disciplinary skills (e.g., critical thinking, problem solving, creativity, communication)."
             ]
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Acknowledges the importance of integrating cross-disciplinary skills."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Plans lessons in which cross-disciplinary skills are modeled."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Plans lessons that engage students in using cross-disciplinary skills."
             ]
@@ -405,6 +453,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Inappropriate strategies.",
               "No variety of strategies.",
@@ -414,18 +463,21 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Uses instructional strategies, focused on lesson objectives."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Incorporates various instructional strategies."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Identifies each learner's diverse learning strengths and needs.",
               "Attempts to adjust instruction based on the developmental, cultural, or linguistic needs of the students in individual or small group settings."
@@ -439,24 +491,28 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Is not familiar with higher-order and metacognitive skills."
             ]
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Uses instructional strategies focused on lower-order thinking skills (e.g., uses memorization, recall, and rote knowledge for most assessments/tasks)."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "uses instructional strategies in which higher-order thinking skills are modeled."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Uses instructional strategies that engage learners in higher-order thinking."
             ]
@@ -469,6 +525,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Communication skills are not taught or developed specifically.",
               "No opportunities for learner communication."
@@ -476,18 +533,21 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Engages learners in listening and/or reading during instruction."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Allows learners to contribute through speaking or writing as part of instruction."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Provides opportunities for learners to practice communication skills, including reading, writing, listening, and speaking."
             ]
@@ -500,24 +560,28 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not use available technology."
             ]
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Uses teacher-centered technologies."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Uses technology to engage students."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Uses student-centered technologies in ways that promote learning."
             ]
@@ -530,24 +594,28 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Sources not appropriate for instruction."
             ]
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Provides multiple appropriate sources."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Uses multiple appropriate sources of information during instruction."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Engages learners in using multiple sources of appropriate sources of information."
             ]
@@ -565,6 +633,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Does not reflect on instruction.",
               "Does not accept feedback."
@@ -572,12 +641,14 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Attends to feedback from mentor teacher and supervisor."
             ]
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Develops a plan to improve practice in response to feedback.",
               "Self-reflects on lesson effectiveness."
@@ -585,6 +656,7 @@
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Applies feedback from mentor teachers, supervisors, and self-reflection to improve teaching and learning in the classroom."
             ]
@@ -597,6 +669,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Fails to fulfill required duties (e.g., contracted school day, etc.).",
               "Displays lack of respect for colleagues/classmates.",
@@ -605,6 +678,7 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Participates in required school activities.",
               "Communicates with colleagues/classmates when required."
@@ -612,12 +686,14 @@
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Attends and participates in team meetings and other collaborative opportunities, when invited."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Acknowledges own actions that lead to success of all learners.",
               "Maintains cordial professional relationships with colleagues/classmates."
@@ -631,6 +707,7 @@
         "options": [
           {
             "continued": false,
+            "score": 0,
             "content": [
               "Lacks respect for learners and families.",
               "Communicates negatively about learners, families, or the profession.",
@@ -639,6 +716,7 @@
           },
           {
             "continued": false,
+            "score": 1,
             "content": [
               "Respects learners, families, and the profession.",
               "Communicates positively about learners, families, and the profession.",
@@ -647,12 +725,14 @@
           },
           {
             "continued": true,
+            "score": 2,
             "content": [
               "Positively represents the profession, school, and university."
             ]
           },
           {
             "continued": true,
+            "score": 3,
             "content": [
               "Contributes to learner success by responding to learner and/or family/community concerns."
             ]
