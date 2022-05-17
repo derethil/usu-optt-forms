@@ -37,11 +37,12 @@ interface OptionRowProps {
   contentOptions: (string | string[])[];
   updateSelection: (newSelection: string) => void;
   scoreOptions?: string[];
-  tooltip?: string;
+  info?: string;
   wrapperStyles?: FlattenSimpleInterpolation;
   buttonStyles?: FlattenSimpleInterpolation;
   titleStyles?: FlattenSimpleInterpolation;
   containerStyles?: FlattenSimpleInterpolation;
+  alternateInfoStyle?: boolean; // If false, info will be displayed as a tooltip, otherwise as part of the title
 }
 
 interface OptionRowCommentProps extends OptionRowProps {
@@ -143,24 +144,32 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     );
   }
 
-  // Tooltip check moved here for readability
-  const renderTitle = (tooltip?: string) => {
-    if (tooltip) {
+  const renderTitle = (info?: string) => {
+    if (info && !props.alternateInfoStyle) {
+      // Render info as tooltip
       return (
         <IconTitle
           content={props.title!}
-          tooltipContent={tooltip}
+          tooltipContent={info}
           titleStyles={props.titleStyles}
         />
       );
+    } else if (info) {
+      // Render info as part of the title
+      return (
+        <Title mixin={props.titleStyles}>
+          <b>{props.title}</b>: {props.info}
+        </Title>
+      );
     } else {
+      // No info to render
       return <Title mixin={props.titleStyles}>{props.title}</Title>;
     }
   };
 
   return (
     <Container mixin={props.containerStyles}>
-      {renderTitle(props.tooltip)}
+      {renderTitle(props.info)}
 
       <ButtonsWrapper mixin={props.wrapperStyles}>{rowContents}</ButtonsWrapper>
     </Container>

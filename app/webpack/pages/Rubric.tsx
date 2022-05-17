@@ -30,6 +30,7 @@ type RubricProps = {
   timer1: ITimer;
   timer2: ITimer;
   disableCommentBoxes?: boolean;
+  alternateInfoStyle?: boolean;
 };
 
 const cardTitleStyles = css`
@@ -100,7 +101,7 @@ const Rubric = (props: RubricProps) => {
           key={rowIdx}
           contentOptions={currContentOptions}
           scoreOptions={currScoreOptions}
-          tooltip={row.info}
+          info={row.info}
           title={row.area}
           currSelection={score}
           updateSelection={(newSelection) => {
@@ -114,6 +115,7 @@ const Rubric = (props: RubricProps) => {
           }}
           buttonStyles={buttonStyles}
           titleStyles={rowTitleStyles}
+          alternateInfoStyle={props.alternateInfoStyle}
           comment={props.disableCommentBoxes ? undefined : comment}
           updateComment={
             props.disableCommentBoxes
