@@ -43,6 +43,7 @@ interface OptionRowProps {
   titleStyles?: FlattenSimpleInterpolation;
   containerStyles?: FlattenSimpleInterpolation;
   alternateInfoStyle?: boolean; // If false, info will be displayed as a tooltip, otherwise as part of the title
+  continuedList?: boolean[];
 }
 
 interface OptionRowCommentProps extends OptionRowProps {
@@ -52,6 +53,10 @@ interface OptionRowCommentProps extends OptionRowProps {
 
 const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
   const [override, setOverride] = useState(false);
+
+  const continuedList = props.continuedList
+    ? props.continuedList
+    : new Array(props.contentOptions.length).fill(false);
 
   // Override system (ex: !override = 10 in comment will override the score)
   if ("comment" in props && props.comment !== undefined && props.scoreOptions) {
@@ -75,6 +80,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
   const rowContents = props.contentOptions.map((content, idx) => {
     const score = props.scoreOptions ? props.scoreOptions[idx] : "";
     const compareTo = props.scoreOptions ? score : content;
+    const continued = continuedList[idx];
 
     if (!Array.isArray(content)) {
       return (
@@ -90,6 +96,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     } else {
       return (
         <SelectButtonList
+          continued={continued}
           content={content}
           score={score}
           key={idx}

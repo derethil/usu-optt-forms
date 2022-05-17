@@ -12,7 +12,9 @@ const ScoreValue = styled.div`
 `;
 
 const SelectButtonEl = styled(Button)<CSSMixin>`
+  ${(props) => props.mixin}
   padding: 1em;
+  padding-left: 0.33em;
 
   height: auto;
 
@@ -28,7 +30,21 @@ const SelectButtonEl = styled(Button)<CSSMixin>`
     margin-right: 0;
   }
 
-  ${(props) => props.mixin}
+  text-align: left;
+`;
+
+const ListItem = styled.li`
+  padding-bottom: 0.33em;
+
+  :last-child {
+    padding-bottom: 0em;
+  }
+`;
+
+const ContinuedEl = styled.p`
+  padding: 0em 0em 0.33em 0em;
+  margin: 0em;
+  font-style: italic;
 `;
 
 type SelectButtonProps = {
@@ -37,21 +53,27 @@ type SelectButtonProps = {
   updateSelection: (newSelection: string) => void;
   score?: string;
   styles?: FlattenSimpleInterpolation;
+  continued?: boolean;
 };
 
 const SelectButton = (props: SelectButtonProps) => {
   const { content, selected, score, updateSelection, styles } = props;
 
-  const selectBy = score ? score : content[0];
+  const selectBy = score ? score : content;
 
   return (
     <SelectButtonEl
       color={selected ? Color.blues.blueLight : Color.blues.blue}
       textColor={selected ? Color.blues.blue : Color.blues.blueLight}
-      onClick={() => updateSelection(selectBy)}
+      onClick={() => updateSelection(selectBy as string)}
       mixin={styles}
     >
-      <p style={{ marginTop: Boolean(score) ? "auto" : "normal" }}>{content}</p>
+      <ul>
+        {props.continued && <ContinuedEl>...and</ContinuedEl>}
+        {content.map((el, idx) => (
+          <ListItem key={idx}>{el}</ListItem>
+        ))}
+      </ul>
       {score && <ScoreValue>{score}</ScoreValue>}
     </SelectButtonEl>
   );

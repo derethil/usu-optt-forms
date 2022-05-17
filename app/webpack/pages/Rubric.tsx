@@ -94,6 +94,10 @@ const Rubric = (props: RubricProps) => {
         String(option.score)
       );
 
+      const currContinuedList = row.options.map((option) =>
+        option.continued !== undefined ? option.continued : false
+      );
+
       const { score, comment } = rubricScores[section.sectionTitle][row.area];
 
       return (
@@ -101,6 +105,7 @@ const Rubric = (props: RubricProps) => {
           key={rowIdx}
           contentOptions={currContentOptions}
           scoreOptions={currScoreOptions}
+          continuedList={currContinuedList}
           info={row.info}
           title={row.area}
           currSelection={score}
