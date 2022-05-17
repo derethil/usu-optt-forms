@@ -6,3 +6,4 @@ dist/production.zip
 app/static/js/main.js
 
 site
+.vscode/

@@ -1,0 +1,712 @@
+[
+  {
+    "sectionTitle": "The Learner and Learning",
+    "rows": [
+      {
+        "title": "Learner Development 1.1",
+        "description": "Creates developmentally appropriate and challenging learning experiences based on each learner's strengths, interests, and needs. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Provides developmentally inappropriate instruction.",
+              "Lacks awareness of developmental needs."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Creates lessons according to grade level Utah Core Standards."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Adds to or modifies lessons to provide varied learning experiences."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Implements learning experiences based on specific learners' developmental levels."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learner Development 1.2",
+        "description": "Collaborates with families, colleagues, and other professionals to promote student growth and development. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Works in isolation.",
+              "Avoids communication or communicates ineffectively.",
+              "Does not focus on learner needs."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Communicates about procedural issues, schedules, and requirements."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Responds to mentor inquiries/concerns about learner development and progress.",
+              "Communicates about curriculum and instruction."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Interacts with colleagues or families related to learner growth and development."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learning Differences 2.1",
+        "description": "Allows learners multiple ways to demonstrate learning sensitive to diverse experiences, while holding high expectations for all. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Not aware of learner differences.",
+              "Not accepting of differences.",
+              "Does not hold high expectations for learners."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Demonstrates awareness of learner diversity.",
+              "Respects individual differences."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Applies general strategies for diverse learners."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Applies understanding of specific strategies for learner diversity to encourage all learners to reach their full potential."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learning Environments 3.1",
+        "description": "Develops learning experiences that engage and support students as self-directed learners who internalize classroom routines, expectations, and procedures. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not have a schedule planned.",
+              "has unorganized and lengthy transitions.",
+              "Loses instructional time."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Plans a schedule, routines, and behavioral expectations."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Communicates schedule, routines, and behavioral expectations to students."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Implements the daily schedule.",
+              "Holds students accountable to follow routines and behavioral expectations."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learning Environments 3.2",
+        "description": "Collaborates with students to establish a positive learning climate of openness, respectful interactions, support, and inquiry. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Demonstrates negative demeanor.",
+              "Reprimands frequently.",
+              "Leaves students unattended."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Communicates with students using developmentally appropriate language."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Communicates explicitly the expectations for classroom interactions.",
+              "Provides opportunities for teacher-student interactions.",
+              "Provides opportunities for student interactions."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "maintains positive interactions with and among students."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learning Environments 3.3",
+        "description": "Utilizes positive classroom management strategies, including the resources of time, space, and attention, effectively. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Uses time, space, and attention ineffectively.",
+              "Does not have management plan."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Plans classroom management strategies.",
+              "Plans instruction for the alloted time."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Paces instruction appropriate for student learning.",
+              "Addresses inappropriate student behavior."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Implements classroom management strategies.",
+              "Encourages learners tso be engaged with the content.",
+              "Manages time, space, and attention to increase participation."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Instructional Practice",
+    "rows": [
+      {
+        "title": "Content Knowledge 4.1",
+        "description": "Bases instruction on accurate content knowledge using multiple representations of concepts and appropriate academic language. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Provides inaccurate lesson content."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Demonstrates content knowledge."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses more than one way to explain concepts.",
+              "uses accurate academic language."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Model critical and/or creative thinking in the content area.",
+              "Supports learner use of content-specific academic language."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Assessment 5.1",
+        "description": "Uses data sources to assess the effectiveness of instruction and to make adjustments in planning and instruction. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not collect or use data."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Collects data."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Analyzes data to document student learning.",
+              "Uses formative assessment during instruction."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses data to evaluate the outcomes of teaching.",
+              "Monitors learning and adjusts instruction during the lesson."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Assessment 5.2",
+        "description": "Documents student progress and provides descriptive feedback to student, parent/guardian, and other stakeholders in a variety of ways. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not document learner progress.",
+              "Does not provide feedback."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Documents learner progress.",
+              "Provides general feedback."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Provides specific and timely feedback."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Provides feedback to individuals and groups based on elements of quality work (e.g. rubrics, checklists, exemplars).",
+              "Shares assessment feedback with parents/guardians under the direction of the mentor teacher."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Assessment 5.3",
+        "description": "Designs or selects pre-assessments, formative, and summative assessments in a variety of formats that align to learning objectives and engage the learner in demonstrating knowledge and skills. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not assess student learning.",
+              "Assessment is inappropriate."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Plans assessment within lesson plans.",
+              "Lesson plans include an assessment."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Designs, selects, or adapts assessments that align with learning objectives."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses a variety of assessment formats to evaluate student learning."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Planning 6.1",
+        "description": "Demonstrates knowledge of the Utah Core Standards and references them in short- and long-term planning. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Unfamiliar with Utah Core Standards",
+              "Instructional materials do not align with standards.",
+              "No evidence of learning objectives.",
+              "No evidence of planning."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Includes Utah Core Standards in lesson plans."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Includes appropriate learning objectives based on Utah Core Standards."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Aligns daily  instruction with Utah Core Standards.",
+              "Selects instructional materials that support standards."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Planning 6.2",
+        "description": "Integrates cross-disciplinary skills into instruction to purposefully engage learners in applying content knowledge. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not acknowledge the importance of integrating cross-disciplinary skills (e.g., critical thinking, problem solving, creativity, communication)."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Acknowledges the importance of integrating cross-disciplinary skills."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Plans lessons in which cross-disciplinary skills are modeled."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Plans lessons that engage students in using cross-disciplinary skills."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Strategies 7.1",
+        "description": "Practices a range of [developmentally, culturally, and linguistically appropriate instructional strategies to meet the needs of individuals and groups of learners. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Inappropriate strategies.",
+              "No variety of strategies.",
+              "Insensitivity to individual differences.",
+              "No adjustments to instruction."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Uses instructional strategies, focused on lesson objectives."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Incorporates various instructional strategies."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Identifies each learner's diverse learning strengths and needs.",
+              "Attempts to adjust instruction based on the developmental, cultural, or linguistic needs of the students in individual or small group settings."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Strategies 7.2",
+        "description": "Provides multiple opportunities for students to develop higher-order and metacognitive skills.",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Is not familiar with higher-order and metacognitive skills."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Uses instructional strategies focused on lower-order thinking skills (e.g., uses memorization, recall, and rote knowledge for most assessments/tasks)."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "uses instructional strategies in which higher-order thinking skills are modeled."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses instructional strategies that engage learners in higher-order thinking."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Strategies 7.3",
+        "description": "Supports and expands each learner's communication skills through reading, writing, listening, and speaking. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Communication skills are not taught or developed specifically.",
+              "No opportunities for learner communication."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Engages learners in listening and/or reading during instruction."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Allows learners to contribute through speaking or writing as part of instruction."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Provides opportunities for learners to practice communication skills, including reading, writing, listening, and speaking."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Strategies 7.4",
+        "description": "Uses a variety of available and appropriate technology and resources to support learning. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not use available technology."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Uses teacher-centered technologies."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses technology to engage students."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses student-centered technologies in ways that promote learning."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Instructional Strategies 7.5",
+        "description": "Develops learners' abilities to find and use information to solve real-world problems. OBSERVATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Sources not appropriate for instruction."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Provides multiple appropriate sources."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Uses multiple appropriate sources of information during instruction."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Engages learners in using multiple sources of appropriate sources of information."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Professional Responsibility",
+    "rows": [
+      {
+        "title": "Reflection and Continuous Growth 8.1",
+        "description": "Adapts and improves practice based on reflection and new learning. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not reflect on instruction.",
+              "Does not accept feedback."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Attends to feedback from mentor teacher and supervisor."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Develops a plan to improve practice in response to feedback.",
+              "Self-reflects on lesson effectiveness."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Applies feedback from mentor teachers, supervisors, and self-reflection to improve teaching and learning in the classroom."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Leadership and Collaboration 9.1",
+        "description": "Participates actively in decision-making process, while building a shared culture that affects the school and larger educational community. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Fails to fulfill required duties (e.g., contracted school day, etc.).",
+              "Displays lack of respect for colleagues/classmates.",
+              "Blames others, including students, for lack of success."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Participates in required school activities.",
+              "Communicates with colleagues/classmates when required."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Attends and participates in team meetings and other collaborative opportunities, when invited."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Acknowledges own actions that lead to success of all learners.",
+              "Maintains cordial professional relationships with colleagues/classmates."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Leadership and Collaboration 9.2",
+        "description": "Advocates for the learners, the school, the community, and the profession. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Lacks respect for learners and families.",
+              "Communicates negatively about learners, families, or the profession.",
+              "Interacts inappropriately with learners, families, or colleagues/classmates."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Respects learners, families, and the profession.",
+              "Communicates positively about learners, families, and the profession.",
+              "Interacts appropriately with learners, classmates, colleagues, and families."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Positively represents the profession, school, and university."
+            ]
+          },
+          {
+            "continued": true,
+            "content": [
+              "Contributes to learner success by responding to learner and/or family/community concerns."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Professional and Ethical Behavior 10.1",
+        "description":  "Is responsible for compliance with university policies, federal and state laws, State Board of Education administrative rules, state assessment policies, local board policies, and supervisory directives. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not understand nor adheres to university policies, federal and state  laws, State Board of Education rules, state and local policies, supervisory directives, professional, moral, and ethical conduct and does not hold other accountable to do the same."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Understands, adheres to, and upholds university policies, federal and state  laws, State Board of Education rules, state and local policies, supervisory directives, professional, moral, and ethical conduct and holds other accountable to do the same."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Professional and Ethical Behavior 10.2",
+        "description": "is responsible for compliance with all requirements of State Board of Education Rule R277-515 at all levels of teacher development. CONSULTATION",
+        "options": [
+          {
+            "continued": false,
+            "content": [
+              "Does not avoid actions that may adversely affect ability to perform assigned duties and carry out the responsibilities of the profession, including role-model responsibilities.",
+              "Does not know or understand professional requirements.",
+              "Does not complete all requirements for clinical experiences.",
+              "Does not maintain instructional and non-instructional records.",
+              "Does not maintain integrity and confidentiality in matters concerning student records and collegial consultation.",
+              "Develops inappropriate student-teacher relationships as defined in rules, law, and policy.",
+              "Does not maintain professional demeanor and appearance as defined by university and the local education agency (LEA)."
+            ]
+          },
+          {
+            "continued": false,
+            "content": [
+              "Avoids actions that may adversely affect ability to perform assigned duties and carry out the responsibilities of the profession, including role-model responsibilities.",
+              "Takes responsibility to understand    and complete all requirements for clinical experiences.",
+              "Takes responsibility to understand professional requirements, to maintain a current Utah Educator Licenses, and to complete license upgrades, renewals, and additional requirements in a timely way.",
+              "Maintains accurate instructional and non-instructional records.",
+              "Maintains integrity and confidentiality in matters concerning student records and collegial consultation.",
+              "Develops appropriate student-teacher relationships as defined in rules, lay, and policy.",
+              "Maintains professional demeanor and appearance as defined by university and the local education agency (LEA)."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
