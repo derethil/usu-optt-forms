@@ -29,6 +29,7 @@ import { ITimer } from "../slices/timersSlice";
 type RubricProps = {
   timer1: ITimer;
   timer2: ITimer;
+  disableCommentBoxes?: boolean;
 };
 
 const cardTitleStyles = css`
@@ -113,16 +114,20 @@ const Rubric = (props: RubricProps) => {
           }}
           buttonStyles={buttonStyles}
           titleStyles={rowTitleStyles}
-          comment={comment}
-          updateComment={(updatedValues: { [key: string]: string }) => {
-            dispatch(
-              setRubricComment({
-                section: section.sectionTitle,
-                row: row.area,
-                newComment: Object.values(updatedValues)[0],
-              })
-            );
-          }}
+          comment={props.disableCommentBoxes ? undefined : comment}
+          updateComment={
+            props.disableCommentBoxes
+              ? undefined
+              : (updatedValues: { [key: string]: string }) => {
+                  dispatch(
+                    setRubricComment({
+                      section: section.sectionTitle,
+                      row: row.area,
+                      newComment: Object.values(updatedValues)[0],
+                    })
+                  );
+                }
+          }
         />
       );
     });
