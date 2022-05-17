@@ -10,7 +10,7 @@ type Key = keyof IComments | "narrative";
 
 type FeedbackCardProps = {
   title: string;
-  key: Key;
+  field: Key;
   content: string;
   updateContent: (newFeedback: { [key: string]: string }) => void;
 };
@@ -21,7 +21,7 @@ const FeedbackCard = (props: FeedbackCardProps) => {
       <TextInput
         value={props.content}
         updateForm={props.updateContent}
-        field={props.key}
+        field={props.field}
         noLabel
         placeholder={props.title}
         textArea

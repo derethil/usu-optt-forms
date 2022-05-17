@@ -49,6 +49,8 @@ export function studentTitle(currentForm: formOptions) {
     case formOptions.studentTeaching:
     case formOptions.STRubric:
       return "Student Teacher";
+    case formOptions.teacherCandidate:
+      return "Teacher Candidate";
     default:
       return "Practicum Student";
   }
@@ -58,6 +60,8 @@ export function superior(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.practicumChecklist:
       return "District Coach";
+    case formOptions.teacherCandidate:
+      return "Evaluator Name and Role";
     default:
       return "Supervisor / Coach";
   }
@@ -70,5 +74,14 @@ export function dateLabel(currentForm: formOptions) {
       return "Date";
     default:
       return "Observation Date";
+  }
+}
+
+export function otherLabel(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.teacherCandidate:
+      return "Grade and Subject";
+    default:
+      return "Other";
   }
 }

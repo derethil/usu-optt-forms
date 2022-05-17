@@ -57,6 +57,7 @@ export interface IFormInfo {
   goal1: string;
   goal2: string;
   isLastObservation: boolean;
+  narrative: string;
 }
 
 export interface CSSMixin {

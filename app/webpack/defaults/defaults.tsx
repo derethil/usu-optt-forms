@@ -26,6 +26,7 @@ export const defaultFormInfo: IFormInfo = {
   goal1: "",
   goal2: "",
   isLastObservation: false,
+  narrative: "",
 };
 
 export const defaultNotebookCheck = {

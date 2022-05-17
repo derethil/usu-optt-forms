@@ -18,6 +18,7 @@ import {
 import CheckboxLabel from "./CheckboxLabel";
 import {
   dateLabel,
+  otherLabel,
   programTitle,
   studentTitle,
   superior,
@@ -25,6 +26,41 @@ import {
 
 // Component to provide the form on Home page with all the general info
 // The million conditional rendering checks are gross but it works and I couldn't think of a better way to implement it
+
+// Determines which forms have only one date selector
+const noNextDate = [
+  formOptions.practicumChecklist,
+  formOptions.selfEvaluation,
+  formOptions.STRubric,
+  formOptions.teacherCandidate,
+];
+
+// Determines which forms will have neither a program selector or program textbox
+const noProgramText = [
+  formOptions.math,
+  formOptions.STRubric,
+  formOptions.teacherCandidate,
+];
+
+const includeProgramText =
+  !FormData[currentForm].programOptions && !noProgramText.includes(currentForm);
+
+// Determines which forms will not have the observation selector
+const noObsSelect = [
+  formOptions.STRubric,
+  formOptions.practicumChecklist,
+  formOptions.teacherCandidate,
+];
+
+// Determines which forms will not have a cooperating teacher  / supervisor textbox
+const noCoopTeacher = [
+  formOptions.selfEvaluation,
+  formOptions.teacherCandidate,
+];
+
+const noSupervisor = [formOptions.selfEvaluation];
+
+// ------ COMPONENT ------
 
 const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);
@@ -49,71 +85,66 @@ const FormInfo = () => {
         field="studentTeacher"
         title={studentTitle(currentForm)}
       />
-      {currentForm !== formOptions.selfEvaluation && (
-        <>
-          <TextInput
-            value={formInfo.cooperatingTeacher}
-            updateForm={updateFormInfo}
-            field="cooperatingTeacher"
-          />
-          <TextInput
-            value={formInfo.supervisor}
-            updateForm={updateFormInfo}
-            field="supervisor"
-            title={superior(currentForm)}
-          />
-        </>
+      {!noCoopTeacher.includes(currentForm) && (
+        <TextInput
+          value={formInfo.cooperatingTeacher}
+          updateForm={updateFormInfo}
+          field="cooperatingTeacher"
+        />
       )}
-
-      <DateInput
-        field="date"
-        label={dateLabel(currentForm)}
-        date={new Date(formInfo.date)}
-        updateForm={updateFormInfo}
-      />
-
-      {![formOptions.practicumChecklist, formOptions.selfEvaluation].includes(
-        currentForm
-      ) &&
-        currentForm !== formOptions.STRubric && (
-          <>
-            <DateInput
-              label="Next Observation Date"
-              field="nextDate"
-              date={new Date(formInfo.nextDate)}
-              updateForm={updateFormInfo}
-              disabled={formInfo.isLastObservation}
-            />
-
-            <CheckboxLabel
-              checked={formInfo.isLastObservation}
-              onChange={(e) =>
-                dispatch(setFormInfo({ isLastObservation: e.target.checked }))
-              }
-              label="This is the last observation for this student"
-            />
-          </>
-        )}
-
+      {!noSupervisor.includes(currentForm) && (
+        <TextInput
+          value={formInfo.supervisor}
+          updateForm={updateFormInfo}
+          field="supervisor"
+          title={superior(currentForm)}
+        />
+      )}
       {!FormData[currentForm].programOptions &&
         currentForm !== formOptions.math &&
         currentForm !== formOptions.STRubric && (
-          <TextInput
-            value={formInfo.program}
+          <DateInput
+            field="date"
+            label={dateLabel(currentForm)}
+            date={new Date(formInfo.date)}
             updateForm={updateFormInfo}
-            field="program"
-            title={programTitle(currentForm)}
           />
         )}
+      {!noNextDate.includes(currentForm) && (
+        <>
+          <DateInput
+            label="Next Observation Date"
+            field="nextDate"
+            date={new Date(formInfo.nextDate)}
+            updateForm={updateFormInfo}
+            disabled={formInfo.isLastObservation}
+          />
 
+          <CheckboxLabel
+            checked={formInfo.isLastObservation}
+            onChange={(e) =>
+              dispatch(setFormInfo({ isLastObservation: e.target.checked }))
+            }
+            label="This is the last observation for this student"
+          />
+        </>
+      )}
+      {includeProgramText && (
+        <TextInput
+          value={formInfo.program}
+          updateForm={updateFormInfo}
+          field="program"
+          title={programTitle(currentForm)}
+        />
+      )}
       {currentForm !== formOptions.selfEvaluation && (
         <TextInput
           value={formInfo.other}
           updateForm={updateFormInfo}
           field="other"
+          title={otherLabel(currentForm)}
         />
       )}
-
       {currentForm === formOptions.selfEvaluation && (
         <>
           <TextInput
@@ -130,28 +161,25 @@ const FormInfo = () => {
           />
         </>
       )}
-
-      {currentForm !== formOptions.practicumChecklist &&
-        currentForm !== formOptions.STRubric && (
-          <OptionRow
-            title={"Observation Number"}
-            contentOptions={[
-              "1",
-              "2",
-              "3",
-              "4",
-              ...(currentForm !== formOptions.selfEvaluation ? ["5"] : []),
-            ]}
-            currSelection={formInfo.observation.toString()}
-            updateSelection={(newSelection: string) =>
-              updateObservation({ observation: Number(newSelection) })
-            }
-            titleStyles={css`
-              color: ${Color.neutrals.grayDark};
-            `}
-          />
-        )}
-
+      {!noObsSelect.includes(currentForm) && (
+        <OptionRow
+          title={"Observation Number"}
+          contentOptions={[
+            "1",
+            "2",
+            "3",
+            "4",
+            ...(currentForm !== formOptions.selfEvaluation ? ["5"] : []),
+          ]}
+          currSelection={formInfo.observation.toString()}
+          updateSelection={(newSelection: string) =>
+            updateObservation({ observation: Number(newSelection) })
+          }
+          titleStyles={css`
+            color: ${Color.neutrals.grayDark};
+          `}
+        />
+      )}
       {FormData[currentForm].programOptions && (
         <OptionRow
           title={"Program"}

@@ -17,14 +17,14 @@ const FeedbackPage = () => {
     <PageContent className="feedback">
       <TextBoxCard
         title={isSTR ? "Behavior Assignment Comments" : "Strengths"}
-        key="strengths"
+        field="strengths"
         content={feedback.strengths}
         updateContent={(newContent) => dispatch(setFeedback(newContent))}
       />
 
       <TextBoxCard
         title={isSTR ? "Collaboration Assignment Comments" : "Suggestions"}
-        key="suggestions"
+        field="suggestions"
         content={feedback.suggestions}
         updateContent={(newContent) => dispatch(setFeedback(newContent))}
       />
@@ -32,7 +32,7 @@ const FeedbackPage = () => {
       {currentForm !== formOptions.selfEvaluation ? (
         <TextBoxCard
           title={isSTR ? "IEP/IFSP Assignment Comments" : "Next Focus"}
-          key="nextFocus"
+          field="nextFocus"
           content={feedback.nextFocus}
           updateContent={(newContent) => dispatch(setFeedback(newContent))}
         />
@@ -40,14 +40,14 @@ const FeedbackPage = () => {
         <>
           <TextBoxCard
             title="Goal 1"
-            key="goal1"
+            field="goal1"
             content={feedback.goal1}
             updateContent={(newContent) => dispatch(setFeedback(newContent))}
           />
 
           <TextBoxCard
             title="Goal 2"
-            key="goal2"
+            field="goal2"
             content={feedback.goal2}
             updateContent={(newContent) => dispatch(setFeedback(newContent))}
           />
