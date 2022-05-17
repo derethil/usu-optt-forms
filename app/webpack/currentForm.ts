@@ -8,8 +8,9 @@ export enum formOptions {
   practicumChecklist = "practicumChecklist",
   selfEvaluation = "selfEvaluation",
   STRubric = "STRubric",
+  teacherCandidate = "teacherCandidate",
 }
 
-const currentForm: formOptions = formOptions.math;
+const currentForm: formOptions = formOptions.teacherCandidate;
 
 export default currentForm;

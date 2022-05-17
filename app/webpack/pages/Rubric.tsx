@@ -99,7 +99,7 @@ const Rubric = (props: RubricProps) => {
           key={rowIdx}
           contentOptions={currContentOptions}
           scoreOptions={currScoreOptions}
-          tooltip={row.tooltip}
+          tooltip={row.info}
           title={row.area}
           currSelection={score}
           updateSelection={(newSelection) => {

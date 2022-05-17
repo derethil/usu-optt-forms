@@ -278,7 +278,7 @@
       },
       {
         "area": "Reinforcement Quality",
-        "tooltip": "1. Varied academic & behavior <br> 2. Contingent <br> 3. Descriptive <br> 4. Non-disruptive",
+        "info": "1. Varied academic & behavior <br> 2. Contingent <br> 3. Descriptive <br> 4. Non-disruptive",
         "options": [
           {
             "content": "All 4 components of good reinforcement observed",
@@ -347,7 +347,7 @@
       },
       {
         "area": "Error Correction",
-        "tooltip": "1. Model <br> 2. Test <br> 3. Delayed test",
+        "info": "1. Model <br> 2. Test <br> 3. Delayed test",
         "options": [
           {
             "content": "All components present 80% or more of the time",
@@ -483,11 +483,11 @@
   },
   {
     "sectionTitle": "Professionalism",
-    "tooltip": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
+    "info": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
     "rows": [
       {
         "area": "Dress and Hygiene",
-        "tooltip": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "info": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
         "options": [
           {
             "content": "Dresses appropriately and maintains good personal hygiene",
@@ -501,7 +501,7 @@
       },
       {
         "area": "Accepting Feedback",
-        "tooltip": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "info": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
         "options": [
           {
             "content": "Responds appropriately to feedback",
@@ -515,7 +515,7 @@
       },
       {
         "area": "Implementing Changes",
-        "tooltip": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
+        "info": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
         "options": [
           {
             "content": "Correctly implements changes after being given feedback",
@@ -529,7 +529,7 @@
       },
       {
         "area": "Classroom Attitude",
-        "tooltip": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
+        "info": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
         "options": [
           {
             "content": "Exhibits positive and respectful attitude in the classroom",
@@ -543,7 +543,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "info": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",

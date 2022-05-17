@@ -7,6 +7,7 @@ import IconTitle from "../IconTitle";
 import TextInput from "../TextInput";
 import { overrideRegex } from "../../utils/utils";
 import { CSSMixin } from "../../types/types";
+import SelectButtonList from "./SelectButtonList";
 
 // General component to provide a list of options to select between.
 
@@ -33,7 +34,7 @@ const Container = styled.div<CSSMixin>`
 interface OptionRowProps {
   title?: string;
   currSelection: string;
-  contentOptions: string[];
+  contentOptions: (string | string[])[];
   updateSelection: (newSelection: string) => void;
   scoreOptions?: string[];
   tooltip?: string;
@@ -74,16 +75,29 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     const score = props.scoreOptions ? props.scoreOptions[idx] : "";
     const compareTo = props.scoreOptions ? score : content;
 
-    return (
-      <SelectButton
-        content={content}
-        score={score}
-        key={idx}
-        updateSelection={props.updateSelection}
-        selected={compareTo === props.currSelection}
-        styles={props.buttonStyles}
-      />
-    );
+    if (!Array.isArray(content)) {
+      return (
+        <SelectButton
+          content={content}
+          score={score}
+          key={idx}
+          updateSelection={props.updateSelection}
+          selected={compareTo === props.currSelection}
+          styles={props.buttonStyles}
+        />
+      );
+    } else {
+      return (
+        <SelectButtonList
+          content={content}
+          score={score}
+          key={idx}
+          updateSelection={props.updateSelection}
+          selected={compareTo === props.currSelection}
+          styles={props.buttonStyles}
+        />
+      );
+    }
   });
 
   // Push N/A as an option onto list if intended for scores

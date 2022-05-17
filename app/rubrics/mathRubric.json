@@ -68,7 +68,7 @@
       },
       {
         "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
+        "info": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
         "options": [
           {
             "content": "Included all 4 criteria",
@@ -108,7 +108,7 @@
     "rows": [
       {
         "area": "New Material",
-        "tooltip": "1. Appropriate material (pupils knew prerequisites<br>2. Teachable Chunk, got through NM, GP, and IP<br>3. Made data based decisions to progress through new material and guided practice",
+        "info": "1. Appropriate material (pupils knew prerequisites<br>2. Teachable Chunk, got through NM, GP, and IP<br>3. Made data based decisions to progress through new material and guided practice",
         "options": [
           {
             "content": "All 3 criteria met",
@@ -130,7 +130,7 @@
       },
       {
         "area": "Tasks",
-        "tooltip": "1. Clear steps / appropriate sequence within tasks<br>2. Prompted known steps / decisions & modeled (taught) new<br>3. Asked why questions to determine deeper understanding",
+        "info": "1. Clear steps / appropriate sequence within tasks<br>2. Prompted known steps / decisions & modeled (taught) new<br>3. Asked why questions to determine deeper understanding",
         "options": [
           {
             "content": "All 3 criteria met",
@@ -152,7 +152,7 @@
       },
       {
         "area": "Lesson Plan",
-        "tooltip": "1. Has detailed and simplified script in lesson plan<br>2. Follows NM and GP lesson plan unless pupil responses demonstrate a need to deviate<br>3. Problems aligned to instructional target<br>4. Sufficient problems (including problems and answers in lesson plan or specified page number of text for where to find problems and answers)",
+        "info": "1. Has detailed and simplified script in lesson plan<br>2. Follows NM and GP lesson plan unless pupil responses demonstrate a need to deviate<br>3. Problems aligned to instructional target<br>4. Sufficient problems (including problems and answers in lesson plan or specified page number of text for where to find problems and answers)",
         "options": [
           {
             "content": "All 3 criteria met",
@@ -178,7 +178,7 @@
       },
       {
         "area": "Guided Practice",
-        "tooltip": "1. Teacher and pupil did together - if in pairs / groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and clearly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format / activities and problems aligned with lesson plan",
+        "info": "1. Teacher and pupil did together - if in pairs / groups, work is clearly directed and teacher feedback provided<br>2. Responses were oral and written and clearly directed; individual and group responses incorporated<br>3. Numerous opportunities for students to practice are incorporated<br>4. Continued to probe for deeper understanding, \"why\" questions included<br>5. Guided practice format / activities and problems aligned with lesson plan",
         "options": [
           {
             "content": "All 5 criteria met",
@@ -204,7 +204,7 @@
       },
       {
         "area": "Support",
-        "tooltip": "1. Prompts / questions reduced & faded so pupils are prepared to do problems independent<br>2. Peer supports are used (Pair / Group work) and are gradually faded<br>3. Level of difficulty gradually increases<br>4. Students provided with tools that meet level of need and are gradually reduced (ex: written out strategy, concrete manipulatives, calculators, etc.)",
+        "info": "1. Prompts / questions reduced & faded so pupils are prepared to do problems independent<br>2. Peer supports are used (Pair / Group work) and are gradually faded<br>3. Level of difficulty gradually increases<br>4. Students provided with tools that meet level of need and are gradually reduced (ex: written out strategy, concrete manipulatives, calculators, etc.)",
         "options": [
           {
             "content": "3-4 criteria met",
@@ -226,7 +226,7 @@
       },
       {
         "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
+        "info": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
         "options": [
           {
             "content": "Included all 4 criteria",
@@ -334,7 +334,7 @@
       },
       {
         "area": "Monitoring",
-        "tooltip": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
+        "info": "4 Criteria of Good Monitoring<br>1. Check all pupils' work<br>2. Provided feedback<br>3. Made a data based decision (Y / N)<br>4. Provided re-teaching as appropriate",
         "options": [
           {
             "content": "Included all 4 criteria",
@@ -391,7 +391,7 @@
       },
       {
         "area": "Praise Quality",
-        "tooltip": "4 Components of Quality Praise<br>1. Varied<br>2. Contingent<br>3. Descriptive<br>4. Non-disruptive",
+        "info": "4 Components of Quality Praise<br>1. Varied<br>2. Contingent<br>3. Descriptive<br>4. Non-disruptive",
         "options": [
           {
             "content": "All 4 components observed",
@@ -447,7 +447,7 @@
       },
       {
         "area": "Feedback",
-        "tooltip": "Good Feedback Criteria<br>1. Feedback arises naturally from pupil work<br>2. Feedback motivates pupil to persevere",
+        "info": "Good Feedback Criteria<br>1. Feedback arises naturally from pupil work<br>2. Feedback motivates pupil to persevere",
         "options": [
           {
             "content": "Both criteria met",
@@ -484,11 +484,11 @@
   },
   {
     "sectionTitle": "Professionalism",
-    "tooltip": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
+    "info": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
     "rows": [
       {
         "area": "Dress and Hygiene",
-        "tooltip": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "info": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
         "options": [
           {
             "content": "Dresses appropriately and maintains good personal hygiene",
@@ -502,7 +502,7 @@
       },
       {
         "area": "Accepting Feedback",
-        "tooltip": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "info": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
         "options": [
           {
             "content": "Responds appropriately to feedback",
@@ -516,7 +516,7 @@
       },
       {
         "area": "Implementing Changes",
-        "tooltip": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
+        "info": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
         "options": [
           {
             "content": "Correctly implements changes after being given feedback",
@@ -530,7 +530,7 @@
       },
       {
         "area": "Classroom Attitude",
-        "tooltip": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
+        "info": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
         "options": [
           {
             "content": "Exhibits positive and respectful attitude in the classroom",
@@ -544,7 +544,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "info": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",

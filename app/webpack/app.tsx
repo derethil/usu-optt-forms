@@ -191,6 +191,7 @@ export const App = () => {
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
+    [formOptions.teacherCandidate]: [...sharedRoutes],
   };
 
   return (

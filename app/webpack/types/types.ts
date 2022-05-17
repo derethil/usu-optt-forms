@@ -7,11 +7,12 @@ export interface Section {
   rows: [
     {
       area: string;
-      tooltip?: string;
+      info?: string;
       options: [
         {
-          content: string;
+          content: string | string[];
           score: number | string;
+          continued?: boolean;
         }
       ];
     }
