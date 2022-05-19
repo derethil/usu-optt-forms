@@ -5,7 +5,7 @@ import SelectButton from "./SelectButton";
 import IconTitle from "../IconTitle";
 
 import TextInput from "../TextInput";
-import { overrideRegex } from "../../utils/utils";
+import { arraysEqual, overrideRegex } from "../../utils/utils";
 import { CSSMixin } from "../../types/types";
 import SelectButtonList from "./SelectButtonList";
 
@@ -91,6 +91,10 @@ const OptionRow = (props: OptionRowProps) => {
         />
       );
     } else {
+      const selected = Array.isArray(compareTo)
+        ? arraysEqual(compareTo as string[], props.currSelection.split("//"))
+        : compareTo === props.currSelection;
+
       return (
         <SelectButtonList
           continued={continued}
@@ -98,7 +102,7 @@ const OptionRow = (props: OptionRowProps) => {
           score={score}
           key={idx}
           updateSelection={props.updateSelection}
-          selected={compareTo === props.currSelection}
+          selected={selected}
           styles={props.buttonStyles}
         />
       );

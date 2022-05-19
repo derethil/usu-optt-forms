@@ -114,6 +114,9 @@ const Rubric = (props: RubricProps) => {
           title={row.area}
           currSelection={score}
           updateSelection={(newSelection) => {
+            if (Array.isArray(newSelection)) {
+              newSelection = newSelection.join("//");
+            }
             dispatch(
               setRubricScore({
                 section: section.sectionTitle,

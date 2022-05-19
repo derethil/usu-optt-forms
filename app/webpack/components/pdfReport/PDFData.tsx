@@ -6,7 +6,12 @@ import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
-import { formatDate, getLetterGrade, getScore } from "../../utils/pdfUtils";
+import {
+  formatDate,
+  getLetterGrade,
+  getScore,
+  rubricHeaders,
+} from "../../utils/pdfUtils";
 import { feedbackLabel, getPercent, overrideRegex } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
@@ -163,16 +168,34 @@ const PDFData = () => {
                 return String(option.score) === rowInfo.score;
               }
             );
-            const score = getScore(rowInfo, sectionIdx, rowIdx);
+            let score = getScore(rowInfo, sectionIdx, rowIdx);
+            let description = selectedOption ? selectedOption.content : score;
 
-            return isSTRubric
-              ? [rowTitle, score]
-              : [
-                  rowTitle,
-                  selectedOption ? selectedOption.content : score,
-                  score,
-                  rowInfo.comment.replace(overrideRegex, "").trim(),
-                ];
+            if (
+              currentForm === formOptions.teacherCandidate &&
+              rowTitle.includes("10.")
+            ) {
+              score = "N/A";
+            }
+
+            console.log(description);
+
+            if (!Array.isArray(description)) {
+              description = description.split("//");
+            }
+
+            if (Array.isArray(description)) {
+              description = description.map((e) => "• " + e).join("\n");
+            }
+
+            const rubricRow = [
+              rowTitle,
+              description,
+              score,
+              rowInfo.comment.replace(overrideRegex, "").trim(),
+            ];
+
+            return isSTRubric ? [rowTitle, score] : rubricRow;
           }
         );
 
@@ -193,10 +216,20 @@ const PDFData = () => {
             halign: "center",
           },
           columnStyles: {
-            0: { cellWidth: isSTRubric ? "auto" : 35, valign: "middle" },
+            0: {
+              cellWidth: isSTRubric
+                ? "auto"
+                : currentForm === formOptions.teacherCandidate
+                ? 50
+                : 35,
+              valign: "middle",
+            },
             1: {
               cellWidth: isSTRubric ? 50 : "auto",
-              halign: "center",
+              halign:
+                currentForm === formOptions.teacherCandidate
+                  ? "left"
+                  : "center",
               valign: "middle",
               cellPadding: { vertical: 4 },
             },
@@ -207,9 +240,7 @@ const PDFData = () => {
               cellPadding: { horizontal: 5, vertical: 2 },
             },
           },
-          head: isSTRubric
-            ? [sectionTitle, "Score"]
-            : [sectionTitle, "Description", "Score", "Comments"],
+          head: rubricHeaders(currentForm, sectionTitle),
           body: body,
         });
       }

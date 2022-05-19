@@ -10,7 +10,7 @@ import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
 import * as utils from "./utils";
 import { getPercent } from "./utils";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 
 const rubricData = FormData[currentForm].rubric;
@@ -165,3 +165,14 @@ export const genSPError = (data: ICorrections) => {
 export const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString();
 };
+
+export function rubricHeaders(currentForm: formOptions, sectionTitle: string) {
+  switch (currentForm) {
+    case formOptions.STRubric:
+      return [sectionTitle, "Score"];
+    case formOptions.teacherCandidate:
+      return [sectionTitle, "Description", "Score"];
+    default:
+      return [sectionTitle, "Description", "Score", "Comments"];
+  }
+}
