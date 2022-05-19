@@ -90,9 +90,13 @@ const Rubric = (props: RubricProps) => {
   const sections = rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
       const currContentOptions = row.options.map((option) => option.content);
-      const currScoreOptions = row.options.map((option) =>
-        String(option.score)
-      );
+      let currScoreOptions: string[] | undefined = row.options.map((option) => {
+        return String(option.score);
+      });
+
+      if (currScoreOptions.includes("undefined")) {
+        currScoreOptions = undefined;
+      }
 
       const currContinuedList = row.options.map((option) =>
         option.continued !== undefined ? option.continued : false

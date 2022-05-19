@@ -44,14 +44,11 @@ interface OptionRowProps {
   containerStyles?: FlattenSimpleInterpolation;
   alternateInfoStyle?: boolean; // If false, info will be displayed as a tooltip, otherwise as part of the title
   continuedList?: boolean[];
+  comment?: string;
+  updateComment?: (updatedValues: { [key: string]: string }) => void;
 }
 
-interface OptionRowCommentProps extends OptionRowProps {
-  comment: string;
-  updateComment: (updatedValues: { [key: string]: string }) => void;
-}
-
-const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
+const OptionRow = (props: OptionRowProps) => {
   const [override, setOverride] = useState(false);
 
   const continuedList = props.continuedList
@@ -59,18 +56,18 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
     : new Array(props.contentOptions.length).fill(false);
 
   // Override system (ex: !override = 10 in comment will override the score)
-  if ("comment" in props && props.comment !== undefined && props.scoreOptions) {
+  if (props.comment !== undefined && props.scoreOptions) {
     useEffect(() => {
       // If override is found in comment, override the score
-      if (overrideRegex.test(props.comment)) {
+      if (overrideRegex.test(props.comment!)) {
         props.updateSelection(
-          props.comment.match(overrideRegex)![0].match(/\d+/gi)![0]
+          props.comment!.match(overrideRegex)![0].match(/\d+/gi)![0]
         );
         setOverride(true);
       }
 
       // Reset score when override is removed
-      if (override === true && !overrideRegex.test(props.comment)) {
+      if (override === true && !overrideRegex.test(props.comment!)) {
         props.updateSelection(props.scoreOptions?.pop()!);
         setOverride(false);
       }
@@ -127,7 +124,7 @@ const OptionRow = (props: OptionRowProps | OptionRowCommentProps) => {
       <OptionRowInput
         key={props.contentOptions.length + 1}
         value={props.comment}
-        updateForm={props.updateComment}
+        updateForm={props.updateComment!}
         field={`${props.title}-comment`}
         placeholder="Comment"
         noLabel
