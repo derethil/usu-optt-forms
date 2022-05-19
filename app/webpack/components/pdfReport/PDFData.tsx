@@ -110,6 +110,15 @@ const PDFData = () => {
       });
     }
 
+    if (currentForm === formOptions.teacherCandidate) {
+      generator.table({
+        startY: "RELATIVE",
+        head: ["Observation Narrative"],
+        headStyles: { fillColor: Color.blues.blue },
+        body: [[formInfo.narrative]],
+      });
+    }
+
     // Observations
 
     if (currentForm === formOptions.studentTeaching) {

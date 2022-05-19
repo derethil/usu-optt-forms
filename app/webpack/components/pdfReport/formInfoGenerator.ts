@@ -1,7 +1,13 @@
 import currentForm, { formOptions } from "../../currentForm";
 import { IFormInfo } from "../../types/types";
 import { formatDate } from "../../utils/pdfUtils";
-import { insertIf, programTitle, studentTitle } from "../../utils/utils";
+import {
+  insertIf,
+  otherLabel,
+  programTitle,
+  studentTitle,
+  superior,
+} from "../../utils/utils";
 
 // Function to determine what the FormInfo should contain for the report
 
@@ -58,6 +64,14 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
         ["Supervisor / Coach", formInfo.supervisor],
         ["Date", formatDate(formInfo.date)],
         ["Other", formInfo.other],
+      ];
+
+    case formOptions.teacherCandidate:
+      return [
+        [studentTitle(currentForm), formInfo.studentTeacher],
+        [superior(currentForm), formInfo.supervisor],
+        ["Observation Date", formatDate(formInfo.date)],
+        [otherLabel(currentForm), formInfo.other],
       ];
   }
 }
