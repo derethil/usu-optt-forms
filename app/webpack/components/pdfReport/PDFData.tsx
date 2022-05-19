@@ -70,11 +70,15 @@ const PDFData = () => {
 
     generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05); // Top-right USU logo
 
-    generator.pdf.text(
-      `USU SPER ${FormData[currentForm].title} Report`,
-      14,
-      18
-    );
+    if (currentForm !== formOptions.teacherCandidate) {
+      generator.pdf.text(
+        `USU SPER ${FormData[currentForm].title} Report`,
+        14,
+        18
+      );
+    } else {
+      generator.pdf.text(`SPED ${FormData[currentForm].title} Form`, 14, 18);
+    }
 
     // General Info
 
