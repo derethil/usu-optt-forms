@@ -75,7 +75,8 @@ export const getScore = (
   if (
     rowInfo.score === "Yes" ||
     rowInfo.score === "N/A" ||
-    Number(rowInfo.score) < 0
+    Number(rowInfo.score) < 0 ||
+    isNaN(Number(rowInfo.score))
   ) {
     return rowInfo.score;
   } else {

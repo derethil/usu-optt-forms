@@ -25,9 +25,13 @@ export const getMaxSubtotal = (
   const maxBefore = sectionData.rows.reduce((total, row) => {
     // If max score is "Yes", etc. do not add to the total
     let maxScore = findMaxScore(row);
-    let containsYes = row.options.map((e) => e.score).includes("Yes");
 
-    return total + (containsYes ? 0 : maxScore);
+    console.log(row.options);
+    let nonNumeric =
+      row.options.filter((e) => typeof e.score === "number").length <
+      row.options.length;
+
+    return total + (nonNumeric ? 0 : maxScore);
   }, 0);
 
   // Find rows whose score is N/A
