@@ -12,7 +12,14 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     rubricData.forEach((section) => {
       initialState[section.sectionTitle] = {};
       section.rows.forEach((row) => {
-        let minScore = Math.min(...row.options.map((e) => Number(e.score)));
+        let minScore: number | string = Math.min(
+          ...row.options.map((e) => Number(e.score))
+        );
+
+        if (isNaN(minScore) && Array.isArray(row.options[0].content)) {
+          row.options.reverse();
+          minScore = row.options[0].content.join("//");
+        }
 
         const initialScore = row.options.map((e) => e.score).includes("Yes")
           ? "Yes"

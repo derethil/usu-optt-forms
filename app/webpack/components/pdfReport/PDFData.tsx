@@ -178,8 +178,6 @@ const PDFData = () => {
               score = "N/A";
             }
 
-            console.log(description);
-
             if (!Array.isArray(description)) {
               description = description.split("//");
             }
