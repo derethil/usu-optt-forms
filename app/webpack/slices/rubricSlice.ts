@@ -3,6 +3,7 @@ import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
 import { ScoresState, Section } from "../types/types";
+import { findMaxScore } from "../utils/utils";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -30,7 +31,7 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     initialState[section.sectionTitle] = {};
 
     section.rows.forEach((row) => {
-      let maxScore = Math.max(...row.options.map((e) => Number(e.score)));
+      let maxScore = findMaxScore(row);
       initialState[section.sectionTitle][row.area] = {
         score: "0",
         maxScore: String(maxScore),

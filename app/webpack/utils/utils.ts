@@ -1,4 +1,5 @@
 import { formOptions } from "../currentForm";
+import { Row } from "../types/types";
 
 export const hexToRGBA = (h: string, opacity: number) => {
   let r = "0";
@@ -31,6 +32,10 @@ export const overrideRegex = /(!OVERRIDE)=(\d+)/gi;
 export const insertIf = (condition: boolean, ...elements: any) => {
   return condition ? elements : [];
 };
+
+export function findMaxScore(row: Row) {
+  return Math.max(...row.options.map((e) => Number(e.score)));
+}
 
 export function programTitle(currentForm: formOptions) {
   switch (currentForm) {

@@ -79,7 +79,8 @@ export const getScore = (
   ) {
     return rowInfo.score;
   } else {
-    const maxScore = rubricData[sectionIdx].rows[rowIdx].options[0].score;
+    const row = rubricData[sectionIdx].rows[rowIdx];
+    const maxScore = utils.findMaxScore(row);
     return `${rowInfo.score} / ${maxScore}`;
   }
 };

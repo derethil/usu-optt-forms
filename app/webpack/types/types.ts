@@ -1,22 +1,22 @@
 import { css, FlattenSimpleInterpolation } from "styled-components";
 import { SignalSequence } from "./dataTypes";
 
+export interface Row {
+  area: string;
+  info?: string;
+  options: [
+    {
+      content: string | string[];
+      score: string | number;
+      continued?: boolean;
+    }
+  ];
+}
+
 export interface Section {
   sectionTitle: string;
   tooltip?: string;
-  rows: [
-    {
-      area: string;
-      info?: string;
-      options: [
-        {
-          content: string | string[];
-          score: number | string;
-          continued?: boolean;
-        }
-      ];
-    }
-  ];
+  rows: Row[];
 }
 
 export interface ScoresState {
