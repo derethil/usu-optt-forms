@@ -6,49 +6,48 @@ import TextBoxCard from "../components/TextBoxCard";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { selectFeedback, setFeedback } from "../slices/feedbackSlice";
 import currentForm, { formOptions } from "../currentForm";
+import { feedbackLabel } from "../utils/utils";
 
 const FeedbackPage = () => {
   const dispatch = useAppDispatch();
   const feedback = useAppSelector(selectFeedback);
 
-  const isSTR = currentForm === formOptions.STRubric;
-
   return (
     <PageContent className="feedback">
       <TextBoxCard
-        title={isSTR ? "Behavior Assignment Comments" : "Strengths"}
-        field="strengths"
-        content={feedback.strengths}
+        title={feedbackLabel(currentForm, 1)}
+        field="area1"
+        content={feedback.area1}
         updateContent={(newContent) => dispatch(setFeedback(newContent))}
       />
 
       <TextBoxCard
-        title={isSTR ? "Collaboration Assignment Comments" : "Suggestions"}
-        field="suggestions"
-        content={feedback.suggestions}
+        title={feedbackLabel(currentForm, 2)}
+        field="area2"
+        content={feedback.area2}
         updateContent={(newContent) => dispatch(setFeedback(newContent))}
       />
 
       {currentForm !== formOptions.selfEvaluation ? (
         <TextBoxCard
-          title={isSTR ? "IEP/IFSP Assignment Comments" : "Next Focus"}
-          field="nextFocus"
-          content={feedback.nextFocus}
+          title={feedbackLabel(currentForm, 3)}
+          field="area3"
+          content={feedback.area3}
           updateContent={(newContent) => dispatch(setFeedback(newContent))}
         />
       ) : (
         <>
           <TextBoxCard
-            title="Goal 1"
-            field="goal1"
-            content={feedback.goal1}
+            title={feedbackLabel(currentForm, 4)}
+            field="area4"
+            content={feedback.area4}
             updateContent={(newContent) => dispatch(setFeedback(newContent))}
           />
 
           <TextBoxCard
-            title="Goal 2"
-            field="goal2"
-            content={feedback.goal2}
+            title={feedbackLabel(currentForm, 5)}
+            field="area5"
+            content={feedback.area5}
             updateContent={(newContent) => dispatch(setFeedback(newContent))}
           />
         </>

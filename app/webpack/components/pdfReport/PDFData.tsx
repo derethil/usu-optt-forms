@@ -7,7 +7,7 @@ import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
 import { formatDate, getLetterGrade, getScore } from "../../utils/pdfUtils";
-import { getPercent, overrideRegex } from "../../utils/utils";
+import { feedbackLabel, getPercent, overrideRegex } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
 import studentTeachingSection from "./studentTeaching";
@@ -250,23 +250,17 @@ const PDFData = () => {
     });
 
     const feedbackRows = [
-      [
-        isSTRubric ? "Behavior Assignment Comments" : "Strengths",
-        feedback.strengths,
-      ],
-      [
-        isSTRubric ? "Collaboration Assignment Comments" : "Suggestions",
-        feedback.suggestions,
-      ],
-      [
-        isSTRubric ? "IEP/IFSP Assignment Comments" : "Next Focus",
-        feedback.nextFocus,
-      ],
+      [feedbackLabel(currentForm, 1), feedback.area1],
+      [feedbackLabel(currentForm, 2), feedback.area2],
+      [feedbackLabel(currentForm, 3), feedback.area3],
     ];
 
     if (currentForm === formOptions.selfEvaluation) {
       feedbackRows.pop();
-      feedbackRows.push(["Goal 1", feedback.goal1], ["Goal 2", feedback.goal2]);
+      feedbackRows.push(
+        [feedbackLabel(currentForm, 4), feedback.area4],
+        [feedbackLabel(currentForm, 5), feedback.area5]
+      );
     }
 
     feedbackRows.forEach(([title, comment], index) => {

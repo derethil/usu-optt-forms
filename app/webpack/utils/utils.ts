@@ -85,3 +85,43 @@ export function otherLabel(currentForm: formOptions) {
       return "Other";
   }
 }
+
+type areaRange = 1 | 2 | 3 | 4 | 5;
+
+export function feedbackLabel(currentForm: formOptions, area: areaRange) {
+  switch (area) {
+    case 1:
+      switch (currentForm) {
+        case formOptions.STRubric:
+          return "Behavior Assignment Comments";
+        default:
+          return "Strengths";
+      }
+
+    case 2:
+      switch (currentForm) {
+        case formOptions.STRubric:
+          return "Collaboration Assignment Comments";
+        case formOptions.teacherCandidate:
+          return "Areas for Improvement";
+        default:
+          return "Suggestions";
+      }
+
+    case 3:
+      switch (currentForm) {
+        case formOptions.STRubric:
+          return "IEP/IFSP Assignment Comments";
+        case formOptions.teacherCandidate:
+          return "Summary of Performance";
+        default:
+          return "Next Focus";
+      }
+
+    case 4:
+      return "Goal 1";
+
+    case 5:
+      return "Goal 2";
+  }
+}
