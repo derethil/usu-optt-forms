@@ -21,6 +21,7 @@ import { selectQuestions, setQuestion } from "../slices/questionsSlice";
 import { ISTRubric } from "../types/dataTypes";
 import { afterGradedLists } from "../defaults/defaults";
 import { generateScoreData } from "../utils/scoreUtils";
+import { NewValues } from "../types/types";
 
 export enum STRIndex {
   "behavior" = 0,
@@ -75,7 +76,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
         content={row.area}
         maxScore={row.options[0].score}
         value={rubricScores[rubricData.sectionTitle][row.area].score}
-        updateValue={(newValues: { [key: string]: string }) => {
+        updateValue={(newValues: NewValues) => {
           updateScore(
             rubricData.sectionTitle,
             row.area,
@@ -116,7 +117,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
         </ol>
         <OptionRow
           title="District Coach conferenced with the student teacher:"
-          contentOptions={["Yes", "No"]}
+          options={[{ content: "Yes" }, { content: "No" }]}
           currSelection={questions[getQuestion(index)]}
           updateSelection={(newSelection) => {
             dispatch(setQuestion({ [getQuestion(index)]: newSelection }));

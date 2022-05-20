@@ -18,11 +18,13 @@ import {
 import CheckboxLabel from "./CheckboxLabel";
 import {
   dateLabel,
+  insertIf,
   otherLabel,
   programTitle,
   studentTitle,
   superior,
 } from "../utils/utils";
+import { NewValues, Option } from "../types/types";
 
 // Component to provide the form on Home page with all the general info
 // The million conditional rendering checks are gross but it works and I couldn't think of a better way to implement it
@@ -66,7 +68,7 @@ const FormInfo = () => {
   const formInfo = useAppSelector(selectFormInfo);
   const dispatch = useAppDispatch();
 
-  const updateFormInfo = (updatedValues: { [key: string]: string }) => {
+  const updateFormInfo = (updatedValues: NewValues) => {
     dispatch(setFormInfo(updatedValues));
   };
 
@@ -76,6 +78,25 @@ const FormInfo = () => {
     const observation = updatedValues.observation;
     dispatch(setLocationOrObservation({ location, observation }));
   };
+
+  // Options generator
+  const ObservationOptionsStr = [
+    "1",
+    "2",
+    "3",
+    "4",
+    ...insertIf(currentForm !== formOptions.selfEvaluation, "5"),
+  ];
+
+  const ObservationOptions = ObservationOptionsStr.map((content) => {
+    return { content } as Option;
+  })!;
+
+  const ProgramOptions = FormData[currentForm].programOptions?.map(
+    (content) => {
+      return { content } as Option;
+    }
+  )!;
 
   return (
     <div>
@@ -164,13 +185,7 @@ const FormInfo = () => {
       {!noObsSelect.includes(currentForm) && (
         <OptionRow
           title={"Observation Number"}
-          contentOptions={[
-            "1",
-            "2",
-            "3",
-            "4",
-            ...(currentForm !== formOptions.selfEvaluation ? ["5"] : []),
-          ]}
+          options={ObservationOptions}
           currSelection={formInfo.observation.toString()}
           updateSelection={(newSelection: string) =>
             updateObservation({ observation: Number(newSelection) })
@@ -183,7 +198,7 @@ const FormInfo = () => {
       {FormData[currentForm].programOptions && (
         <OptionRow
           title={"Program"}
-          contentOptions={FormData[currentForm].programOptions!}
+          options={ProgramOptions}
           currSelection={formInfo.program}
           updateSelection={(newSelection: string) =>
             updateFormInfo({ program: newSelection })

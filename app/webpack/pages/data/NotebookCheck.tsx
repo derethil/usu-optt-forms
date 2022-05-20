@@ -49,7 +49,7 @@ export default function NotebookCheck() {
         <OptionRow
           title="Location"
           currSelection={location}
-          contentOptions={[Location.logan, Location.optt]}
+          options={[{ content: Location.logan }, { content: Location.optt }]}
           updateSelection={(newSelection) =>
             updateRelevantFormInfo({
               location: newSelection as Location,
@@ -63,7 +63,10 @@ export default function NotebookCheck() {
         <OptionRow
           title="Observation / Notebook Check Number"
           currSelection={observation.toString()}
-          contentOptions={[...Array(5)].map((_, i) => (i + 1).toString())}
+          // Below generates array of 5 digits
+          options={[...Array(5)].map((_, i) => {
+            return { content: (i + 1).toString() };
+          })}
           updateSelection={(newSelection: string) =>
             updateRelevantFormInfo({
               location,

@@ -3,13 +3,12 @@ import styled, { css } from "styled-components";
 
 import OptionRow from "../components/optionRow";
 import IconTitle from "../components/IconTitle";
-import { Section } from "../types/types";
+import { NewValues, Option, Row, Section } from "../types/types";
 import {
   buttonStyles,
   PageContent,
   RubricTitleContent,
   cardContainerStyles,
-  CardTitleContainer,
 } from "../styledComponents/style";
 import ScoreTotals from "../components/rubric/ScoreTotals";
 import Card from "../components/Card";
@@ -53,37 +52,40 @@ const timerContentStyles = css`
 `;
 
 const Rubric = (props: RubricProps) => {
+  const dispatch = useAppDispatch();
   const rubricData = FormData[currentForm].rubric;
   const rubricScores = useAppSelector(selectRubric);
   const { score, possible, summary } = generateScoreData(rubricScores);
 
-  const dispatch = useAppDispatch();
+  function setComment(updatedValues: NewValues, section: Section, row: Row) {
+    dispatch(
+      setRubricComment({
+        section: section.sectionTitle,
+        row: row.area,
+        newComment: Object.values(updatedValues)[0],
+      })
+    );
+  }
 
   const sections = rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
-      const currContentOptions = row.options.map((option) => option.content);
-      let currScoreOptions: string[] | undefined = row.options.map((option) => {
-        return String(option.score);
-      });
-
-      if (currScoreOptions.includes("undefined")) {
-        currScoreOptions = undefined;
-      }
-
-      const currContinuedList = row.options.map((option) =>
-        option.continued !== undefined ? option.continued : false
-      );
-
+      // current score and comment in state
       const { score, comment } = rubricScores[section.sectionTitle][row.area];
+
+      const Options: Option[] = row.options.map((option) => ({
+        content: option.content,
+        continue: option.continued,
+        score: String(option.score),
+      }));
 
       return (
         <OptionRow
+          // General props
           key={rowIdx}
-          contentOptions={currContentOptions}
-          scoreOptions={currScoreOptions}
-          continuedList={currContinuedList}
           info={row.info}
           title={row.area}
+          options={Options}
+          // State props
           currSelection={score}
           updateSelection={(newSelection) => {
             if (Array.isArray(newSelection)) {
@@ -97,21 +99,17 @@ const Rubric = (props: RubricProps) => {
               })
             );
           }}
+          // Style props
           buttonStyles={buttonStyles}
           titleStyles={rowTitleStyles}
           alternateInfoStyle={props.alternateInfoStyle}
+          // Commend props
           comment={props.disableCommentBoxes ? undefined : comment}
           updateComment={
             props.disableCommentBoxes
               ? undefined
-              : (updatedValues: { [key: string]: string }) => {
-                  dispatch(
-                    setRubricComment({
-                      section: section.sectionTitle,
-                      row: row.area,
-                      newComment: Object.values(updatedValues)[0],
-                    })
-                  );
+              : (updatedValues: NewValues) => {
+                  setComment(updatedValues, section, row);
                 }
           }
         />

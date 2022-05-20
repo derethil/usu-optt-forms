@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import Color from "../styledComponents/colors";
+import { NewValues } from "../types/types";
 
 import TextInput from "./TextInput";
 
@@ -59,7 +60,7 @@ interface Props {
   content: string;
   value: string;
   maxScore: number | string;
-  updateValue: (updatedValues: { [key: string]: string }) => void;
+  updateValue: (updatedValues: NewValues) => void;
 }
 
 export default function QuestionText(props: Props) {

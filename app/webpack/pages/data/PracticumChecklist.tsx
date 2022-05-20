@@ -21,6 +21,7 @@ import {
 } from "../../types/dataTypes";
 import QuestionText from "../../components/QuestionText";
 import Color from "../../styledComponents/colors";
+import { NewValues } from "../../types/types";
 
 const Link = styled.a`
   color: ${Color.contextual.info};
@@ -69,7 +70,7 @@ function PracticumChecklist() {
                   dispatch(setChecklistScore({ key, score }));
                 }}
                 comment={checklist[key].comment}
-                updateComment={(updatedValues: { [key: string]: string }) => {
+                updateComment={(updatedValues: NewValues) => {
                   dispatch(
                     setChecklistComment({
                       key,
@@ -85,7 +86,7 @@ function PracticumChecklist() {
                 content={rowInfo.content}
                 key={index}
                 value={checklist[key]}
-                updateValue={(newValues: { [key: string]: string }) => {
+                updateValue={(newValues: NewValues) => {
                   dispatch(
                     setChecklistText({ key, text: Object.values(newValues)[0] })
                   );

@@ -6,7 +6,7 @@ import IconTitle from "../IconTitle";
 
 import TextInput from "../TextInput";
 import { arraysEqual, overrideRegex } from "../../utils/utils";
-import { CSSMixin } from "../../types/types";
+import { CSSMixin, NewValues, Option } from "../../types/types";
 import SelectButtonList from "./SelectButtonList";
 
 // General component to provide a list of options to select between.
@@ -34,29 +34,24 @@ const Container = styled.div<CSSMixin>`
 interface OptionRowProps {
   title?: string;
   currSelection: string;
-  contentOptions: (string | string[])[];
   updateSelection: (newSelection: string) => void;
-  scoreOptions?: string[];
   info?: string;
   wrapperStyles?: FlattenSimpleInterpolation;
   buttonStyles?: FlattenSimpleInterpolation;
   titleStyles?: FlattenSimpleInterpolation;
   containerStyles?: FlattenSimpleInterpolation;
   alternateInfoStyle?: boolean; // If false, info will be displayed as a tooltip, otherwise as part of the title
-  continuedList?: boolean[];
   comment?: string;
-  updateComment?: (updatedValues: { [key: string]: string }) => void;
+  updateComment?: (updatedValues: NewValues) => void;
+  options: Option[];
 }
 
 const OptionRow = (props: OptionRowProps) => {
   const [override, setOverride] = useState(false);
-
-  const continuedList = props.continuedList
-    ? props.continuedList
-    : new Array(props.contentOptions.length).fill(false);
+  const hasScoreOptions = props.options[0].score !== undefined;
 
   // Override system (ex: !override = 10 in comment will override the score)
-  if (props.comment !== undefined && props.scoreOptions) {
+  if (props.comment !== undefined && hasScoreOptions) {
     useEffect(() => {
       // If override is found in comment, override the score
       if (overrideRegex.test(props.comment!)) {
@@ -68,38 +63,36 @@ const OptionRow = (props: OptionRowProps) => {
 
       // Reset score when override is removed
       if (override === true && !overrideRegex.test(props.comment!)) {
-        props.updateSelection(props.scoreOptions?.pop()!);
+        props.updateSelection(props.options.pop()?.score!);
         setOverride(false);
       }
     }, [props["comment"]]);
   }
 
-  const rowContents = props.contentOptions.map((content, idx) => {
-    const score = props.scoreOptions ? props.scoreOptions[idx] : "";
-    const compareTo = props.scoreOptions ? score : content;
-    const continued = continuedList[idx];
+  const rowContents = props.options.map((option, idx) => {
+    const compare = hasScoreOptions ? option.score : option.content;
 
-    if (!Array.isArray(content)) {
+    if (!Array.isArray(option.content)) {
       return (
         <SelectButton
-          content={content}
-          score={score}
+          content={option.content as string}
+          score={option.score}
           key={idx}
           updateSelection={props.updateSelection}
-          selected={compareTo === props.currSelection}
+          selected={compare === props.currSelection}
           styles={props.buttonStyles}
         />
       );
     } else {
-      const selected = Array.isArray(compareTo)
-        ? arraysEqual(compareTo as string[], props.currSelection.split("//"))
-        : compareTo === props.currSelection;
+      const selected = Array.isArray(compare)
+        ? arraysEqual(compare as string[], props.currSelection.split("//"))
+        : compare === props.currSelection;
 
       return (
         <SelectButtonList
-          continued={continued}
-          content={content}
-          score={score}
+          continued={option.continued}
+          content={option.content}
+          score={option.score}
           key={idx}
           updateSelection={props.updateSelection}
           selected={selected}
@@ -110,11 +103,11 @@ const OptionRow = (props: OptionRowProps) => {
   });
 
   // Push N/A as an option onto list if intended for scores
-  if (props.scoreOptions) {
+  if (hasScoreOptions) {
     rowContents.push(
       <SelectButton
         content={"N/A"}
-        key={props.contentOptions.length}
+        key={props.options.length}
         updateSelection={props.updateSelection}
         selected={"N/A" === props.currSelection}
         styles={props.buttonStyles}
@@ -126,7 +119,7 @@ const OptionRow = (props: OptionRowProps) => {
   if ("comment" in props && props.comment !== undefined) {
     rowContents.push(
       <OptionRowInput
-        key={props.contentOptions.length + 1}
+        key={props.options.length + 1}
         value={props.comment}
         updateForm={props.updateComment!}
         field={`${props.title}-comment`}

@@ -1,5 +1,6 @@
 import React from "react";
 import { IComments } from "../defaults/defaults";
+import { NewValues } from "../types/types";
 
 import Card from "./Card";
 import TextInput from "./TextInput";
@@ -12,7 +13,7 @@ type FeedbackCardProps = {
   title: string;
   field: Key;
   content: string;
-  updateContent: (newFeedback: { [key: string]: string }) => void;
+  updateContent: (newFeedback: NewValues) => void;
 };
 
 const FeedbackCard = (props: FeedbackCardProps) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Color from "../styledComponents/colors";
+import { NewValues } from "../types/types";
 import OptionRow from "./optionRow";
 
 // Component that provides a different interface for scoring
@@ -38,7 +39,7 @@ interface Props {
 
 interface CommentProps extends Props {
   comment: string;
-  updateComment: (updatedValues: { [key: string]: string }) => void;
+  updateComment: (updatedValues: NewValues) => void;
 }
 
 export default function QuestionRow(props: Props | CommentProps) {
@@ -47,7 +48,9 @@ export default function QuestionRow(props: Props | CommentProps) {
       <ContentStyles>{props.content}</ContentStyles>
       <OptionRow
         currSelection={String(props.score)}
-        contentOptions={props.scoreOptions.map((content) => content.toString())}
+        options={props.scoreOptions.map((content) => {
+          return { content: content.toString() };
+        })}
         updateSelection={(newSelection) =>
           props.updateScore(newSelection as string)
         }

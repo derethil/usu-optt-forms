@@ -83,3 +83,13 @@ export const ColMixin = css<{ oneRow: boolean }>`
     ${(props) => (props.oneRow ? "height: 100%;" : "")};
   }
 `;
+
+// Type to pass OptionRow
+export interface Option {
+  content: string | string[];
+  score?: string;
+  continued?: boolean;
+}
+
+// Type to update state values
+export type NewValues = { [key: string]: string };

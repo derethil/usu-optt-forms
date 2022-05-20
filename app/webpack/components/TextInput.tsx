@@ -6,6 +6,7 @@ import {
   Input,
   InputTA,
 } from "../styledComponents/input";
+import { NewValues } from "../types/types";
 
 // Custom text input component
 
@@ -13,7 +14,7 @@ type TextInputProps = {
   value: string;
   field: string;
   title?: string;
-  updateForm: (updatedValues: { [key: string]: string }) => void;
+  updateForm: (updatedValues: NewValues) => void;
   noLabel?: boolean;
   placeholder?: string;
   textArea?: boolean;

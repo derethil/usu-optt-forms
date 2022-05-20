@@ -2,6 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 
 import { InputContainer, Label, Input } from "../styledComponents/input";
+import { NewValues } from "../types/types";
 
 // Wrapper around react-datepicker for custom use (mainly using a custom input field)
 
@@ -9,7 +10,7 @@ type DateInputProps = {
   date: Date;
   field: string;
   label: string;
-  updateForm: (updatedInfo: { [key: string]: string }) => void;
+  updateForm: (updatedInfo: NewValues) => void;
 } & Omit<React.ComponentProps<typeof DatePicker>, "onChange">;
 
 const DateInput = (props: DateInputProps) => {
