@@ -1,4 +1,5 @@
 import { css, FlattenSimpleInterpolation } from "styled-components";
+import { formOptions } from "../currentForm";
 import { SignalSequence } from "./dataTypes";
 
 export interface Row {

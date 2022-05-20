@@ -22,34 +22,18 @@ import currentForm, { formOptions } from "./currentForm";
 import FormData from "./FormData";
 import NotebookCheck from "./pages/data/NotebookCheck";
 
-import { resetFormInfo } from "./slices/formInfoSlice";
 import { useAppDispatch } from "./hooks/hooks";
-import { resetRubric } from "./slices/rubricSlice";
-import { resetFeedback } from "./slices/feedbackSlice";
-import { resetNotebookChecks } from "./slices/notebookChecksSlice";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
 import PracticumChecklist from "./pages/data/PracticumChecklist";
-import { resetChecklist } from "./slices/checklistSlice";
 import STRubric, { STRIndex } from "./pages/STRubric";
-import { resetQuestions } from "./slices/questionsSlice";
+
+type FormRoutes = {
+  [key in formOptions]: JSX.Element[];
+};
 
 export const App = () => {
   const dispatch = useAppDispatch();
-
-  const resetAll = (): void => {
-    dispatch(resetRubric());
-    dispatch(data1.actions.resetData());
-    dispatch(data2.actions.resetData());
-    dispatch(timer1.actions.reset());
-    dispatch(timer2.actions.reset());
-    dispatch(timer3.actions.reset());
-    dispatch(resetFormInfo());
-    dispatch(resetFeedback());
-    dispatch(resetNotebookChecks());
-    dispatch(resetChecklist());
-    dispatch(resetQuestions());
-  };
 
   let title;
 
@@ -60,7 +44,8 @@ export const App = () => {
     <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
   ];
 
-  const dynamicRoutes = {
+  // dynamicRoutes stores the routes their respective components (pages) for each form
+  const dynamicRoutes: FormRoutes = {
     // ------ STUDENT TEACHING ------
     [formOptions.studentTeaching]: [
       <Route path="/data1" key={(title = "Data 1")}>
@@ -206,17 +191,16 @@ export const App = () => {
 
   return (
     <PageContainer>
+      {/* HashRouter allows the offline forms to use routing as well */}
       <HashRouter>
         <PageHeader>
           <img alt="logo" width={300} src={logo} />
           <Title>{FormData[currentForm].title} Form</Title>
         </PageHeader>
-
         <Navbar dynamicRoutes={dynamicRoutes} />
-
         <Switch>
           <Route exact path="/" key="FormHome">
-            <FormHome resetAll={resetAll} />
+            <FormHome />
           </Route>
 
           {...dynamicRoutes[currentForm]}
@@ -230,6 +214,7 @@ export const App = () => {
   );
 };
 
+// Entry point to the app
 const RootComponent = () => {
   return (
     <Provider store={store}>

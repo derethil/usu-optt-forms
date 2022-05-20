@@ -67,7 +67,7 @@ const Rubric = (props: RubricProps) => {
   const dispatch = useAppDispatch();
   const rubricData = FormData[currentForm].rubric;
   const rubricScores = useAppSelector(selectRubric);
-  const { score, possible, summary } = generateScoreData(rubricScores);
+  const { summary } = generateScoreData(rubricScores);
 
   function setComment(updatedValues: NewValues, section: Section, row: Row) {
     dispatch(
