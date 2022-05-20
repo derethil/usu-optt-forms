@@ -90,6 +90,7 @@ export interface Option {
   content: string | string[];
   score?: string;
   continued?: boolean;
+  default?: boolean;
 }
 
 // Type to update state values

@@ -65,7 +65,8 @@ const OptionRow = (props: OptionRowProps) => {
 
       // Reset score when override is removed
       if (override === true && !overrideRegex.test(props.comment!)) {
-        props.updateSelection(props.options.pop()?.score!);
+        const defaultScore = props.options.find((e) => e.default)!.score;
+        props.updateSelection(defaultScore as string);
         setOverride(false);
       }
     }, [props["comment"]]);

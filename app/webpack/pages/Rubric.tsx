@@ -103,6 +103,7 @@ const Rubric = (props: RubricProps) => {
         const rowOption = {
           content: option.content,
           continue: option.continued,
+          default: Boolean(option.default),
         };
 
         if (option.score === undefined) {
