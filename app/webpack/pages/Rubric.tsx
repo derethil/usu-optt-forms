@@ -25,6 +25,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import FormData from "../FormData";
 import { ITimer } from "../slices/timersSlice";
+import RubricAreaTitle from "../components/RubricAreaTitle";
 
 type RubricProps = {
   timer1: ITimer;
@@ -57,35 +58,6 @@ const Rubric = (props: RubricProps) => {
   const { score, possible, summary } = generateScoreData(rubricScores);
 
   const dispatch = useAppDispatch();
-
-  const sectionTitle = (section: Section, index: number) => {
-    const sectionScore = summary[index][1];
-
-    if (section.tooltip) {
-      return (
-        <CardTitleContainer>
-          <IconTitle
-            content={section.sectionTitle}
-            tooltipContent={section.tooltip}
-            titleStyles={css`
-              font-size: 1.33rem;
-            `}
-            iconStyles={css`
-              color: ${Color.lights.grayLighter};
-            `}
-          />
-          <p>{sectionScore}</p>
-        </CardTitleContainer>
-      );
-    } else {
-      return (
-        <CardTitleContainer>
-          <RubricTitleContent>{section.sectionTitle}</RubricTitleContent>
-          <p>{sectionScore}</p>
-        </CardTitleContainer>
-      );
-    }
-  };
 
   const sections = rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
@@ -170,7 +142,7 @@ const Rubric = (props: RubricProps) => {
           </Card>
         )}
         <Card
-          title={sectionTitle(section, sectionIdx)}
+          title={RubricAreaTitle(section, summary[sectionIdx][1])}
           titleStyles={cardTitleStyles}
           contentStyles={contentStyles}
           containerStyles={cardContainerStyles}
