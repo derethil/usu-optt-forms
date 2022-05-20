@@ -51,6 +51,18 @@ const timerContentStyles = css`
   margin-top: 0.5em;
 `;
 
+function needTimer(section: Section): boolean {
+  if (currentForm !== formOptions.math) return false;
+
+  switch (section.sectionTitle) {
+    case "Independent Practice":
+    case "Opening":
+      return true;
+    default:
+      return false;
+  }
+}
+
 const Rubric = (props: RubricProps) => {
   const dispatch = useAppDispatch();
   const rubricData = FormData[currentForm].rubric;
@@ -63,6 +75,20 @@ const Rubric = (props: RubricProps) => {
         section: section.sectionTitle,
         row: row.area,
         newComment: Object.values(updatedValues)[0],
+      })
+    );
+  }
+
+  function setScore(newSelection: string, section: Section, row: Row) {
+    if (Array.isArray(newSelection)) {
+      newSelection = newSelection.join("//");
+    }
+
+    dispatch(
+      setRubricScore({
+        section: section.sectionTitle,
+        row: row.area,
+        newScore: newSelection,
       })
     );
   }
@@ -88,16 +114,7 @@ const Rubric = (props: RubricProps) => {
           // State props
           currSelection={score}
           updateSelection={(newSelection) => {
-            if (Array.isArray(newSelection)) {
-              newSelection = newSelection.join("//");
-            }
-            dispatch(
-              setRubricScore({
-                section: section.sectionTitle,
-                row: row.area,
-                newScore: newSelection,
-              })
-            );
+            setScore(newSelection, section, row);
           }}
           // Style props
           buttonStyles={buttonStyles}
@@ -116,14 +133,9 @@ const Rubric = (props: RubricProps) => {
       );
     });
 
-    const isMathTimer =
-      currentForm == formOptions.math &&
-      (section.sectionTitle === "Independent Practice" ||
-        section.sectionTitle === "Opening");
-
-    const sectionDiv = (
+    return (
       <div key={sectionIdx}>
-        {isMathTimer && (
+        {needTimer(section) && ( // The Math form has timers on the rubric page itself, so check for that here
           <Card
             title={
               <RubricTitleContent>{`${section.sectionTitle} Timer`}</RubricTitleContent>
@@ -134,11 +146,13 @@ const Rubric = (props: RubricProps) => {
           >
             <Timer
               timer={
+                // Ensure Opening has timer1 and Independent Practice has timer2
                 section.sectionTitle === "Opening" ? props.timer1 : props.timer2
               }
             />
           </Card>
         )}
+
         <Card
           title={RubricAreaTitle(section, summary[sectionIdx][1])}
           titleStyles={cardTitleStyles}
@@ -149,8 +163,6 @@ const Rubric = (props: RubricProps) => {
         </Card>
       </div>
     );
-
-    return sectionDiv;
   });
 
   return (
