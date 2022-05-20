@@ -11,7 +11,8 @@
           },
           {
             "content": "Started late, some materials missing",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -32,7 +33,8 @@
           },
           {
             "content": "Did not follow format / script / lesson plan",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -49,7 +51,8 @@
           },
           {
             "content": "Correct signal sequence included less than 69% of the time",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -66,7 +69,8 @@
           },
           {
             "content": "Little or not eye contact and / or not scanning of group",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -83,7 +87,8 @@
           },
           {
             "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -101,7 +106,8 @@
           },
           {
             "content": "One or more components present less than 70% of the time",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -118,7 +124,8 @@
           },
           {
             "content": "Inefficient use of time and / or does not progress through lesson appropriately, inefficient transitions",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -135,7 +142,8 @@
           },
           {
             "content": "Little or no enthusiasm, tone, and volume, interferes with student learning / behavior, does not use smooth phrasing, no emphasis of key words",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -153,7 +161,8 @@
           },
           {
             "content": "Negatively states or does not state behavior expectations",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -174,7 +183,8 @@
           },
           {
             "content": "Does not follow classroom management plan",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -191,7 +201,8 @@
           },
           {
             "content": "Praise / redirect ratio less than 2:1",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -209,7 +220,8 @@
           },
           {
             "content": "0-1 components observed",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -227,7 +239,8 @@
           },
           {
             "content": "No data recorded or recorded inaccurately, data recorded does not align to the objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -240,7 +253,8 @@
           },
           {
             "content": "No records of data recorded previously, form not legible or easily understood",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -257,7 +271,8 @@
           },
           {
             "content": "Inappropriate instructional / behavior management decisions made",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -274,7 +289,8 @@
           },
           {
             "content": "Does not sufficiently articulate trends, needs, and actions to take",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -294,7 +310,8 @@
           },
           {
             "content": "Doess not dress appropriately and / or does not maintain personal hygiene",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -308,7 +325,8 @@
           },
           {
             "content": "Does not respond appropriately to feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -322,7 +340,8 @@
           },
           {
             "content": "Does not correctly implement changes after being given feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -336,7 +355,8 @@
           },
           {
             "content": "Does not exhibit positive and respectful attitude in the classroom",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -350,7 +370,8 @@
           },
           {
             "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       }

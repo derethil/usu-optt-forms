@@ -9,6 +9,7 @@ export interface Row {
       content: string | string[];
       score: string | number;
       continued?: boolean;
+      default?: boolean;
     }
   ];
 }

@@ -96,13 +96,21 @@ const Rubric = (props: RubricProps) => {
   const sections = rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
       // current score and comment in state
-      const { score, comment } = rubricScores[section.sectionTitle][row.area];
+      let { score: currScore, comment: currComment } =
+        rubricScores[section.sectionTitle][row.area];
 
-      const Options: Option[] = row.options.map((option) => ({
-        content: option.content,
-        continue: option.continued,
-        score: String(option.score),
-      }));
+      const options: Option[] = row.options.map((option) => {
+        const rowOption = {
+          content: option.content,
+          continue: option.continued,
+        };
+
+        if (option.score === undefined) {
+          return rowOption;
+        } else {
+          return { ...rowOption, score: String(option.score) };
+        }
+      });
 
       return (
         <OptionRow
@@ -110,9 +118,9 @@ const Rubric = (props: RubricProps) => {
           key={rowIdx}
           info={row.info}
           title={row.area}
-          options={Options}
+          options={options}
           // State props
-          currSelection={score}
+          currSelection={currScore}
           updateSelection={(newSelection) => {
             setScore(newSelection, section, row);
           }}
@@ -121,7 +129,7 @@ const Rubric = (props: RubricProps) => {
           titleStyles={rowTitleStyles}
           alternateInfoStyle={props.alternateInfoStyle}
           // Commend props
-          comment={props.disableCommentBoxes ? undefined : comment}
+          comment={props.disableCommentBoxes ? undefined : currComment}
           updateComment={
             props.disableCommentBoxes
               ? undefined

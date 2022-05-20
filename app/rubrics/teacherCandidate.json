@@ -9,6 +9,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Provides developmentally inappropriate instruction.",
               "Lacks awareness of developmental needs."
@@ -44,6 +45,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Works in isolation.",
               "Avoids communication or communicates ineffectively.",
@@ -81,6 +83,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Not aware of learner differences.",
               "Not accepting of differences.",
@@ -118,6 +121,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not have a schedule planned.",
               "has unorganized and lengthy transitions.",
@@ -155,6 +159,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Demonstrates negative demeanor.",
               "Reprimands frequently.",
@@ -193,6 +198,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Uses time, space, and attention ineffectively.",
               "Does not have management plan."
@@ -237,6 +243,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Provides inaccurate lesson content."
             ]
@@ -273,6 +280,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not collect or use data."
             ]
@@ -309,6 +317,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not document learner progress.",
               "Does not provide feedback."
@@ -346,6 +355,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not assess student learning.",
               "Assessment is inappropriate."
@@ -382,6 +392,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Unfamiliar with Utah Core Standards",
               "Instructional materials do not align with standards.",
@@ -420,6 +431,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not acknowledge the importance of integrating cross-disciplinary skills (e.g., critical thinking, problem solving, creativity, communication)."
             ]
@@ -454,6 +466,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Inappropriate strategies.",
               "No variety of strategies.",
@@ -492,6 +505,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Is not familiar with higher-order and metacognitive skills."
             ]
@@ -526,6 +540,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Communication skills are not taught or developed specifically.",
               "No opportunities for learner communication."
@@ -561,6 +576,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not use available technology."
             ]
@@ -595,6 +611,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Sources not appropriate for instruction."
             ]
@@ -634,6 +651,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Does not reflect on instruction.",
               "Does not accept feedback."
@@ -670,6 +688,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Fails to fulfill required duties (e.g., contracted school day, etc.).",
               "Displays lack of respect for colleagues / classmates.",
@@ -708,6 +727,7 @@
           {
             "continued": false,
             "score": 0,
+            "default": true,
             "content": [
               "Lacks respect for learners and families.",
               "Communicates negatively about learners, families, or the profession.",
@@ -745,6 +765,7 @@
         "options": [
           {
             "continued": false,
+            "default": true,
             "content": [
               "Does not understand nor adheres to university policies, federal and state  laws, State Board of Education rules, state and local policies, supervisory directives, professional, moral, and ethical conduct and does not hold other accountable to do the same."
             ]
@@ -763,6 +784,7 @@
         "options": [
           {
             "continued": false,
+            "default": true,
             "content": [
               "Does not avoid actions that may adversely affect ability to perform assigned duties and carry out the responsibilities of the profession, including role-model responsibilities.",
               "Does not know or understand professional requirements.",

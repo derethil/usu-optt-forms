@@ -11,7 +11,8 @@
           },
           {
             "content": "Lesson plan unclear, incomplete, or unavailable",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -33,7 +34,8 @@
           },
           {
             "content": "0-1 components complete and accurate or most components unrelated or insufficient",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -51,7 +53,8 @@
           },
           {
             "content": "Little to no evidence of individualization",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -64,7 +67,8 @@
           },
           {
             "content": "Materials not gathered or ready for use ",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       }
@@ -86,7 +90,8 @@
           },
           {
             "content": "Did not follow format, script, or plan",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -104,7 +109,8 @@
           },
           {
             "content": "Teacher provides inadequate opportunities for pupils to respond and be engaged",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -121,7 +127,8 @@
           },
           {
             "content": "Little or no eye contact and / or no scanning of group / classroom",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -143,7 +150,8 @@
           },
           {
             "content": "Unclear instruction, scaffolding not based on pupil responses",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -160,7 +168,8 @@
           },
           {
             "content": "Minimal meaningful feedback to pupils",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -177,7 +186,8 @@
           },
           {
             "content": "Minimal meaningful feedback to pupils",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -194,7 +204,8 @@
           },
           {
             "content": "little or no enthusiasm, tone, and volume, interferes with student learning and behavior",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -211,7 +222,8 @@
           },
           {
             "content": "Teacher makes inefficient use of time and / or time lost on non-instructional activities",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -229,7 +241,8 @@
           },
           {
             "content": "Negatively states or does not include behavior expectations",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -247,7 +260,8 @@
           },
           {
             "content": "Aspects of positive engagement are rarely or never present",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -268,7 +282,8 @@
           },
           {
             "content": "Seldom reinforces appropriately",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -285,7 +300,8 @@
           },
           {
             "content": "Praise / Redirect ratio less than 2:1",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -307,7 +323,8 @@
           },
           {
             "content": "Does not consistently / effectively follow management plan when student engages in problem behavior and / or follow management plan for appropriate academic / social behavior",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -329,7 +346,8 @@
           },
           {
             "content": "No data recorded or recorded inaccurately",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -342,7 +360,8 @@
           },
           {
             "content": "Data not up to date, inconsistently recorded and / or not available for observer",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -359,7 +378,8 @@
           },
           {
             "content": "Inappropriate decisions made",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -386,7 +406,8 @@
           },
           {
             "content": "69% or lower",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -406,7 +427,8 @@
           },
           {
             "content": "Does not dress appropriately and / or does not maintain personal hygiene",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -420,7 +442,8 @@
           },
           {
             "content": "Does not respond appropriately to feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -434,7 +457,8 @@
           },
           {
             "content": "Does not correctly implement changes after being given feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -448,7 +472,8 @@
           },
           {
             "content": "Does not exhibit positive and respectful attitude in the classroom",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -462,7 +487,8 @@
           },
           {
             "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -476,7 +502,8 @@
           },
           {
             "content": "Interacts appropriately some or none of the time",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -490,7 +517,8 @@
           },
           {
             "content": "Does not follow assignment procedure",
-            "score": -3
+            "score": -3,
+            "default": true
           }
         ]
       }

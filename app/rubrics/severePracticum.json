@@ -15,7 +15,8 @@
           },
           {
             "content": "No lesson plan",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -32,7 +33,8 @@
           },
           {
             "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -49,7 +51,8 @@
           },
           {
             "content": "Included inappropriate / no objective, link, and relevance statement",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -66,7 +69,8 @@
           },
           {
             "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -83,7 +87,8 @@
           },
           {
             "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -100,7 +105,8 @@
           },
           {
             "content": "Provides no real-life examples or inappropriate examples",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -117,7 +123,8 @@
           },
           {
             "content": "Inappropriate supervision / feedback, or not aligned to objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -130,7 +137,8 @@
           },
           {
             "content": "Random or unpredictable practice opportunities, not aligned to objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -148,7 +156,8 @@
           },
           {
             "content": "Did not start on time, some / all materials missing, ineffective arrangement",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -169,7 +178,8 @@
           },
           {
             "content": "Did not follow format and / or script in written program  /  ETC",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -186,7 +196,8 @@
           },
           {
             "content": "Little or not eye contact and / or not scanning of group",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -203,7 +214,8 @@
           },
           {
             "content": "Did not adapt program to meet individual students needs or inappropriate adaptations made",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -220,7 +232,8 @@
           },
           {
             "content": "Little or no enthusiasm, tone, and volume, interferes with student learning / behavior, does not use smooth phrasing, no emphasis of key words",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -237,7 +250,8 @@
           },
           {
             "content": "Correct sequence (see list) included less than 69% of the time",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -255,7 +269,8 @@
           },
           {
             "content": "Negatively stated or not included, and / or does not provide necessary directions to start lesson, find page, get supplies, etc.",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -272,7 +287,8 @@
           },
           {
             "content": "Does not consistently  /  effectively follow behavior management plan",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -290,7 +306,8 @@
           },
           {
             "content": "0-1 components observed",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -307,7 +324,8 @@
           },
           {
             "content": "Does not consistently  /  effectively implement prompting procedures, incorrect prompting procedures used",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -324,7 +342,8 @@
           },
           {
             "content": "0-1 components observed",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -341,7 +360,8 @@
           },
           {
             "content": "Inefficient use of time and / or does not progress through lesson appropriately, inefficient transitions",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -359,7 +379,8 @@
           },
           {
             "content": "One or more components present less then 50% of the time (see list)",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -376,7 +397,8 @@
           },
           {
             "content": "Praise / redirect ratio less than 2:1",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -393,7 +415,8 @@
           },
           {
             "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -411,7 +434,8 @@
           },
           {
             "content": "No data recorded or recorded inaccurately, data recorded does not align to the objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -424,7 +448,8 @@
           },
           {
             "content": "No records of data recorded previously, form not legible or easily understood",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -441,7 +466,8 @@
           },
           {
             "content": "Inappropriate instructional / behavior management decisions made",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -458,7 +484,8 @@
           },
           {
             "content": "No records of data recorded previously",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -475,7 +502,8 @@
           },
           {
             "content": "Does not sufficiently articulate trends, needs, and actions to take",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -495,7 +523,8 @@
           },
           {
             "content": "Does not dress appropriately and / or does not maintain personal hygiene",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -509,7 +538,8 @@
           },
           {
             "content": "Does not respond appropriately to feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -523,7 +553,8 @@
           },
           {
             "content": "Does not correctly implement changes after being given feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -537,7 +568,8 @@
           },
           {
             "content": "Does not exhibit positive and respectful attitude in the classroom",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -551,7 +583,8 @@
           },
           {
             "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       }

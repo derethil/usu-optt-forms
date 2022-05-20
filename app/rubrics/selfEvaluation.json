@@ -11,7 +11,8 @@
           },
           {
             "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -24,7 +25,8 @@
           },
           {
             "content": "Included inappropriate / partial objective, link, and relevance statement",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -37,7 +39,8 @@
           },
           {
             "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -50,7 +53,8 @@
           },
           {
             "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -63,7 +67,8 @@
           },
           {
             "content": "Inappropriate supervision / feedback, or not aligned to objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -76,7 +81,8 @@
           },
           {
             "content": "Random or unpredictable practice opportunities, not aligned to objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -98,7 +104,8 @@
           },
           {
             "content": "Did not follow format and / or script in written program  /  ETC",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -111,7 +118,8 @@
           },
           {
             "content": "Little or not eye contact and / or not scanning of group",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -128,7 +136,8 @@
           },
           {
             "content": "Correct sequence (see list) included less than 69% of the time",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -146,7 +155,8 @@
           },
           {
             "content": "Ane or more components present less then 50% of the time (see list)",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -163,7 +173,8 @@
           },
           {
             "content": "Praise / redirect ratio less than 2:1",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -180,7 +191,8 @@
           },
           {
             "content": "Inadequate opportunities to respond, lacks relevant combinations of individual / group / dispersed turns",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -193,7 +205,8 @@
           },
           {
             "content": "No data recorded or recorded inaccurately, data recorded does not align to the objective",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }

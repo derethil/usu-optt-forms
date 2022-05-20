@@ -26,7 +26,6 @@ export const getMaxSubtotal = (
     // If max score is "Yes", etc. do not add to the total
     let maxScore = findMaxScore(row);
 
-    console.log(row.options);
     let nonNumeric =
       row.options.filter((e) => typeof e.score === "number").length <
       row.options.length;

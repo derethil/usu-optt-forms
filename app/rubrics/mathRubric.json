@@ -11,7 +11,8 @@
           },
           {
             "content": "Started late > 1 minute after the bell or start time and / or some materials were not ready and / or did not remind pupils of expectation(s)",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -28,7 +29,8 @@
           },
           {
             "content": "No opening or spent >40% on opening",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -45,7 +47,8 @@
           },
           {
             "content":  "No new material",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -62,7 +65,8 @@
           },
           {
             "content": "Activities did not engage most pupils for most problems / tasks",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -84,7 +88,8 @@
           },
           {
             "content": "Included 0-1 criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -97,7 +102,8 @@
           },
           {
             "content": "Did not introduce the lesson",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -124,7 +130,8 @@
           },
           {
             "content": "Did not meet any criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -146,7 +153,8 @@
           },
           {
             "content": "Did not meet any criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -172,7 +180,8 @@
           },
           {
             "content": "Did not meet any criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -198,7 +207,8 @@
           },
           {
             "content": "Did not meet any criteria or only met 1 criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -220,7 +230,8 @@
           },
           {
             "content": "Did not meet any criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -242,7 +253,8 @@
           },
           {
             "content": "Included 0-1 criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -259,7 +271,8 @@
           },
           {
             "content": "Less than two response opportunities per minute",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -276,7 +289,8 @@
           },
           {
             "content": "Pupils engaged <60% of the time",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -289,7 +303,8 @@
           },
           {
             "content": "Spent <30% or >70% of time on NM / GP",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -311,7 +326,8 @@
           },
           {
             "content": "No description of assignment provided",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -328,7 +344,8 @@
           },
           {
             "content": "IP problems were inappropriate, and no problem variety or maintenance problems provided",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -350,7 +367,8 @@
           },
           {
             "content": "Included 0-1 criteria",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -367,7 +385,8 @@
           },
           {
             "content": "Spent >50% or <10% of time on IP for the majority of pupils",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -385,7 +404,8 @@
           },
           {
             "content": "Less than 80% of praise is appropriate",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -407,7 +427,8 @@
           },
           {
             "content": "0-1 components observed",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -424,7 +445,8 @@
           },
           {
             "content": "Praise / redirect ratio less than 2:1",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -441,7 +463,8 @@
           },
           {
             "content": "Does not correct pupil errors",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -459,7 +482,8 @@
           },
           {
             "content": "No criteria met",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       },
@@ -476,7 +500,8 @@
           },
           {
             "content": "Student does not follow behavior management plan",
-            "score": 0
+            "score": 0,
+            "default": true
           }
         ]
       }
@@ -496,7 +521,8 @@
           },
           {
             "content": "Does not dress appropriately and / or does not maintain personal hygiene",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -510,7 +536,8 @@
           },
           {
             "content": "Does not respond appropriately to feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -524,7 +551,8 @@
           },
           {
             "content": "Does not correctly implement changes after being given feedback",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -538,7 +566,8 @@
           },
           {
             "content": "Does not exhibit positive and respectful attitude in the classroom",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       },
@@ -552,7 +581,8 @@
           },
           {
             "content": "Does not demonstrate or only sometimes demonstrates professional attributes",
-            "score": -1
+            "score": -1,
+            "default": true
           }
         ]
       }

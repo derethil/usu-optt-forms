@@ -46,6 +46,8 @@ interface OptionRowProps {
   options: Option[];
 }
 
+// ------ COMPONENT ------
+
 const OptionRow = (props: OptionRowProps) => {
   const [override, setOverride] = useState(false);
   const hasScoreOptions = props.options[0].score !== undefined;

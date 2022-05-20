@@ -2,8 +2,25 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
-import { ScoresState, Section } from "../types/types";
+import { ScoresState, Section, Option } from "../types/types";
 import { findMaxScore } from "../utils/utils";
+
+interface JSONOption {
+  content: string | string[];
+  score: string | number;
+  continued?: boolean;
+  default?: boolean;
+}
+
+function getInitialScore(score: any): string {
+  if (Array.isArray(score)) {
+    return score.join("//");
+  } else if (typeof score === "number") {
+    return String(score);
+  } else {
+    return score;
+  }
+}
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -12,21 +29,17 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     rubricData.forEach((section) => {
       initialState[section.sectionTitle] = {};
       section.rows.forEach((row) => {
-        let minScore: number | string = Math.min(
-          ...row.options.map((e) => Number(e.score))
-        );
+        const initialOption = row.options.find((e) => e.default === true)!;
 
-        if (isNaN(minScore) && Array.isArray(row.options[0].content)) {
-          row.options.reverse();
-          minScore = row.options[0].content.join("//");
+        let score;
+        if (initialOption.score === undefined) {
+          score = getInitialScore(initialOption.content);
+        } else {
+          score = getInitialScore(initialOption.score);
         }
 
-        const initialScore = row.options.map((e) => e.score).includes("Yes")
-          ? "Yes"
-          : String(minScore);
-
         initialState[section.sectionTitle][row.area] = {
-          score: initialScore,
+          score: score,
           comment: "",
         };
       });
