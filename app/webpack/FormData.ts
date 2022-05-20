@@ -9,6 +9,8 @@ import readingRubric from "../rubrics/readingRubric.json";
 import mathRubric from "../rubrics/mathRubric.json";
 import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
 import STRubric from "../rubrics/STRubric.json";
+import teacherCandidateRubric from "../rubrics/teacherCandidate.json";
+
 import { formOptions } from "./currentForm";
 
 type IFormData = {
@@ -69,6 +71,11 @@ const FormData: IFormData = {
     rubric: STRubric as Section[],
     defaultData: defaults.defaultStudentTeachingData,
     questions: defaults.defaultSTRData,
+  },
+  [formOptions.teacherCandidate]: {
+    title: "Teacher Candidate Formative Feedback",
+    rubric: teacherCandidateRubric as Section[],
+    defaultData: {} as DataSchema,
   },
 };
 

@@ -4,11 +4,11 @@ import { IFormInfo, Location } from "../types/types";
 import getNotebookCheck from "../utils/notebookCheckUtils";
 
 export const defaultComments = {
-  strengths: "",
-  suggestions: "",
-  nextFocus: "",
-  goal1: "",
-  goal2: "",
+  area1: "",
+  area2: "",
+  area3: "",
+  area4: "",
+  area5: "",
 };
 
 export type IComments = typeof defaultComments;
@@ -26,6 +26,7 @@ export const defaultFormInfo: IFormInfo = {
   goal1: "",
   goal2: "",
   isLastObservation: false,
+  narrative: "",
 };
 
 export const defaultNotebookCheck = {

@@ -134,7 +134,7 @@
       },
       {
         "area": "Error Correction",
-        "tooltip": "1. Model <br> 2. Test <br> 3. Delayed test",
+        "info": "1. Model <br> 2. Test <br> 3. Delayed test",
         "options": [
           {
             "content": "All components present 80% or more of the time",

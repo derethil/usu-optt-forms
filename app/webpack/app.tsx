@@ -191,6 +191,17 @@ export const App = () => {
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
+    [formOptions.teacherCandidate]: [
+      <Route path="/rubric" key="Rubric">
+        <Rubric
+          timer1={timer1}
+          timer2={timer2}
+          disableCommentBoxes
+          alternateInfoStyle
+        />
+      </Route>,
+      <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
+    ],
   };
 
   return (

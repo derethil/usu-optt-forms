@@ -1,6 +1,7 @@
 import currentForm from "../currentForm";
 import FormData from "../FormData";
 import { ScoresState, Section } from "../types/types";
+import { findMaxScore } from "./utils";
 
 const rubricData = FormData[currentForm].rubric;
 
@@ -23,10 +24,14 @@ export const getMaxSubtotal = (
   // Find max score based on raw json data
   const maxBefore = sectionData.rows.reduce((total, row) => {
     // If max score is "Yes", etc. do not add to the total
-    return (
-      total +
-      (typeof row.options[0].score === "number" ? row.options[0].score : 0)
-    );
+    let maxScore = findMaxScore(row);
+
+    console.log(row.options);
+    let nonNumeric =
+      row.options.filter((e) => typeof e.score === "number").length <
+      row.options.length;
+
+    return total + (nonNumeric ? 0 : maxScore);
   }, 0);
 
   // Find rows whose score is N/A
@@ -39,9 +44,9 @@ export const getMaxSubtotal = (
     if (!NARows.includes(scoreArea)) return total; // Do not do anything on rows not marked as N/A
 
     // Subtract max score of given row from total
-    const maxAreaScore = sectionData.rows.find((row) => row.area === scoreArea)
-      ?.options[0].score!; // Get max score
-    return total - (typeof maxAreaScore === "number" ? maxAreaScore : 0);
+    const currRow = sectionData.rows.find((row) => row.area === scoreArea);
+    const maxScore = findMaxScore(currRow!);
+    return total - (typeof maxScore === "number" ? maxScore : 0);
   }, maxBefore);
 };
 

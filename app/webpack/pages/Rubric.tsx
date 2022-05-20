@@ -29,6 +29,8 @@ import { ITimer } from "../slices/timersSlice";
 type RubricProps = {
   timer1: ITimer;
   timer2: ITimer;
+  disableCommentBoxes?: boolean;
+  alternateInfoStyle?: boolean;
 };
 
 const cardTitleStyles = css`
@@ -88,8 +90,16 @@ const Rubric = (props: RubricProps) => {
   const sections = rubricData.map((section, sectionIdx) => {
     const rows = section.rows.map((row, rowIdx) => {
       const currContentOptions = row.options.map((option) => option.content);
-      const currScoreOptions = row.options.map((option) =>
-        String(option.score)
+      let currScoreOptions: string[] | undefined = row.options.map((option) => {
+        return String(option.score);
+      });
+
+      if (currScoreOptions.includes("undefined")) {
+        currScoreOptions = undefined;
+      }
+
+      const currContinuedList = row.options.map((option) =>
+        option.continued !== undefined ? option.continued : false
       );
 
       const { score, comment } = rubricScores[section.sectionTitle][row.area];
@@ -99,10 +109,14 @@ const Rubric = (props: RubricProps) => {
           key={rowIdx}
           contentOptions={currContentOptions}
           scoreOptions={currScoreOptions}
-          tooltip={row.tooltip}
+          continuedList={currContinuedList}
+          info={row.info}
           title={row.area}
           currSelection={score}
           updateSelection={(newSelection) => {
+            if (Array.isArray(newSelection)) {
+              newSelection = newSelection.join("//");
+            }
             dispatch(
               setRubricScore({
                 section: section.sectionTitle,
@@ -113,16 +127,21 @@ const Rubric = (props: RubricProps) => {
           }}
           buttonStyles={buttonStyles}
           titleStyles={rowTitleStyles}
-          comment={comment}
-          updateComment={(updatedValues: { [key: string]: string }) => {
-            dispatch(
-              setRubricComment({
-                section: section.sectionTitle,
-                row: row.area,
-                newComment: Object.values(updatedValues)[0],
-              })
-            );
-          }}
+          alternateInfoStyle={props.alternateInfoStyle}
+          comment={props.disableCommentBoxes ? undefined : comment}
+          updateComment={
+            props.disableCommentBoxes
+              ? undefined
+              : (updatedValues: { [key: string]: string }) => {
+                  dispatch(
+                    setRubricComment({
+                      section: section.sectionTitle,
+                      row: row.area,
+                      newComment: Object.values(updatedValues)[0],
+                    })
+                  );
+                }
+          }
         />
       );
     });

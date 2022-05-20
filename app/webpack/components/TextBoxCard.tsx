@@ -6,22 +6,22 @@ import TextInput from "./TextInput";
 
 // Simple component that provides a card with only a single text area child
 
-type Feedback = keyof IComments;
+type Key = keyof IComments | "narrative";
 
 type FeedbackCardProps = {
   title: string;
-  feedbackType: Feedback;
-  feedback: string;
-  updateFeedback: (newFeedback: { [key: string]: string }) => void;
+  field: Key;
+  content: string;
+  updateContent: (newFeedback: { [key: string]: string }) => void;
 };
 
 const FeedbackCard = (props: FeedbackCardProps) => {
   return (
     <Card title={`${props.title}:`}>
       <TextInput
-        value={props.feedback}
-        updateForm={props.updateFeedback}
-        field={props.feedbackType}
+        value={props.content}
+        updateForm={props.updateContent}
+        field={props.field}
         noLabel
         placeholder={props.title}
         textArea

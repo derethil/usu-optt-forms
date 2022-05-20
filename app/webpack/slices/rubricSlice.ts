@@ -3,6 +3,7 @@ import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
 import { ScoresState, Section } from "../types/types";
+import { findMaxScore } from "../utils/utils";
 
 const getInitialState = (rubricData: Section[]): ScoresState => {
   let initialState: ScoresState = {};
@@ -11,10 +12,18 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     rubricData.forEach((section) => {
       initialState[section.sectionTitle] = {};
       section.rows.forEach((row) => {
-        const initialScore =
-          row.options[0].score === "Yes"
-            ? "Yes"
-            : String(row.options[row.options.length - 1].score);
+        let minScore: number | string = Math.min(
+          ...row.options.map((e) => Number(e.score))
+        );
+
+        if (isNaN(minScore) && Array.isArray(row.options[0].content)) {
+          row.options.reverse();
+          minScore = row.options[0].content.join("//");
+        }
+
+        const initialScore = row.options.map((e) => e.score).includes("Yes")
+          ? "Yes"
+          : String(minScore);
 
         initialState[section.sectionTitle][row.area] = {
           score: initialScore,
@@ -29,9 +38,10 @@ const getInitialState = (rubricData: Section[]): ScoresState => {
     initialState[section.sectionTitle] = {};
 
     section.rows.forEach((row) => {
+      let maxScore = findMaxScore(row);
       initialState[section.sectionTitle][row.area] = {
         score: "0",
-        maxScore: String(row.options[0].score),
+        maxScore: String(maxScore),
         comment: "",
       };
     });

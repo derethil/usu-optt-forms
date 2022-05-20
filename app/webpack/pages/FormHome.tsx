@@ -12,17 +12,32 @@ import { PageContent } from "../styledComponents/style";
 import { css } from "styled-components";
 import PDFDataChecklist from "../components/pdfReport/pdfDataChecklist";
 import PracticumContent from "../components/practicumContent";
+import TextBoxCard from "../components/TextBoxCard";
+import { useAppSelector, useAppDispatch } from "../hooks/hooks";
+import { selectFormInfo, setFormInfo } from "../slices/formInfoSlice";
 
 type FormHomeProps = {
   resetAll: () => void;
 };
 
 const FormHome = (props: FormHomeProps) => {
+  const formInfo = useAppSelector(selectFormInfo);
+  const dispatch = useAppDispatch();
+
   return (
     <PageContent>
       <Card title="General Information">
         <FormInfo />
       </Card>
+
+      {currentForm === formOptions.teacherCandidate && (
+        <TextBoxCard
+          title="Observation Narrative"
+          field="narrative"
+          content={formInfo.narrative}
+          updateContent={(newContent) => dispatch(setFormInfo(newContent))}
+        />
+      )}
 
       {currentForm !== formOptions.practicumChecklist ? (
         <Card title="Scores">

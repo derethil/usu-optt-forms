@@ -6,8 +6,13 @@ import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
-import { formatDate, getLetterGrade, getScore } from "../../utils/pdfUtils";
-import { getPercent, overrideRegex } from "../../utils/utils";
+import {
+  formatDate,
+  getLetterGrade,
+  getScore,
+  rubricHeaders,
+} from "../../utils/pdfUtils";
+import { feedbackLabel, getPercent, overrideRegex } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
 import studentTeachingSection from "./studentTeaching";
@@ -65,11 +70,15 @@ const PDFData = () => {
 
     generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05); // Top-right USU logo
 
-    generator.pdf.text(
-      `USU SPER ${FormData[currentForm].title} Report`,
-      14,
-      18
-    );
+    if (currentForm !== formOptions.teacherCandidate) {
+      generator.pdf.text(
+        `USU SPER ${FormData[currentForm].title} Report`,
+        14,
+        18
+      );
+    } else {
+      generator.pdf.text(`SPED ${FormData[currentForm].title} Form`, 14, 18);
+    }
 
     // General Info
 
@@ -102,6 +111,15 @@ const PDFData = () => {
           ["Percentage", getPercent(score, possible)],
           ["Letter Grade", getLetterGrade((score / possible) * 100)],
         ],
+      });
+    }
+
+    if (currentForm === formOptions.teacherCandidate) {
+      generator.table({
+        startY: "RELATIVE",
+        head: ["Observation Narrative"],
+        headStyles: { fillColor: Color.blues.blue },
+        body: [[formInfo.narrative]],
       });
     }
 
@@ -163,16 +181,32 @@ const PDFData = () => {
                 return String(option.score) === rowInfo.score;
               }
             );
-            const score = getScore(rowInfo, sectionIdx, rowIdx);
+            let score = getScore(rowInfo, sectionIdx, rowIdx);
+            let description = selectedOption ? selectedOption.content : score;
 
-            return isSTRubric
-              ? [rowTitle, score]
-              : [
-                  rowTitle,
-                  selectedOption ? selectedOption.content : score,
-                  score,
-                  rowInfo.comment.replace(overrideRegex, "").trim(),
-                ];
+            if (
+              currentForm === formOptions.teacherCandidate &&
+              rowTitle.includes("10.")
+            ) {
+              score = "N/A";
+            }
+
+            if (!Array.isArray(description)) {
+              description = description.split("//");
+            }
+
+            if (Array.isArray(description)) {
+              description = description.map((e) => "• " + e).join("\n");
+            }
+
+            const rubricRow = [
+              rowTitle,
+              description,
+              score,
+              rowInfo.comment.replace(overrideRegex, "").trim(),
+            ];
+
+            return isSTRubric ? [rowTitle, score] : rubricRow;
           }
         );
 
@@ -193,10 +227,20 @@ const PDFData = () => {
             halign: "center",
           },
           columnStyles: {
-            0: { cellWidth: isSTRubric ? "auto" : 35, valign: "middle" },
+            0: {
+              cellWidth: isSTRubric
+                ? "auto"
+                : currentForm === formOptions.teacherCandidate
+                ? 50
+                : 35,
+              valign: "middle",
+            },
             1: {
               cellWidth: isSTRubric ? 50 : "auto",
-              halign: "center",
+              halign:
+                currentForm === formOptions.teacherCandidate
+                  ? "left"
+                  : "center",
               valign: "middle",
               cellPadding: { vertical: 4 },
             },
@@ -207,9 +251,7 @@ const PDFData = () => {
               cellPadding: { horizontal: 5, vertical: 2 },
             },
           },
-          head: isSTRubric
-            ? [sectionTitle, "Score"]
-            : [sectionTitle, "Description", "Score", "Comments"],
+          head: rubricHeaders(currentForm, sectionTitle),
           body: body,
         });
       }
@@ -250,23 +292,17 @@ const PDFData = () => {
     });
 
     const feedbackRows = [
-      [
-        isSTRubric ? "Behavior Assignment Comments" : "Strengths",
-        feedback.strengths,
-      ],
-      [
-        isSTRubric ? "Collaboration Assignment Comments" : "Suggestions",
-        feedback.suggestions,
-      ],
-      [
-        isSTRubric ? "IEP/IFSP Assignment Comments" : "Next Focus",
-        feedback.nextFocus,
-      ],
+      [feedbackLabel(currentForm, 1), feedback.area1],
+      [feedbackLabel(currentForm, 2), feedback.area2],
+      [feedbackLabel(currentForm, 3), feedback.area3],
     ];
 
     if (currentForm === formOptions.selfEvaluation) {
       feedbackRows.pop();
-      feedbackRows.push(["Goal 1", feedback.goal1], ["Goal 2", feedback.goal2]);
+      feedbackRows.push(
+        [feedbackLabel(currentForm, 4), feedback.area4],
+        [feedbackLabel(currentForm, 5), feedback.area5]
+      );
     }
 
     feedbackRows.forEach(([title, comment], index) => {

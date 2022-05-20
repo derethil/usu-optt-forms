@@ -48,7 +48,9 @@ export default function QuestionRow(props: Props | CommentProps) {
       <OptionRow
         currSelection={String(props.score)}
         contentOptions={props.scoreOptions.map((content) => content.toString())}
-        updateSelection={(newSelection) => props.updateScore(newSelection)}
+        updateSelection={(newSelection) =>
+          props.updateScore(newSelection as string)
+        }
         titleStyles={css`
           color: ${Color.neutrals.grayDark};
         `}

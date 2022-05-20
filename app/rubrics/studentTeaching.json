@@ -17,7 +17,7 @@
       },
       {
         "area": "Components",
-        "tooltip": "1. Linked to sequenced IEP goal / objectives / instructional units<br>2. Appropriate relevant chunking<br>3. Sufficient number of trials and items<br>4. Scaffolding – includes reduction  of support",
+        "info": "1. Linked to sequenced IEP goal / objectives / instructional units<br>2. Appropriate relevant chunking<br>3. Sufficient number of trials and items<br>4. Scaffolding – includes reduction  of support",
         "options": [
           {
             "content": "Lesson Plan includes all 4 components",
@@ -39,7 +39,7 @@
       },
       {
         "area": "Individualization",
-        "tooltip": "1. Matching / adapting content to learners,  <br>2. Accounting for diversity of learners, <br>3. Purpose / rationale for teaching content, <br>4. Age / developmentally appropriate",
+        "info": "1. Matching / adapting content to learners,  <br>2. Accounting for diversity of learners, <br>3. Purpose / rationale for teaching content, <br>4. Age / developmentally appropriate",
         "options": [
           {
             "content": "Lesson plan includes all elements of individualization",
@@ -92,7 +92,7 @@
       },
       {
         "area": "Opportunities to Respond",
-        "tooltip": "1. Includes relevant combination of individual, group and dispersed turns <br> 2. Provides sufficient opportunities to respond to keep pupils engaged <br> 3. Appropriate pacing",
+        "info": "1. Includes relevant combination of individual, group and dispersed turns <br> 2. Provides sufficient opportunities to respond to keep pupils engaged <br> 3. Appropriate pacing",
         "options": [
           {
             "content": "Includes all successful aspects of opportunities to respond",
@@ -127,7 +127,7 @@
       },
       {
         "area": "Instruction",
-        "tooltip": "1. clear academic expectations / directions <br> 2.  New Material - succinct and engaging demonstration / modeling <br> (includes clear steps, prompted known steps / decisions and modeled / taught new steps / decisions) <br>  3. Guided / Individual Practice - appropriate scaffolding based on pupil responses <br>  4. teacher language is brief and consistent <br>  5. “thinks on feet” makes adjustments as needed",
+        "info": "1. clear academic expectations / directions <br> 2.  New Material - succinct and engaging demonstration / modeling <br> (includes clear steps, prompted known steps / decisions and modeled / taught new steps / decisions) <br>  3. Guided / Individual Practice - appropriate scaffolding based on pupil responses <br>  4. teacher language is brief and consistent <br>  5. “thinks on feet” makes adjustments as needed",
         "options": [
           {
             "content": "Includes all aspects of proper instruction",
@@ -235,7 +235,7 @@
       },
       {
         "area": "Engagement",
-        "tooltip": "1. Teacher arranges pupils, materials and environment to positively engage pupils <br> 2. Pupils are responding and attending most of the time <br> 3. Teacher and / or pupils follow general classroom and school routines <br> (i.e., gathering materials, transitions, circle time, interruptions, start up and ending routines, etc.)",
+        "info": "1. Teacher arranges pupils, materials and environment to positively engage pupils <br> 2. Pupils are responding and attending most of the time <br> 3. Teacher and / or pupils follow general classroom and school routines <br> (i.e., gathering materials, transitions, circle time, interruptions, start up and ending routines, etc.)",
         "options": [
           {
             "content": "Includes all aspects of positive engagement most of the time",
@@ -291,7 +291,7 @@
       },
       {
         "area": "Management",
-        "tooltip": "1. Consistently follows management plan effectively for problem / academic / social behaviors <br> 2. Consistently responds positively to appropriate academic / social behavior to enhance learning <br> (delivers consequences as indicated, restates relevant expectations, etc.)",
+        "info": "1. Consistently follows management plan effectively for problem / academic / social behaviors <br> 2. Consistently responds positively to appropriate academic / social behavior to enhance learning <br> (delivers consequences as indicated, restates relevant expectations, etc.)",
         "options": [
           {
             "content": "All problem behaviors addressed using effective management and / or always follows management plan for appropriate academic / social behavior",
@@ -370,7 +370,7 @@
     "rows": [
       {
         "area": "Checklist",
-        "tooltip": "Mark N / A if student is an associate teacher",
+        "info": "Mark N / A if student is an associate teacher",
         "options": [
           {
             "content": "90% or higher",
@@ -394,11 +394,11 @@
   },
   {
     "sectionTitle": "Professionalism",
-    "tooltip": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
+    "info": "Refer to USU Department of Special Education and Rehabilitation Professional Guidelines",
     "rows": [
       {
         "area": "Dress and Hygiene",
-        "tooltip": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "info": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
         "options": [
           {
             "content": "Dresses appropriately and maintains good personal hygiene",
@@ -412,7 +412,7 @@
       },
       {
         "area": "Accepting Feedback",
-        "tooltip": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
+        "info": "1. Accepts feedback <br> 2. Acknowledges need for improvement, <br> 3. Asks questions for clarification, <br> 4. Immediately implements recommended changes",
         "options": [
           {
             "content": "Responds appropriately to feedback",
@@ -426,7 +426,7 @@
       },
       {
         "area": "Implementing Changes",
-        "tooltip": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
+        "info": "1. Implements changes in behavior, procedure, or schedule as recommended <br> 2. Checks with person who provided feedback to receive input on whether implementation is correct",
         "options": [
           {
             "content": "Correctly implements changes after being given feedback",
@@ -440,7 +440,7 @@
       },
       {
         "area": "Classroom Attitude",
-        "tooltip": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
+        "info": "Exhibits appropriate verbal and nonverbal communication <br> (i.e., tone of voice, facial expression, gestures, etc.) <br> when interacting with teachers, classroom staff, and students.",
         "options": [
           {
             "content": "Exhibits positive and respectful attitude in the classroom",
@@ -454,7 +454,7 @@
       },
       {
         "area": "Professional Attributes",
-        "tooltip": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
+        "info": "Effective team member, appropriate levels of independence, constructive verbal messages, <br> listen to and understands feedback, self / social awareness, self / relationship management, <br> accepts responsibility, self-control, expresses self appropriately, generalized information",
         "options": [
           {
             "content": "Demonstrates many or all professional attributes",
@@ -468,7 +468,7 @@
       },
       {
         "area": "Interactions",
-        "tooltip": "Interacts appropriately and assigns tasks as needed to classroom staff, <br> related service personnel, classroom teachers, peer tutors and other school staff",
+        "info": "Interacts appropriately and assigns tasks as needed to classroom staff, <br> related service personnel, classroom teachers, peer tutors and other school staff",
         "options": [
           {
             "content": "Interacts appropriately almost all or all of the time",
@@ -482,7 +482,7 @@
       },
       {
         "area": "Assignments",
-        "tooltip": "1. Demonstrates adequate progress toward PPAT / assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
+        "info": "1. Demonstrates adequate progress toward PPAT / assignment completion <br> 2. Follows timelines <br> 3. Submits drafts early enough for feedback <br> 4. Communicates progress with supervisor",
         "options": [
           {
             "content": "Follows assignment procedure all or most of the time ",

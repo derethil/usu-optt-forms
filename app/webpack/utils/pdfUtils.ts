@@ -10,7 +10,7 @@ import { formatTime } from "./timerUtils";
 import * as data from "./dataUtils";
 import * as utils from "./utils";
 import { getPercent } from "./utils";
-import currentForm from "../currentForm";
+import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 
 const rubricData = FormData[currentForm].rubric;
@@ -75,11 +75,13 @@ export const getScore = (
   if (
     rowInfo.score === "Yes" ||
     rowInfo.score === "N/A" ||
-    Number(rowInfo.score) < 0
+    Number(rowInfo.score) < 0 ||
+    isNaN(Number(rowInfo.score))
   ) {
     return rowInfo.score;
   } else {
-    const maxScore = rubricData[sectionIdx].rows[rowIdx].options[0].score;
+    const row = rubricData[sectionIdx].rows[rowIdx];
+    const maxScore = utils.findMaxScore(row);
     return `${rowInfo.score} / ${maxScore}`;
   }
 };
@@ -164,3 +166,14 @@ export const genSPError = (data: ICorrections) => {
 export const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString();
 };
+
+export function rubricHeaders(currentForm: formOptions, sectionTitle: string) {
+  switch (currentForm) {
+    case formOptions.STRubric:
+      return [sectionTitle, "Score"];
+    case formOptions.teacherCandidate:
+      return [sectionTitle, "Description", "Score"];
+    default:
+      return [sectionTitle, "Description", "Score", "Comments"];
+  }
+}
