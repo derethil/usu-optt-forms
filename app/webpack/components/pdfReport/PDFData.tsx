@@ -7,7 +7,7 @@ import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
 import { getLetterGrade } from "../../utils/pdfUtils";
-import { feedbackLabel, getPercent } from "../../utils/utils";
+import { getPercent } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 import currentForm, { formOptions } from "../../currentForm";
 import FormData from "../../FormData";
@@ -17,6 +17,7 @@ import { generateRubric } from "./rubric";
 import { useSelectAll } from "../../hooks/hooks";
 import { generateObservations } from "./observations";
 import { generateFeedback } from "./feedback";
+import { generateNotebookChecks } from "./notebookCheck";
 
 // Component that provides PDF generation and the button to do so.
 
@@ -29,9 +30,8 @@ export type PDFDataProps = {
 };
 
 const PDFData = () => {
-  // The report uses all data so we need to grab every state object
-
   const data = useSelectAll();
+  const { score, possible, summary } = generateScoreData(data.rubricScores);
 
   const generatePDF = () => {
     // Setup
@@ -42,8 +42,10 @@ const PDFData = () => {
       font: "helvetica",
     });
 
+    // USU Logo
     generator.pdf.addImage(usuLogoB64, "png", 165, 11, 30, 10.05); // Top-right USU logo
 
+    // Report title
     if (currentForm !== formOptions.teacherCandidate) {
       generator.pdf.text(
         `USU SPER ${FormData[currentForm].title} Report`,
@@ -55,24 +57,19 @@ const PDFData = () => {
     }
 
     // General Info
-
     generator.table({
       startY: 24.5,
       head: ["Information", ""],
       body: generateFormInfoBody(data.formInfo),
     });
 
-    // Total Score Summary
-
-    // Section Summary
-
-    const { score, possible, summary } = generateScoreData(data.rubricScores);
-
+    // Area Scores
     generator.table({
       head: ["Performance Summary", "Score"],
       body: summary,
     });
 
+    // Total Score
     if (currentForm !== formOptions.STRubric) {
       generator.table({
         head: ["Total Score", ""],
@@ -88,6 +85,7 @@ const PDFData = () => {
       });
     }
 
+    // Observation Narrative
     if (currentForm === formOptions.teacherCandidate) {
       generator.table({
         startY: "RELATIVE",
@@ -102,36 +100,14 @@ const PDFData = () => {
     generateRubric(generator, data);
 
     // Add notebook check data if rubric is math
-    if (data.data1.currentForm === formOptions.math) {
-      generator.table({
-        columnStyles: {
-          0: { halign: "center" },
-          1: { cellWidth: 50, halign: "center" },
-        },
-        head: [
-          `Notebook Check #${data.formInfo.observation}`,
-          "                  Score",
-        ],
-        body: data.checks.numbered.map(({ score, content }) => {
-          return [content, String(score)];
-        }),
-      });
-
-      generator.table({
-        columnStyles: {
-          0: { halign: "center" },
-          1: { cellWidth: 50, halign: "center" },
-        },
-        head: [`Final Notebook Check`, "                   Score"],
-        body: data.checks.final.map(({ score, content }) => {
-          return [content, String(score)];
-        }),
-      });
+    if (currentForm === formOptions.math) {
+      generateNotebookChecks(generator, data);
     }
 
+    // Feedback
     generateFeedback(generator, data);
 
-    // Save
+    // Save to file
     const date = new Date(data.formInfo.date);
     generator.pdf.save(
       `${data.formInfo.studentTeacher} ${
