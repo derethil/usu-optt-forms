@@ -1,9 +1,9 @@
-import PDFGenerator from "./PDFGenerator";
-import { genSTObservationBody } from "../../utils/pdfUtils";
-import Color from "../../styledComponents/colors";
-import { formOptions } from "../../currentForm";
-import { DataSchema } from "../../types/dataTypes";
-import { ITimerState } from "../../slices/timersSlice";
+import PDFGenerator from "./../PDFGenerator";
+import { genSTObservationBody } from "../../../utils/pdfUtils";
+import Color from "../../../styledComponents/colors";
+import { formOptions } from "../../../currentForm";
+import { DataSchema } from "../../../types/dataTypes";
+import { ITimerState } from "../../../slices/timersSlice";
 
 // Procedure to generate the data section of report for studentTeaching form.
 

@@ -1,15 +1,15 @@
-import PDFGenerator from "./PDFGenerator";
-import { DataSchema } from "../../types/dataTypes";
+import PDFGenerator from "./../PDFGenerator";
+import { DataSchema } from "../../../types/dataTypes";
 import {
   getOTRRate,
   getPraiseRatio,
   getPraiseSum,
-} from "../../utils/dataUtils";
-import { genSPError, genSPSequence } from "../../utils/pdfUtils";
-import { getPercent } from "../../utils/utils";
-import Color from "../../styledComponents/colors";
-import { ITimerState, timer1 } from "../../slices/timersSlice";
-import { formOptions } from "../../currentForm";
+} from "../../../utils/dataUtils";
+import { genSPError, genSPSequence } from "../../../utils/pdfUtils";
+import { getPercent } from "../../../utils/utils";
+import Color from "../../../styledComponents/colors";
+import { ITimerState, timer1 } from "../../../slices/timersSlice";
+import { formOptions } from "../../../currentForm";
 
 // Procedure to generate data section report from severePracticum form
 

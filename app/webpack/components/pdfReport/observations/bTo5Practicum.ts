@@ -1,11 +1,11 @@
-import PDFGenerator from "./PDFGenerator";
-import { getPercent } from "../../utils/utils";
-import { PDFDataProps } from "./PDFData";
-import * as dataUtils from "../../utils/dataUtils";
-import Color from "../../styledComponents/colors";
-import { formOptions } from "../../currentForm";
-import { DataSchema } from "../../types/dataTypes";
-import { ITimerState } from "../../slices/timersSlice";
+import PDFGenerator from "../PDFGenerator";
+import { getPercent } from "../../../utils/utils";
+import { PDFDataProps } from "../PDFData";
+import * as dataUtils from "../../../utils/dataUtils";
+import Color from "../../../styledComponents/colors";
+import { formOptions } from "../../../currentForm";
+import { DataSchema } from "../../../types/dataTypes";
+import { ITimerState } from "../../../slices/timersSlice";
 
 // Procedure to generate the data section of report for birth to five practicum
 

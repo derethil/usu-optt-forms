@@ -1,11 +1,11 @@
-import PDFGenerator from "./PDFGenerator";
-import { DataSchema } from "../../types/dataTypes";
+import PDFGenerator from "./../PDFGenerator";
+import { DataSchema } from "../../../types/dataTypes";
 
-import { getPercent } from "../../utils/utils";
-import Color from "../../styledComponents/colors";
-import { ITimerState } from "../../slices/timersSlice";
-import { formOptions } from "../../currentForm";
-import { formatTime } from "../../utils/timerUtils";
+import { getPercent } from "../../../utils/utils";
+import Color from "../../../styledComponents/colors";
+import { ITimerState } from "../../../slices/timersSlice";
+import { formOptions } from "../../../currentForm";
+import { formatTime } from "../../../utils/timerUtils";
 
 // Procedure to generate the data section of report for the math form.
 
