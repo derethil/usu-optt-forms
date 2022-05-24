@@ -191,13 +191,15 @@ export const App = () => {
 
   return (
     <PageContainer>
-      {/* HashRouter allows the offline forms to use routing as well */}
+      {/* HashRouter rather than BrowserRouter allows the offline forms to use routing as well */}
       <HashRouter>
         <PageHeader>
           <img alt="logo" width={300} src={logo} />
           <Title>{FormData[currentForm].title} Form</Title>
         </PageHeader>
+
         <Navbar dynamicRoutes={dynamicRoutes} />
+
         <Switch>
           <Route exact path="/" key="FormHome">
             <FormHome />

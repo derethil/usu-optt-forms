@@ -6,13 +6,8 @@ import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
 
 import PDFGenerator from "./PDFGenerator";
-import {
-  formatDate,
-  getLetterGrade,
-  getScore,
-  rubricHeaders,
-} from "../../utils/pdfUtils";
-import { feedbackLabel, getPercent, overrideRegex } from "../../utils/utils";
+import { getLetterGrade } from "../../utils/pdfUtils";
+import { feedbackLabel, getPercent } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 
 import studentTeachingSection from "./studentTeaching";
@@ -31,8 +26,9 @@ import {
   data1 as dataReducer1,
   data2 as dataReducer2,
 } from "../../slices/dataSlice";
-import { selectQuestions } from "../../slices/questionsSlice";
 import generateFormInfoBody from "./formInfoGenerator";
+import { generateRubric } from "./rubric";
+import { selectQuestions } from "../../slices/questionsSlice";
 
 // Component that provides PDF generation and the button to do so.
 
@@ -47,7 +43,6 @@ export type PDFDataProps = {
 const PDFData = () => {
   // The report uses all data so we need to grab every state object
   const formInfo = useAppSelector(selectFormInfo);
-  const rubricScores = useAppSelector(selectRubric);
   const feedback = useAppSelector(selectFeedback);
   const checks = useAppSelector(selectNotebookChecks);
   const data1 = useAppSelector(dataReducer1.selector);
@@ -55,9 +50,8 @@ const PDFData = () => {
   const timerState1 = useAppSelector(timer1.selector);
   const timerState2 = useAppSelector(timer2.selector);
   const timerState3 = useAppSelector(timer3.selector);
+  const rubricScores = useAppSelector(selectRubric);
   const questions = useAppSelector(selectQuestions);
-
-  const isSTRubric = currentForm === formOptions.STRubric;
 
   const generatePDF = () => {
     // Setup
@@ -99,7 +93,7 @@ const PDFData = () => {
       body: summary,
     });
 
-    if (!isSTRubric) {
+    if (currentForm !== formOptions.STRubric) {
       generator.table({
         head: ["Total Score", ""],
         columnStyles: {
@@ -159,103 +153,8 @@ const PDFData = () => {
         timerState3
       );
     }
-    // // Individual Scores
-
-    generator.table({
-      // startY: 18,
-      head: ["Scores"],
-    });
-
-    const rubric = FormData[currentForm].rubric;
-
-    // Loops over the rubric and puts it in the correct format
-
-    Object.entries(rubricScores).forEach(
-      ([sectionTitle, scoresObj], sectionIdx) => {
-        const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
-
-        const body = Object.entries(scoresObj).map(
-          ([rowTitle, rowInfo], rowIdx) => {
-            const selectedOption = rubric[sectionIdx].rows[rowIdx].options.find(
-              (option) => {
-                return String(option.score) === rowInfo.score;
-              }
-            );
-            let score = getScore(rowInfo, sectionIdx, rowIdx);
-            let description = selectedOption ? selectedOption.content : score;
-
-            if (
-              currentForm === formOptions.teacherCandidate &&
-              rowTitle.includes("10.")
-            ) {
-              score = "N/A";
-            }
-
-            if (!Array.isArray(description)) {
-              description = description.split("//");
-            }
-
-            if (Array.isArray(description)) {
-              description = description.map((e) => "• " + e).join("\n");
-            }
-
-            const rubricRow = [
-              rowTitle,
-              description,
-              score,
-              rowInfo.comment.replace(overrideRegex, "").trim(),
-            ];
-
-            return isSTRubric ? [rowTitle, score] : rubricRow;
-          }
-        );
-
-        const conferenced = Object.values(questions);
-
-        if (isSTRubric) {
-          body.push([
-            "District Coach conferenced with the student teacher after grading?",
-            conferenced[sectionIdx],
-          ]);
-        }
-
-        generator.table({
-          startY: sectionIdx === 0 ? startY : "RELATIVE",
-          headStyles: {
-            fillColor: Color.blues.blue,
-            valign: "middle",
-            halign: "center",
-          },
-          columnStyles: {
-            0: {
-              cellWidth: isSTRubric
-                ? "auto"
-                : currentForm === formOptions.teacherCandidate
-                ? 50
-                : 35,
-              valign: "middle",
-            },
-            1: {
-              cellWidth: isSTRubric ? 50 : "auto",
-              halign:
-                currentForm === formOptions.teacherCandidate
-                  ? "left"
-                  : "center",
-              valign: "middle",
-              cellPadding: { vertical: 4 },
-            },
-            2: { cellWidth: 25, halign: "center", valign: "middle" },
-            3: {
-              cellWidth: 50,
-              halign: "center",
-              cellPadding: { horizontal: 5, vertical: 2 },
-            },
-          },
-          head: rubricHeaders(currentForm, sectionTitle),
-          body: body,
-        });
-      }
-    );
+    // Individual Scores
+    generateRubric(rubricScores, generator, questions);
 
     // Add notebook check data if rubric is math
     if (data1.currentForm === formOptions.math) {

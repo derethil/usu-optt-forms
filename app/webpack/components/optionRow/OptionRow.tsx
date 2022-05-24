@@ -72,6 +72,7 @@ const OptionRow = (props: OptionRowProps) => {
     }, [props["comment"]]);
   }
 
+  // Builds and stores the components in the row (buttons, comment box, etc)
   const rowContents = props.options.map((option, idx) => {
     const compare = hasScoreOptions ? option.score : option.content;
 
@@ -148,6 +149,7 @@ const OptionRow = (props: OptionRowProps) => {
     );
   }
 
+  // Determines how title should be rendered based on props
   const renderTitle = (info?: string) => {
     if (info && !props.alternateInfoStyle) {
       // Render info as tooltip
