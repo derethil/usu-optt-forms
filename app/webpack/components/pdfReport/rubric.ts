@@ -1,5 +1,5 @@
 import currentForm, { formOptions } from "../../currentForm";
-import { ScoresState } from "../../types/types";
+import { IData, ScoresState } from "../../types/types";
 import PDFGenerator from "./PDFGenerator";
 import FormData from "../../FormData";
 import Color from "../../styledComponents/colors";
@@ -105,11 +105,7 @@ function tableBody(scores: IScoresObj, idx: number): string[][] {
   });
 }
 
-export function generateRubric(
-  scores: ScoresState,
-  generator: PDFGenerator,
-  questions: ISTRubric
-): void {
+export function generateRubric(generator: PDFGenerator, data: IData): void {
   generator.table({
     // startY: 18,
     head: ["Scores"],
@@ -119,13 +115,14 @@ export function generateRubric(
 
   const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
 
+  const scores = data.rubricScores;
   Object.entries(scores).forEach(([sectionTitle, scoresObj], idx) => {
     const body = tableBody(scoresObj, idx);
 
     if (isST) {
       body.push([
         "District Coach conferenced with the student teacher after grading?",
-        Object.values(questions)[idx],
+        Object.values(data.questions)[idx],
       ]);
     }
 

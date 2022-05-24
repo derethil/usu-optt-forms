@@ -9,17 +9,13 @@ import PDFGenerator from "./PDFGenerator";
 import { getLetterGrade } from "../../utils/pdfUtils";
 import { feedbackLabel, getPercent } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
-
-import studentTeachingSection from "./studentTeaching";
-import severePracticumReadingSection from "./severePracticum";
-import bTo5PracticumSection from "./bTo5Practicum";
 import currentForm, { formOptions } from "../../currentForm";
 import FormData from "../../FormData";
-import mathGuidedPractice from "./math";
 
 import generateFormInfoBody from "./formInfoGenerator";
 import { generateRubric } from "./rubric";
 import { useSelectAll } from "../../hooks/hooks";
+import { generateObservations } from "./observations";
 
 // Component that provides PDF generation and the button to do so.
 
@@ -100,50 +96,9 @@ const PDFData = () => {
       });
     }
 
-    // Observations
-
-    if (currentForm === formOptions.studentTeaching) {
-      studentTeachingSection(
-        generator,
-        data.data1,
-        data.data2,
-        data.timerState1,
-        data.timerState2
-      );
-    } else if (
-      [
-        formOptions.severeReadingPracticum,
-        formOptions.severeMLSPracticum,
-        formOptions.selfEvaluation,
-      ].includes(currentForm)
-    ) {
-      severePracticumReadingSection(generator, data.data1, data.timerState1);
-    } else if (data.data1.currentForm === formOptions.bTo5Practicum) {
-      bTo5PracticumSection(generator, data.data1, data.timerState1);
-    } else if (data.data1.currentForm === formOptions.reading) {
-      severePracticumReadingSection(
-        generator,
-        data.data1,
-        data.timerState1,
-        "Decoding Data"
-      );
-      severePracticumReadingSection(
-        generator,
-        data.data2,
-        data.timerState2,
-        "Story Reading Data"
-      );
-    } else if (data.data1.currentForm === formOptions.math) {
-      mathGuidedPractice(
-        generator,
-        data.data1,
-        data.timerState1,
-        data.timerState2,
-        data.timerState3
-      );
-    }
-    // Individual Scores
-    generateRubric(data.rubricScores, generator, data.questions);
+    // Observations & Rubric Scores
+    generateObservations(generator, data);
+    generateRubric(generator, data);
 
     // Add notebook check data if rubric is math
     if (data.data1.currentForm === formOptions.math) {
