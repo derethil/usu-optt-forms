@@ -105,7 +105,7 @@ function tableBody(scores: IScoresObj, idx: number): string[][] {
   });
 }
 
-export function generateRubric(generator: PDFGenerator, data: IData): void {
+export default function generate(generator: PDFGenerator, data: IData): void {
   generator.table({
     // startY: 18,
     head: ["Scores"],

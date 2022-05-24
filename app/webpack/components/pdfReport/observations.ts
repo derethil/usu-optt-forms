@@ -2,15 +2,15 @@ import currentForm, { formOptions } from "../../currentForm";
 import PDFGenerator from "./PDFGenerator";
 import { IData } from "../../types/types";
 
-import bTo5PracticumSection from "./observations/bTo5Practicum";
+import bTo5Practicum from "./observations/bTo5Practicum";
 import mathGuidedPractice from "./observations/math";
-import severePracticumReadingSection from "./observations/severePracticum";
-import studentTeachingSection from "./observations/studentTeaching";
+import severePracticumReading from "./observations/severePracticum";
+import studentTeaching from "./observations/studentTeaching";
 
-export function generateObservations(generator: PDFGenerator, data: IData) {
+export default function generate(generator: PDFGenerator, data: IData) {
   switch (currentForm) {
     case formOptions.studentTeaching:
-      studentTeachingSection(
+      studentTeaching(
         generator,
         data.data1,
         data.data2,
@@ -21,13 +21,13 @@ export function generateObservations(generator: PDFGenerator, data: IData) {
     case formOptions.severeReadingPracticum:
     case formOptions.severeMLSPracticum:
     case formOptions.selfEvaluation:
-      severePracticumReadingSection(generator, data.data1, data.timerState1);
+      severePracticumReading(generator, data.data1, data.timerState1);
 
     case formOptions.bTo5Practicum:
-      bTo5PracticumSection(generator, data.data1, data.timerState1);
+      bTo5Practicum(generator, data.data1, data.timerState1);
 
     case formOptions.reading:
-      severePracticumReadingSection(
+      severePracticumReading(
         generator,
         data.data1,
         data.timerState1,

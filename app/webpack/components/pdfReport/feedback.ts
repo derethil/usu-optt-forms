@@ -4,7 +4,7 @@ import { IData } from "../../types/types";
 import { feedbackLabel } from "../../utils/utils";
 import PDFGenerator from "./PDFGenerator";
 
-export function generateFeedback(generator: PDFGenerator, data: IData) {
+export default function generate(generator: PDFGenerator, data: IData) {
   generator.table({
     head: ["Feedback"],
   });

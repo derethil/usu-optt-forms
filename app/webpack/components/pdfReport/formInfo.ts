@@ -1,5 +1,5 @@
 import currentForm, { formOptions } from "../../currentForm";
-import { IFormInfo } from "../../types/types";
+import { IData, IFormInfo } from "../../types/types";
 import { formatDate } from "../../utils/pdfUtils";
 import {
   insertIf,
@@ -8,10 +8,11 @@ import {
   studentTitle,
   superior,
 } from "../../utils/utils";
+import PDFGenerator from "./PDFGenerator";
 
 // Function to determine what the FormInfo should contain for the report
 
-export default function generateFormInfoBody(formInfo: IFormInfo) {
+function generateBody(formInfo: IFormInfo) {
   const main = [
     [studentTitle(currentForm), formInfo.studentTeacher],
     ["Cooperating Teacher", formInfo.cooperatingTeacher],
@@ -74,4 +75,12 @@ export default function generateFormInfoBody(formInfo: IFormInfo) {
         [otherLabel(currentForm), formInfo.other],
       ];
   }
+}
+
+export default function generate(generator: PDFGenerator, data: IData) {
+  generator.table({
+    startY: 24.5,
+    head: ["Information", ""],
+    body: generateBody(data.formInfo),
+  });
 }

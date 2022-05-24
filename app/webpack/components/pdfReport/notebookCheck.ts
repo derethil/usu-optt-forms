@@ -1,7 +1,7 @@
 import { IData } from "../../types/types";
 import PDFGenerator from "./PDFGenerator";
 
-export function generateNotebookChecks(generator: PDFGenerator, data: IData) {
+export default function generate(generator: PDFGenerator, data: IData) {
   generator.table({
     columnStyles: {
       0: { halign: "center" },

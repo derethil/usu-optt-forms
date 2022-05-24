@@ -1,23 +1,23 @@
 import React from "react";
+
 import { ITimerState } from "../../slices/timersSlice";
 import { DataSchema } from "../../types/dataTypes";
 import { Button } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import usuLogoB64 from "../../../static/img/usuLogoB64";
-
 import PDFGenerator from "./PDFGenerator";
+import FormData from "../../FormData";
+import { useSelectAll } from "../../hooks/hooks";
 import { getLetterGrade } from "../../utils/pdfUtils";
 import { getPercent } from "../../utils/utils";
 import { generateScoreData } from "../../utils/scoreUtils";
 import currentForm, { formOptions } from "../../currentForm";
-import FormData from "../../FormData";
 
-import generateFormInfoBody from "./formInfoGenerator";
-import { generateRubric } from "./rubric";
-import { useSelectAll } from "../../hooks/hooks";
-import { generateObservations } from "./observations";
-import { generateFeedback } from "./feedback";
-import { generateNotebookChecks } from "./notebookCheck";
+import generateRubric from "./rubric";
+import generateObservations from "./observations";
+import generateFeedback from "./feedback";
+import generateNotebookChecks from "./notebookCheck";
+import generateFormInfo from "./formInfo";
 
 // Component that provides PDF generation and the button to do so.
 
@@ -57,11 +57,7 @@ const PDFData = () => {
     }
 
     // General Info
-    generator.table({
-      startY: 24.5,
-      head: ["Information", ""],
-      body: generateFormInfoBody(data.formInfo),
-    });
+    generateFormInfo(generator, data);
 
     // Area Scores
     generator.table({
