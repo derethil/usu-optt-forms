@@ -16,19 +16,10 @@ import bTo5PracticumSection from "./bTo5Practicum";
 import currentForm, { formOptions } from "../../currentForm";
 import FormData from "../../FormData";
 import mathGuidedPractice from "./math";
-import { selectFormInfo } from "../../slices/formInfoSlice";
-import { useAppSelector } from "../../hooks/hooks";
-import { selectRubric } from "../../slices/rubricSlice";
-import { selectFeedback } from "../../slices/feedbackSlice";
-import { selectNotebookChecks } from "../../slices/notebookChecksSlice";
-import { timer1, timer2, timer3 } from "../../slices/timersSlice";
-import {
-  data1 as dataReducer1,
-  data2 as dataReducer2,
-} from "../../slices/dataSlice";
+
 import generateFormInfoBody from "./formInfoGenerator";
 import { generateRubric } from "./rubric";
-import { selectQuestions } from "../../slices/questionsSlice";
+import { useSelectAll } from "../../hooks/hooks";
 
 // Component that provides PDF generation and the button to do so.
 
@@ -42,16 +33,8 @@ export type PDFDataProps = {
 
 const PDFData = () => {
   // The report uses all data so we need to grab every state object
-  const formInfo = useAppSelector(selectFormInfo);
-  const feedback = useAppSelector(selectFeedback);
-  const checks = useAppSelector(selectNotebookChecks);
-  const data1 = useAppSelector(dataReducer1.selector);
-  const data2 = useAppSelector(dataReducer2.selector);
-  const timerState1 = useAppSelector(timer1.selector);
-  const timerState2 = useAppSelector(timer2.selector);
-  const timerState3 = useAppSelector(timer3.selector);
-  const rubricScores = useAppSelector(selectRubric);
-  const questions = useAppSelector(selectQuestions);
+
+  const data = useSelectAll();
 
   const generatePDF = () => {
     // Setup
@@ -79,14 +62,14 @@ const PDFData = () => {
     generator.table({
       startY: 24.5,
       head: ["Information", ""],
-      body: generateFormInfoBody(formInfo),
+      body: generateFormInfoBody(data.formInfo),
     });
 
     // Total Score Summary
 
     // Section Summary
 
-    const { score, possible, summary } = generateScoreData(rubricScores);
+    const { score, possible, summary } = generateScoreData(data.rubricScores);
 
     generator.table({
       head: ["Performance Summary", "Score"],
@@ -113,14 +96,20 @@ const PDFData = () => {
         startY: "RELATIVE",
         head: ["Observation Narrative"],
         headStyles: { fillColor: Color.blues.blue },
-        body: [[formInfo.narrative]],
+        body: [[data.formInfo.narrative]],
       });
     }
 
     // Observations
 
     if (currentForm === formOptions.studentTeaching) {
-      studentTeachingSection(generator, data1, data2, timerState1, timerState2);
+      studentTeachingSection(
+        generator,
+        data.data1,
+        data.data2,
+        data.timerState1,
+        data.timerState2
+      );
     } else if (
       [
         formOptions.severeReadingPracticum,
@@ -128,46 +117,46 @@ const PDFData = () => {
         formOptions.selfEvaluation,
       ].includes(currentForm)
     ) {
-      severePracticumReadingSection(generator, data1, timerState1);
-    } else if (data1.currentForm === formOptions.bTo5Practicum) {
-      bTo5PracticumSection(generator, data1, timerState1);
-    } else if (data1.currentForm === formOptions.reading) {
+      severePracticumReadingSection(generator, data.data1, data.timerState1);
+    } else if (data.data1.currentForm === formOptions.bTo5Practicum) {
+      bTo5PracticumSection(generator, data.data1, data.timerState1);
+    } else if (data.data1.currentForm === formOptions.reading) {
       severePracticumReadingSection(
         generator,
-        data1,
-        timerState1,
+        data.data1,
+        data.timerState1,
         "Decoding Data"
       );
       severePracticumReadingSection(
         generator,
-        data2,
-        timerState2,
+        data.data2,
+        data.timerState2,
         "Story Reading Data"
       );
-    } else if (data1.currentForm === formOptions.math) {
+    } else if (data.data1.currentForm === formOptions.math) {
       mathGuidedPractice(
         generator,
-        data1,
-        timerState1,
-        timerState2,
-        timerState3
+        data.data1,
+        data.timerState1,
+        data.timerState2,
+        data.timerState3
       );
     }
     // Individual Scores
-    generateRubric(rubricScores, generator, questions);
+    generateRubric(data.rubricScores, generator, data.questions);
 
     // Add notebook check data if rubric is math
-    if (data1.currentForm === formOptions.math) {
+    if (data.data1.currentForm === formOptions.math) {
       generator.table({
         columnStyles: {
           0: { halign: "center" },
           1: { cellWidth: 50, halign: "center" },
         },
         head: [
-          `Notebook Check #${formInfo.observation}`,
+          `Notebook Check #${data.formInfo.observation}`,
           "                  Score",
         ],
-        body: checks.numbered.map(({ score, content }) => {
+        body: data.checks.numbered.map(({ score, content }) => {
           return [content, String(score)];
         }),
       });
@@ -178,7 +167,7 @@ const PDFData = () => {
           1: { cellWidth: 50, halign: "center" },
         },
         head: [`Final Notebook Check`, "                   Score"],
-        body: checks.final.map(({ score, content }) => {
+        body: data.checks.final.map(({ score, content }) => {
           return [content, String(score)];
         }),
       });
@@ -191,16 +180,16 @@ const PDFData = () => {
     });
 
     const feedbackRows = [
-      [feedbackLabel(currentForm, 1), feedback.area1],
-      [feedbackLabel(currentForm, 2), feedback.area2],
-      [feedbackLabel(currentForm, 3), feedback.area3],
+      [feedbackLabel(currentForm, 1), data.feedback.area1],
+      [feedbackLabel(currentForm, 2), data.feedback.area2],
+      [feedbackLabel(currentForm, 3), data.feedback.area3],
     ];
 
     if (currentForm === formOptions.selfEvaluation) {
       feedbackRows.pop();
       feedbackRows.push(
-        [feedbackLabel(currentForm, 4), feedback.area4],
-        [feedbackLabel(currentForm, 5), feedback.area5]
+        [feedbackLabel(currentForm, 4), data.feedback.area4],
+        [feedbackLabel(currentForm, 5), data.feedback.area5]
       );
     }
 
@@ -215,9 +204,9 @@ const PDFData = () => {
     });
 
     // Save
-    const date = new Date(formInfo.date);
+    const date = new Date(data.formInfo.date);
     generator.pdf.save(
-      `${formInfo.studentTeacher} ${
+      `${data.formInfo.studentTeacher} ${
         date.getMonth() + 1
       }-${date.getDate()}-${date.getFullYear()}.pdf`
     );

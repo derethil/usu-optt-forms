@@ -1,6 +1,12 @@
 import { css, FlattenSimpleInterpolation } from "styled-components";
 import { formOptions } from "../currentForm";
-import { SignalSequence } from "./dataTypes";
+import { ITimerState } from "../slices/timersSlice";
+import {
+  DataSchema,
+  INotebookCheck,
+  ISTRubric,
+  SignalSequence,
+} from "./dataTypes";
 
 export interface Row {
   area: string;
@@ -96,3 +102,22 @@ export interface Option {
 
 // Type to update state values
 export type NewValues = { [key: string]: string };
+
+export interface IData {
+  formInfo: IFormInfo;
+  feedback: {
+    area1: string;
+    area2: string;
+    area3: string;
+    area4: string;
+    area5: string;
+  };
+  checks: INotebookCheck;
+  data1: DataSchema;
+  data2: DataSchema;
+  timerState1: ITimerState;
+  timerState2: ITimerState;
+  timerState3: ITimerState;
+  rubricScores: ScoresState;
+  questions: ISTRubric;
+}
