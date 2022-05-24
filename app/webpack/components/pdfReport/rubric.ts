@@ -1,5 +1,5 @@
 import currentForm, { formOptions } from "../../currentForm";
-import { IData, ScoresState } from "../../types/types";
+import { IData, RubricScore, ScoresState } from "../../types/types";
 import PDFGenerator from "./PDFGenerator";
 import FormData from "../../FormData";
 import Color from "../../styledComponents/colors";
@@ -13,14 +13,6 @@ const isST = currentForm === formOptions.STRubric;
 
 type ColStyles = {
   [key: string]: Partial<Styles>;
-};
-
-type IScoresObj = {
-  [key: string]: {
-    score: string;
-    comment: string;
-    maxScore?: string | undefined;
-  };
 };
 
 const columnStyles: ColStyles = {
@@ -71,11 +63,16 @@ function cellWidth(colIdx: number): number | "auto" {
   }
 }
 
-function tableBody(scores: IScoresObj, idx: number): string[][] {
+interface AreaScores {
+  [key: string]: RubricScore;
+}
+
+function tableBody(scores: AreaScores, idx: number): string[][] {
   return Object.entries(scores).map(([rowTitle, rowInfo], rowIdx) => {
     const selectedOption = rubric[idx].rows[rowIdx].options.find((option) => {
       return String(option.score) === rowInfo.score;
     });
+
     let score = getScore(rowInfo, idx, rowIdx);
     let description = selectedOption ? selectedOption.content : score;
 
@@ -86,22 +83,18 @@ function tableBody(scores: IScoresObj, idx: number): string[][] {
       score = "N/A";
     }
 
-    if (!Array.isArray(description)) {
-      description = description.split("//");
-    }
-
     if (Array.isArray(description)) {
       description = description.map((e) => "• " + e).join("\n");
     }
 
-    const rubricRow = [
+    const rubricRow: string[] = [
       rowTitle,
       description,
-      score,
+      String(score),
       rowInfo.comment.replace(overrideRegex, "").trim(),
     ];
 
-    return isST ? [rowTitle, score] : rubricRow;
+    return isST ? [rowTitle, String(score)] : rubricRow;
   });
 }
 
@@ -116,8 +109,8 @@ export default function generate(generator: PDFGenerator, data: IData): void {
   const startY = (generator.pdf as any).lastAutoTable.finalY + 2;
 
   const scores = data.rubricScores;
-  Object.entries(scores).forEach(([sectionTitle, scoresObj], idx) => {
-    const body = tableBody(scoresObj, idx);
+  Object.entries(scores).forEach(([areaTitle, area], idx) => {
+    const body = tableBody(area, idx);
 
     if (isST) {
       body.push([
@@ -134,7 +127,7 @@ export default function generate(generator: PDFGenerator, data: IData): void {
         halign: "center",
       },
       columnStyles: columnStyles,
-      head: rubricHeaders(currentForm, sectionTitle),
+      head: rubricHeaders(currentForm, "sectionTitle"),
       body: body,
     });
   });

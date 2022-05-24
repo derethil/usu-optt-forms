@@ -67,6 +67,7 @@ const Rubric = (props: RubricProps) => {
   const dispatch = useAppDispatch();
   const rubricData = FormData[currentForm].rubric;
   const rubricScores = useAppSelector(selectRubric);
+
   const { summary } = generateScoreData(rubricScores);
 
   function setComment(updatedValues: NewValues, section: Section, row: Row) {
@@ -79,11 +80,11 @@ const Rubric = (props: RubricProps) => {
     );
   }
 
-  function setScore(newSelection: string, section: Section, row: Row) {
-    if (Array.isArray(newSelection)) {
-      newSelection = newSelection.join("//");
-    }
-
+  function setScore(
+    newSelection: string | string[],
+    section: Section,
+    row: Row
+  ) {
     dispatch(
       setRubricScore({
         section: section.sectionTitle,

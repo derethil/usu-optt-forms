@@ -75,7 +75,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
       <TextScore
         content={row.area}
         maxScore={row.options[0].score}
-        value={rubricScores[rubricData.sectionTitle][row.area].score}
+        value={rubricScores[rubricData.sectionTitle][row.area].score as string} // STRubric does not use array scores
         updateValue={(newValues: NewValues) => {
           updateScore(
             rubricData.sectionTitle,

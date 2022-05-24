@@ -12,6 +12,7 @@ import * as utils from "./utils";
 import { getPercent } from "./utils";
 import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
+import { RubricScore } from "../types/types";
 
 const rubricData = FormData[currentForm].rubric;
 
@@ -65,19 +66,12 @@ export const getLetterGrade = (percent: number): string => {
   }
 };
 
-type rowInfoType = { score: string; comment: string };
-
 export const getScore = (
-  rowInfo: rowInfoType,
+  rowInfo: RubricScore,
   sectionIdx: number,
   rowIdx: number
 ) => {
-  if (
-    rowInfo.score === "Yes" ||
-    rowInfo.score === "N/A" ||
-    Number(rowInfo.score) < 0 ||
-    isNaN(Number(rowInfo.score))
-  ) {
+  if (Number(rowInfo.score) < 0 || isNaN(Number(rowInfo.score))) {
     return rowInfo.score;
   } else {
     const row = rubricData[sectionIdx].rows[rowIdx];

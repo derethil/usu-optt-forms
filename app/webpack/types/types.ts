@@ -27,13 +27,14 @@ export interface Section {
   rows: Row[];
 }
 
+export interface RubricScore {
+  score: string | string[];
+  comment: string;
+  maxScore?: string;
+}
 export interface ScoresState {
   [key: string]: {
-    [key: string]: {
-      score: string;
-      comment: string;
-      maxScore?: string;
-    };
+    [key: string]: RubricScore;
   };
 }
 

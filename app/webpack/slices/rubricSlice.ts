@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
-import { ScoresState, Section, Option } from "../types/types";
+import { ScoresState, Section, Option, RubricScore } from "../types/types";
 import { findMaxScore } from "../utils/utils";
 
 interface JSONOption {
@@ -14,7 +14,8 @@ interface JSONOption {
 
 function getInitialScore(score: any): string {
   if (Array.isArray(score)) {
-    return score.join("//");
+    const joined = score.join("//");
+    return joined.includes("//") ? joined : "//" + joined;
   } else if (typeof score === "number") {
     return String(score);
   } else {
@@ -22,7 +23,7 @@ function getInitialScore(score: any): string {
   }
 }
 
-const getInitialState = (rubricData: Section[]): ScoresState => {
+const getInitialState = (rubricData: Section[]) => {
   let initialState: ScoresState = {};
 
   if (currentForm !== formOptions.STRubric) {
@@ -68,7 +69,7 @@ const initialState: ScoresState = getInitialState(FormData[currentForm].rubric);
 interface UpdateScoreType {
   section: string;
   row: string;
-  newScore: string;
+  newScore: string | string[];
   newComment: string;
 }
 
@@ -80,7 +81,12 @@ export const rubricSlice = createSlice({
       state,
       action: PayloadAction<Omit<UpdateScoreType, "newComment">>
     ) => {
-      const { section, row, newScore } = action.payload;
+      let { section, row, newScore } = action.payload;
+
+      if (Array.isArray(newScore)) {
+        newScore = "//".concat(newScore.join("//"));
+      }
+
       state[section][row].score = newScore;
     },
     setRubricComment: (
@@ -99,6 +105,25 @@ export const rubricSlice = createSlice({
 export const { setRubricScore, setRubricComment, resetRubric } =
   rubricSlice.actions;
 
-export const selectRubric = (state: RootState) => state.rubric;
+export const selectRubric = (state: RootState) => {
+  let rubric: ScoresState = {};
+
+  Object.entries(state.rubric).forEach(([areaTitle, area]) => {
+    rubric[areaTitle] = {};
+
+    Object.entries(area).forEach(([rowTitle, row]) => {
+      let scoreStr = row.score as string;
+
+      if (scoreStr.includes("//")) {
+        let score = scoreStr.split("//").filter((el) => el);
+        rubric[areaTitle][rowTitle] = { ...row, score };
+      } else {
+        rubric[areaTitle][rowTitle] = row;
+      }
+    });
+  });
+
+  return rubric;
+};
 
 export default rubricSlice.reducer;

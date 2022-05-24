@@ -33,7 +33,7 @@ const Container = styled.div<CSSMixin>`
 
 interface OptionRowProps {
   title?: string;
-  currSelection: string;
+  currSelection: string | string[];
   updateSelection: (newSelection: string) => void;
   info?: string;
   wrapperStyles?: FlattenSimpleInterpolation;
@@ -88,9 +88,10 @@ const OptionRow = (props: OptionRowProps) => {
         />
       );
     } else {
-      const selected = Array.isArray(compare)
-        ? arraysEqual(compare as string[], props.currSelection.split("//"))
-        : compare === props.currSelection;
+      const selected =
+        Array.isArray(compare) && Array.isArray(props.currSelection)
+          ? arraysEqual(compare, props.currSelection)
+          : compare === props.currSelection;
 
       return (
         <SelectButtonList
