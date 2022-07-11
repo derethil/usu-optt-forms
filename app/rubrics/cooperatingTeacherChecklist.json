@@ -1,0 +1,440 @@
+[
+  {
+    "sectionTitle": "Instruction and Evaluation",
+    "rows": [
+      {
+        "area": "Completes weekly master plan or schedule",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "All materials are ready prior to the lesson",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Clear formats, activities, directions and interactions with students",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Provides effective pacing and sequencing within lesson",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Accurate presentation of subject matter",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Uses data (assessment/record keeping) to plan instruction",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Demonstrates the ability to observe and reflect upon the effectiveness of a lesson",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Classroom Management",
+    "rows": [
+      {
+        "area": "Reinforces pupils when they follow classroom rules, routines and displays appropriate academic/social behavior",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Follows classroom management plan and routines",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Demonstrates the ability to focus on and monitor more than one class activity at a time.",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Assessment",
+    "rows": [
+      {
+        "area": "Maintains pupil records daily (student teacher's and cooperating teacher's)",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Professional Conduct",
+    "rows": [
+      {
+        "area": "Maintains confidentiality of information/records",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Responds favorably to constructive feedback",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Implements suggested changes after feedback is provided",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Communicates effectively to coordinate instructional and management decisions with cooperating teacher",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Demonstrates initiative in improving teaching and other professional skills.",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Demonstrates initiative in doing things that need to be done without being told to do them",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Acceptance and follow though of assigned responsibilities",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Checks school schedule. Adapts to change in classroom routine.",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Arrives and leaves school at appropriate times and is punctual for all instruction and meetings.",
+        "options": [
+          {
+            "score": "Yes"
+          },
+          {
+            "score": "No"
+          }
+        ]
+      },
+      {
+        "area": "Dresses appropriately and maintains personal hygiene",
+        "options": [
+          {
+            "score": "Yes"
+          },
+          {
+            "score": "No"
+          }
+        ]
+      },
+      {
+        "area": "Initiates contacts and gets acquainted with other members of the faculty",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Skill in working with other teachers concerning common pupils",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Participation in faculty meetings, conferences, and building or district sponsored activities",
+        "options": [
+          {
+            "score": 5
+          },
+          {
+            "score": 4
+          },
+          {
+            "score": 2
+          },
+          {
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  }
+]
