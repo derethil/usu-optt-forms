@@ -8,13 +8,28 @@ body {
   align-items: center;
 }
 
-div {
+#container {
   margin-top: 10em;
-  width: 15em;
+  width: 70em;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+#groups {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Form Links */
 
 a {
   width: 100%;
