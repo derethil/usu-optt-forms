@@ -5,10 +5,14 @@ import { Button } from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
 import { CSSMixin } from "../../types/types";
 
-const ScoreValue = styled.div`
+interface ScoreValueProps {
+  noContent?: boolean;
+}
+
+const ScoreValue = styled.div<ScoreValueProps>`
   font-size: 1.75rem;
   font-weight: 600;
-  margin-top: auto;
+  margin: ${(props) => (props.noContent ? "auto" : "auto 0 0 0")};
 `;
 
 const SelectButtonEl = styled(Button)<CSSMixin>`
@@ -32,7 +36,7 @@ const SelectButtonEl = styled(Button)<CSSMixin>`
 `;
 
 type SelectButtonProps = {
-  content: string;
+  content?: string;
   selected: boolean;
   updateSelection: (newSelection: string) => void;
   score?: string;
@@ -48,11 +52,13 @@ const SelectButton = (props: SelectButtonProps) => {
     <SelectButtonEl
       color={selected ? Color.blues.blueLight : Color.blues.blue}
       textColor={selected ? Color.blues.blue : Color.blues.blueLight}
-      onClick={() => updateSelection(selectBy)}
+      onClick={() => updateSelection(selectBy!)}
       mixin={styles}
     >
-      <p style={{ marginTop: Boolean(score) ? "auto" : "normal" }}>{content}</p>
-      {score && <ScoreValue>{score}</ScoreValue>}
+      {content && (
+        <p style={{ marginTop: Boolean(score) ? "auto" : "normal" }}>{content}</p>
+      )}
+      {score && <ScoreValue noContent={!Boolean(content)}>{score}</ScoreValue>}
     </SelectButtonEl>
   );
 };

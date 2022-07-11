@@ -14,8 +14,9 @@ export enum formOptions {
   // Other
   OPTTChecklist = "OPTTChecklist",
   teacherCandidate = "teacherCandidate",
+  cooperatingTeacherChecklist = "cooperatingTeacherChecklist",
 }
 
-const currentForm: formOptions = formOptions.OPTTChecklist;
+const currentForm: formOptions = formOptions.cooperatingTeacherChecklist;
 
 export default currentForm;

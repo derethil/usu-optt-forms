@@ -366,7 +366,8 @@
             "score": "Yes"
           },
           {
-            "score": "No"
+            "score": "No",
+            "default": true
           }
         ]
       },
@@ -377,7 +378,8 @@
             "score": "Yes"
           },
           {
-            "score": "No"
+            "score": "No",
+            "default":  true
           }
         ]
       },

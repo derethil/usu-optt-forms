@@ -181,6 +181,7 @@ export const App = () => {
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
+    [formOptions.cooperatingTeacherChecklist]: [...sharedRoutes],
   };
 
   return (

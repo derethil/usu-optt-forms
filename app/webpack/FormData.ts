@@ -10,6 +10,7 @@ import mathRubric from "../rubrics/mathRubric.json";
 import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
 import studentTeachingRubricRubric from "../rubrics/studentTeachingRubric.json";
 import teacherCandidateRubric from "../rubrics/teacherCandidate.json";
+import cooperatingTeacherChecklistRubric from "../rubrics/cooperatingTeacherChecklist.json";
 
 import { formOptions } from "./currentForm";
 
@@ -75,6 +76,11 @@ const FormData: IFormData = {
   [formOptions.teacherCandidate]: {
     title: "Teacher Candidate Formative Feedback",
     rubric: teacherCandidateRubric as Section[],
+    defaultData: {} as DataSchema,
+  },
+  [formOptions.cooperatingTeacherChecklist]: {
+    title: "Cooperating Teacher Checklist",
+    rubric: cooperatingTeacherChecklistRubric as Section[],
     defaultData: {} as DataSchema,
   },
 };
