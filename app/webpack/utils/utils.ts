@@ -52,7 +52,7 @@ export function programTitle(currentForm: formOptions) {
 export function studentTitle(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.studentTeaching:
-    case formOptions.STRubric:
+    case formOptions.studentTeachingRubric:
       return "Student Teacher";
     case formOptions.teacherCandidate:
       return "Teacher Candidate";
@@ -75,7 +75,7 @@ export function superior(currentForm: formOptions) {
 export function dateLabel(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.OPTTChecklist:
-    case formOptions.STRubric:
+    case formOptions.studentTeachingRubric:
       return "Date";
     default:
       return "Observation Date";
@@ -97,7 +97,7 @@ export function feedbackLabel(currentForm: formOptions, area: areaRange) {
   switch (area) {
     case 1:
       switch (currentForm) {
-        case formOptions.STRubric:
+        case formOptions.studentTeachingRubric:
           return "Behavior Assignment Comments";
         default:
           return "Strengths";
@@ -105,7 +105,7 @@ export function feedbackLabel(currentForm: formOptions, area: areaRange) {
 
     case 2:
       switch (currentForm) {
-        case formOptions.STRubric:
+        case formOptions.studentTeachingRubric:
           return "Collaboration Assignment Comments";
         case formOptions.teacherCandidate:
           return "Areas for Improvement";
@@ -115,7 +115,7 @@ export function feedbackLabel(currentForm: formOptions, area: areaRange) {
 
     case 3:
       switch (currentForm) {
-        case formOptions.STRubric:
+        case formOptions.studentTeachingRubric:
           return "IEP/IFSP Assignment Comments";
         case formOptions.teacherCandidate:
           return "Summary of Performance";

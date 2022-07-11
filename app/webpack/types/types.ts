@@ -4,7 +4,7 @@ import { ITimerState } from "../slices/timersSlice";
 import {
   DataSchema,
   INotebookCheck,
-  ISTRubric,
+  IStudentTeachingRubric,
   SignalSequence,
 } from "./dataTypes";
 
@@ -73,10 +73,7 @@ export interface CSSMixin {
   mixin?: FlattenSimpleInterpolation;
 }
 
-export type LocationObservationType = Pick<
-  IFormInfo,
-  "location" | "observation"
->;
+export type LocationObservationType = Pick<IFormInfo, "location" | "observation">;
 
 export interface DataProps<T> {
   data: T;
@@ -120,5 +117,5 @@ export interface IData {
   timerState2: ITimerState;
   timerState3: ITimerState;
   rubricScores: ScoresState;
-  questions: ISTRubric;
+  questions: IStudentTeachingRubric;
 }

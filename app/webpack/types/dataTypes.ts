@@ -219,7 +219,7 @@ interface Test {
   [index: string]: string;
 }
 
-export interface ISTRubric {
+export interface IStudentTeachingRubric {
   behaviorConferenced: string;
   collaborationConferenced: string;
   IEPConferenced: string;

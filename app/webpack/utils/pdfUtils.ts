@@ -66,11 +66,7 @@ export const getLetterGrade = (percent: number): string => {
   }
 };
 
-export const getScore = (
-  rowInfo: RubricScore,
-  sectionIdx: number,
-  rowIdx: number
-) => {
+export const getScore = (rowInfo: RubricScore, sectionIdx: number, rowIdx: number) => {
   if (Number(rowInfo.score) < 0 || isNaN(Number(rowInfo.score))) {
     return rowInfo.score;
   } else {
@@ -80,10 +76,7 @@ export const getScore = (
   }
 };
 
-export const genSPObservationBody = (
-  data: ISeverePracticumData,
-  timer: ITimerState
-) => {
+export const genSPObservationBody = (data: ISeverePracticumData, timer: ITimerState) => {
   const signalCorrect = data.signalSequence.correct;
   const signalIncorrect = data.signalSequence.incorrect;
 
@@ -105,10 +98,7 @@ export const genSPObservationBody = (
     ["Error Correction", ""],
     ["    Model", `${errorCorrect.model} | ${errorIncorrect.model}`],
     ["    Test", `${errorCorrect.test} | ${errorIncorrect.test}`],
-    [
-      "    Delayed Test",
-      `${errorCorrect.delayedTest} | ${errorIncorrect.delayedTest}`,
-    ],
+    ["    Delayed Test", `${errorCorrect.delayedTest} | ${errorIncorrect.delayedTest}`],
     ["    All Correct", `${errorCorrect.sequence}`],
     ["    Total Sequences", totalErrors],
     ["    % Correct", `${getPercent(errorCorrect.sequence, totalErrors)}`],
@@ -163,7 +153,7 @@ export const formatDate = (date: string) => {
 
 export function rubricHeaders(currentForm: formOptions, sectionTitle: string) {
   switch (currentForm) {
-    case formOptions.STRubric:
+    case formOptions.studentTeachingRubric:
       return [sectionTitle, "Score"];
     case formOptions.teacherCandidate:
       return [sectionTitle, "Description", "Score"];

@@ -5,11 +5,11 @@ import FormData from "../../FormData";
 import Color from "../../styledComponents/colors";
 import { getScore, rubricHeaders } from "../../utils/pdfUtils";
 import { overrideRegex } from "../../utils/utils";
-import { ISTRubric } from "../../types/dataTypes";
+import { IStudentTeachingRubric } from "../../types/dataTypes";
 import { Styles } from "jspdf-autotable";
 
 const rubric = FormData[currentForm].rubric;
-const isST = currentForm === formOptions.STRubric;
+const isST = currentForm === formOptions.studentTeachingRubric;
 
 type ColStyles = {
   [key: string]: Partial<Styles>;
@@ -76,10 +76,7 @@ function tableBody(scores: AreaScores, idx: number): string[][] {
     let score = getScore(rowInfo, idx, rowIdx);
     let description = selectedOption ? selectedOption.content : score;
 
-    if (
-      currentForm === formOptions.teacherCandidate &&
-      rowTitle.includes("10.")
-    ) {
+    if (currentForm === formOptions.teacherCandidate && rowTitle.includes("10.")) {
       score = "N/A";
     }
 

@@ -26,7 +26,9 @@ import { useAppDispatch } from "./hooks/hooks";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
 import PracticumChecklist from "./pages/data/PracticumChecklist";
-import STRubric, { STRIndex } from "./pages/STRubric";
+import StudentTeachingRubric, {
+  StudentTeachingRubricIndex,
+} from "./pages/StudentTeachingRubric";
 
 type FormRoutes = {
   [key in formOptions]: JSX.Element[];
@@ -161,15 +163,15 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
-    [formOptions.STRubric]: [
+    [formOptions.studentTeachingRubric]: [
       <Route path="/behavior" key="Behavior">
-        <STRubric index={STRIndex.behavior} />
+        <StudentTeachingRubric index={StudentTeachingRubricIndex.behavior} />
       </Route>,
       <Route path="/collaboration" key="Collaboration">
-        <STRubric index={STRIndex.collaboration} />
+        <StudentTeachingRubric index={StudentTeachingRubricIndex.collaboration} />
       </Route>,
       <Route path="/iep" key="IEP/IFSP">
-        <STRubric index={STRIndex.iep} />
+        <StudentTeachingRubric index={StudentTeachingRubricIndex.iep} />
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],

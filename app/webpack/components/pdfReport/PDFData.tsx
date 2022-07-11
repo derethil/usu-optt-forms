@@ -62,7 +62,7 @@ const PDFData = () => {
     });
 
     // Total Score
-    if (currentForm !== formOptions.STRubric) {
+    if (currentForm !== formOptions.studentTeachingRubric) {
       generator.table({
         head: ["Total Score", ""],
         columnStyles: {

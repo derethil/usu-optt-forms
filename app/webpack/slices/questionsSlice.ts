@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { defaultSTRData } from "../defaults/defaultData";
+import { defaultStudentTeachingRubricData } from "../defaults/defaultData";
 import { RootState } from "../store";
-import { ISTRubric } from "../types/dataTypes";
+import { IStudentTeachingRubric } from "../types/dataTypes";
 
-const initialState: ISTRubric = defaultSTRData;
+const initialState: IStudentTeachingRubric = defaultStudentTeachingRubricData;
 
 export const questionsSlice = createSlice({
   name: "questions",
   initialState,
   reducers: {
-    setQuestion: (state, action: PayloadAction<Partial<ISTRubric>>) => {
+    setQuestion: (state, action: PayloadAction<Partial<IStudentTeachingRubric>>) => {
       return { ...state, ...action.payload };
     },
     resetQuestions: () => {

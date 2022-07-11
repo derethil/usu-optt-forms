@@ -33,14 +33,14 @@ import { NewValues, Option } from "../types/types";
 const noNextDate = [
   formOptions.OPTTChecklist,
   formOptions.severeSelfEvaluation,
-  formOptions.STRubric,
+  formOptions.studentTeachingRubric,
   formOptions.teacherCandidate,
 ];
 
 // Determines which forms will have neither a program selector or program textbox
 const noProgramText = [
   formOptions.mmMath,
-  formOptions.STRubric,
+  formOptions.studentTeachingRubric,
   formOptions.teacherCandidate,
 ];
 
@@ -49,7 +49,7 @@ const includeProgramText =
 
 // Determines which forms will not have the observation selector
 const noObsSelect = [
-  formOptions.STRubric,
+  formOptions.studentTeachingRubric,
   formOptions.OPTTChecklist,
   formOptions.teacherCandidate,
 ];
@@ -118,7 +118,7 @@ const FormInfo = () => {
       )}
       {!FormData[currentForm].programOptions &&
         currentForm !== formOptions.mmMath &&
-        currentForm !== formOptions.STRubric && (
+        currentForm !== formOptions.studentTeachingRubric && (
           <DateInput
             field="date"
             label={dateLabel(currentForm)}

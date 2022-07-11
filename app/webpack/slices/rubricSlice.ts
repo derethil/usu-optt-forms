@@ -26,7 +26,7 @@ function getInitialScore(score: any): string {
 const getInitialState = (rubricData: Section[]) => {
   let initialState: ScoresState = {};
 
-  if (currentForm !== formOptions.STRubric) {
+  if (currentForm !== formOptions.studentTeachingRubric) {
     rubricData.forEach((section) => {
       initialState[section.sectionTitle] = {};
       section.rows.forEach((row) => {
@@ -102,8 +102,7 @@ export const rubricSlice = createSlice({
   },
 });
 
-export const { setRubricScore, setRubricComment, resetRubric } =
-  rubricSlice.actions;
+export const { setRubricScore, setRubricComment, resetRubric } = rubricSlice.actions;
 
 export const selectRubric = (state: RootState) => {
   let rubric: ScoresState = {};

@@ -6,7 +6,7 @@ import { NewValues } from "../types/types";
 
 import TextInput from "./TextInput";
 
-// Used by STRubric to provide a different interface for grading.
+// Used by studentTeachingRubric to provide a different interface for grading.
 // Questions require a content and a maxScore and allow text input of anything up to max
 
 const Container = styled.div`

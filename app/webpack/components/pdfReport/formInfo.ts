@@ -58,7 +58,7 @@ function generateBody(formInfo: IFormInfo) {
         ["Observation Number", formInfo.observation],
       ];
 
-    case formOptions.STRubric:
+    case formOptions.studentTeachingRubric:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
         ["Cooperating Teacher", formInfo.cooperatingTeacher],

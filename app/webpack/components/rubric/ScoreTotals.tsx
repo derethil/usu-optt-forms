@@ -34,7 +34,7 @@ const ScoreTotals = ({ displaySections = true }: ScoreTotalProps) => {
     <DataWrapper>
       {displaySections && subtotals}
 
-      {currentForm != formOptions.STRubric && (
+      {currentForm != formOptions.studentTeachingRubric && (
         <>
           <DataRow style={{ marginTop: displaySections ? "2em" : "0" }}>
             <DataCell>Total Score:</DataCell>

@@ -18,12 +18,12 @@ import FormData from "../FormData";
 import TextScore from "../components/TextScore";
 import OptionRow from "../components/optionRow";
 import { selectQuestions, setQuestion } from "../slices/questionsSlice";
-import { ISTRubric } from "../types/dataTypes";
+import { IStudentTeachingRubric } from "../types/dataTypes";
 import { afterGradedLists } from "../defaults/defaults";
 import { generateScoreData } from "../utils/scoreUtils";
 import { NewValues } from "../types/types";
 
-export enum STRIndex {
+export enum StudentTeachingRubricIndex {
   "behavior" = 0,
   "collaboration" = 1,
   "iep" = 2,
@@ -39,7 +39,7 @@ const ListItem = styled.li`
   padding: 0.2em;
 `;
 
-const getQuestion = (index: number): keyof ISTRubric => {
+const getQuestion = (index: number): keyof IStudentTeachingRubric => {
   switch (index) {
     case 0:
       return "behaviorConferenced";
@@ -52,7 +52,7 @@ const getQuestion = (index: number): keyof ISTRubric => {
   }
 };
 
-const STRubric = ({ index }: { index: STRIndex }) => {
+const StudentTeachingRubric = ({ index }: { index: StudentTeachingRubricIndex }) => {
   const rubricData = FormData[currentForm].rubric[index];
   const rubricScores = useAppSelector(selectRubric);
   const questions = useAppSelector(selectQuestions);
@@ -75,7 +75,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
       <TextScore
         content={row.area}
         maxScore={row.options[0].score}
-        value={rubricScores[rubricData.sectionTitle][row.area].score as string} // STRubric does not use array scores
+        value={rubricScores[rubricData.sectionTitle][row.area].score as string} // Student Teaching Rubric does not use array scores
         updateValue={(newValues: NewValues) => {
           updateScore(
             rubricData.sectionTitle,
@@ -104,9 +104,7 @@ const STRubric = ({ index }: { index: STRIndex }) => {
         {rows}
       </Card>
       <Card
-        title={
-          <RubricTitleContent>After Assignment is Graded:</RubricTitleContent>
-        }
+        title={<RubricTitleContent>After Assignment is Graded:</RubricTitleContent>}
         titleStyles={cardTitleStyles}
         containerStyles={cardContainerStyles}
       >
@@ -132,4 +130,4 @@ const STRubric = ({ index }: { index: STRIndex }) => {
   );
 };
 
-export default STRubric;
+export default StudentTeachingRubric;

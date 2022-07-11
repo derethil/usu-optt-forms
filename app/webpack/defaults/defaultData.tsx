@@ -9,7 +9,7 @@ import {
   IBirthToFiveData as IBirthToFiveData,
   IReadingData,
   IMathData,
-  ISTRubric,
+  IStudentTeachingRubric,
 } from "../types/dataTypes";
 
 const defaultSequence = {
@@ -181,7 +181,7 @@ export const defaultMathData: DataSchema = {
   ...mathData,
 };
 
-export const defaultSTRData: ISTRubric = {
+export const defaultStudentTeachingRubricData: IStudentTeachingRubric = {
   behaviorConferenced: "No",
   collaborationConferenced: "No",
   IEPConferenced: "No",
