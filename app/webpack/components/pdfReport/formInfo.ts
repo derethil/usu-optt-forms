@@ -68,6 +68,7 @@ function generateBody(formInfo: IFormInfo) {
       ];
 
     case formOptions.teacherCandidate:
+    case formOptions.cooperatingTeacherChecklist:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
         [superior(currentForm), formInfo.supervisor],

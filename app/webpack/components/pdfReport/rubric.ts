@@ -45,15 +45,27 @@ function cellWidth(colIdx: number): number | "auto" {
         return "auto";
       } else if (currentForm === formOptions.teacherCandidate) {
         return 50;
+      } else if (currentForm === formOptions.cooperatingTeacherChecklist) {
+        return 100;
       } else {
         return 35;
       }
 
     case 1:
-      return isST ? 50 : "auto";
+      if (isST) {
+        return 50;
+      } else if (currentForm === formOptions.cooperatingTeacherChecklist) {
+        return 25;
+      } else {
+        return "auto";
+      }
 
     case 2:
-      return 25;
+      if (currentForm === formOptions.cooperatingTeacherChecklist) {
+        return "auto";
+      } else {
+        return 25;
+      }
 
     case 3:
       return 50;
@@ -84,14 +96,18 @@ function tableBody(scores: AreaScores, idx: number): string[][] {
       description = description.map((e) => "• " + e).join("\n");
     }
 
-    const rubricRow: string[] = [
-      rowTitle,
-      description,
-      String(score),
-      rowInfo.comment.replace(overrideRegex, "").trim(),
-    ];
-
-    return isST ? [rowTitle, String(score)] : rubricRow;
+    if (isST) {
+      return [rowTitle, String(score)];
+    } else if (currentForm === formOptions.cooperatingTeacherChecklist) {
+      return [rowTitle, String(score), rowInfo.comment.replace(overrideRegex, "").trim()];
+    } else {
+      return [
+        rowTitle,
+        description,
+        String(score),
+        rowInfo.comment.replace(overrideRegex, "").trim(),
+      ];
+    }
   });
 }
 
@@ -121,10 +137,10 @@ export default function generate(generator: PDFGenerator, data: IData): void {
       headStyles: {
         fillColor: Color.blues.blue,
         valign: "middle",
-        halign: "center",
+        halign: "left",
       },
       columnStyles: columnStyles,
-      head: rubricHeaders(currentForm, "sectionTitle"),
+      head: rubricHeaders(currentForm, areaTitle),
       body: body,
     });
   });

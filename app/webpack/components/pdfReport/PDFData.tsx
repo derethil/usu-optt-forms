@@ -97,7 +97,9 @@ const PDFData = () => {
     }
 
     // Feedback
-    generateFeedback(generator, data);
+    if (currentForm !== formOptions.cooperatingTeacherChecklist) {
+      generateFeedback(generator, data);
+    }
 
     // Save to file
     const date = new Date(data.formInfo.date);

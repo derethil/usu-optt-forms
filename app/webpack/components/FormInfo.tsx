@@ -35,6 +35,7 @@ const noNextDate = [
   formOptions.severeSelfEvaluation,
   formOptions.studentTeachingRubric,
   formOptions.teacherCandidate,
+  formOptions.cooperatingTeacherChecklist,
 ];
 
 // Determines which forms will have neither a program selector or program textbox
@@ -42,6 +43,7 @@ const noProgramText = [
   formOptions.mmMath,
   formOptions.studentTeachingRubric,
   formOptions.teacherCandidate,
+  formOptions.cooperatingTeacherChecklist,
 ];
 
 const includeProgramText =
@@ -52,10 +54,15 @@ const noObsSelect = [
   formOptions.studentTeachingRubric,
   formOptions.OPTTChecklist,
   formOptions.teacherCandidate,
+  formOptions.cooperatingTeacherChecklist,
 ];
 
 // Determines which forms will not have a cooperating teacher  / supervisor textbox
-const noCoopTeacher = [formOptions.severeSelfEvaluation, formOptions.teacherCandidate];
+const noCoopTeacher = [
+  formOptions.severeSelfEvaluation,
+  formOptions.teacherCandidate,
+  formOptions.cooperatingTeacherChecklist,
+];
 
 const noSupervisor = [formOptions.severeSelfEvaluation];
 

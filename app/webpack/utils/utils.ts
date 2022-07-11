@@ -53,6 +53,7 @@ export function studentTitle(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.studentTeaching:
     case formOptions.studentTeachingRubric:
+    case formOptions.cooperatingTeacherChecklist:
       return "Student Teacher";
     case formOptions.teacherCandidate:
       return "Teacher Candidate";
@@ -67,6 +68,8 @@ export function superior(currentForm: formOptions) {
       return "District Coach";
     case formOptions.teacherCandidate:
       return "Evaluator Name and Role";
+    case formOptions.cooperatingTeacherChecklist:
+      return "Cooperating/Mentor Teacher";
     default:
       return "Supervisor / Coach";
   }

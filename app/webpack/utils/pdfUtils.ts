@@ -157,6 +157,8 @@ export function rubricHeaders(currentForm: formOptions, sectionTitle: string) {
       return [sectionTitle, "Score"];
     case formOptions.teacherCandidate:
       return [sectionTitle, "Description", "Score"];
+    case formOptions.cooperatingTeacherChecklist:
+      return [sectionTitle, "Score", "Comments"];
     default:
       return [sectionTitle, "Description", "Score", "Comments"];
   }
