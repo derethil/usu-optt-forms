@@ -1,5 +1,5 @@
 import currentForm, { formOptions } from "../currentForm";
-import { IPracticumChecklist } from "../types/dataTypes";
+import { IOPTTChecklist } from "../types/dataTypes";
 import { IFormInfo, Location } from "../types/types";
 import getNotebookCheck from "../utils/notebookCheckUtils";
 
@@ -41,7 +41,7 @@ const defaultChecklistRow = {
   comment: "",
 };
 
-export const defaultChecklistData: IPracticumChecklist = {
+export const defaultChecklistData: IOPTTChecklist = {
   schedule: defaultChecklistRow,
   targetGroup: defaultChecklistRow,
   lessonInfo: "",

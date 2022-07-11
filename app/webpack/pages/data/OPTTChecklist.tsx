@@ -13,11 +13,11 @@ import {
 } from "../../slices/checklistSlice";
 import { cardContainerStyles, PageContent } from "../../styledComponents/style";
 
-import checklistJSON from "../../../rubrics/practicumChecklist.json";
+import OPTTChecklistJSON from "../../../rubrics/OPTTChecklist.json";
 import {
-  IChecklistJSON,
+  IOPTTChecklistJSON,
   IChecklistJSONRow,
-  IPracticumChecklist,
+  IOPTTChecklist,
 } from "../../types/dataTypes";
 import QuestionText from "../../components/QuestionText";
 import Color from "../../styledComponents/colors";
@@ -29,9 +29,9 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-function PracticumChecklist() {
+function OPTTChecklist() {
   const checklistContents: [string, IChecklistJSONRow][] = Object.entries(
-    checklistJSON as IChecklistJSON
+    OPTTChecklistJSON as IOPTTChecklistJSON
   );
 
   const checklist = useAppSelector(selectChecklist);
@@ -46,18 +46,15 @@ function PracticumChecklist() {
           font-size: 2rem;
         `}
       >
-        District Coach: Please schedule time to meet with the OPTT student to
-        discuss the following items during the first few weeks of school/the
-        semester. Submit completed form to{" "}
-        <Link href="mailto:usuobservations@usu.edu">
-          usuobservations@usu.edu
-        </Link>
-        .
+        District Coach: Please schedule time to meet with the OPTT student to discuss the
+        following items during the first few weeks of school/the semester. Submit
+        completed form to{" "}
+        <Link href="mailto:usuobservations@usu.edu">usuobservations@usu.edu</Link>.
       </Card>
 
       <Card title="Items" containerStyles={cardContainerStyles}>
         {checklistContents.map(([keyStr, rowInfo], index) => {
-          const key = keyStr as keyof IPracticumChecklist;
+          const key = keyStr as keyof IOPTTChecklist;
 
           if (isScoreOption(key)) {
             return (
@@ -87,9 +84,7 @@ function PracticumChecklist() {
                 key={index}
                 value={checklist[key]}
                 updateValue={(newValues: NewValues) => {
-                  dispatch(
-                    setChecklistText({ key, text: Object.values(newValues)[0] })
-                  );
+                  dispatch(setChecklistText({ key, text: Object.values(newValues)[0] }));
                 }}
               />
             );
@@ -100,4 +95,4 @@ function PracticumChecklist() {
   );
 }
 
-export default PracticumChecklist;
+export default OPTTChecklist;

@@ -25,7 +25,7 @@ import NotebookCheck from "./pages/data/NotebookCheck";
 import { useAppDispatch } from "./hooks/hooks";
 import { timer1, timer2, timer3 } from "./slices/timersSlice";
 import { data1, data2 } from "./slices/dataSlice";
-import PracticumChecklist from "./pages/data/PracticumChecklist";
+import OPTTChecklist from "./pages/data/OPTTChecklist";
 import StudentTeachingRubric, {
   StudentTeachingRubricIndex,
 } from "./pages/StudentTeachingRubric";
@@ -146,7 +146,7 @@ export const App = () => {
     // ------ PRACTICUM CHECKLIST ------
     [formOptions.OPTTChecklist]: [
       <Route path="/checklist" key="Checklist">
-        <PracticumChecklist />
+        <OPTTChecklist />
       </Route>,
     ],
     // ------ SELF EVALUATION ------

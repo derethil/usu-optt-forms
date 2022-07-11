@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { defaultChecklistData } from "../defaults/defaults";
 import { RootState } from "../store";
-import { IPracticumChecklist } from "../types/dataTypes";
+import { IOPTTChecklist } from "../types/dataTypes";
 
-const initialState: IPracticumChecklist = defaultChecklistData;
+const initialState: IOPTTChecklist = defaultChecklistData;
 
 const TextOnlyStr = ["lessonInfo", "additionalInfo"] as const;
 
 type TextOnly = typeof TextOnlyStr[number];
-type ScoreOptionKey = keyof Omit<IPracticumChecklist, TextOnly>;
-type TextOnlyKey = keyof Pick<IPracticumChecklist, TextOnly>;
+type ScoreOptionKey = keyof Omit<IOPTTChecklist, TextOnly>;
+type TextOnlyKey = keyof Pick<IOPTTChecklist, TextOnly>;
 
 type setCommentAction = PayloadAction<{
   key: ScoreOptionKey;
@@ -61,5 +61,4 @@ export default checklistSlice.reducer;
 
 export const isTextOnly = (x: any): x is TextOnly => TextOnlyStr.includes(x);
 
-export const isScoreOption = (x: any): x is ScoreOptionKey =>
-  !TextOnlyStr.includes(x);
+export const isScoreOption = (x: any): x is ScoreOptionKey => !TextOnlyStr.includes(x);

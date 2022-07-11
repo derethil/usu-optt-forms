@@ -14,11 +14,11 @@ import { selectFormInfo } from "../../slices/formInfoSlice";
 import { useAppSelector } from "../../hooks/hooks";
 import { selectChecklist } from "../../slices/checklistSlice";
 
-import { IChecklistJSONRow, IChecklistJSON } from "../../types/dataTypes";
+import { IChecklistJSONRow, IOPTTChecklistJSON } from "../../types/dataTypes";
 
-import checklistJSON from "../../../rubrics/practicumChecklist.json";
+import OPTTChecklistJSON from "../../../rubrics/OPTTChecklist.json";
 
-// Procedure to generate the report for the practicumChecklist form
+// Procedure to generate the report for the OPTTChecklist form
 
 export type PDFDataProps = {
   data1: DataSchema;
@@ -80,7 +80,7 @@ const PDFDataChecklist = () => {
     });
 
     const checklistContents: [string, IChecklistJSONRow][] = Object.entries(
-      checklistJSON as IChecklistJSON
+      OPTTChecklistJSON as IOPTTChecklistJSON
     );
 
     generator.table({

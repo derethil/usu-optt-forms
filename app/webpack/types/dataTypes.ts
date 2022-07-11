@@ -191,7 +191,7 @@ export interface IChecklistJSONRow {
   textOnly?: boolean;
 }
 
-export interface IPracticumChecklist {
+export interface IOPTTChecklist {
   schedule: IChecklistRow;
   targetGroup: IChecklistRow;
   lessonInfo: string;
@@ -202,7 +202,7 @@ export interface IPracticumChecklist {
   additionalInfo: string;
 }
 
-export interface IChecklistJSON {
+export interface IOPTTChecklistJSON {
   schedule: IChecklistJSONRow;
   targetGroup: IChecklistJSONRow;
   lessonInfo: IChecklistJSONRow;
