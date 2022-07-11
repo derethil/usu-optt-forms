@@ -171,8 +171,8 @@ export const defaultBirthToFiveData: DataSchema = {
   ...birthToFiveData,
 };
 
-export const defaultReadingData: DataSchema = {
-  currentForm: formOptions.reading,
+export const defaultMMReadingData: DataSchema = {
+  currentForm: formOptions.mmReading,
   ...readingData,
 };
 

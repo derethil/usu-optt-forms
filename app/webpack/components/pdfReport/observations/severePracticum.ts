@@ -18,7 +18,7 @@ const severePracticumReadingSection = (
   if (
     data.currentForm === formOptions.severeReading ||
     data.currentForm === formOptions.severeMathLifeSkills ||
-    data.currentForm === formOptions.reading
+    data.currentForm === formOptions.mmReading
   ) {
     generator.dualNestedTables({
       startY: (generator.pdf as any).lastAutoTable.finalY + 2,

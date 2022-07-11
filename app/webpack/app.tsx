@@ -105,7 +105,7 @@ export const App = () => {
       ...sharedRoutes,
     ],
     // ------ READING ------
-    [formOptions.reading]: [
+    [formOptions.mmReading]: [
       <Route path="/decoding" key={(title = "Decoding Data")}>
         <DataSPR
           data={data1}

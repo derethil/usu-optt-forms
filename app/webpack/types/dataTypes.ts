@@ -155,7 +155,7 @@ export type DataSchema =
       currentForm: formOptions.birthToFive;
     } & IBirthToFiveData)
   | ({
-      currentForm: formOptions.reading;
+      currentForm: formOptions.mmReading;
     } & IReadingData)
   | ({
       currentForm: formOptions.math;

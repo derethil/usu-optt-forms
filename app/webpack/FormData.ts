@@ -45,9 +45,9 @@ const FormData: IFormData = {
     defaultData: defaults.defaultBirthToFiveData,
     title: "Birth to 5",
   },
-  [formOptions.reading]: {
+  [formOptions.mmReading]: {
     rubric: readingRubric as Section[],
-    defaultData: defaults.defaultReadingData,
+    defaultData: defaults.defaultMMReadingData,
     title: "MM Reading",
   },
   [formOptions.math]: {

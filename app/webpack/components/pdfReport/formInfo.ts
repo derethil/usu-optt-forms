@@ -31,7 +31,7 @@ function generateBody(formInfo: IFormInfo) {
     case formOptions.severeReading:
     case formOptions.severeMathLifeSkills:
     case formOptions.birthToFive:
-    case formOptions.reading:
+    case formOptions.mmReading:
       main.push([programTitle(currentForm), formInfo.program]);
       return main;
 
