@@ -5,12 +5,12 @@ export enum formOptions {
   birthToFive = "birthToFive",
   mmReading = "mmReading",
   mmMath = "mmMath",
-  practicumChecklist = "practicumChecklist",
+  OPTTChecklist = "OPTTChecklist",
   selfEvaluation = "selfEvaluation",
   STRubric = "STRubric",
   teacherCandidate = "teacherCandidate",
 }
 
-const currentForm: formOptions = formOptions.mmMath;
+const currentForm: formOptions = formOptions.OPTTChecklist;
 
 export default currentForm;

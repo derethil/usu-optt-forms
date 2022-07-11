@@ -55,7 +55,7 @@ const FormData: IFormData = {
     defaultData: defaults.defaultMathData,
     title: "MM Math",
   },
-  [formOptions.practicumChecklist]: {
+  [formOptions.OPTTChecklist]: {
     title: "Practicum Classroom Checklist",
     programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
     rubric: [],

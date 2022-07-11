@@ -38,7 +38,7 @@ function generateBody(formInfo: IFormInfo) {
     case formOptions.mmMath:
       return main;
 
-    case formOptions.practicumChecklist:
+    case formOptions.OPTTChecklist:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
         ["Cooperating Teacher", formInfo.cooperatingTeacher],

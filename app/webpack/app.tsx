@@ -142,7 +142,7 @@ export const App = () => {
       ...sharedRoutes,
     ],
     // ------ PRACTICUM CHECKLIST ------
-    [formOptions.practicumChecklist]: [
+    [formOptions.OPTTChecklist]: [
       <Route path="/checklist" key="Checklist">
         <PracticumChecklist />
       </Route>,

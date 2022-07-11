@@ -63,7 +63,7 @@ export function studentTitle(currentForm: formOptions) {
 
 export function superior(currentForm: formOptions) {
   switch (currentForm) {
-    case formOptions.practicumChecklist:
+    case formOptions.OPTTChecklist:
       return "District Coach";
     case formOptions.teacherCandidate:
       return "Evaluator Name and Role";
@@ -74,7 +74,7 @@ export function superior(currentForm: formOptions) {
 
 export function dateLabel(currentForm: formOptions) {
   switch (currentForm) {
-    case formOptions.practicumChecklist:
+    case formOptions.OPTTChecklist:
     case formOptions.STRubric:
       return "Date";
     default:

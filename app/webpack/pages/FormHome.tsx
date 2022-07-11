@@ -14,11 +14,7 @@ import PDFDataChecklist from "../components/pdfReport/pdfDataChecklist";
 import PracticumContent from "../components/practicumContent";
 import TextBoxCard from "../components/TextBoxCard";
 import { useAppSelector, useAppDispatch } from "../hooks/hooks";
-import {
-  resetFormInfo,
-  selectFormInfo,
-  setFormInfo,
-} from "../slices/formInfoSlice";
+import { resetFormInfo, selectFormInfo, setFormInfo } from "../slices/formInfoSlice";
 import { resetRubric } from "../slices/rubricSlice";
 import { data1, data2 } from "../slices/dataSlice";
 import { timer1, timer2, timer3 } from "../slices/timersSlice";
@@ -60,7 +56,7 @@ const FormHome = () => {
         />
       )}
 
-      {currentForm !== formOptions.practicumChecklist ? (
+      {currentForm !== formOptions.OPTTChecklist ? (
         <Card title="Scores">
           <ScoreTotals />
         </Card>
@@ -77,11 +73,7 @@ const FormHome = () => {
           justify-content: space-between;
         `}
       >
-        {currentForm === formOptions.practicumChecklist ? (
-          <PDFDataChecklist />
-        ) : (
-          <PDFData />
-        )}
+        {currentForm === formOptions.OPTTChecklist ? <PDFDataChecklist /> : <PDFData />}
 
         <ConfirmModal handleConfirm={resetAll} />
       </Card>

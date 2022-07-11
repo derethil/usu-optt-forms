@@ -31,7 +31,7 @@ import { NewValues, Option } from "../types/types";
 
 // Determines which forms have only one date selector
 const noNextDate = [
-  formOptions.practicumChecklist,
+  formOptions.OPTTChecklist,
   formOptions.selfEvaluation,
   formOptions.STRubric,
   formOptions.teacherCandidate,
@@ -50,7 +50,7 @@ const includeProgramText =
 // Determines which forms will not have the observation selector
 const noObsSelect = [
   formOptions.STRubric,
-  formOptions.practicumChecklist,
+  formOptions.OPTTChecklist,
   formOptions.teacherCandidate,
 ];
 
