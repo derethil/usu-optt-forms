@@ -2,7 +2,7 @@ import currentForm, { formOptions } from "../../currentForm";
 import PDFGenerator from "./PDFGenerator";
 import { IData } from "../../types/types";
 
-import bTo5Practicum from "./observations/bTo5Practicum";
+import birthToFive from "./observations/birthToFive";
 import mathGuidedPractice from "./observations/math";
 import severePracticumReading from "./observations/severePracticum";
 import studentTeaching from "./observations/studentTeaching";
@@ -23,8 +23,8 @@ export default function generate(generator: PDFGenerator, data: IData) {
     case formOptions.selfEvaluation:
       severePracticumReading(generator, data.data1, data.timerState1);
 
-    case formOptions.bTo5Practicum:
-      bTo5Practicum(generator, data.data1, data.timerState1);
+    case formOptions.birthToFive:
+      birthToFive(generator, data.data1, data.timerState1);
 
     case formOptions.reading:
       severePracticumReading(generator, data.data1, data.timerState1, "Decoding Data");

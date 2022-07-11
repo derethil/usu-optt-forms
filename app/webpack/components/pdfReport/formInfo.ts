@@ -30,7 +30,7 @@ function generateBody(formInfo: IFormInfo) {
     case formOptions.studentTeaching:
     case formOptions.severeReading:
     case formOptions.severeMathLifeSkills:
-    case formOptions.bTo5Practicum:
+    case formOptions.birthToFive:
     case formOptions.reading:
       main.push([programTitle(currentForm), formInfo.program]);
       return main;

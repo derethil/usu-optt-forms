@@ -7,28 +7,25 @@ import DataRow from "../../components/DataRow";
 import PraiseDataRow from "../../components/data/PraiseDataRow";
 import Card from "../../components/Card";
 
-import { IBT5PracticumData } from "../../types/dataTypes";
+import { IBirthToFiveData } from "../../types/dataTypes";
 
 import { getPercent } from "../../utils/utils";
 
 import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
-import {
-  ButtonsWrapper,
-  cardContainerStyles,
-} from "../../styledComponents/style";
+import { ButtonsWrapper, cardContainerStyles } from "../../styledComponents/style";
 import DataProps from "./DataProps";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { formOptions } from "../../currentForm";
 
-const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
+const DataBirthToFive = (props: DataProps<IBirthToFiveData>) => {
   const timerState = useAppSelector(props.timer.selector);
   const data = useAppSelector(props.data.selector);
   const dispatch = useAppDispatch();
 
   const setData = props.data.actions.setData;
 
-  if (data.currentForm !== formOptions.bTo5Practicum) return <div></div>;
+  if (data.currentForm !== formOptions.birthToFive) return <div></div>;
 
   const updateSequence = (groupKey: string, newValue: object) => {
     dispatch(
@@ -100,10 +97,7 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
           },
           {
             display: "Percent Correct",
-            score: getPercent(
-              correct.all,
-              correct.all + Number(incorrectCount)
-            ),
+            score: getPercent(correct.all, correct.all + Number(incorrectCount)),
           },
         ]}
       >
@@ -113,17 +107,13 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
               color={Color.accents.greenLight}
               content="Attention"
               value={correct.attention}
-              onClick={(attention: number) =>
-                updateSequence("correct", { attention })
-              }
+              onClick={(attention: number) => updateSequence("correct", { attention })}
             />
             <CounterButton
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={incorrect.attention}
-              onClick={(attention: number) =>
-                updateSequence("incorrect", { attention })
-              }
+              onClick={(attention: number) => updateSequence("incorrect", { attention })}
             />
           </Styles.TwoButtonCol>
 
@@ -153,9 +143,7 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
               color={Color.neutrals.grayDark}
               content="Incorrect"
               value={incorrect.pause}
-              onClick={(pause: number) =>
-                updateSequence("incorrect", { pause })
-              }
+              onClick={(pause: number) => updateSequence("incorrect", { pause })}
             />
           </Styles.TwoButtonCol>
 
@@ -298,9 +286,8 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
           {
             display: "Error Correction",
             score:
-              Math.round(
-                (errorTotal / (data.errorCorrection.responseError * 3)) * 100
-              ) + "%",
+              Math.round((errorTotal / (data.errorCorrection.responseError * 3)) * 100) +
+              "%",
           },
         ]}
       >
@@ -400,4 +387,4 @@ const DataBT5 = (props: DataProps<IBT5PracticumData>) => {
   );
 };
 
-export default DataBT5;
+export default DataBirthToFive;

@@ -4,7 +4,7 @@ import { Section } from "./types/types";
 
 import studentTeachingRubric from "../rubrics/studentTeaching.json";
 import severePracticumRubric from "../rubrics/severePracticum.json";
-import bTo5PracticumRubric from "../rubrics/bTo5Practicum.json";
+import birthToFiveRubric from "../rubrics/birthToFive.json";
 import readingRubric from "../rubrics/readingRubric.json";
 import mathRubric from "../rubrics/mathRubric.json";
 import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
@@ -40,9 +40,9 @@ const FormData: IFormData = {
     defaultData: defaults.defaultSevereMathLifeSkillsData,
     title: "Severe Math/Life Skills Practicum",
   },
-  [formOptions.bTo5Practicum]: {
-    rubric: bTo5PracticumRubric as Section[],
-    defaultData: defaults.defaultBT5PracticumData,
+  [formOptions.birthToFive]: {
+    rubric: birthToFiveRubric as Section[],
+    defaultData: defaults.defaultBirthToFiveData,
     title: "Birth to 5",
   },
   [formOptions.reading]: {

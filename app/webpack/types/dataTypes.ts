@@ -76,7 +76,7 @@ export interface ISeverePracticumData
   errorCorrection: ErrorCorrection;
 }
 
-// ---- BT5 PRACTICUM ----
+// ---- BIRTH TO FIVE  ----
 
 interface IInstrucSequence extends Mapping<number> {
   attention: number;
@@ -90,7 +90,7 @@ interface Sequence extends Mapping<IInstrucSequence> {
   incorrect: IInstrucSequence;
 }
 
-export interface IBT5PracticumData extends IPraiseData, Mapping<any> {
+export interface IBirthToFiveData extends IPraiseData, Mapping<any> {
   sequence: Sequence;
   interactions: {
     comment: number;
@@ -152,8 +152,8 @@ export type DataSchema =
       currentForm: formOptions.severeMathLifeSkills;
     } & ISeverePracticumData)
   | ({
-      currentForm: formOptions.bTo5Practicum;
-    } & IBT5PracticumData)
+      currentForm: formOptions.birthToFive;
+    } & IBirthToFiveData)
   | ({
       currentForm: formOptions.reading;
     } & IReadingData)

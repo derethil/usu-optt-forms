@@ -6,7 +6,7 @@ import {
   ISeverePracticumData,
   IStudentTeachingData,
   DataSchema,
-  IBT5PracticumData,
+  IBirthToFiveData as IBirthToFiveData,
   IReadingData,
   IMathData,
   ISTRubric,
@@ -87,9 +87,9 @@ const severePracticumData: ISeverePracticumData = {
   cues: defaultCues,
 };
 
-// -------- BT5 PRACTICUM --------
+// -------- BIRTH TO FIVE  --------
 
-const bTo5PracticumData: IBT5PracticumData = {
+const birthToFiveData: IBirthToFiveData = {
   praise: defaultPraise,
   sequence: {
     correct: instructionalSequence,
@@ -166,9 +166,9 @@ export const defaultSevereMathLifeSkillsData: DataSchema = {
   ...severePracticumData,
 };
 
-export const defaultBT5PracticumData: DataSchema = {
-  currentForm: formOptions.bTo5Practicum,
-  ...bTo5PracticumData,
+export const defaultBirthToFiveData: DataSchema = {
+  currentForm: formOptions.birthToFive,
+  ...birthToFiveData,
 };
 
 export const defaultReadingData: DataSchema = {

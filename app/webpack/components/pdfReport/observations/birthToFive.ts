@@ -9,12 +9,12 @@ import { ITimerState } from "../../../slices/timersSlice";
 
 // Procedure to generate the data section of report for birth to five practicum
 
-const bTo5PracticumSection = (
+const birthToFiveSection = (
   generator: PDFGenerator,
   data: DataSchema,
   timer: ITimerState
 ) => {
-  if (data.currentForm === formOptions.bTo5Practicum) {
+  if (data.currentForm === formOptions.birthToFive) {
     const correct = data.sequence.correct;
     const incorrect = data.sequence.incorrect;
 
@@ -62,10 +62,7 @@ const bTo5PracticumSection = (
         ["Question", data.interactions.question],
         ["Non-Target Cue", data.interactions.nonTargetCue],
         ["Cue", correct.cue + correct.all],
-        [
-          "Rate of Interaction",
-          ((totalInteractions / timer.value) * 60).toFixed(2),
-        ],
+        ["Rate of Interaction", ((totalInteractions / timer.value) * 60).toFixed(2)],
       ],
     });
 
@@ -100,10 +97,7 @@ const bTo5PracticumSection = (
         ],
         [
           "Balanced Varied Praise",
-          getPercent(
-            data.praise.academic,
-            data.praise.academic + data.praise.behavioral
-          ),
+          getPercent(data.praise.academic, data.praise.academic + data.praise.behavioral),
         ],
       ],
     });
@@ -119,9 +113,7 @@ const bTo5PracticumSection = (
         ["Delayed Test", data.errorCorrection.delayedTest],
         [
           "Error Correction",
-          Math.round(
-            (errorTotal / (data.errorCorrection.responseError * 3)) * 100
-          ) + "%",
+          Math.round((errorTotal / (data.errorCorrection.responseError * 3)) * 100) + "%",
         ],
       ],
     });
@@ -135,14 +127,11 @@ const bTo5PracticumSection = (
         ["Inconsistent Prompt", data.prompts.inconsistent],
         [
           "Prompt",
-          getPercent(
-            data.prompts.ltm,
-            data.prompts.ltm + data.prompts.inconsistent
-          ),
+          getPercent(data.prompts.ltm, data.prompts.ltm + data.prompts.inconsistent),
         ],
       ],
     });
   }
 };
 
-export default bTo5PracticumSection;
+export default birthToFiveSection;

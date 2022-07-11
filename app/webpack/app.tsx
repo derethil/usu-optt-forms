@@ -10,7 +10,7 @@ import logo from "../static/img/usuHorizontalB64";
 import FormHome from "./pages/FormHome";
 import DataST from "./pages/data/DataST";
 import DataSPR from "./pages/data/DataSPR";
-import DataBT5 from "./pages/data/DataBT5";
+import DataBirthToFive from "./pages/data/DataBirthToFive";
 import DataMath from "./pages/data/DataMath";
 import Rubric from "./pages/Rubric";
 import FeedbackPage from "./pages/FeedbackPage";
@@ -93,9 +93,9 @@ export const App = () => {
       ...sharedRoutes,
     ],
     // ------ BIRTH TO FIVE ------
-    [formOptions.bTo5Practicum]: [
+    [formOptions.birthToFive]: [
       <Route path="/data" key={(title = "Data")}>
-        <DataBT5
+        <DataBirthToFive
           data={data1}
           timer={timer1}
           title={title}
