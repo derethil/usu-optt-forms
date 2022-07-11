@@ -10,10 +10,7 @@ import { IMathData } from "../../types/dataTypes";
 import { getPercent } from "../../utils/utils";
 import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
-import {
-  ButtonsWrapper,
-  cardContainerStyles,
-} from "../../styledComponents/style";
+import { ButtonsWrapper, cardContainerStyles } from "../../styledComponents/style";
 import DataProps from "./DataProps";
 import OTRRow from "../../components/data/OTRRow";
 import { timer1 } from "../../slices/timersSlice";
@@ -26,7 +23,7 @@ const DataMath = (props: DataProps<IMathData>) => {
 
   const setData = props.data.actions.setData;
 
-  if (data.currentForm !== formOptions.math) return <div></div>;
+  if (data.currentForm !== formOptions.mmMath) return <div></div>;
 
   return (
     <Styles.PageContent>

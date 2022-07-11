@@ -158,7 +158,7 @@ export type DataSchema =
       currentForm: formOptions.mmReading;
     } & IReadingData)
   | ({
-      currentForm: formOptions.math;
+      currentForm: formOptions.mmMath;
     } & IMathData);
 
 // ------ NOTEBOOK CHECK ------

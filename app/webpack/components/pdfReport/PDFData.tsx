@@ -47,11 +47,7 @@ const PDFData = () => {
 
     // Report title
     if (currentForm !== formOptions.teacherCandidate) {
-      generator.pdf.text(
-        `USU SPER ${FormData[currentForm].title} Report`,
-        14,
-        18
-      );
+      generator.pdf.text(`USU SPER ${FormData[currentForm].title} Report`, 14, 18);
     } else {
       generator.pdf.text(`SPED ${FormData[currentForm].title} Form`, 14, 18);
     }
@@ -96,7 +92,7 @@ const PDFData = () => {
     generateRubric(generator, data);
 
     // Add notebook check data if rubric is math
-    if (currentForm === formOptions.math) {
+    if (currentForm === formOptions.mmMath) {
       generateNotebookChecks(generator, data);
     }
 

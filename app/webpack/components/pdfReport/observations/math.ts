@@ -16,7 +16,7 @@ export default function mathGuidedPractice(
   guidedTimer: ITimerState,
   independentTimer: ITimerState
 ) {
-  if (data.currentForm !== formOptions.math) return;
+  if (data.currentForm !== formOptions.mmMath) return;
   generator.table({
     startY: (generator.pdf as any).lastAutoTable.finalY + 2,
     head: ["Time Summary", ""],
@@ -28,9 +28,7 @@ export default function mathGuidedPractice(
       ["Independent Time", formatTime(independentTimer.value)],
       [
         "Total Time",
-        formatTime(
-          independentTimer.value + guidedTimer.value + openingTimer.value
-        ),
+        formatTime(independentTimer.value + guidedTimer.value + openingTimer.value),
       ],
     ],
   });
@@ -66,10 +64,7 @@ export default function mathGuidedPractice(
       ["Non Directed", data.cues.nonDirected!],
       ["Individual", data.cues.individual],
       ["Group", data.cues.group],
-      [
-        "Total",
-        data.cues.group + data.cues.individual + data.cues.nonDirected!,
-      ],
+      ["Total", data.cues.group + data.cues.individual + data.cues.nonDirected!],
     ],
   });
 
@@ -101,10 +96,7 @@ export default function mathGuidedPractice(
       ["Not Corrected", data.feedback.notCorrected],
       [
         "Percent Corrected",
-        getPercent(
-          data.feedback.mtg,
-          data.feedback.mtg + data.feedback.notCorrected
-        ),
+        getPercent(data.feedback.mtg, data.feedback.mtg + data.feedback.notCorrected),
       ],
     ],
   });

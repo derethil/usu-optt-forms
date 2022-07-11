@@ -35,7 +35,7 @@ function generateBody(formInfo: IFormInfo) {
       main.push([programTitle(currentForm), formInfo.program]);
       return main;
 
-    case formOptions.math:
+    case formOptions.mmMath:
       return main;
 
     case formOptions.practicumChecklist:

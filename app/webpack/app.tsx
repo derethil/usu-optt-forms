@@ -127,7 +127,7 @@ export const App = () => {
       ...sharedRoutes,
     ],
     // ------ MATH ------
-    [formOptions.math]: [
+    [formOptions.mmMath]: [
       <Route path="/new_material" key={(title = "New Material - Guided Practice")}>
         <DataMath
           data={data1}

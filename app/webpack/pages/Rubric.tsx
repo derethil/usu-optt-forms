@@ -16,11 +16,7 @@ import Color from "../styledComponents/colors";
 import { generateScoreData } from "../utils/scoreUtils";
 import Timer from "../components/Timer";
 import currentForm, { formOptions } from "../currentForm";
-import {
-  selectRubric,
-  setRubricComment,
-  setRubricScore,
-} from "../slices/rubricSlice";
+import { selectRubric, setRubricComment, setRubricScore } from "../slices/rubricSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import FormData from "../FormData";
 import { ITimer } from "../slices/timersSlice";
@@ -52,7 +48,7 @@ const timerContentStyles = css`
 `;
 
 function needTimer(section: Section): boolean {
-  if (currentForm !== formOptions.math) return false;
+  if (currentForm !== formOptions.mmMath) return false;
 
   switch (section.sectionTitle) {
     case "Independent Practice":
@@ -80,11 +76,7 @@ const Rubric = (props: RubricProps) => {
     );
   }
 
-  function setScore(
-    newSelection: string | string[],
-    section: Section,
-    row: Row
-  ) {
+  function setScore(newSelection: string | string[], section: Section, row: Row) {
     dispatch(
       setRubricScore({
         section: section.sectionTitle,

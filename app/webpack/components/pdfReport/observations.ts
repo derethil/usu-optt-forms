@@ -29,7 +29,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
     case formOptions.mmReading:
       severePracticumReading(generator, data.data1, data.timerState1, "Decoding Data");
 
-    case formOptions.math:
+    case formOptions.mmMath:
       mathGuidedPractice(
         generator,
         data.data1,

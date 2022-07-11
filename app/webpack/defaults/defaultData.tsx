@@ -177,7 +177,7 @@ export const defaultMMReadingData: DataSchema = {
 };
 
 export const defaultMathData: DataSchema = {
-  currentForm: formOptions.math,
+  currentForm: formOptions.mmMath,
   ...mathData,
 };
 

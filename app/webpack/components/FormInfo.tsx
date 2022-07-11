@@ -39,7 +39,7 @@ const noNextDate = [
 
 // Determines which forms will have neither a program selector or program textbox
 const noProgramText = [
-  formOptions.math,
+  formOptions.mmMath,
   formOptions.STRubric,
   formOptions.teacherCandidate,
 ];
@@ -55,10 +55,7 @@ const noObsSelect = [
 ];
 
 // Determines which forms will not have a cooperating teacher  / supervisor textbox
-const noCoopTeacher = [
-  formOptions.selfEvaluation,
-  formOptions.teacherCandidate,
-];
+const noCoopTeacher = [formOptions.selfEvaluation, formOptions.teacherCandidate];
 
 const noSupervisor = [formOptions.selfEvaluation];
 
@@ -92,11 +89,9 @@ const FormInfo = () => {
     return { content } as Option;
   })!;
 
-  const ProgramOptions = FormData[currentForm].programOptions?.map(
-    (content) => {
-      return { content } as Option;
-    }
-  )!;
+  const ProgramOptions = FormData[currentForm].programOptions?.map((content) => {
+    return { content } as Option;
+  })!;
 
   return (
     <div>
@@ -122,7 +117,7 @@ const FormInfo = () => {
         />
       )}
       {!FormData[currentForm].programOptions &&
-        currentForm !== formOptions.math &&
+        currentForm !== formOptions.mmMath &&
         currentForm !== formOptions.STRubric && (
           <DateInput
             field="date"

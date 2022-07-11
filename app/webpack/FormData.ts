@@ -50,7 +50,7 @@ const FormData: IFormData = {
     defaultData: defaults.defaultMMReadingData,
     title: "MM Reading",
   },
-  [formOptions.math]: {
+  [formOptions.mmMath]: {
     rubric: mathRubric as Section[],
     defaultData: defaults.defaultMathData,
     title: "MM Math",
