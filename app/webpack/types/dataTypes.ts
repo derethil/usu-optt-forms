@@ -146,7 +146,7 @@ export type DataSchema =
       currentForm: formOptions.studentTeaching;
     } & IStudentTeachingData)
   | ({
-      currentForm: formOptions.severeReadingPracticum;
+      currentForm: formOptions.severeReading;
     } & ISeverePracticumData)
   | ({
       currentForm: formOptions.severeMLSPracticum;

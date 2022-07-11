@@ -30,7 +30,7 @@ const DataSPR = (props: Props) => {
   const dispatch = useAppDispatch();
 
   if (
-    data.currentForm !== formOptions.severeReadingPracticum &&
+    data.currentForm !== formOptions.severeReading &&
     data.currentForm !== formOptions.severeMLSPracticum &&
     data.currentForm !== formOptions.reading
   )

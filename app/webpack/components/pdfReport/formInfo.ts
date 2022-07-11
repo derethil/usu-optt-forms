@@ -28,7 +28,7 @@ function generateBody(formInfo: IFormInfo) {
 
   switch (currentForm) {
     case formOptions.studentTeaching:
-    case formOptions.severeReadingPracticum:
+    case formOptions.severeReading:
     case formOptions.severeMLSPracticum:
     case formOptions.bTo5Practicum:
     case formOptions.reading:

@@ -67,7 +67,7 @@ export const App = () => {
       ...sharedRoutes,
     ],
     // ------ SEVERE PRACTICUM ------
-    [formOptions.severeReadingPracticum]: [
+    [formOptions.severeReading]: [
       <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}
@@ -128,10 +128,7 @@ export const App = () => {
     ],
     // ------ MATH ------
     [formOptions.math]: [
-      <Route
-        path="/new_material"
-        key={(title = "New Material - Guided Practice")}
-      >
+      <Route path="/new_material" key={(title = "New Material - Guided Practice")}>
         <DataMath
           data={data1}
           timer={timer3}
@@ -178,12 +175,7 @@ export const App = () => {
     ],
     [formOptions.teacherCandidate]: [
       <Route path="/rubric" key="Rubric">
-        <Rubric
-          timer1={timer1}
-          timer2={timer2}
-          disableCommentBoxes
-          alternateInfoStyle
-        />
+        <Rubric timer1={timer1} timer2={timer2} disableCommentBoxes alternateInfoStyle />
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],

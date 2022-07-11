@@ -18,7 +18,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
         data.timerState2
       );
 
-    case formOptions.severeReadingPracticum:
+    case formOptions.severeReading:
     case formOptions.severeMLSPracticum:
     case formOptions.selfEvaluation:
       severePracticumReading(generator, data.data1, data.timerState1);
@@ -27,12 +27,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
       bTo5Practicum(generator, data.data1, data.timerState1);
 
     case formOptions.reading:
-      severePracticumReading(
-        generator,
-        data.data1,
-        data.timerState1,
-        "Decoding Data"
-      );
+      severePracticumReading(generator, data.data1, data.timerState1, "Decoding Data");
 
     case formOptions.math:
       mathGuidedPractice(

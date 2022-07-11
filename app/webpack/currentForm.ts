@@ -1,6 +1,6 @@
 export enum formOptions {
   studentTeaching = "studentTeaching",
-  severeReadingPracticum = "severeReadingPracticum",
+  severeReading = "severeReadingPracticum",
   severeMLSPracticum = "severeMLSPracticum",
   bTo5Practicum = "bTo5Practicum",
   reading = "reading",

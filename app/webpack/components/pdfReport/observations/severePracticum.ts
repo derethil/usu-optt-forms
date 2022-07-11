@@ -1,10 +1,6 @@
 import PDFGenerator from "./../PDFGenerator";
 import { DataSchema } from "../../../types/dataTypes";
-import {
-  getOTRRate,
-  getPraiseRatio,
-  getPraiseSum,
-} from "../../../utils/dataUtils";
+import { getOTRRate, getPraiseRatio, getPraiseSum } from "../../../utils/dataUtils";
 import { genSPError, genSPSequence } from "../../../utils/pdfUtils";
 import { getPercent } from "../../../utils/utils";
 import Color from "../../../styledComponents/colors";
@@ -20,7 +16,7 @@ const severePracticumReadingSection = (
   title: string = "Observation Data"
 ) => {
   if (
-    data.currentForm === formOptions.severeReadingPracticum ||
+    data.currentForm === formOptions.severeReading ||
     data.currentForm === formOptions.severeMLSPracticum ||
     data.currentForm === formOptions.reading
   ) {

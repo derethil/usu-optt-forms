@@ -40,7 +40,7 @@ export function findMaxScore(row: Row) {
 export function programTitle(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.reading:
-    case formOptions.severeReadingPracticum:
+    case formOptions.severeReading:
       return "Reading Program";
     case formOptions.severeMLSPracticum:
       return "Math/Life Skills Program";

@@ -30,7 +30,7 @@ const FormData: IFormData = {
     title: "Student Teaching",
     programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
   },
-  [formOptions.severeReadingPracticum]: {
+  [formOptions.severeReading]: {
     rubric: severePracticumRubric as Section[],
     defaultData: defaults.defaultSevereReadingPracticumData,
     title: "Severe Reading Practicum",
