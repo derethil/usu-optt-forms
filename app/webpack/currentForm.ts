@@ -1,13 +1,13 @@
 export enum formOptions {
   studentTeaching = "studentTeaching",
+  STRubric = "STRubric",
+  severeSelfEvaluation = "severeSelfEvaluation",
   severeReading = "severeReading",
   severeMathLifeSkills = "severeMathLifeSkills",
-  birthToFive = "birthToFive",
   mmReading = "mmReading",
   mmMath = "mmMath",
+  birthToFive = "birthToFive",
   OPTTChecklist = "OPTTChecklist",
-  selfEvaluation = "selfEvaluation",
-  STRubric = "STRubric",
   teacherCandidate = "teacherCandidate",
 }
 

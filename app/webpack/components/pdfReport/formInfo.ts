@@ -48,7 +48,7 @@ function generateBody(formInfo: IFormInfo) {
         ["Other", formInfo.other],
       ];
 
-    case formOptions.selfEvaluation:
+    case formOptions.severeSelfEvaluation:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
         ["Observation Date", formInfo.date],

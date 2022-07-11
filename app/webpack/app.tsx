@@ -148,7 +148,7 @@ export const App = () => {
       </Route>,
     ],
     // ------ SELF EVALUATION ------
-    [formOptions.selfEvaluation]: [
+    [formOptions.severeSelfEvaluation]: [
       <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}

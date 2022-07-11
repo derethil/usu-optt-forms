@@ -32,7 +32,7 @@ import { NewValues, Option } from "../types/types";
 // Determines which forms have only one date selector
 const noNextDate = [
   formOptions.OPTTChecklist,
-  formOptions.selfEvaluation,
+  formOptions.severeSelfEvaluation,
   formOptions.STRubric,
   formOptions.teacherCandidate,
 ];
@@ -55,9 +55,9 @@ const noObsSelect = [
 ];
 
 // Determines which forms will not have a cooperating teacher  / supervisor textbox
-const noCoopTeacher = [formOptions.selfEvaluation, formOptions.teacherCandidate];
+const noCoopTeacher = [formOptions.severeSelfEvaluation, formOptions.teacherCandidate];
 
-const noSupervisor = [formOptions.selfEvaluation];
+const noSupervisor = [formOptions.severeSelfEvaluation];
 
 // ------ COMPONENT ------
 
@@ -82,7 +82,7 @@ const FormInfo = () => {
     "2",
     "3",
     "4",
-    ...insertIf(currentForm !== formOptions.selfEvaluation, "5"),
+    ...insertIf(currentForm !== formOptions.severeSelfEvaluation, "5"),
   ];
 
   const ObservationOptions = ObservationOptionsStr.map((content) => {
@@ -153,7 +153,7 @@ const FormInfo = () => {
           title={programTitle(currentForm)}
         />
       )}
-      {currentForm !== formOptions.selfEvaluation && (
+      {currentForm !== formOptions.severeSelfEvaluation && (
         <TextInput
           value={formInfo.other}
           updateForm={updateFormInfo}
@@ -161,7 +161,7 @@ const FormInfo = () => {
           title={otherLabel(currentForm)}
         />
       )}
-      {currentForm === formOptions.selfEvaluation && (
+      {currentForm === formOptions.severeSelfEvaluation && (
         <>
           <TextInput
             value={formInfo.goal1}

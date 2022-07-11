@@ -28,7 +28,7 @@ const FeedbackPage = () => {
         updateContent={(newContent) => dispatch(setFeedback(newContent))}
       />
 
-      {currentForm !== formOptions.selfEvaluation ? (
+      {currentForm !== formOptions.severeSelfEvaluation ? (
         <TextBoxCard
           title={feedbackLabel(currentForm, 3)}
           field="area3"

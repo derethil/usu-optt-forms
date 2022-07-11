@@ -20,7 +20,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
 
     case formOptions.severeReading:
     case formOptions.severeMathLifeSkills:
-    case formOptions.selfEvaluation:
+    case formOptions.severeSelfEvaluation:
       severePracticumReading(generator, data.data1, data.timerState1);
 
     case formOptions.birthToFive:
