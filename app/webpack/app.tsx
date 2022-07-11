@@ -79,7 +79,7 @@ export const App = () => {
       </Route>,
       ...sharedRoutes,
     ],
-    [formOptions.severeMLSPracticum]: [
+    [formOptions.severeMathLifeSkills]: [
       <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}

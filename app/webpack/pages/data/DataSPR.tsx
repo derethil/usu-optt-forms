@@ -31,7 +31,7 @@ const DataSPR = (props: Props) => {
 
   if (
     data.currentForm !== formOptions.severeReading &&
-    data.currentForm !== formOptions.severeMLSPracticum &&
+    data.currentForm !== formOptions.severeMathLifeSkills &&
     data.currentForm !== formOptions.reading
   )
     return <div></div>;

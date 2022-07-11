@@ -17,7 +17,7 @@ const severePracticumReadingSection = (
 ) => {
   if (
     data.currentForm === formOptions.severeReading ||
-    data.currentForm === formOptions.severeMLSPracticum ||
+    data.currentForm === formOptions.severeMathLifeSkills ||
     data.currentForm === formOptions.reading
   ) {
     generator.dualNestedTables({

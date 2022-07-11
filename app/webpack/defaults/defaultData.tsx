@@ -156,12 +156,12 @@ export const defaultStudentTeachingData: DataSchema = {
   ...studentTeachingData,
 };
 
-export const defaultSevereReadingPracticumData: DataSchema = {
+export const defaultSevereReadingData: DataSchema = {
   currentForm: formOptions.severeReading,
   ...severePracticumData,
 };
 
-export const defaultSevereMLSPracticumData: DataSchema = {
+export const defaultSevereMathLifeSkillsData: DataSchema = {
   currentForm: formOptions.severeReading,
   ...severePracticumData,
 };

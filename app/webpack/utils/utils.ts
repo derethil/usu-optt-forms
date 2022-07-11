@@ -42,7 +42,7 @@ export function programTitle(currentForm: formOptions) {
     case formOptions.reading:
     case formOptions.severeReading:
       return "Reading Program";
-    case formOptions.severeMLSPracticum:
+    case formOptions.severeMathLifeSkills:
       return "Math/Life Skills Program";
     default:
       return "Program";

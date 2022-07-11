@@ -32,12 +32,12 @@ const FormData: IFormData = {
   },
   [formOptions.severeReading]: {
     rubric: severePracticumRubric as Section[],
-    defaultData: defaults.defaultSevereReadingPracticumData,
+    defaultData: defaults.defaultSevereReadingData,
     title: "Severe Reading Practicum",
   },
-  [formOptions.severeMLSPracticum]: {
+  [formOptions.severeMathLifeSkills]: {
     rubric: severePracticumRubric as Section[],
-    defaultData: defaults.defaultSevereMLSPracticumData,
+    defaultData: defaults.defaultSevereMathLifeSkillsData,
     title: "Severe Math/Life Skills Practicum",
   },
   [formOptions.bTo5Practicum]: {
@@ -64,7 +64,7 @@ const FormData: IFormData = {
   [formOptions.selfEvaluation]: {
     title: "Self Evaluation",
     rubric: selfEvaluationRubric as Section[],
-    defaultData: defaults.defaultSevereReadingPracticumData,
+    defaultData: defaults.defaultSevereReadingData,
   },
   [formOptions.STRubric]: {
     title: "OPTT ST Rubric",

@@ -19,7 +19,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
       );
 
     case formOptions.severeReading:
-    case formOptions.severeMLSPracticum:
+    case formOptions.severeMathLifeSkills:
     case formOptions.selfEvaluation:
       severePracticumReading(generator, data.data1, data.timerState1);
 
