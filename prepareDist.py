@@ -8,10 +8,13 @@ from shutil import copyfile, make_archive, move
 STATIC_PATH = "./app/static"
 DIST_PATH = "./dist/structure"
 
+
 def main():
     with open("./app/webpack/currentForm.ts", "r") as file:
         content = file.read()
         forms = [form.replace('"', "") for form in re.findall('"\w+"', content)]
+
+    forms.remove("teacherCandidate")
 
     for form in forms:
         print(f"Changing current form to {form}")

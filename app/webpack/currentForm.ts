@@ -17,6 +17,6 @@ export enum formOptions {
   cooperatingTeacherChecklist = "cooperatingTeacherChecklist",
 }
 
-const currentForm: formOptions = formOptions.severeMathLifeSkills;
+const currentForm: formOptions = formOptions.cooperatingTeacherChecklist;
 
 export default currentForm;
