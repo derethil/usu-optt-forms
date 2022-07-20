@@ -186,6 +186,11 @@ export const App = () => {
         <Rubric timer1={timer1} timer2={timer2} />
       </Route>,
     ],
+    [formOptions.earlyIntervention]: [
+      <Route path="/rubric" key="Rubric">
+        <Rubric timer1={timer1} timer2={timer2} />
+      </Route>,
+    ],
   };
 
   return (

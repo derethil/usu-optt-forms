@@ -36,6 +36,7 @@ const noNextDate = [
   formOptions.studentTeachingRubric,
   formOptions.teacherCandidate,
   formOptions.cooperatingTeacherChecklist,
+  formOptions.earlyIntervention,
 ];
 
 // Determines which forms will have neither a program selector or program textbox
@@ -44,6 +45,7 @@ const noProgramText = [
   formOptions.studentTeachingRubric,
   formOptions.teacherCandidate,
   formOptions.cooperatingTeacherChecklist,
+  formOptions.earlyIntervention,
 ];
 
 const includeProgramText =
@@ -62,9 +64,21 @@ const noCoopTeacher = [
   formOptions.severeSelfEvaluation,
   formOptions.teacherCandidate,
   formOptions.cooperatingTeacherChecklist,
+  formOptions.earlyIntervention,
 ];
 
 const noSupervisor = [formOptions.severeSelfEvaluation];
+
+const getObservationOptions = (currentForm: formOptions) => {
+  switch (currentForm) {
+    case formOptions.severeSelfEvaluation:
+      return ["1", "2", "3", "4"];
+    case formOptions.earlyIntervention:
+      return ["Informal", "1", "2", "3"];
+    default:
+      return ["1", "2", "3", "4", "5"];
+  }
+};
 
 // ------ COMPONENT ------
 
@@ -77,20 +91,13 @@ const FormInfo = () => {
   };
 
   // Allows Notebook Check to change its options depending on observation #
-  const updateObservation = (updatedValues: { observation: number }) => {
+  const updateObservation = (updatedValues: { observation: string }) => {
     const location = formInfo.location;
     const observation = updatedValues.observation;
     dispatch(setLocationOrObservation({ location, observation }));
   };
 
-  // Options generator
-  const ObservationOptionsStr = [
-    "1",
-    "2",
-    "3",
-    "4",
-    ...insertIf(currentForm !== formOptions.severeSelfEvaluation, "5"),
-  ];
+  const ObservationOptionsStr = getObservationOptions(currentForm);
 
   const ObservationOptions = ObservationOptionsStr.map((content) => {
     return { content } as Option;
@@ -186,11 +193,11 @@ const FormInfo = () => {
       )}
       {!noObsSelect.includes(currentForm) && (
         <OptionRow
-          title={"Observation Number"}
+          title={"Observation"}
           options={ObservationOptions}
           currSelection={formInfo.observation.toString()}
           updateSelection={(newSelection: string) =>
-            updateObservation({ observation: Number(newSelection) })
+            updateObservation({ observation: newSelection })
           }
           titleStyles={css`
             color: ${Color.neutrals.grayDark};

@@ -59,7 +59,7 @@ export interface IFormInfo {
   supervisor: string;
   date: string;
   nextDate: string;
-  observation: number;
+  observation: string;
   other: string;
   program: string;
   location: Location;

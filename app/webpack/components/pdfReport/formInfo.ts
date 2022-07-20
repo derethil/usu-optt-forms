@@ -45,7 +45,7 @@ function generateBody(formInfo: IFormInfo) {
         ["District Coach", formInfo.supervisor],
         ["Date", formInfo.date],
         ["Program", formInfo.program],
-        ["Other", formInfo.other],
+        [otherLabel(currentForm), formInfo.other],
       ];
 
     case formOptions.severeSelfEvaluation:
@@ -64,7 +64,7 @@ function generateBody(formInfo: IFormInfo) {
         ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["Supervisor / Coach", formInfo.supervisor],
         ["Date", formatDate(formInfo.date)],
-        ["Other", formInfo.other],
+        [otherLabel(currentForm), formInfo.other],
       ];
 
     case formOptions.teacherCandidate:
@@ -74,6 +74,14 @@ function generateBody(formInfo: IFormInfo) {
         [superior(currentForm), formInfo.supervisor],
         ["Observation Date", formatDate(formInfo.date)],
         [otherLabel(currentForm), formInfo.other],
+      ];
+    case formOptions.earlyIntervention:
+      return [
+        [studentTitle(currentForm), formInfo.studentTeacher],
+        [superior(currentForm), formInfo.supervisor],
+        ["Date", formatDate(formInfo.date)],
+        [otherLabel(currentForm), formInfo.other],
+        ["Observation", formInfo.observation],
       ];
   }
 }

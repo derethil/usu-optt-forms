@@ -75,6 +75,11 @@ const FormData: IFormData = {
     rubric: RUBRICS.cooperatingTeacherChecklist as Section[],
     defaultData: {} as DataSchema,
   },
+  [formOptions.earlyIntervention]: {
+    title: "Early Intervention Practicum Observation",
+    rubric: RUBRICS.earlyIntervention as Section[],
+    defaultData: {} as DataSchema,
+  },
 };
 
 export default FormData;

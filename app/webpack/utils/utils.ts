@@ -70,6 +70,8 @@ export function superior(currentForm: formOptions) {
       return "Evaluator Name and Role";
     case formOptions.cooperatingTeacherChecklist:
       return "Cooperating/Mentor Teacher";
+    case formOptions.earlyIntervention:
+      return "Observer";
     default:
       return "Supervisor / Coach";
   }
@@ -79,6 +81,7 @@ export function dateLabel(currentForm: formOptions) {
   switch (currentForm) {
     case formOptions.OPTTChecklist:
     case formOptions.studentTeachingRubric:
+    case formOptions.earlyIntervention:
       return "Date";
     default:
       return "Observation Date";

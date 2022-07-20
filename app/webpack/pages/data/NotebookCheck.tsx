@@ -14,10 +14,7 @@ import IconTitle from "../../components/IconTitle";
 import QuestionRow from "../../components/QuestionRow";
 import { Location } from "../../types/types";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import {
-  selectCheckInfo,
-  setLocationOrObservation,
-} from "../../slices/formInfoSlice";
+import { selectCheckInfo, setLocationOrObservation } from "../../slices/formInfoSlice";
 import {
   selectNotebookChecks,
   setNotebookChecks,
@@ -70,7 +67,7 @@ export default function NotebookCheck() {
           updateSelection={(newSelection: string) =>
             updateRelevantFormInfo({
               location,
-              observation: Number(newSelection),
+              observation: newSelection,
             })
           }
           titleStyles={css`

@@ -19,7 +19,7 @@ export const defaultFormInfo: IFormInfo = {
   supervisor: "",
   date: new Date().toUTCString(),
   nextDate: new Date().toUTCString(),
-  observation: 1,
+  observation: "1",
   other: "",
   program: currentForm === formOptions.studentTeaching ? "Mild/Moderate" : "",
   location: Location.logan,
@@ -30,7 +30,7 @@ export const defaultFormInfo: IFormInfo = {
 };
 
 export const defaultNotebookCheck = {
-  numbered: getNotebookCheck(true, 1),
+  numbered: getNotebookCheck(true, "1"),
   final: getNotebookCheck(true),
 };
 
