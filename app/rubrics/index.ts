@@ -1,5 +1,6 @@
 // Birth to Five
 import birthToFive from "./birthToFive/birthToFive.json";
+import earlyIntervention from "./birthToFive/earlyIntervention.json";
 
 // Mild/Moderate
 import mmReading from "./mildModerate/mmReading.json";
@@ -18,13 +19,19 @@ import cooperatingTeacherChecklist from "./studentTeaching/cooperatingTeacherChe
 import teacherCandidate from "./teacherCandidate.json";
 
 export {
-  studentTeaching,
-  severePracticum,
+  // Birth to Five
+  earlyIntervention,
   birthToFive,
+  //Mild/Moderate
   mmReading,
   mmMath,
+  // Severe
+  severePracticum,
   severeSelfEvaluation,
+  // Student Teaching
+  studentTeaching,
   studentTeachingRubric,
-  teacherCandidate,
   cooperatingTeacherChecklist,
+  // Other
+  teacherCandidate,
 };

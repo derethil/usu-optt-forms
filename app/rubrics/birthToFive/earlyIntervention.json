@@ -1,0 +1,449 @@
+[
+  {
+    "sectionTitle": "Preparation and Interactions",
+    "rows": [
+      {
+        "area": "Interactions",
+        "options": [
+          {
+            "content": "Greets all individuals present during the home visit and includes them in the activities as appropriate.",
+            "score": 2
+          },
+          {
+            "content": "Only greets and interacts with the primary contact during the home visit.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Rapport Building",
+        "options": [
+          {
+            "content": "Joins into ongoing activities or begins home visit by asking caregivers to identify a preferred activity to engage in.",
+            "score": 2
+          },
+          {
+            "content": "Only general attempts to build rapport.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Assess Child and Family Well-Being",
+        "options": [
+          {
+            "content":"Asks open-ended questions regarding child and families current state of well-being. Questions inform the focus of the home visit and the participation level of the child and family members involved.",
+            "score": 4
+          },
+          {
+            "content": "Questions asked do not lead to an understanding of child and family-wellbeing that can be used to inform the current visit.",
+            "score": 2
+          },
+          {
+            "content": "Asks closed-ended questions, or does not use information to inform the home visit.",
+            "score": 1
+          },
+          {
+            "content": "Does not ask questions to expand understanding of how the caregiver and child are feeling.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Review Previous Visit",
+        "options": [
+          {
+            "content": "Reviews intervention opportunities and routine/activity contexts from the last visit. Open-ended questions assess caregiver's comfort level, preference, use, and success level of strategies discussed in previous home visit. Determines if program revisions are needed.",
+            "score": 4
+          },
+          {
+            "content": "Discusses previous home visit, but does not use the information to inform the current visit.",
+            "score": 2
+          },
+          {
+            "content": "Does not review from the previous visit",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Determine Child Performance",
+        "options": [
+          {
+            "content": "Solicits family feedback on child's current progress. Provides positive feedback regarding caregiver's efforts to implement strategies. Questioning used gains an understanding of the child's current performance.",
+            "score": 2
+          },
+          {
+            "content": "Only gains a general understanding of how the child is performing (good, ok, not that good)",
+            "score": 1
+          },
+          {
+            "content": "Does not seek information on child's current performance related to outcomes",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Listen to Caregiver Concerns",
+        "options": [
+          {
+            "content": "Responds to caregiver's cues regarding concerns or priorities that differ from those that were the planned focus of the interaction. Adjust interactions and conversation to validate the concerns or priorities expressed.",
+            "score": 2
+          },
+          {
+            "content":  "Doesn't validate caregiver's newly identified concerns, doesn't ask questions to clarify caregiver concerns.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Discuss Purpose of Visit",
+        "options": [
+          {
+            "content": "Includes a statement linking activities in previous visit, current visit, and the priority, outcome, or concern expressed by the caregiver.",
+            "score": 2
+          },
+          {
+            "content": "States the outcome, concern, or priority but, does not link it to practices.",
+            "score": 1
+          },
+          {
+            "content": "Does not state the outcome, concern, or priority or link it to practices.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Agenda and Materials",
+        "options": [
+          {
+            "content": "Facilitates an agreement of a general plan for how time will be allocated for each activity, what the provider plans to demonstrate, and how and what the caregiver's participation can look like. Helps the caregiver identify materials in their environment that would be appropriate for the activities. Offers choices, when necessary, and shares perceived pros and cons of each. ",
+            "score": 2
+          },
+          {
+            "content": "Does one but not both.",
+            "score": 1
+          },
+          {
+            "content": "Does not share the sequence of activities with the caregiver, does not prepare materials.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Implementation and Coaching Strategies",
+    "rows": [
+      {
+        "area": "Time Management",
+        "options": [
+          {
+            "content": "Uses active coaching throughout session through modeling & observation with questioning & feedback.",
+            "score": 2
+          },
+          {
+            "content": "More time was spent observing (without reflection or feedback) than active coaching.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Environmental Arrangement",
+        "options": [
+          {
+            "content": "Arranges the environment in order to increase and promote parent-child interaction. Positions self for observation and interaction without intruding. Assures materials are accessible, typically found in the environment, and developmentally",
+            "score": 2
+          },
+          {
+            "content": " Does not move self or items in the environment to facilitate engagement.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Strategy Addressed",
+        "options": [
+          {
+            "content": "Chosen based on caregivers concerns, is an evidence based practice, clear steps were prepared for discussion and demonstration",
+            "score": 4
+          },
+          {
+            "content": "Some but not all of the elements described below.",
+            "score": 2
+          },
+          {
+            "content": "Is not evidence based, does not relate to the caregiver concern, or is not clearly defined.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Explanation of Strategy",
+        "options": [
+          {
+            "content": "Clearly defines and articulates strategy, description is responsive to the individual diversity of the caregivers. Offers choices, when necessary, and share perceived pros and cons of each.",
+            "score": 8
+          },
+          {
+            "content": "Explanation provided is unclear or missing steps or, is not responsive to individual caregiver diversity.",
+            "score": 4
+          },
+          {
+            "content": "Does not respond to individual diversity of caregiver and, explanation is not well defined.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Model of Strategy",
+        "options": [
+          {
+            "content": "Uses the least intrusive model necessary based on caregiver preferences and learning history. Uses caregiver and child as a dyad. Provides opportunity for discussion following the model or practice of a strategy.",
+            "score": 8
+          },
+          {
+            "content": "Model provided is not clear or, does not respond to the caregiver's learning style",
+            "score": 4
+          },
+          {
+            "content": "Does not model or does not work with caregiver and child as a dyad.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Caregiver Practice",
+        "options": [
+          {
+            "content": "Facilitates child-caregiver engagement throughout the practice of the strategy. Maintains a balance between observation and feedback. Allows caregiver and child to interact as a dyad",
+            "score": 4
+          },
+          {
+            "content": "Provides minimal opportunities for practice or, does not continue to arrange the environment to promote engagement",
+            "score": 2
+          },
+          {
+            "content": "Does not provide an opportunity for the parent to practice the strategy with feedback.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Caregiver Self-Reflection",
+        "options": [
+          {
+            "content": "Uses active, reflective listening, including open–ended questions. Supports caregiver in problem solving and making decisions.",
+            "score": 4
+          },
+          {
+            "content": "Does not expand on or use open-ended questions to encourage self-reflection.",
+            "score": 2
+          },
+          {
+            "content": "Does not provide an opportunity for self-reflection or questions.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Providing Feedback",
+        "options": [
+          {
+            "content": "Balances between descriptive and general feedback, feedback is linked to child outcomes, and feedback and nonverbal cues are responsive to individual diversity.",
+            "score": 4
+          },
+          {
+            "content": "Uses some descriptive feedback but not at an appropriate rate, or not linked to student outcomes.",
+            "score": 2
+          },
+          {
+            "content": "Only use of general feedback.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Assessing Understanding",
+        "options": [
+          {
+            "content": "Uses open-ended questions to share and shape use of strategies including a prompt for caregiver to explain the strategy in their own words. First addresses errors during self-reflection, and if needs be uses the least intrusive prompt/model necessary.",
+            "score": 4
+          },
+          {
+            "content": "Checks for caregiver understanding using indirect or closed-ended questions or is not sensitive to caregivers when correcting errors.",
+            "score": 2
+          },
+          {
+            "content": "Does not address misuse of the strategy or check for caregiver understanding.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Coordination of Service",
+    "rows": [
+      {
+        "area": "Review",
+        "options": [
+          {
+            "content": "Summarizes the activities and information discussed during the home visit by using comments and questions to identify what worked well for the caregiver and child.",
+            "score": 3
+          },
+          {
+            "content": "Summarizes the activities and information discussed during the home visit",
+            "score": 1
+          },
+          {
+            "content": "Does not summarize the activities and information discussed during the home visit.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Implementation Planning",
+        "options": [
+          {
+            "content": "Uses open-ended questions and active listening to help the caregiver make a plan for implementing the strategy. Includes what it will look like when it is going well.",
+            "score": 6
+          },
+          {
+            "content": "Provides the caregiver with a plan for implementing the strategies throughout the week but does not involve them in planning.",
+            "score": 3
+          },
+          {
+            "content": "Does not help the caregiver determine a plan for implementing the strategies throughout the week.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Home Notes",
+        "options": [
+          {
+            "content": "Verbally reviews home notes with the caregiver and check for understanding. Review of home note is jargon free, and responds to the current level of understanding and individual diversity of the caregiver.",
+            "score": 4
+          },
+          {
+            "content": "Does not review note, the note is not jargon free or, does not respond to caregiver diversity/ level of understanding.",
+            "score": 3
+          },
+          {
+            "content": "Does not provide or review home notes with the caregiver before leaving.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Follow-up",
+        "options": [
+          {
+            "content": "Discusses time for next visit and the outcome/priority to be addressed in next visit. Shares what the provider will do",
+            "score": 2
+          },
+          {
+            "content": "Discusses time for next visit only, or discusses outcome to be addressed in next visit, but does not do both.",
+            "score": 1
+          },
+          {
+            "content": "Does not discuss time for next home visit, or identify what the provider will do in preparation for the next home visit.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Professionalism",
+    "rows": [
+      {
+        "area": "Dresses appropriately and maintains personal hygiene",
+        "info": "Dresses modestly in clean clothes in good repair, and dresses consistent with the dress of teachers and administrators in the school",
+        "options": [
+          {
+            "score": "Y"
+          },
+          {
+            "score": -8,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Responds favorably to constructive feedback",
+        "info": "Accepts feedback and constructive criticism, acknowledges need for improvement, asks questions for clarification, and immediately implements recommended changes",
+        "options": [
+          {
+            "score": "Y"
+          },
+          {
+            "score": -7.5,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Implements changes after feedback are provided",
+        "info": "Implements changes in behavior, procedure, or schedule as recommended, checks with person who provided feedback to receive input on whether implementation is correct",
+        "options": [
+          {
+            "score": "Y"
+          },
+          {
+            "score": -7.5,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Exhibits positive and respectful attitude toward families",
+        "info": "Exhibits appropriate verbal and nonverbal communication (i.e., tone of voice, facial expression, gestures, etc.) when interacting with caregivers, other providers, and children. Actions exhibit an understanding and respect for individual family diversity.",
+        "options": [
+          {
+            "score": "Y"
+          },
+          {
+            "score": -7.5,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Demonstrates Professional Attributes",
+        "info": "effective team member, appropriate levels of independence, constructive verbal messages, listens to and understands feedback, self/social awareness, self/relationship management, accepts responsibility, self-control, expresses self appropriately, demonstrated appropriate use of body language, gestures, voice and artifacts, and generalizes information from all SPED courses",
+        "options": [
+          {
+            "score": "Y"
+          },
+          {
+            "score": -7.5,
+            "default": true
+          }
+        ]
+      }
+    ]
+  }
+]
