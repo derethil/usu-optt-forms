@@ -25,10 +25,10 @@ export const getMaxSubtotal = (
   const maxBefore = sectionData.rows.reduce((total, row) => {
     // If max score is "Yes", etc. do not add to the total
     let maxScore = findMaxScore(row);
+    maxScore = isNaN(maxScore) ? 0 : maxScore;
 
     let nonNumeric =
-      row.options.filter((e) => typeof e.score === "number").length <
-      row.options.length;
+      row.options.filter((e) => typeof e.score === "number").length < row.options.length;
 
     return total + (nonNumeric ? 0 : maxScore);
   }, 0);
@@ -38,14 +38,14 @@ export const getMaxSubtotal = (
     (key) => sectionScores[key].score === "N/A"
   );
 
-  // Return total with N/A max scores subtracted
+  // Return total with N/A max scores subtracted by looping through rows with N/A scores
   return Object.keys(sectionScores).reduce((total, scoreArea) => {
     if (!NARows.includes(scoreArea)) return total; // Do not do anything on rows not marked as N/A
 
     // Subtract max score of given row from total
     const currRow = sectionData.rows.find((row) => row.area === scoreArea);
     const maxScore = findMaxScore(currRow!);
-    return total - (typeof maxScore === "number" ? maxScore : 0);
+    return total - (isNaN(maxScore) ? 0 : maxScore);
   }, maxBefore);
 };
 
@@ -57,11 +57,7 @@ export const generateScoreData = (scores: ScoresState) => {
     const subtotal = getSubtotal(section.sectionTitle, scores);
     score += subtotal;
 
-    const currPossible = getMaxSubtotal(
-      section.sectionTitle,
-      scores,
-      rubricData
-    );
+    const currPossible = getMaxSubtotal(section.sectionTitle, scores, rubricData);
     possible += currPossible;
 
     return [section.sectionTitle, `${subtotal} / ${currPossible}`];

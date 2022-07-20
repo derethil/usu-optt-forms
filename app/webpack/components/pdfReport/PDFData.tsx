@@ -97,7 +97,11 @@ const PDFData = () => {
     }
 
     // Feedback
-    if (currentForm !== formOptions.cooperatingTeacherChecklist) {
+    if (
+      ![formOptions.cooperatingTeacherChecklist, formOptions.earlyIntervention].includes(
+        currentForm
+      )
+    ) {
       generateFeedback(generator, data);
     }
 

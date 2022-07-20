@@ -76,7 +76,7 @@ const FormData: IFormData = {
     defaultData: {} as DataSchema,
   },
   [formOptions.earlyIntervention]: {
-    title: "Early Intervention Practicum Observation",
+    title: "Early Intervention Practicum",
     rubric: RUBRICS.earlyIntervention as Section[],
     defaultData: {} as DataSchema,
   },
