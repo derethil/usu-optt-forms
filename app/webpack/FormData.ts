@@ -2,15 +2,7 @@ import * as defaults from "./defaults/defaultData";
 import { DataSchema, IStudentTeachingRubric } from "./types/dataTypes";
 import { Section } from "./types/types";
 
-import studentTeachingRubric from "../rubrics/studentTeaching.json";
-import severePracticumRubric from "../rubrics/severePracticum.json";
-import birthToFiveRubric from "../rubrics/birthToFive.json";
-import readingRubric from "../rubrics/readingRubric.json";
-import mathRubric from "../rubrics/mathRubric.json";
-import selfEvaluationRubric from "../rubrics/selfEvaluation.json";
-import studentTeachingRubricRubric from "../rubrics/studentTeachingRubric.json";
-import teacherCandidateRubric from "../rubrics/teacherCandidate.json";
-import cooperatingTeacherChecklistRubric from "../rubrics/cooperatingTeacherChecklist.json";
+import * as RUBRICS from "../rubrics";
 
 import { formOptions } from "./currentForm";
 
@@ -26,33 +18,33 @@ type IFormData = {
 
 const FormData: IFormData = {
   [formOptions.studentTeaching]: {
-    rubric: studentTeachingRubric as Section[],
+    rubric: RUBRICS.studentTeaching as Section[],
     defaultData: defaults.defaultStudentTeachingData,
     title: "Student Teaching",
     programOptions: ["Mild/Moderate", "Severe", "Birth to 5"],
   },
   [formOptions.severeReading]: {
-    rubric: severePracticumRubric as Section[],
+    rubric: RUBRICS.severePracticum as Section[],
     defaultData: defaults.defaultSevereReadingData,
     title: "Severe Reading Practicum",
   },
   [formOptions.severeMathLifeSkills]: {
-    rubric: severePracticumRubric as Section[],
+    rubric: RUBRICS.severePracticum as Section[],
     defaultData: defaults.defaultSevereMathLifeSkillsData,
     title: "Severe Math/Life Skills Practicum",
   },
   [formOptions.birthToFive]: {
-    rubric: birthToFiveRubric as Section[],
+    rubric: RUBRICS.birthToFive as Section[],
     defaultData: defaults.defaultBirthToFiveData,
     title: "Birth to 5",
   },
   [formOptions.mmReading]: {
-    rubric: readingRubric as Section[],
+    rubric: RUBRICS.mmReading as Section[],
     defaultData: defaults.defaultMMReadingData,
     title: "MM Reading",
   },
   [formOptions.mmMath]: {
-    rubric: mathRubric as Section[],
+    rubric: RUBRICS.mmMath as Section[],
     defaultData: defaults.defaultMathData,
     title: "MM Math",
   },
@@ -64,23 +56,23 @@ const FormData: IFormData = {
   },
   [formOptions.severeSelfEvaluation]: {
     title: "Self Evaluation",
-    rubric: selfEvaluationRubric as Section[],
+    rubric: RUBRICS.severeSelfEvaluation as Section[],
     defaultData: defaults.defaultSevereReadingData,
   },
   [formOptions.studentTeachingRubric]: {
     title: "OPTT ST Rubric",
-    rubric: studentTeachingRubricRubric as Section[],
+    rubric: RUBRICS.studentTeachingRubric as Section[],
     defaultData: defaults.defaultStudentTeachingData,
     questions: defaults.defaultStudentTeachingRubricData,
   },
   [formOptions.teacherCandidate]: {
     title: "Teacher Candidate Formative Feedback",
-    rubric: teacherCandidateRubric as Section[],
+    rubric: RUBRICS.teacherCandidate as Section[],
     defaultData: {} as DataSchema,
   },
   [formOptions.cooperatingTeacherChecklist]: {
     title: "Cooperating Teacher Checklist",
-    rubric: cooperatingTeacherChecklistRubric as Section[],
+    rubric: RUBRICS.cooperatingTeacherChecklist as Section[],
     defaultData: {} as DataSchema,
   },
 };

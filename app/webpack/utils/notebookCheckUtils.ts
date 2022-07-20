@@ -1,10 +1,7 @@
-import notebookChecks from "../../rubrics/notebookChecks.json";
+import notebookChecks from "../../rubrics/mildModerate/notebookChecks.json";
 import { NotebookCheckContent } from "../types/dataTypes";
 
-export default function getNotebookCheck(
-  locationIsLogan: boolean,
-  obsNum?: number
-) {
+export default function getNotebookCheck(locationIsLogan: boolean, obsNum?: number) {
   const NotebookChecks: NotebookCheckContent[] = notebookChecks;
 
   return NotebookChecks.filter((obj) =>
