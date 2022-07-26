@@ -3,7 +3,7 @@ import React from "react";
 import currentForm, { formOptions } from "../currentForm";
 
 import ScoreTotals from "../components/rubric/ScoreTotals";
-import FormInfo from "../components/FormInfo";
+import FormInputs from "../components/FormInputs";
 import Card from "../components/Card";
 import PDFData from "../components/pdfReport/PDFData";
 
@@ -44,7 +44,7 @@ const FormHome = () => {
   return (
     <PageContent>
       <Card title="General Information">
-        <FormInfo />
+        <FormInputs />
       </Card>
 
       {currentForm === formOptions.teacherCandidate && (

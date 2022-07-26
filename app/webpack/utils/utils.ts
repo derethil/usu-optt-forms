@@ -84,6 +84,8 @@ export function dateLabel(currentForm: formOptions) {
     case formOptions.OPTTChecklist:
     case formOptions.studentTeachingRubric:
     case formOptions.earlyIntervention:
+    case formOptions.cooperatingTeacherChecklist:
+    case formOptions.studentTeachingRubric:
       return "Date";
     default:
       return "Observation Date";
