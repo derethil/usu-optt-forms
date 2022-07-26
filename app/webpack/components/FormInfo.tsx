@@ -37,6 +37,7 @@ const noNextDate = [
   formOptions.teacherCandidate,
   formOptions.cooperatingTeacherChecklist,
   formOptions.earlyIntervention,
+  formOptions.EICooperatingProviderChecklist,
 ];
 
 // Determines which forms will have neither a program selector or program textbox
@@ -46,6 +47,7 @@ const noProgramText = [
   formOptions.teacherCandidate,
   formOptions.cooperatingTeacherChecklist,
   formOptions.earlyIntervention,
+  formOptions.EICooperatingProviderChecklist,
 ];
 
 const includeProgramText =
@@ -65,6 +67,7 @@ const noCoopTeacher = [
   formOptions.teacherCandidate,
   formOptions.cooperatingTeacherChecklist,
   formOptions.earlyIntervention,
+  formOptions.EICooperatingProviderChecklist,
 ];
 
 const noSupervisor = [formOptions.severeSelfEvaluation];
@@ -75,6 +78,8 @@ const getObservationOptions = (currentForm: formOptions) => {
       return ["1", "2", "3", "4"];
     case formOptions.earlyIntervention:
       return ["Informal", "1", "2", "3"];
+    case formOptions.EICooperatingProviderChecklist:
+      return ["Mid-term", "Final"];
     default:
       return ["1", "2", "3", "4", "5"];
   }

@@ -72,6 +72,8 @@ export function superior(currentForm: formOptions) {
       return "Cooperating/Mentor Teacher";
     case formOptions.earlyIntervention:
       return "Observer";
+    case formOptions.EICooperatingProviderChecklist:
+      return "Cooperating Teacher";
     default:
       return "Supervisor / Coach";
   }

@@ -80,6 +80,11 @@ const FormData: IFormData = {
     rubric: RUBRICS.earlyIntervention as Section[],
     defaultData: {} as DataSchema,
   },
+  [formOptions.EICooperatingProviderChecklist]: {
+    title: "EI Cooperating Provider Checklist",
+    rubric: RUBRICS.EICooperatingProviderChecklist as Section[],
+    defaultData: {} as DataSchema,
+  },
 };
 
 export default FormData;

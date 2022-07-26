@@ -13,11 +13,12 @@ export enum formOptions {
   // Birth to Five
   birthToFive = "birthToFive",
   earlyIntervention = "earlyIntervention",
+  EICooperatingProviderChecklist = "EICooperatingProviderChecklist",
   // Other
   OPTTChecklist = "OPTTChecklist",
   teacherCandidate = "teacherCandidate",
 }
 
-const currentForm: formOptions = formOptions.teacherCandidate;
+const currentForm: formOptions = formOptions.OPTTChecklist;
 
 export default currentForm;

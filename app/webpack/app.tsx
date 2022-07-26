@@ -191,6 +191,7 @@ export const App = () => {
         <Rubric timer1={timer1} timer2={timer2} />
       </Route>,
     ],
+    [formOptions.EICooperatingProviderChecklist]: [...sharedRoutes],
   };
 
   return (

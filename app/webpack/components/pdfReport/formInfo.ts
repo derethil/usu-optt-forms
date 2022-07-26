@@ -76,6 +76,7 @@ function generateBody(formInfo: IFormInfo) {
         [otherLabel(currentForm), formInfo.other],
       ];
     case formOptions.earlyIntervention:
+    case formOptions.EICooperatingProviderChecklist:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
         [superior(currentForm), formInfo.supervisor],
