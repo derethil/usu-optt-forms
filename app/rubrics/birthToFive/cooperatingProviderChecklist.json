@@ -1,0 +1,264 @@
+[
+  {
+    "sectionTitle": "Professional Behavior",
+    "rows": [
+      {
+        "area": "Confidentiality",
+        "options": [
+          {
+            "content": "Maintains confidentiality in verbal communication and with learner records ",
+            "score": 5
+          },
+          {
+            "content": "Maintains confidentially of only records, or only during verbal communication",
+            "score": 3
+          },
+          {
+            "content": "Does not maintain Confidentiality",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Adapts to Changes",
+        "options": [
+          {
+            "content": "Adapts to changes in the routine with no or little reminder/explanation.",
+            "score": 5
+          },
+          {
+            "content": "Needs multiple reminders to support and adapt to changes in the routine",
+            "score": 3
+          },
+          {
+            "content": "Does not adapt to changes in routines. Is disruptive to the environment.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Dress and Hygiene",
+        "options": [
+          {
+            "content": "Dresses modestly in clean clothes in good repair, & consistent with that of the other professionals in the environment.",
+            "score": 5
+          },
+          {
+            "content": "Dress not consistent with that of the other professionals in the environment",
+            "score": 3
+          },
+          {
+            "content": "Dress and/or hygiene is disruptive to the environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Feedback",
+        "options": [
+          {
+            "content": "Accepts feedback, acknowledges need for improvement, asks for clarification, and immediately implements recommended changes",
+            "score": 5
+          },
+          {
+            "content": "Accepts feedback, does not seek clarification, or is delayed in implementing recommended changes",
+            "score":  3
+          },
+          {
+            "content": "Does not accept feedback, or does not make recommended changes.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Attendance",
+        "options": [
+          {
+            "content": "Arrives on time and prepared for the session. Notifies provider of any absences.",
+            "score": 5
+          },
+          {
+            "content": "Attendance: Arrives on time but unprepared",
+            "score": 3
+          },
+          {
+            "content": "Attendance: Arrives late and unprepared, and/or does not notify cooperating teacher of absences",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Attitude",
+        "options": [
+          {
+            "content": "Exhibits positive and respectful attitude toward providers, families, and other professionals in the environment in verbal and nonverbal communication",
+            "score": 5
+          },
+          {
+            "content": "Inconsistently exhibits a positive and respectful attitude in verbal or nonverbal communication or across individuals",
+            "score": 3
+          },
+          {
+            "content": "Uses terms or labels that are disrespectful to individuals, nonverbal communication is disrespectful to individuals in the environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Initiative",
+        "options": [
+          {
+            "content": "Takes initiative to improve teaching skills independently and demonstrate this skill across activities",
+            "score": 5
+          },
+          {
+            "content": "Takes initiative to improve teaching skills only after direction from the teacher, or does not demonstrate across activities",
+            "score": 3
+          },
+          {
+            "content": "Does not seek opportunities or experiences that with improve teaching skills in the environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Reciprocity",
+        "options": [
+          {
+            "content": "Always clearly state the purpose of the communication interaction (e.g., give information, raise awareness, discuss options, reach a decision)",
+            "score": 5
+          },
+          {
+            "content": "Sometimes clearly state the purpose of the communication interaction",
+            "score": 3
+          },
+          {
+            "content": "Rarely clearly state the purpose of the communication interaction",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Learning",
+        "options": [
+          {
+            "content": "Participates in authentic learning experiences (e.g., practicing, taking risks, making mistakes, trying out new ideas without judgment)",
+            "score": 5
+          },
+          {
+            "content": "Hesitates to participate in authentic learning experiences ",
+            "score": 3
+          },
+          {
+            "content": "Avoids  participating in authentic learning experiences ",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Open-Minded",
+        "options": [
+          {
+            "content": "Keep an open mind when considering new concepts/ideas and work together to understand (or explain) the \"why\" and \"application\" (what's in it for me) behind new learnings",
+            "score": 5
+          },
+          {
+            "content": "Sometimes keeps an open mind when considering new concepts/ideas ",
+            "score": 3
+          },
+          {
+            "content": "Rarely keeps an open mind when considering new concepts/ideas",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Family Engagement",
+    "rows": [
+      {
+        "area": "Interactions",
+        "options": [
+          {
+            "content": "Interact with the parents in ways that are sensitive and responsive to the family's unique situation",
+            "score": 5
+          },
+          {
+            "content": "Sometimes interacts with the parents in ways that are sensitive and responsive to the family's unique situation",
+            "score": 3
+          },
+          {
+            "content": "Rarely interacts with the parents in ways that are sensitive and responsive to the family's unique situation",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Engagement",
+        "options": [
+          {
+            "content": "Often engages parents through reflective and responsive communication",
+            "score": 5
+          },
+          {
+            "content": "Sometimes engages parents through reflective and responsive communication",
+            "score": 3
+          },
+          {
+            "content": "Rarely engages parents through reflective and responsive communication",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Culturally Responsive",
+        "options": [
+          {
+            "content": "Always treats family members in ways that are respectful of personal and cultural beliefs and practices",
+            "score": 5
+          },
+          {
+            "content": "Sometimes treats family members in ways that are respectful of personal and cultural beliefs and practices",
+            "score": 3
+          },
+          {
+            "content": "Rarely treats family members in ways that are respectful of personal and cultural beliefs and practices",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Communication",
+        "options": [
+          {
+            "content": "Communicates with all individuals in the environment to coordinate, support and implement intervention. Voice tone is the appropriate volume, natural, and enthusiastic.",
+            "score": 5
+          },
+          {
+            "content": "Communicates with only some individuals in the room. Voice tone is sometimes the appropriate volume.",
+            "score": 3
+          },
+          {
+            "content": "Does not communicate with other professionals, or is disruptive to the learning environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  }
+]
