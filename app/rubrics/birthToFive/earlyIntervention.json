@@ -381,7 +381,7 @@
     "rows": [
       {
         "area": "Dresses appropriately and maintains personal hygiene",
-        "info": "Dresses modestly in clean clothes in good repair, and dresses consistent with the dress of teachers and administrators in the school",
+        "info": "Dresses modestly in clean clothes in good repair, and dresses consistent with the<br>dress of teachers and administrators in the school",
         "options": [
           {
             "score": "Y"
@@ -394,7 +394,7 @@
       },
       {
         "area": "Responds favorably to constructive feedback",
-        "info": "Accepts feedback and constructive criticism, acknowledges need for improvement, asks questions for clarification, and immediately implements recommended changes",
+        "info": "Accepts feedback and constructive criticism, acknowledges need for improvement,<br>asks questions for clarification, and immediately implements recommended changes",
         "options": [
           {
             "score": "Y"
@@ -407,7 +407,7 @@
       },
       {
         "area": "Implements changes after feedback are provided",
-        "info": "Implements changes in behavior, procedure, or schedule as recommended, checks with person who provided feedback to receive input on whether implementation is correct",
+        "info": "Implements changes in behavior, procedure, or schedule as recommended, checks with<br>person who provided feedback to receive input on whether implementation is correct",
         "options": [
           {
             "score": "Y"
@@ -420,7 +420,7 @@
       },
       {
         "area": "Exhibits positive and respectful attitude toward families",
-        "info": "Exhibits appropriate verbal and nonverbal communication (i.e., tone of voice, facial expression, gestures, etc.) when interacting with caregivers, other providers, and children. Actions exhibit an understanding and respect for individual family diversity.",
+        "info": "Exhibits appropriate verbal and nonverbal communication (i.e., tone of voice, facial<br>expression, gestures, etc.) when interacting with caregivers, other providers, and children. <br>Actions exhibit an understanding and respect for individual family diversity.",
         "options": [
           {
             "score": "Y"
@@ -433,7 +433,7 @@
       },
       {
         "area": "Demonstrates Professional Attributes",
-        "info": "effective team member, appropriate levels of independence, constructive verbal messages, listens to and understands feedback, self/social awareness, self/relationship management, accepts responsibility, self-control, expresses self appropriately, demonstrated appropriate use of body language, gestures, voice and artifacts, and generalizes information from all SPED courses",
+        "info": "effective team member, appropriate levels of independence, constructive verbal messages,<br>listens to and understands feedback, self/social awareness, self/relationship management,<br>accepts responsibility, self-control, expresses self appropriately, demonstrated appropriate use of<br>body language, gestures, voice and artifacts, and generalizes information from all SPED courses",
         "options": [
           {
             "score": "Y"
