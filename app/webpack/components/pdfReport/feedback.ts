@@ -14,19 +14,17 @@ export default function generate(generator: PDFGenerator, data: IData) {
     [feedbackLabel(currentForm, 2), data.feedback.area2],
   ];
 
-  if (
-    currentForm !== formOptions.birthToFiveCooperatingTeacherChecklist &&
-    currentForm !== formOptions.EICooperatingProviderChecklist
-  ) {
-    feedbackRows.push([feedbackLabel(currentForm, 3), data.feedback.area3]);
-  }
-
   if (currentForm === formOptions.severeSelfEvaluation) {
     feedbackRows.pop();
     feedbackRows.push(
       [feedbackLabel(currentForm, 4), data.feedback.area4],
       [feedbackLabel(currentForm, 5), data.feedback.area5]
     );
+  } else if (
+    currentForm !== formOptions.birthToFiveCooperatingTeacherChecklist &&
+    currentForm !== formOptions.EICooperatingProviderChecklist
+  ) {
+    feedbackRows.push([feedbackLabel(currentForm, 3), data.feedback.area3]);
   }
 
   feedbackRows.forEach(([title, comment], index) => {

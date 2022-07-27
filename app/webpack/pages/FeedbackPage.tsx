@@ -20,12 +20,14 @@ const FeedbackPage = () => {
       case formOptions.severeSelfEvaluation:
         return [
           <TextBoxCard
+            key={4}
             title={feedbackLabel(currentForm, 4)}
             field="area4"
             content={feedback.area4}
             updateContent={(newContent) => dispatch(setFeedback(newContent))}
           />,
           <TextBoxCard
+            key={5}
             title={feedbackLabel(currentForm, 5)}
             field="area5"
             content={feedback.area5}
@@ -35,6 +37,7 @@ const FeedbackPage = () => {
       default:
         return [
           <TextBoxCard
+            key={3}
             title={feedbackLabel(currentForm, 3)}
             field="area3"
             content={feedback.area3}

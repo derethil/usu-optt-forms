@@ -59,7 +59,6 @@ const PDFDataChecklist = () => {
         ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["District Coach", formInfo.supervisor],
         ["Date", formatDate(formInfo.date)],
-        ["Other", formInfo.other],
         ["Program", formInfo.program],
       ],
     });

@@ -18,10 +18,10 @@ function generateBody(formInfo: IFormInfo) {
     ["Cooperating Teacher", formInfo.cooperatingTeacher],
     ["Supervisor / Coach", formInfo.supervisor],
     ["Observation Date", formatDate(formInfo.date)],
-    ...insertIf(!formInfo.isLastObservation, [
+    [
       "Next Observation Date",
-      formatDate(formInfo.nextDate),
-    ]),
+      !formInfo.isLastObservation ? formatDate(formInfo.nextDate) : "N/A",
+    ],
     ["Observation Number", formInfo.observation],
     ["Other", formInfo.other],
   ];
@@ -36,22 +36,31 @@ function generateBody(formInfo: IFormInfo) {
       return main;
 
     case formOptions.mmMath:
-      return main;
+      return [
+        [studentTitle(currentForm), formInfo.studentTeacher],
+        ["Cooperating Teacher", formInfo.cooperatingTeacher],
+        ["Supervisor / Coach", formInfo.supervisor],
+        ["Observation Date", formatDate(formInfo.date)],
+        [
+          "Next Observation Date",
+          !formInfo.isLastObservation ? formatDate(formInfo.nextDate) : "N/A",
+        ],
+        ["Observation Number", formInfo.observation],
+      ];
 
     case formOptions.OPTTChecklist:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
         ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["District Coach", formInfo.supervisor],
-        ["Date", formInfo.date],
+        ["Date", formatDate(formInfo.date)],
         ["Program", formInfo.program],
-        [otherLabel(currentForm), formInfo.other],
       ];
 
     case formOptions.severeSelfEvaluation:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
-        ["Observation Date", formInfo.date],
+        ["Observation Date", formatDate(formInfo.date)],
         ["Program", formInfo.program],
         ["Goal 1", formInfo.goal1],
         ["Goal 2", formInfo.goal2],
@@ -61,10 +70,8 @@ function generateBody(formInfo: IFormInfo) {
     case formOptions.studentTeachingRubric:
       return [
         [studentTitle(currentForm), formInfo.studentTeacher],
-        ["Cooperating Teacher", formInfo.cooperatingTeacher],
         ["Supervisor / Coach", formInfo.supervisor],
         ["Date", formatDate(formInfo.date)],
-        [otherLabel(currentForm), formInfo.other],
       ];
 
     case formOptions.teacherCandidate:
@@ -73,7 +80,6 @@ function generateBody(formInfo: IFormInfo) {
         [studentTitle(currentForm), formInfo.studentTeacher],
         [superior(currentForm), formInfo.supervisor],
         ["Observation Date", formatDate(formInfo.date)],
-        [otherLabel(currentForm), formInfo.other],
       ];
     case formOptions.earlyIntervention:
     case formOptions.EICooperatingProviderChecklist:

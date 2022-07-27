@@ -71,6 +71,7 @@ const FormInputs = () => {
   const INPUTS = {
     student: (
       <TextInput
+        key="student"
         value={formInfo.studentTeacher}
         updateForm={updateFormInfo}
         field="studentTeacher"
@@ -79,6 +80,7 @@ const FormInputs = () => {
     ),
     cooperatingTeacher: (
       <TextInput
+        key="cooperatingTeacher"
         value={formInfo.cooperatingTeacher}
         updateForm={updateFormInfo}
         field="cooperatingTeacher"
@@ -86,6 +88,7 @@ const FormInputs = () => {
     ),
     superior: (
       <TextInput
+        key="superior"
         value={formInfo.supervisor}
         updateForm={updateFormInfo}
         field="supervisor"
@@ -94,6 +97,7 @@ const FormInputs = () => {
     ),
     date: (
       <DateInput
+        key="date"
         field="date"
         label={dateLabel(currentForm)}
         date={new Date(formInfo.date)}
@@ -103,6 +107,7 @@ const FormInputs = () => {
     nextDate: (
       <>
         <DateInput
+          key="nextDate"
           label="Next Observation Date"
           field="nextDate"
           date={new Date(formInfo.nextDate)}
@@ -110,6 +115,7 @@ const FormInputs = () => {
           disabled={formInfo.isLastObservation}
         />
         <CheckboxLabel
+          key="isLastObservation"
           checked={formInfo.isLastObservation}
           onChange={(e) => dispatch(setFormInfo({ isLastObservation: e.target.checked }))}
           label="This is the last observation for this student"
@@ -118,6 +124,7 @@ const FormInputs = () => {
     ),
     programText: (
       <TextInput
+        key="programText"
         value={formInfo.program}
         updateForm={updateFormInfo}
         field="program"
@@ -126,6 +133,7 @@ const FormInputs = () => {
     ),
     other: (
       <TextInput
+        key="other"
         value={formInfo.other}
         updateForm={updateFormInfo}
         field="other"
@@ -135,12 +143,14 @@ const FormInputs = () => {
     goals: (
       <>
         <TextInput
+          key="goal1"
           value={formInfo.goal1}
           updateForm={updateFormInfo}
           field="goal1"
           title="Goal 1"
         />
         <TextInput
+          key="goal2"
           value={formInfo.goal2}
           updateForm={updateFormInfo}
           field="goal2"
@@ -150,6 +160,7 @@ const FormInputs = () => {
     ),
     selectObservation: (
       <OptionRow
+        key="selectObservation"
         title={"Observation"}
         options={ObservationOptions}
         currSelection={formInfo.observation.toString()}
@@ -163,6 +174,7 @@ const FormInputs = () => {
     ),
     selectProgram: (
       <OptionRow
+        key="selectProgram"
         title={"Program"}
         options={ProgramOptions}
         currSelection={formInfo.program}
@@ -233,6 +245,8 @@ const FormInputs = () => {
           INPUTS.date,
           INPUTS.selectObservation,
         ];
+      case formOptions.teacherCandidate:
+        return [INPUTS.student, INPUTS.superior, INPUTS.date];
     }
   };
 
