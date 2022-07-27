@@ -85,6 +85,11 @@ const FormData: IFormData = {
     rubric: RUBRICS.EICooperatingProviderChecklist as Section[],
     defaultData: {} as DataSchema,
   },
+  [formOptions.birthToFiveCooperatingTeacherChecklist]: {
+    title: "Cooperating Teacher Checklist",
+    rubric: RUBRICS.birthToFiveCooperatingTeacherChecklist as Section[],
+    defaultData: {} as DataSchema,
+  },
 };
 
 export default FormData;

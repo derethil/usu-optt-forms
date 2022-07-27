@@ -33,6 +33,7 @@ const getObservationOptions = (currentForm: formOptions): Option[] => {
       case formOptions.earlyIntervention:
         return ["Informal", "1", "2", "3"];
       case formOptions.EICooperatingProviderChecklist:
+      case formOptions.birthToFiveCooperatingTeacherChecklist:
         return ["Mid-term", "Final"];
       case formOptions.birthToFive:
         return ["1", "2", "3", "4", "Informal"];
@@ -223,6 +224,13 @@ const FormInputs = () => {
           INPUTS.superior,
           INPUTS.date,
           INPUTS.other,
+          INPUTS.selectObservation,
+        ];
+      case formOptions.birthToFiveCooperatingTeacherChecklist:
+        return [
+          INPUTS.student,
+          INPUTS.cooperatingTeacher,
+          INPUTS.date,
           INPUTS.selectObservation,
         ];
     }

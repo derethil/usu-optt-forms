@@ -12,8 +12,14 @@ export default function generate(generator: PDFGenerator, data: IData) {
   const feedbackRows = [
     [feedbackLabel(currentForm, 1), data.feedback.area1],
     [feedbackLabel(currentForm, 2), data.feedback.area2],
-    [feedbackLabel(currentForm, 3), data.feedback.area3],
   ];
+
+  if (
+    currentForm !== formOptions.birthToFiveCooperatingTeacherChecklist &&
+    currentForm !== formOptions.EICooperatingProviderChecklist
+  ) {
+    feedbackRows.push([feedbackLabel(currentForm, 3), data.feedback.area3]);
+  }
 
   if (currentForm === formOptions.severeSelfEvaluation) {
     feedbackRows.pop();

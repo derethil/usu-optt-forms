@@ -192,6 +192,7 @@ export const App = () => {
       </Route>,
     ],
     [formOptions.EICooperatingProviderChecklist]: [...sharedRoutes],
+    [formOptions.birthToFiveCooperatingTeacherChecklist]: [...sharedRoutes],
   };
 
   return (

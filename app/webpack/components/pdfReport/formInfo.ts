@@ -84,6 +84,13 @@ function generateBody(formInfo: IFormInfo) {
         [otherLabel(currentForm), formInfo.other],
         ["Observation", formInfo.observation],
       ];
+    case formOptions.birthToFiveCooperatingTeacherChecklist:
+      return [
+        [studentTitle(currentForm), formInfo.studentTeacher],
+        ["Cooperating Teacher", formInfo.cooperatingTeacher],
+        ["Date", formatDate(formInfo.date)],
+        ["Observation", formInfo.observation],
+      ];
   }
 }
 

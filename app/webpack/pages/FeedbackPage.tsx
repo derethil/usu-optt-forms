@@ -12,6 +12,38 @@ const FeedbackPage = () => {
   const dispatch = useAppDispatch();
   const feedback = useAppSelector(selectFeedback);
 
+  const generateExtraFeedbackInputs = (): JSX.Element[] => {
+    switch (currentForm) {
+      case formOptions.birthToFiveCooperatingTeacherChecklist:
+      case formOptions.EICooperatingProviderChecklist:
+        return [] as JSX.Element[];
+      case formOptions.severeSelfEvaluation:
+        return [
+          <TextBoxCard
+            title={feedbackLabel(currentForm, 4)}
+            field="area4"
+            content={feedback.area4}
+            updateContent={(newContent) => dispatch(setFeedback(newContent))}
+          />,
+          <TextBoxCard
+            title={feedbackLabel(currentForm, 5)}
+            field="area5"
+            content={feedback.area5}
+            updateContent={(newContent) => dispatch(setFeedback(newContent))}
+          />,
+        ];
+      default:
+        return [
+          <TextBoxCard
+            title={feedbackLabel(currentForm, 3)}
+            field="area3"
+            content={feedback.area3}
+            updateContent={(newContent) => dispatch(setFeedback(newContent))}
+          />,
+        ];
+    }
+  };
+
   return (
     <PageContent className="feedback">
       <TextBoxCard
@@ -28,30 +60,7 @@ const FeedbackPage = () => {
         updateContent={(newContent) => dispatch(setFeedback(newContent))}
       />
 
-      {currentForm !== formOptions.severeSelfEvaluation ? (
-        <TextBoxCard
-          title={feedbackLabel(currentForm, 3)}
-          field="area3"
-          content={feedback.area3}
-          updateContent={(newContent) => dispatch(setFeedback(newContent))}
-        />
-      ) : (
-        <>
-          <TextBoxCard
-            title={feedbackLabel(currentForm, 4)}
-            field="area4"
-            content={feedback.area4}
-            updateContent={(newContent) => dispatch(setFeedback(newContent))}
-          />
-
-          <TextBoxCard
-            title={feedbackLabel(currentForm, 5)}
-            field="area5"
-            content={feedback.area5}
-            updateContent={(newContent) => dispatch(setFeedback(newContent))}
-          />
-        </>
-      )}
+      {generateExtraFeedbackInputs()}
     </PageContent>
   );
 };
