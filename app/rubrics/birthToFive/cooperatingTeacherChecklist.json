@@ -1,0 +1,376 @@
+[
+  {
+    "sectionTitle": "Professional Behavior",
+    "rows": [
+      {
+        "area": "Records",
+        "options": [
+          {
+            "content": "Maintains records daily and accurately",
+            "score": 5
+          },
+          {
+            "content": " Inconsistently maintain records during and between sessions",
+            "score": 3
+          },
+          {
+            "content": "Does not maintain records during the session or does so but not accurately, ",
+            "score": 0,
+            "default":  true
+          }
+        ]
+      },
+      {
+        "area": "Confidentiality",
+        "options": [
+          {
+            "content": "Maintains confidentiality in verbal communication and with learner records ",
+            "score": 5
+          },
+          {
+            "content": "Maintains confidentially of only records, or only during verbal communication",
+            "score": 3
+          },
+          {
+            "content": "Does not maintain Confidentiality",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Adapts to Changes",
+        "options": [
+          {
+            "content": "Adapts to changes in the routine with no or little reminder/explanation. Supports the students in adapting to a change.",
+            "score": 5
+          },
+          {
+            "content": "Needs multiple reminders to support and adapt to changes in the routine",
+            "score": 3
+          },
+          {
+            "content": "Does not adapt to changes in routines. Is disruptive to the environment.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Dress and Hygiene",
+        "options": [
+          {
+            "content": "Dresses modestly in clean clothes in good repair, & consistent with that of the other professionals in the environment.",
+            "score": 5
+          },
+          {
+            "content": "Dress not consistent with that of the other professionals in the environment",
+            "score": 3
+          },
+          {
+            "content": "Dress and/or hygiene is disruptive to the environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Feedback",
+        "options": [
+          {
+            "content": "Accepts feedback, acknowledges need for improvement, asks for clarification, and immediately implements recommended changes",
+            "score": 5
+          },
+          {
+            "content": "Accepts feedback, does not seek clarification, or is delayed in implementing recommended changes",
+            "score":  3
+          },
+          {
+            "content": "Does not accept feedback, or does not make recommended changes.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Attendance",
+        "options": [
+          {
+            "content": "Arrives on time and prepared for the session. Notifies provider of any absences.",
+            "score": 5
+          },
+          {
+            "content": "Attendance: Arrives on time but unprepared",
+            "score": 3
+          },
+          {
+            "content": "Attendance: Arrives late and unprepared, and/or does not notify cooperating teacher of absences",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },      {
+        "area": "Attitude",
+        "options": [
+          {
+            "content": "Exhibits positive and respectful attitude toward providers, families, and other professionals in the environment in verbal and nonverbal communication",
+            "score": 5
+          },
+          {
+            "content": "Inconsistently exhibits a positive and respectful attitude in verbal or nonverbal communication or across individuals",
+            "score": 3
+          },
+          {
+            "content": "Uses terms or labels that are disrespectful to individuals, nonverbal communication is disrespectful to individuals in the environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Initiative",
+        "options": [
+          {
+            "content": "Takes initiative to improve teaching skills independently and demonstrate this skill across activities",
+            "score": 5
+          },
+          {
+            "content": "Takes initiative to improve teaching skills only after direction from the teacher, or does not demonstrate across activities",
+            "score": 3
+          },
+          {
+            "content": "Does not seek opportunities or experiences that with improve teaching skills in the environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Management",
+    "rows": [
+      {
+        "area": "Transitions",
+        "options": [
+          {
+            "content": "Supports learners appropriately during transitions (between or within activities) using appropriate signals and prompts",
+            "score": 5
+          },
+          {
+            "content": "Supports learners only during some transitions (between or within activities) or provides to much/inappropriate prompts",
+            "score": 3
+          },
+          {
+            "content": "Does not support learners, is disruptive, or impedes learner completing transitions independently",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Time Efficiency",
+        "options": [
+          {
+            "content": "Instructor uses all class time efficiently, sufficient opportunities to respond identified and implemented",
+            "score": 5
+          },
+          {
+            "content": "Instructor uses most of class time efficiently, some opportunities to respond identified and implemented. ",
+            "score": 3
+          },
+          {
+            "content": "Instructor makes inefficient use of time and/or time lost on non-instructional activities",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Engagement",
+        "options": [
+          {
+            "content": "Learners are engaged with materials, peers, or instructor or instructor is using effective strategies to increase engagement",
+            "score": 5
+          },
+          {
+            "content": "Learners demonstrate low engagement, learner engagement is interrupted by the instructors actions",
+            "score": 3
+          },
+          {
+            "content": "Learners are not engaged with the materials or activity and there is no effort by the instructor to increase engagement",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Organization",
+        "options": [
+          {
+            "content": "Assists in gathering materials, arranging, or cleaning up the learning environment throughout the session.",
+            "score": 5
+          },
+          {
+            "content": "Inconsistently assists in gathering materials, arranging or cleaning up the learning environment through out the session.",
+            "score": 3
+          },
+          {
+            "content": "Does not assist in arranging or cleaning up the learning environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Behavior Feedback",
+        "options": [
+          {
+            "content": "Provides sufficient rate of reinforcement for appropriate behavior, reinforcement is matched to the learner ",
+            "score": 5
+          },
+          {
+            "content": "Provides low rates of reinforcement for appropriate behavior, or reinforcement is not matched to the learner",
+            "score": 3
+          },
+          {
+            "content": "Does not provide reinforcement for appropriate behavior",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Behavior Management",
+        "options": [
+          {
+            "content": "Follows classroom/individual management plan, Responds to problem behavior consistent with positive approaches",
+            "score": 5
+          },
+          {
+            "content": "Some but not all problem behaviors addressed using classroom behavior management plan",
+            "score": 3
+          },
+          {
+            "content": "Does not consistently/effectively follow classroom behavior management plan when learner engages in problem behavior",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Communication",
+        "options": [
+          {
+            "content": "Communicates with all individuals in the environment to coordinate, support and implement instruction. Voice tone is the appropriate volume, natural, and enthusiastic.",
+            "score": 5
+          },
+          {
+            "content": "Communicates with only some individuals in the classroom. Voice tone is sometimes the appropriate volume.",
+            "score": 3
+          },
+          {
+            "content": "Does not communicate with other professionals, or is disruptive to the learning environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Instruction",
+    "rows": [
+      {
+        "area": "Arrangement",
+        "options": [
+          {
+            "content": "Initiates interactions with learners appropriate for the activity; learning opportunities match the instructional arrangement",
+            "score": 5
+          },
+          {
+            "content": "Instruction provided sometimes interferes with the ongoing activities of the environment",
+            "score": 3
+          },
+          {
+            "content": "Does not prepare the learning environment",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Gain Attention",
+        "options": [
+          {
+            "content": "Gains eye contact from learners, scans across learners in a group, increases and decreases proximity to learner appropriately.",
+            "score": 5
+          },
+          {
+            "content": "Sometimes gains eye contact from learners, infrequently scans across learners, does not always have appropriately proximity",
+            "score": 3
+          },
+          {
+            "content": "Does not gain eye contact from learners, infrequently scans across learners, does not have appropriately proximity",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Correction",
+        "options": [
+          {
+            "content": "Consistently follows correction procedure ending in an independent correct response (Prompt, lead, test, retest); corrects all error",
+            "score": 5
+          },
+          {
+            "content": "Corrects most errors and/or follows only part of the correction procedure",
+            "score": 3
+          },
+          {
+            "content": "Errors are not corrected and/or do not follow correction procedure, does not end in independent correct response",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Opportunities to Respond",
+        "options": [
+          {
+            "content": "Provides clear and consistent cues, directions, instructions, and questions that are developmentally appropriate",
+            "score": 5
+          },
+          {
+            "content": "Cues, questions, directions, and instructions not always developmentally appropriate",
+            "score": 3
+          },
+          {
+            "content": "Does not provide clear or consistent cues, directions, instructions, or questions",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Initiative",
+        "options": [
+          {
+            "content": "Uses an appropriate schedule of reinforcement; delivered immediate, contingent, specific.",
+            "score": 5
+          },
+          {
+            "content": "Provides feedback but the schedule of reinforcement not appropriate for the learner, feedback is mostly general in nature. Feedback delayed",
+            "score": 3
+          },
+          {
+            "content": "No or little feedback for correct responding",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  }
+]
