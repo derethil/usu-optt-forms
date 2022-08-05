@@ -16,10 +16,18 @@ export const formInfoSlice = createSlice({
         ...action.payload,
       };
     },
-    setLocationOrObservation: (
-      state,
-      action: PayloadAction<LocationObservationType>
-    ) => {
+    toggleSubdomain: (state, action: PayloadAction<string>) => {
+      let subdomain = Array.from(state.subdomain);
+
+      if (!subdomain.includes(action.payload)) {
+        subdomain.push(action.payload);
+      } else {
+        subdomain = subdomain.filter((item) => item !== action.payload);
+      }
+
+      return { ...state, subdomain };
+    },
+    setLocationOrObservation: (state, action: PayloadAction<LocationObservationType>) => {
       return {
         ...state,
         ...action.payload,
@@ -31,13 +39,12 @@ export const formInfoSlice = createSlice({
   },
 });
 
-export const { setFormInfo, resetFormInfo, setLocationOrObservation } =
+export const { setFormInfo, resetFormInfo, setLocationOrObservation, toggleSubdomain } =
   formInfoSlice.actions;
 
 export const selectFormInfo = (state: RootState) => state.formInfo;
 
-export const selectStudentTeacher = (state: RootState) =>
-  state.formInfo.studentTeacher;
+export const selectStudentTeacher = (state: RootState) => state.formInfo.studentTeacher;
 
 export const selectCheckInfo = (state: RootState) => {
   return {

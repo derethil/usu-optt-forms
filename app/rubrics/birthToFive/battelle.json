@@ -311,7 +311,7 @@
     "sectionTitle": "Parental Involvement",
     "rows": [
       {
-        "area": "Building Rapport",
+        "area": "Evaluation Description",
         "options": [
           {
             "content": "A description of the evaluation was shared with the parent prior to the start of the evaluation and included an explanation to parents to neither provide cues to the child nor express verbal or nonverbal reactions to the child's response. Parent involvement is prompted throughout.",
@@ -329,10 +329,10 @@
         ]
       },
       {
-        "area": "Building Rapport",
+        "area": "Parental Discussion",
         "options": [
           {
-            "content": "Examiner asked the caregiver if they had any questions/concerns before starting the evaluation and  remind the family that they can choose not to answer any of the questions or end the evaluation at any time. Discussed the approximate length of the exam and what to do if the child becomes upset or restless.",
+            "content": "Examiner asked the caregiver if they had any questions/concerns before starting the evaluation and studentTeachinggth of the exam and what to do if the child becomes upset or restless.",
             "score": 5
           },
           {

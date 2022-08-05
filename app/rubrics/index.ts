@@ -2,6 +2,7 @@
 import birthToFive from "./birthToFive/birthToFive.json";
 import earlyIntervention from "./birthToFive/earlyIntervention.json";
 import EICooperatingProviderChecklist from "./birthToFive/cooperatingProviderChecklist.json";
+import battelle from "./birthToFive/battelle.json";
 import birthToFiveCooperatingTeacherChecklist from "./birthToFive/cooperatingTeacherChecklist.json";
 
 // Mild/Moderate
@@ -26,6 +27,7 @@ export {
   birthToFive,
   EICooperatingProviderChecklist,
   birthToFiveCooperatingTeacherChecklist,
+  battelle,
   //Mild/Moderate
   mmReading,
   mmMath,

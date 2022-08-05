@@ -97,6 +97,17 @@ function generateBody(formInfo: IFormInfo) {
         ["Date", formatDate(formInfo.date)],
         ["Observation", formInfo.observation],
       ];
+    case formOptions.battelle:
+      return [
+        [studentTitle(currentForm), formInfo.studentTeacher],
+        ["Evaluator", formInfo.cooperatingTeacher],
+        ["Supervisor / Coach", formInfo.supervisor],
+        ["Observation Date", formatDate(formInfo.date)],
+        ["Program", formInfo.program],
+        ["Other", formInfo.other],
+        ["Observation Number", formInfo.observation],
+        ["Subdomains", formInfo.subdomain],
+      ];
   }
 }
 

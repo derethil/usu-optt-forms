@@ -14,9 +14,11 @@ import {
   setFormInfo,
   selectFormInfo,
   setLocationOrObservation,
+  toggleSubdomain,
 } from "../slices/formInfoSlice";
 import CheckboxLabel from "./CheckboxLabel";
 import {
+  cooperatingTeacherTitle,
   dateLabel,
   otherLabel,
   programTitle,
@@ -24,6 +26,7 @@ import {
   superior,
 } from "../utils/utils";
 import { NewValues, Option } from "../types/types";
+import ToggleButtons from "./ToggleButtons";
 
 const getObservationOptions = (currentForm: formOptions): Option[] => {
   const options = (() => {
@@ -37,6 +40,8 @@ const getObservationOptions = (currentForm: formOptions): Option[] => {
         return ["Mid-term", "Final"];
       case formOptions.birthToFive:
         return ["1", "2", "3", "4", "Informal"];
+      case formOptions.battelle:
+        return ["1", "2,", "3"];
       default:
         return ["1", "2", "3", "4", "5"];
     }
@@ -84,6 +89,7 @@ const FormInputs = () => {
         value={formInfo.cooperatingTeacher}
         updateForm={updateFormInfo}
         field="cooperatingTeacher"
+        title={cooperatingTeacherTitle(currentForm)}
       />
     ),
     superior: (
@@ -187,6 +193,20 @@ const FormInputs = () => {
         buttonStyles={buttonStyles}
       />
     ),
+    selectSubdomain: (
+      <ToggleButtons
+        key="selectSubdomain"
+        options={["AM", "RA", "PC", "GM", "FM", "PM", "RC", "EC"]}
+        label="Subdomain"
+        currSelected={formInfo.subdomain}
+        titleStyles={css`
+          color: ${Color.neutrals.grayDark};
+        `}
+        onClickButton={(clicked) => {
+          dispatch(toggleSubdomain(clicked));
+        }}
+      />
+    ),
   };
 
   const generateFormInfoInputs = () => {
@@ -247,6 +267,15 @@ const FormInputs = () => {
         ];
       case formOptions.teacherCandidate:
         return [INPUTS.student, INPUTS.superior, INPUTS.date];
+      case formOptions.battelle:
+        return [
+          ...people,
+          INPUTS.date,
+          INPUTS.programText,
+          INPUTS.other,
+          INPUTS.selectObservation,
+          INPUTS.selectSubdomain,
+        ];
     }
   };
 

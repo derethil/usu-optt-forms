@@ -90,6 +90,11 @@ const FormData: IFormData = {
     rubric: RUBRICS.birthToFiveCooperatingTeacherChecklist as Section[],
     defaultData: {} as DataSchema,
   },
+  [formOptions.battelle]: {
+    title: "Battelle Observation",
+    rubric: RUBRICS.battelle as Section[],
+    defaultData: {} as DataSchema,
+  },
 };
 
 export default FormData;

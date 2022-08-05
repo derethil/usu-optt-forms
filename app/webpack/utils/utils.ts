@@ -57,8 +57,19 @@ export function studentTitle(currentForm: formOptions) {
       return "Student Teacher";
     case formOptions.teacherCandidate:
       return "Teacher Candidate";
+    case formOptions.battelle:
+      return "Examiner";
     default:
       return "Practicum Student";
+  }
+}
+
+export function cooperatingTeacherTitle(currentForm: formOptions) {
+  switch (currentForm) {
+    case formOptions.battelle:
+      return "Evaluator";
+    default:
+      return "Cooperating Teacher";
   }
 }
 
