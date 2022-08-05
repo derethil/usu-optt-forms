@@ -1,0 +1,351 @@
+[
+  {
+    "sectionTitle": "Setting",
+    "rows": [
+      {
+        "area": "Test Items",
+        "options": [
+          {
+            "content": "Structured test items were administered in a quiet area that is free from distractions and before the child gets tired or hungry.",
+            "score": 2
+          },
+          {
+            "content": "Structured test items were be administered in an area that had distractions that the administrator could have avoided",
+            "score": 1
+          },
+          {
+            "content": "Little thought was placed on the area the structured test items were be administered in or the state of thee child.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Starting Point",
+        "options": [
+          {
+            "content": "The starting point for each subdomain where the examiner will begin test administration is based on the child's age.",
+            "score": 2
+          },
+          {
+            "content": "The starting point for some subdomain where the examiner will begin test administration is based on the child's age.",
+            "score": 1
+          },
+          {
+            "content": "The starting point for subdomains where the examiner will begin test administration was not based on the child's age.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Rapport",
+    "rows": [
+      {
+        "area": "Building Rapport",
+        "options": [
+          {
+            "content": "Good rapport is established with the child. If the child does not feel comfortable in the testing situation - regardless of the reason- and cannot complete tasks that normally would be easy, the examiner reschedules the Evaluation for another time.",
+            "score": 5
+          },
+          {
+            "content": "Examiner attempted to build rapport with the child but was unsuccessful for part of the exam.",
+            "score": 3
+          },
+          {
+            "content": "The examiner did not attempted to build rapport with the child.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Praise",
+        "options": [
+          {
+            "content": "Examiner praises the child's effort and cooperation, not his or her performance, using general comments.",
+            "score": 5
+          },
+          {
+            "content": "Examiner praises the child's effort and cooperation, but also praises his or her performance specifically",
+            "score": 3
+          },
+          {
+            "content": "Examiner did not provide adequate praise and/or specified frequently to the child when they were correct and incorrect.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Praise Rate",
+        "options": [
+          {
+            "content": "Examiner provided a praise rate of 1 praise statement for every 1 structured item (1:1 or greater)",
+            "score": 4
+          },
+          {
+            "content": "Examiner provided a praise rate of 1 praise statement for every 2 structured items (1:2 or greater) *.9-.5",
+            "score": 2
+          },
+          {
+            "content": "Examiner provided a praise rate of fewer than 1 praise statement for every 2 structured items (1:2 or greater) *.49- 0",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Item Administration",
+    "rows": [
+      {
+        "area": "Question Alignment",
+        "options": [
+          {
+            "content": "Questions asked during interview items aligned with the scripted questions. Follow-up questions were asked in order to accurately score the item.",
+            "score": 5
+          },
+          {
+            "content": "Questions asked during interview items somewhat aligned with the scripted questions. Follow-up questions were asked some of the time.",
+            "score": 3
+          },
+          {
+            "content": "Questions asked during interview items infrequently aligned with the scripted questions. Follow-up questions were not asked.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Instruction",
+        "options": [
+          {
+            "content": "Structured items were administered using the correct instruction 100% of opportunities",
+            "score": 10
+          },
+          {
+            "content": "Structured items were administered using the correct instruction 99% - 80% of opportunities",
+            "score": 8
+          },
+          {
+            "content": "Structured items were administered using the correct instruction 79% - 60% of opportunities",
+            "score": 6
+          },
+          {
+            "content": "Structured items were administered using the correct instruction 59% - 50% of opportunities.",
+            "score": 4
+          },
+          {
+            "content": "Structured items were administered using the correct instruction less then 50% of opportunities",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Material Correctness",
+        "options": [
+          {
+            "content": "Structured items were administered using the correct materials 100% of opportunities",
+            "score": 10
+          },
+          {
+            "content": "Structured items were administered using the correct materials 99% - 80% of opportunities",
+            "score": 8
+          },
+          {
+            "content": "Structured items were administered using the correct materials 79% - 60% of opportunities",
+            "score": 6
+          },
+          {
+            "content": "Structured items were administered using the correct materials 59% - 50% of opportunities.",
+            "score": 4
+          },
+          {
+            "content": "Structured items were administered using the correct materials less then 50% of opportunities",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Material Usage",
+        "options": [
+          {
+            "content": "Materials were arranged and manipulated correctly 100% of opportunities",
+            "score": 5
+          },
+          {
+            "content": "Materials were arranged and manipulated correctly 99% - 80% of opportunities",
+            "score": 3
+          },
+          {
+            "content": "Materials were arranged and manipulated correctly 59% - 50% of opportunities",
+            "score": 1
+          },
+          {
+            "content": "Materials were arranged and manipulated correctly less then 50% of opportunities",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Trials",
+        "options": [
+          {
+            "content": "The correct amount of time to respond and the correct number of trials were provided for 100% of structured items",
+            "score": 10
+          },
+          {
+            "content": "The correct amount of time to respond and the correct number of trials were provided for 99% - 80% of structured items",
+            "score": 8
+          },
+          {
+            "content": "The correct amount of time to respond and the correct number of trials were provided for 79% - 60% of structured items",
+            "score": 6
+          },
+          {
+            "content": "The correct amount of time to respond and the correct number of trials were provided for 59% 0 50% of structured items",
+            "score": 4
+          },
+          {
+            "content": "The correct amount of time to respond and the correct number of trials were provided for less than 50% of structured items",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Additional Prompts",
+        "options": [
+          {
+            "content": "Structured items were administered without additional prompts for 100% of opportunities",
+            "score": 10
+          },
+          {
+            "content": "Structured items were administered without additional prompts for 99% - 80% of opportunities",
+            "score": 8
+          },
+          {
+            "content": "Structured items were administered without additional prompts for 79% - 60% of opportunities",
+            "score": 6
+          },
+          {
+            "content": "Structured items were administered without additional prompts for 59% - 50% of opportunities",
+            "score": 4
+          },
+          {
+            "content": "Structured items were administered without additional prompts for less then 50% of opportunities",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Scoring",
+    "rows": [
+      {
+        "area": "Basal and Ceiling",
+        "options": [
+          {
+            "content": "Examiner reached basal and ceiling in each subdomain",
+            "score": 10
+          },
+          {
+            "content": " Examiner reached basal and ceiling in some subdomain ",
+            "score": 8
+          },
+          {
+            "content": "Examiner reached basal and ceiling in half of the subdomain",
+            "score": 4
+          },
+          {
+            "content": "Examiner reached basal and ceiling in less than half of the subdomain",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Building Rapport",
+        "options": [
+          {
+            "content": "Examiner scored each item after it was administered using the item book to determine the appropriate score",
+            "score": 2
+          },
+          {
+            "content": "Examiner did not score each item after it was administered or did not use the item book to determine the appropriate score",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Building Rapport",
+        "options": [
+          {
+            "content": "Raw score showed observer agreement in 100% - 80% of opportunities",
+            "score": 10
+          },
+          {
+            "content": "Raw score showed observer agreement in 79% - 60% of opportunities",
+            "score": 5
+          },
+          {
+            "content": "Raw score showed observer agreement in less than 60% of opportunities",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sectionTitle": "Parental Involvement",
+    "rows": [
+      {
+        "area": "Building Rapport",
+        "options": [
+          {
+            "content": "A description of the evaluation was shared with the parent prior to the start of the evaluation and included an explanation to parents to neither provide cues to the child nor express verbal or nonverbal reactions to the child's response. Parent involvement is prompted throughout.",
+            "score": 5
+          },
+          {
+            "content": "A minimal description is provided at the start.",
+            "score": 3
+          },
+          {
+            "content": "No description is provided to the parent.",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Building Rapport",
+        "options": [
+          {
+            "content": "Examiner asked the caregiver if they had any questions/concerns before starting the evaluation and  remind the family that they can choose not to answer any of the questions or end the evaluation at any time. Discussed the approximate length of the exam and what to do if the child becomes upset or restless.",
+            "score": 5
+          },
+          {
+            "content": "Part of the discussion listed",
+            "score": 3
+          },
+          {
+            "content": "Did not discuss thee listed with the caregiver",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  }
+]
