@@ -1,16 +1,13 @@
 import React from "react";
 import { css } from "styled-components";
-import Card from "../../components/Card";
-import CounterButton from "../../components/CounterButton";
-import DataRow from "../../components/DataRow";
-import OptionRow from "../../components/optionRow";
-import TextInput from "../../components/TextInput";
-import Timer from "../../components/Timer";
-import ToggleButtons from "../../components/ToggleButtons";
+
 import { formOptions } from "../../currentForm";
+import { IBattelleObservation } from "../../types/dataTypes";
+import DataProps from "./DataProps";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { selectFormInfo, toggleSubdomain } from "../../slices/formInfoSlice";
 import Color from "../../styledComponents/colors";
+
 import {
   PageContent,
   cardContainerStyles,
@@ -18,9 +15,14 @@ import {
   TwoRowWrapper,
   TwoButtonCol,
 } from "../../styledComponents/style";
-import { IBattelleObservation } from "../../types/dataTypes";
-import { getPraiseRatio } from "../../utils/dataUtils";
-import DataProps from "./DataProps";
+
+import Card from "../../components/Card";
+import CounterButton from "../../components/CounterButton";
+import DataRow from "../../components/DataRow";
+import OptionRow from "../../components/optionRow";
+import TextInput from "../../components/TextInput";
+import Timer from "../../components/Timer";
+import ToggleButtons from "../../components/ToggleButtons";
 
 type Correctness = "correct" | "incorrect";
 type PraiseKey = "general" | "academic";
