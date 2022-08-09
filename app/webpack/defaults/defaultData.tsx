@@ -10,6 +10,7 @@ import {
   IReadingData,
   IMathData,
   IStudentTeachingRubric,
+  IBattelleObservation,
 } from "../types/dataTypes";
 
 const defaultSequence = {
@@ -149,6 +150,36 @@ const mathData: IMathData = {
   praise: defaultPraise,
 };
 
+// ------ BATTELLE ------
+
+const correctness = {
+  correct: 0,
+  incorrect: 0,
+};
+
+const battelleData: IBattelleObservation = {
+  item: "",
+  childScore: 0,
+  examinerScore: 0,
+
+  interview: {
+    instruction: correctness,
+  },
+
+  structured: {
+    materials: correctness,
+    secureAttention: correctness,
+    instruction: correctness,
+    allowTimeForResponse: correctness,
+    allowWithoutPrompt: correctness,
+    arrangeMaterials: correctness,
+  },
+
+  praise: defaultPraise,
+
+  notes: "",
+};
+
 // -------- DATA FOR UNIFIED TYPE ------
 
 export const defaultStudentTeachingData: DataSchema = {
@@ -179,6 +210,11 @@ export const defaultMMReadingData: DataSchema = {
 export const defaultMathData: DataSchema = {
   currentForm: formOptions.mmMath,
   ...mathData,
+};
+
+export const defaultBattelleData: DataSchema = {
+  currentForm: formOptions.battelle,
+  ...battelleData,
 };
 
 export const defaultStudentTeachingRubricData: IStudentTeachingRubric = {

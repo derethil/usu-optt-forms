@@ -41,7 +41,7 @@ const getObservationOptions = (currentForm: formOptions): Option[] => {
       case formOptions.birthToFive:
         return ["1", "2", "3", "4", "Informal"];
       case formOptions.battelle:
-        return ["1", "2,", "3"];
+        return ["1", "2", "3"];
       default:
         return ["1", "2", "3", "4", "5"];
     }

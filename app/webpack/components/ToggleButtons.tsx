@@ -6,8 +6,10 @@ import { Button } from "../styledComponents/style";
 import { CSSMixin } from "../types/types";
 import SelectButton from "./optionRow/SelectButton";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<CSSMixin>`
   margin-top: 1em;
+
+  ${(props) => props.mixin}
 `;
 
 const ButtonsWrapper = styled.div`
@@ -20,6 +22,7 @@ interface Props {
   options: string[];
   label: string;
   titleStyles?: FlattenSimpleInterpolation;
+  styles?: FlattenSimpleInterpolation;
   currSelected: string[];
   onClickButton: (clicked: string) => void;
 }
@@ -38,7 +41,7 @@ export default function ToggleButtons(props: Props) {
   ));
 
   return (
-    <Wrapper>
+    <Wrapper mixin={props.styles}>
       <Title mixin={props.titleStyles}>{props.label}</Title>
       <ButtonsWrapper>{...buttons}</ButtonsWrapper>
     </Wrapper>

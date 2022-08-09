@@ -29,6 +29,7 @@ import OPTTChecklist from "./pages/data/OPTTChecklist";
 import StudentTeachingRubric, {
   StudentTeachingRubricIndex,
 } from "./pages/StudentTeachingRubric";
+import { DataBattelle } from "./pages/data/DataBattelle";
 
 type FormRoutes = {
   [key in formOptions]: JSX.Element[];
@@ -193,7 +194,12 @@ export const App = () => {
     ],
     [formOptions.EICooperatingProviderChecklist]: [...sharedRoutes],
     [formOptions.birthToFiveCooperatingTeacherChecklist]: [...sharedRoutes],
-    [formOptions.battelle]: [...sharedRoutes],
+    [formOptions.battelle]: [
+      <Route path="/data" key="Data">
+        <DataBattelle title="Data" timer={timer1} data={data1} />
+      </Route>,
+      ...sharedRoutes,
+    ],
   };
 
   return (

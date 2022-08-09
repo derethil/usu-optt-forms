@@ -18,9 +18,7 @@ export const getOTRRate = (data: ICues, timer: ITimerState): string => {
 
 export const getPraiseSum = (data: IPraiseData): number => {
   const praises = Object.values(data.praise);
-  return (
-    praises.reduce((total, value) => total + value, 0) - data.praise.reprimand
-  );
+  return praises.reduce((total, value) => total + value, 0) - data.praise.reprimand;
 };
 
 export const getCorrectionsSum = (data: IStudentTeachingData): number => {

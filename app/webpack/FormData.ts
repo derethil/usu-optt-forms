@@ -93,7 +93,7 @@ const FormData: IFormData = {
   [formOptions.battelle]: {
     title: "Battelle Observation",
     rubric: RUBRICS.battelle as Section[],
-    defaultData: {} as DataSchema,
+    defaultData: defaults.defaultBattelleData,
   },
 };
 

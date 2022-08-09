@@ -159,7 +159,10 @@ export type DataSchema =
     } & IReadingData)
   | ({
       currentForm: formOptions.mmMath;
-    } & IMathData);
+    } & IMathData)
+  | ({
+      currentForm: formOptions.battelle;
+    } & IBattelleObservation);
 
 // ------ NOTEBOOK CHECK ------
 
@@ -223,4 +226,32 @@ export interface IStudentTeachingRubric {
   behaviorConferenced: string;
   collaborationConferenced: string;
   IEPConferenced: string;
+}
+
+// ---- BATTELLE OBSERVATION ----
+
+interface Correctness {
+  correct: number;
+  incorrect: number;
+}
+
+export interface IBattelleObservation extends IPraiseData, Mapping<any> {
+  item: string;
+  childScore: string | number;
+  examinerScore: number;
+
+  interview: {
+    instruction: Correctness;
+  };
+
+  structured: {
+    materials: Correctness;
+    secureAttention: Correctness;
+    instruction: Correctness;
+    allowTimeForResponse: Correctness;
+    allowWithoutPrompt: Correctness;
+    arrangeMaterials: Correctness;
+  };
+
+  notes: string;
 }
