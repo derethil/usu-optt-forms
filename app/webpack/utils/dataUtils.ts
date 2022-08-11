@@ -1,6 +1,6 @@
 import { ITimerState } from "../slices/timersSlice";
-import { IPraiseData, IStudentTeachingData, ICues } from "../types/dataTypes";
-import currentForm from "../currentForm";
+import { IPraiseData, IStudentTeachingData, ICues, DataSchema } from "../types/dataTypes";
+import currentForm, { formOptions } from "../currentForm";
 import FormData from "../FormData";
 
 const defaultData = FormData[currentForm].defaultData;
@@ -29,4 +29,12 @@ export const getCorrectionsSum = (data: IStudentTeachingData): number => {
 export const getPraiseRatio = (data: IPraiseData): string => {
   const ratio = getPraiseSum(data) / data.praise.reprimand;
   return `${ratio.toFixed(2)} : 1`;
+};
+
+export const battellePraiseRatio = (data: DataSchema) => {
+  if (data.currentForm === formOptions.battelle) {
+    return `${
+      data.interview.instruction.correct + data.interview.instruction.incorrect
+    } : ${data.praise.general + data.praise.academic}`;
+  }
 };

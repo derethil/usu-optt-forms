@@ -6,6 +6,7 @@ import birthToFive from "./observations/birthToFive";
 import mathGuidedPractice from "./observations/math";
 import severePracticumReading from "./observations/severePracticum";
 import studentTeaching from "./observations/studentTeaching";
+import battelle from "./observations/battelle";
 
 export default function generate(generator: PDFGenerator, data: IData) {
   switch (currentForm) {
@@ -37,5 +38,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
         data.timerState2,
         data.timerState3
       );
+    case formOptions.battelle:
+      battelle(generator, data.data1, data.timerState1);
   }
 }

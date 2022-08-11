@@ -23,6 +23,7 @@ import OptionRow from "../../components/optionRow";
 import TextInput from "../../components/TextInput";
 import Timer from "../../components/Timer";
 import ToggleButtons from "../../components/ToggleButtons";
+import { battellePraiseRatio } from "../../utils/dataUtils";
 
 type Correctness = "correct" | "incorrect";
 type PraiseKey = "general" | "academic";
@@ -73,12 +74,6 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
       })
     );
   };
-
-  const praiseRatio = () => `
-  ${data.interview.instruction.correct + data.interview.instruction.incorrect} : ${
-    data.praise.general + data.praise.academic
-  }
-  `;
 
   return (
     <PageContent>
@@ -319,7 +314,7 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
           },
           {
             display: "Praise Ratio",
-            score: praiseRatio(),
+            score: battellePraiseRatio(data)!,
           },
         ]}
       >
