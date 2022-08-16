@@ -49,7 +49,7 @@ const PDFData = () => {
     if (currentForm !== formOptions.teacherCandidate) {
       generator.pdf.text(`USU SPER ${FormData[currentForm].title} Report`, 14, 18);
     } else {
-      generator.pdf.text(`SPED ${FormData[currentForm].title} Form`, 14, 18);
+      generator.pdf.text(`USU ${FormData[currentForm].title} Form`, 14, 18);
     }
 
     // General Info

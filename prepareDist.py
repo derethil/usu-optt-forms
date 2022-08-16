@@ -14,7 +14,7 @@ def main():
         content = file.read()
         forms = [form.replace('"', "") for form in re.findall('"\w+"', content)]
 
-    forms.remove("teacherCandidate")
+    # forms.remove("teacherCandidate")
 
     for form in forms:
         print(f"Changing current form to {form}")

@@ -109,21 +109,12 @@ export const App = () => {
     ],
     // ------ READING ------
     [formOptions.mmReading]: [
-      <Route path="/decoding" key={(title = "Decoding Data")}>
+      <Route path="/data" key={(title = "Data")}>
         <DataSPR
           data={data1}
           timer={timer1}
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
-          includeIncorrect
-        />
-      </Route>,
-      <Route path="/reading" key={(title = "Story Reading Data")}>
-        <DataSPR
-          data={data2}
-          timer={timer2}
-          title={title}
-          resetCallback={() => dispatch(data2.actions.resetData())}
           includeIncorrect
         />
       </Route>,

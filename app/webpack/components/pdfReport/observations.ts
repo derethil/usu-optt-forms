@@ -28,7 +28,12 @@ export default function generate(generator: PDFGenerator, data: IData) {
       birthToFive(generator, data.data1, data.timerState1);
 
     case formOptions.mmReading:
-      severePracticumReading(generator, data.data1, data.timerState1, "Decoding Data");
+      severePracticumReading(
+        generator,
+        data.data1,
+        data.timerState1,
+        "Data                    "
+      );
 
     case formOptions.mmMath:
       mathGuidedPractice(
