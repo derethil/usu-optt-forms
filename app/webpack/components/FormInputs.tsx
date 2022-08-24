@@ -31,7 +31,7 @@ import ToggleButtons from "./ToggleButtons";
 const getObservationOptions = (currentForm: formOptions): Option[] => {
   const options = (() => {
     switch (currentForm) {
-      case formOptions.severeSelfEvaluation:
+      case formOptions.severeEvaluation:
         return ["1", "2", "3", "4"];
       case formOptions.earlyIntervention:
         return ["Informal", "1", "2", "3"];
@@ -225,7 +225,7 @@ const FormInputs = () => {
       case formOptions.studentTeachingRubric:
       case formOptions.cooperatingTeacherChecklist:
         return [INPUTS.student, INPUTS.superior, INPUTS.date];
-      case formOptions.severeSelfEvaluation:
+      case formOptions.severeEvaluation:
         return [
           INPUTS.student,
           INPUTS.date,

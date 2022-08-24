@@ -11,7 +11,7 @@ import mmMath from "./mildModerate/mmMath.json";
 
 // Severe
 import severePracticum from "./severe/severePracticum.json";
-import severeSelfEvaluation from "./severe/severeSelfEvaluation.json";
+import severeEvaluation from "./severe/severeEvaluation.json";
 
 // Student Teaching
 import studentTeaching from "./studentTeaching/studentTeaching.json";
@@ -33,7 +33,7 @@ export {
   mmMath,
   // Severe
   severePracticum,
-  severeSelfEvaluation,
+  severeEvaluation,
   // Student Teaching
   studentTeaching,
   studentTeachingRubric,

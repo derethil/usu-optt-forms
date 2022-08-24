@@ -54,9 +54,9 @@ const FormData: IFormData = {
     rubric: [],
     defaultData: {} as DataSchema,
   },
-  [formOptions.severeSelfEvaluation]: {
-    title: "Self Evaluation",
-    rubric: RUBRICS.severeSelfEvaluation as Section[],
+  [formOptions.severeEvaluation]: {
+    title: "Severe Self/Peer Evaluation",
+    rubric: RUBRICS.severeEvaluation as Section[],
     defaultData: defaults.defaultSevereReadingData,
   },
   [formOptions.studentTeachingRubric]: {
