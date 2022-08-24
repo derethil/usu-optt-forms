@@ -1,5 +1,150 @@
 [
   {
+    "sectionTitle": "Effective Teaching Cycle",
+    "rows": [
+      {
+        "area": "Lesson Plan",
+        "options": [
+          {
+            "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals / obj., sufficient # of trials, items, types & available",
+            "score": 6
+          },
+          {
+            "content": "Incomplete, inconsistencies, or unclear lesson plan, not available at time of observation (not printed)",
+            "score": 4
+          },
+          {
+            "content": "No lesson plan",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Opening",
+        "options": [
+          {
+            "content": "Included appropriate review  /  maintenance  /  prerequisite, with clear format",
+            "score": 4
+          },
+          {
+            "content": "included inappropriate  /  partial review  /  maintenance  /  prerequisite, and / or unclear format",
+            "score": 2
+          },
+          {
+            "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Lesson Introduction",
+        "options": [
+          {
+            "content": "Included appropriate objective, link, and relevance statement",
+            "score": 2
+          },
+          {
+            "content": "Included inappropriate / partial objective, link, and relevance statement",
+            "score": 1
+          },
+          {
+            "content": "Included inappropriate / no objective, link, and relevance statement",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "New Material",
+        "options": [
+          {
+            "content": "Skill broken into clear steps, modeled skill, appropriate format, engages student",
+            "score": 5
+          },
+          {
+            "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
+            "score": 3
+          },
+          {
+            "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Guided Practice",
+        "options": [
+          {
+            "content": "Appropriate cue and pace, necessary prompts, sufficient # of examples, aligned to objective",
+            "score": 5
+          },
+          {
+            "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
+            "score": 3
+          },
+          {
+            "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Real-Life Examples",
+        "options": [
+          {
+            "content": "Appropriate real-life examples",
+            "score": 2
+          },
+          {
+            "content": "Provides some real-life examples, examples are unclear or unrelated",
+            "score": 1
+          },
+          {
+            "content": "Provides no real-life examples or inappropriate examples",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Independent Practice",
+        "options": [
+          {
+            "content": "Appropriate supervision / feedback, sufficient # of trials, varied examples, aligned to objective",
+            "score": 4
+          },
+          {
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
+            "score": 2
+          },
+          {
+            "content": "Inappropriate supervision / feedback, or not aligned to objective",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Maintenance / Generalization",
+        "options": [
+          {
+            "content": "Generalized across materials, people and / or settings, scheduled practice opportunities, aligned to objective",
+            "score": 2
+          },
+          {
+            "content": "Random or unpredictable practice opportunities, not aligned to objective",
+            "score": 0,
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  {
     "sectionTitle": "Presentation",
     "rows": [
       {
@@ -220,151 +365,6 @@
           },
           {
             "content": "0-1 components observed",
-            "score": 0,
-            "default": true
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "sectionTitle": "Effective Teaching Cycle",
-    "rows": [
-      {
-        "area": "Lesson Plan",
-        "options": [
-          {
-            "content": "Complete lesson plan. Appropriate relevant chunking, sequence of goals / obj., sufficient # of trials, items, types & available",
-            "score": 6
-          },
-          {
-            "content": "Incomplete, inconsistencies, or unclear lesson plan, not available at time of observation (not printed)",
-            "score": 4
-          },
-          {
-            "content": "No lesson plan",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "Opening",
-        "options": [
-          {
-            "content": "Included appropriate review  /  maintenance  /  prerequisite, with clear format",
-            "score": 4
-          },
-          {
-            "content": "included inappropriate  /  partial review  /  maintenance  /  prerequisite, and / or unclear format",
-            "score": 2
-          },
-          {
-            "content": "Included inappropriate  /  no review  /  maintenance  /  prerequisite, and / or unclear format",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "Lesson Introduction",
-        "options": [
-          {
-            "content": "Included appropriate objective, link, and relevance statement",
-            "score": 2
-          },
-          {
-            "content": "Included inappropriate / partial objective, link, and relevance statement",
-            "score": 1
-          },
-          {
-            "content": "Included inappropriate / no objective, link, and relevance statement",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "New Material",
-        "options": [
-          {
-            "content": "Skill broken into clear steps, modeled skill, appropriate format, engages student",
-            "score": 5
-          },
-          {
-            "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
-            "score": 3
-          },
-          {
-            "content": "Skill broken into unclear steps or did not model skill, inappropriate format",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "Guided Practice",
-        "options": [
-          {
-            "content": "Appropriate cue and pace, necessary prompts, sufficient # of examples, aligned to objective",
-            "score": 5
-          },
-          {
-            "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
-            "score": 3
-          },
-          {
-            "content": "No supervision or responses not directed, or inappropriate pace, or not aligned to objectives",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "Real-Life Examples",
-        "options": [
-          {
-            "content": "Appropriate real-life examples",
-            "score": 2
-          },
-          {
-            "content": "Provides some real-life examples, examples are unclear or unrelated",
-            "score": 1
-          },
-          {
-            "content": "Provides no real-life examples or inappropriate examples",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "Independent Practice",
-        "options": [
-          {
-            "content": "Appropriate supervision / feedback, sufficient # of trials, varied examples, aligned to objective",
-            "score": 4
-          },
-          {
-            "content": "Inappropriate supervision / feedback, or not aligned to objective",
-            "score": 2
-          },
-          {
-            "content": "Inappropriate supervision / feedback, or not aligned to objective",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
-        "area": "Maintenance / Generalization",
-        "options": [
-          {
-            "content": "Generalized across materials, people and / or settings, scheduled practice opportunities, aligned to objective",
-            "score": 2
-          },
-          {
-            "content": "Random or unpredictable practice opportunities, not aligned to objective",
             "score": 0,
             "default": true
           }
