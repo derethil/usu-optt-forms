@@ -17,7 +17,7 @@ const FeedbackPage = () => {
       case formOptions.birthToFiveCooperatingTeacherChecklist:
       case formOptions.EICooperatingProviderChecklist:
         return [] as JSX.Element[];
-      case formOptions.severeEvaluation:
+      case formOptions.selfPeerEvaluation:
         return [
           <TextBoxCard
             key={4}

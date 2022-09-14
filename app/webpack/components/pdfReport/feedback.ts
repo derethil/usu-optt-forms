@@ -14,7 +14,7 @@ export default function generate(generator: PDFGenerator, data: IData) {
     [feedbackLabel(currentForm, 2), data.feedback.area2],
   ];
 
-  if (currentForm === formOptions.severeEvaluation) {
+  if (currentForm === formOptions.selfPeerEvaluation) {
     feedbackRows.pop();
     feedbackRows.push(
       [feedbackLabel(currentForm, 4), data.feedback.area4],

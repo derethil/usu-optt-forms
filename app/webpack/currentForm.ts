@@ -4,7 +4,6 @@ export enum formOptions {
   studentTeachingRubric = "studentTeachingRubric",
   cooperatingTeacherChecklist = "cooperatingTeacherChecklist",
   // Severe
-  severeEvaluation = "severeEvaluation",
   severeReading = "severeReading",
   severeMathLifeSkills = "severeMathLifeSkills",
   // Mild/Moderate
@@ -17,10 +16,11 @@ export enum formOptions {
   battelle = "battelle",
   birthToFiveCooperatingTeacherChecklist = "birthToFiveCooperatingTeacherChecklist",
   // Other
+  selfPeerEvaluation = "selfPeerEvaluation",
   OPTTChecklist = "OPTTChecklist",
   teacherCandidate = "teacherCandidate",
 }
 
-const currentForm: formOptions = formOptions.severeEvaluation;
+const currentForm: formOptions = formOptions.teacherCandidate;
 
 export default currentForm;
