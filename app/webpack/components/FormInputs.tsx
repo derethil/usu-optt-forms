@@ -32,7 +32,7 @@ const getObservationOptions = (currentForm: formOptions): Option[] => {
   const options = (() => {
     switch (currentForm) {
       case formOptions.selfPeerEvaluation:
-        return ["1", "2", "3", "4"];
+        return ["1", "2", "3", "4", "5", "6", "7", "8"];
       case formOptions.earlyIntervention:
         return ["Informal", "1", "2", "3"];
       case formOptions.EICooperatingProviderChecklist:

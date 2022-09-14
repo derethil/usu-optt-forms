@@ -40,9 +40,10 @@
       },
       {
         "area": "Dress and Hygiene",
+        "info": "1. Meet the standards of the school district, program or clinic assigned <br> 2. Must wear a photo ID name tag <br>",
         "options": [
           {
-            "content": "Dresses modestly in clean clothes in good repair, & consistent with that of the other professionals in the environment.",
+            "content": "Dresses appropriately and maintains personal hygiene.",
             "score": 5
           },
           {

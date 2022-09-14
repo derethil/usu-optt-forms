@@ -419,10 +419,10 @@
     "rows": [
       {
         "area": "Dress and Hygiene",
-        "info": "1. Dresses modestly in clean clothes in good repair <br> 2. Dresses consistent with the dress of teachers and administrators in the school <br> 3. Maintains good personal hygiene",
+        "info": "1. Meet the standards of the school district, program or clinic assigned <br> 2. Must wear a photo ID name tag <br>",
         "options": [
           {
-            "content": "Dresses appropriately and maintains good personal hygiene",
+            "content": "Dresses appropriately and maintains personal hygiene",
             "score": 1
           },
           {
