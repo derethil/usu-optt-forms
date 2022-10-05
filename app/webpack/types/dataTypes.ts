@@ -236,9 +236,12 @@ interface Correctness {
 }
 
 export interface IBattelleObservation extends IPraiseData, Mapping<any> {
-  item: string;
-  childScore: string | number;
-  examinerScore: number;
+  scoring: {
+    agreement: number;
+    noAgreement: number;
+    immediate: number;
+    delayed: number;
+  };
 
   interview: {
     instruction: Correctness;

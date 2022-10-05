@@ -158,9 +158,12 @@ const correctness = {
 };
 
 const battelleData: IBattelleObservation = {
-  item: "",
-  childScore: 0,
-  examinerScore: 0,
+  scoring: {
+    agreement: 0,
+    noAgreement: 0,
+    immediate: 0,
+    delayed: 0,
+  },
 
   interview: {
     instruction: correctness,

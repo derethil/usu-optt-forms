@@ -33,8 +33,10 @@ export const getPraiseRatio = (data: IPraiseData): string => {
 
 export const battellePraiseRatio = (data: DataSchema) => {
   if (data.currentForm === formOptions.battelle) {
-    return `${
-      data.interview.instruction.correct + data.interview.instruction.incorrect
-    } : ${data.praise.general + data.praise.academic}`;
+    const totalTrials =
+      data.structured.instruction.correct + data.structured.instruction.incorrect;
+    const totalPraise = data.praise.general + data.praise.academic;
+
+    return `${(totalPraise / totalTrials).toFixed(2)} : 1`;
   }
 };

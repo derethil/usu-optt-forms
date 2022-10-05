@@ -32,13 +32,23 @@ const battelleSection = (
 
     generator.table({
       startY: (generator.pdf as any).autoTable.previous.finalY + 2,
-      head: ["General", "Score"],
+      head: ["Scores", ""],
       headStyles: { fillColor: Color.blues.blue, textColor: Color.lights.grayLighter },
       body: [
-        ["Item Number", data.item],
-        ["Child Score", data.childScore],
-        ["Examiner Score", data.examinerScore],
-        ["In Agreement", Number(data.childScore === data.examinerScore)],
+        [
+          "Agreement",
+          getPercent(
+            data.scoring.agreement,
+            data.scoring.agreement + data.scoring.noAgreement
+          ),
+        ],
+        [
+          "Immediacy",
+          getPercent(
+            data.scoring.immediate,
+            data.scoring.delayed + data.scoring.immediate
+          ),
+        ],
       ],
     });
 
@@ -56,32 +66,54 @@ const battelleSection = (
 
     generator.table({
       startY: (generator.pdf as any).autoTable.previous.finalY + 2,
-      head: ["Structured", "Score (Correct | Incorrect)"],
+      head: ["Structured", "Score"],
       headStyles: { fillColor: Color.blues.blue, textColor: Color.lights.grayLighter },
       body: [
         [
-          "Material",
-          `${data.structured.materials.correct} | ${data.structured.materials.incorrect}`,
+          "Materials",
+          getPercent(
+            data.structured.materials.correct,
+            data.structured.materials.correct + data.structured.materials.incorrect
+          ),
         ],
         [
           "Secured Attention",
-          `${data.structured.secureAttention.correct} | ${data.structured.secureAttention.incorrect}`,
+          getPercent(
+            data.structured.secureAttention.correct,
+            data.structured.secureAttention.correct +
+              data.structured.secureAttention.incorrect
+          ),
         ],
         [
           "Instruction",
-          `${data.structured.instruction.correct} | ${data.structured.instruction.incorrect}`,
+          getPercent(
+            data.structured.instruction.correct,
+            data.structured.instruction.correct + data.structured.instruction.incorrect
+          ),
         ],
         [
           "Timing / # of Opp",
-          `${data.structured.allowTimeForResponse.correct} | ${data.structured.allowTimeForResponse.incorrect}`,
+          getPercent(
+            data.structured.allowTimeForResponse.correct,
+            data.structured.allowTimeForResponse.correct +
+              data.structured.allowTimeForResponse.incorrect
+          ),
         ],
         [
           "Allow Time Without Prompting",
-          `${data.structured.allowWithoutPrompt.correct} | ${data.structured.allowWithoutPrompt.incorrect}`,
+          getPercent(
+            data.structured.allowWithoutPrompt.correct,
+            data.structured.allowWithoutPrompt.correct +
+              data.structured.allowWithoutPrompt.incorrect
+          ),
         ],
         [
           "Arranging/Manipulating Materials",
-          `${data.structured.arrangeMaterials.correct} | ${data.structured.arrangeMaterials.incorrect}`,
+          getPercent(
+            data.structured.arrangeMaterials.correct,
+            data.structured.arrangeMaterials.correct +
+              data.structured.arrangeMaterials.incorrect
+          ),
         ],
       ],
     });

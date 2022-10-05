@@ -24,6 +24,7 @@ import TextInput from "../../components/TextInput";
 import Timer from "../../components/Timer";
 import ToggleButtons from "../../components/ToggleButtons";
 import { battellePraiseRatio } from "../../utils/dataUtils";
+import { getPercent } from "../../utils/utils";
 
 type Correctness = "correct" | "incorrect";
 type PraiseKey = "general" | "academic";
@@ -75,6 +76,17 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
     );
   };
 
+  const updateScoring = (key: keyof typeof data.scoring, value: number) => {
+    dispatch(
+      props.data.actions.setData({
+        scoring: {
+          ...data.scoring,
+          [key]: value,
+        },
+      })
+    );
+  };
+
   return (
     <PageContent>
       <Card
@@ -84,59 +96,62 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
           font-size: 2rem;
         `}
       />
-
+      {/*
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
-      </Card>
+      </Card> */}
 
-      <Card title="Scores" containerStyles={cardContainerStyles}>
-        <ToggleButtons
-          key="selectSubdomain"
-          options={["AM", "RA", "PC", "GM", "FM", "PM", "RC", "EC"]}
-          label="Subdomain"
-          currSelected={formInfo.subdomain}
-          titleStyles={css`
-            color: ${Color.neutrals.grayDark};
-          `}
-          onClickButton={(clicked) => {
-            dispatch(toggleSubdomain(clicked));
-          }}
-        />
+      <DataRow
+        displayData={[
+          {
+            display: "Agreement",
+            score: getPercent(
+              data.scoring.agreement,
+              data.scoring.agreement + data.scoring.noAgreement
+            ),
+          },
+          {
+            display: "Immediacy",
+            score: getPercent(
+              data.scoring.immediate,
+              data.scoring.immediate + data.scoring.delayed
+            ),
+          },
+        ]}
+        title="Scores"
+      >
+        <TwoRowWrapper>
+          <TwoButtonCol>
+            <CounterButton
+              color={Color.contextual.info}
+              content="Agreement"
+              value={data.scoring.agreement}
+              onClick={(value) => updateScoring("agreement", value)}
+            />
+            <CounterButton
+              color={Color.contextual.info}
+              content="Immediate Scoring"
+              value={data.scoring.immediate}
+              onClick={(value) => updateScoring("immediate", value)}
+            />
+          </TwoButtonCol>
 
-        <TextInput
-          title="Item Number"
-          value={data.item}
-          field="item"
-          updateForm={(updated) => dispatch(props.data.actions.setData(updated))}
-          containerStyles={css`
-            margin-top: 1em;
-          `}
-        />
-
-        <OptionRow
-          title="Child Score"
-          currSelection={String(data.childScore)}
-          options={["2", "1", "0", "N/A"].map((el) => ({ content: el }))}
-          updateSelection={(childScore) =>
-            dispatch(props.data.actions.setData({ childScore }))
-          }
-          titleStyles={css`
-            color: ${Color.neutrals.grayDark};
-          `}
-        />
-
-        <OptionRow
-          title="Examiner Score"
-          currSelection={String(data.examinerScore)}
-          options={["2", "1", "0"].map((el) => ({ content: el }))}
-          updateSelection={(examinerScore) =>
-            dispatch(props.data.actions.setData({ examinerScore }))
-          }
-          titleStyles={css`
-            color: ${Color.neutrals.grayDark};
-          `}
-        />
-      </Card>
+          <TwoButtonCol>
+            <CounterButton
+              color={Color.contextual.danger}
+              content="No Agreement"
+              value={data.scoring.noAgreement}
+              onClick={(value) => updateScoring("noAgreement", value)}
+            />
+            <CounterButton
+              color={Color.contextual.danger}
+              content="Delayed Scoring"
+              value={data.scoring.delayed}
+              onClick={(value) => updateScoring("delayed", value)}
+            />
+          </TwoButtonCol>
+        </TwoRowWrapper>
+      </DataRow>
 
       <DataRow
         title="Interview"
@@ -170,27 +185,49 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
         displayData={[
           {
             display: "Materials",
-            score: `${data.structured.materials.correct} | ${data.structured.materials.incorrect}`,
+            score: getPercent(
+              data.structured.materials.correct,
+              data.structured.materials.correct + data.structured.materials.incorrect
+            ),
           },
           {
             display: "Secure Attention",
-            score: `${data.structured.secureAttention.correct} | ${data.structured.secureAttention.incorrect}`,
+            score: getPercent(
+              data.structured.secureAttention.correct,
+              data.structured.secureAttention.correct +
+                data.structured.secureAttention.incorrect
+            ),
           },
           {
             display: "Instruction",
-            score: `${data.structured.instruction.correct} | ${data.structured.instruction.incorrect}`,
+            score: getPercent(
+              data.structured.instruction.correct,
+              data.structured.instruction.correct + data.structured.instruction.incorrect
+            ),
           },
           {
             display: "Time for Response",
-            score: `${data.structured.allowTimeForResponse.correct} | ${data.structured.allowTimeForResponse.incorrect}`,
+            score: getPercent(
+              data.structured.allowTimeForResponse.correct,
+              data.structured.allowTimeForResponse.correct +
+                data.structured.allowTimeForResponse.incorrect
+            ),
           },
           {
             display: "Prompting",
-            score: `${data.structured.allowWithoutPrompt.correct} | ${data.structured.allowWithoutPrompt.incorrect}`,
+            score: getPercent(
+              data.structured.allowWithoutPrompt.correct,
+              data.structured.allowWithoutPrompt.correct +
+                data.structured.allowWithoutPrompt.incorrect
+            ),
           },
           {
             display: "Material Arrangement",
-            score: `${data.structured.arrangeMaterials.correct} | ${data.structured.arrangeMaterials.incorrect}`,
+            score: getPercent(
+              data.structured.arrangeMaterials.correct,
+              data.structured.arrangeMaterials.correct +
+                data.structured.arrangeMaterials.incorrect
+            ),
           },
         ]}
       >
