@@ -16,7 +16,7 @@ const cardContentStyles = css`
 `;
 
 const ObservDataWrapper = styled(Styles.DataWrapper)`
-  width: 14em;
+  width: 16em;
 `;
 
 const CardTitleContainer = styled.div`

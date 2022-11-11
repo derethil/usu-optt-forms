@@ -87,6 +87,12 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
     );
   };
 
+  const renderScoreWithPercent = (correct: number, incorrect: number) => {
+    const total = correct + incorrect;
+    const percent = getPercent(correct, total);
+    return `${correct} / ${total} | ${percent}`;
+  };
+
   return (
     <PageContent>
       <Card
@@ -105,17 +111,14 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
         displayData={[
           {
             display: "Agreement",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.scoring.agreement,
-              data.scoring.agreement + data.scoring.noAgreement
+              data.scoring.noAgreement
             ),
           },
           {
             display: "Immediacy",
-            score: getPercent(
-              data.scoring.immediate,
-              data.scoring.immediate + data.scoring.delayed
-            ),
+            score: renderScoreWithPercent(data.scoring.immediate, data.scoring.delayed),
           },
         ]}
         title="Scores"
@@ -185,48 +188,44 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
         displayData={[
           {
             display: "Materials",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.structured.materials.correct,
-              data.structured.materials.correct + data.structured.materials.incorrect
+              data.structured.materials.incorrect
             ),
           },
           {
             display: "Secure Attention",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.structured.secureAttention.correct,
-              data.structured.secureAttention.correct +
-                data.structured.secureAttention.incorrect
+              data.structured.secureAttention.incorrect
             ),
           },
           {
             display: "Instruction",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.structured.instruction.correct,
-              data.structured.instruction.correct + data.structured.instruction.incorrect
+              data.structured.instruction.incorrect
             ),
           },
           {
             display: "Time for Response",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.structured.allowTimeForResponse.correct,
-              data.structured.allowTimeForResponse.correct +
-                data.structured.allowTimeForResponse.incorrect
+              data.structured.allowTimeForResponse.incorrect
             ),
           },
           {
             display: "Prompting",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.structured.allowWithoutPrompt.correct,
-              data.structured.allowWithoutPrompt.correct +
-                data.structured.allowWithoutPrompt.incorrect
+              data.structured.allowWithoutPrompt.incorrect
             ),
           },
           {
             display: "Material Arrangement",
-            score: getPercent(
+            score: renderScoreWithPercent(
               data.structured.arrangeMaterials.correct,
-              data.structured.arrangeMaterials.correct +
-                data.structured.arrangeMaterials.incorrect
+              data.structured.arrangeMaterials.incorrect
             ),
           },
         ]}
