@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./app/webpack/index.ts",
+  entry: "./app/webpack/index.tsx",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "app/static/js"),

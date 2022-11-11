@@ -111,9 +111,8 @@ const FormInputs = () => {
       />
     ),
     nextDate: (
-      <>
+      <span key="nextDate">
         <DateInput
-          key="nextDate"
           label="Next Observation Date"
           field="nextDate"
           date={new Date(formInfo.nextDate)}
@@ -121,12 +120,11 @@ const FormInputs = () => {
           disabled={formInfo.isLastObservation}
         />
         <CheckboxLabel
-          key="isLastObservation"
           checked={formInfo.isLastObservation}
           onChange={(e) => dispatch(setFormInfo({ isLastObservation: e.target.checked }))}
           label="This is the last observation for this student"
         />
-      </>
+      </span>
     ),
     programText: (
       <TextInput
@@ -147,22 +145,20 @@ const FormInputs = () => {
       />
     ),
     goals: (
-      <>
+      <span key="goals">
         <TextInput
-          key="goal1"
           value={formInfo.goal1}
           updateForm={updateFormInfo}
           field="goal1"
           title="Goal 1"
         />
         <TextInput
-          key="goal2"
           value={formInfo.goal2}
           updateForm={updateFormInfo}
           field="goal2"
           title="Goal 2"
         />
-      </>
+      </span>
     ),
     selectObservation: (
       <OptionRow
@@ -279,7 +275,7 @@ const FormInputs = () => {
     }
   };
 
-  return <>{generateFormInfoInputs()}</>;
+  return <>{...generateFormInfoInputs()}</>;
 };
 
 export default FormInputs;

@@ -21,7 +21,7 @@
         ]
       },
       {
-        "area": "Opening",
+        "area": "Opening / Review",
         "options": [
           {
             "content": "Included appropriate review  /  maintenance  /  prerequisite, with clear format",
@@ -39,7 +39,7 @@
         ]
       },
       {
-        "area": "Lesson Introduction",
+        "area": "Opening / Objective",
         "options": [
           {
             "content": "Included appropriate objective, link, and relevance statement",
@@ -363,11 +363,11 @@
         "area": "Time Efficiency",
         "options": [
           {
-            "content": "Teacher uses all class time efficiently by providing multiple OTR, session begins / ends on time, smooth transition",
+            "content": "Teacher uses all class time efficiently by engaging learning activities, session begins / ends on time, smooth transition",
             "score": 4
           },
           {
-            "content": "Teacher uses most of class time efficiently, session begins / ends on time, smooth transition",
+            "content": "Teacher uses most of class time efficiently by engaging learning activities, session begins / ends on time, smooth transition",
             "score": 2
           },
           {
