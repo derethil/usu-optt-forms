@@ -1,8 +1,5 @@
-import React from "react";
-import ReactDom from "react-dom";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import store, { persistor } from "./store";
+import React, { useEffect } from "react";
+
 import { Switch, Route, HashRouter } from "react-router-dom";
 
 import logo from "../static/img/usuHorizontalB64";
@@ -30,6 +27,8 @@ import StudentTeachingRubric, {
   StudentTeachingRubricIndex,
 } from "./pages/StudentTeachingRubric";
 import { DataBattelle } from "./pages/data/DataBattelle";
+
+import * as slices from "./slices/slices";
 
 type FormRoutes = {
   [key in formOptions]: JSX.Element[];
@@ -192,6 +191,20 @@ export default function App() {
       ...sharedRoutes,
     ],
   };
+
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      window.localStorage.removeItem("persist:battelle");
+      return e;
+    };
+
+    if (currentForm === formOptions.battelle) {
+      window.addEventListener("beforeunload", handleBeforeUnload);
+      return () => {
+        window.removeEventListener("beforeunload", handleBeforeUnload);
+      };
+    }
+  });
 
   return (
     <PageContainer>
