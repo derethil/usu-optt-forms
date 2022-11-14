@@ -192,20 +192,6 @@ export default function App() {
     ],
   };
 
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      window.localStorage.removeItem("persist:battelle");
-      return e;
-    };
-
-    if (currentForm === formOptions.battelle) {
-      window.addEventListener("beforeunload", handleBeforeUnload);
-      return () => {
-        window.removeEventListener("beforeunload", handleBeforeUnload);
-      };
-    }
-  });
-
   return (
     <PageContainer>
       {/* HashRouter rather than BrowserRouter allows the offline forms to use routing as well */}
