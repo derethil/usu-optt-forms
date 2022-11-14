@@ -13,15 +13,13 @@ import { getPercent } from "../../utils/utils";
 
 import * as Styles from "../../styledComponents/style";
 import Color from "../../styledComponents/colors";
-import {
-  ButtonsWrapper,
-  cardContainerStyles,
-} from "../../styledComponents/style";
+import { ButtonsWrapper, cardContainerStyles } from "../../styledComponents/style";
 import OTRRow from "../../components/data/OTRRow";
 import { css } from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { formOptions } from "../../currentForm";
 import DataProps from "./DataProps";
+import DataTitleCard from "../../components/data/DataTitleCard";
 
 const DataST = (props: DataProps<IStudentTeachingData>) => {
   const data = useAppSelector(props.data.selector);
@@ -33,13 +31,7 @@ const DataST = (props: DataProps<IStudentTeachingData>) => {
 
   return (
     <Styles.PageContent>
-      <Card
-        title={props.title}
-        containerStyles={cardContainerStyles}
-        titleStyles={css`
-          font-size: 2rem;
-        `}
-      ></Card>
+      <DataTitleCard title={props.title} undo={props.data.actions.undo} />
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={props.timer} resetCallback={props.resetCallback} />

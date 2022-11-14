@@ -19,12 +19,11 @@ import {
 import Card from "../../components/Card";
 import CounterButton from "../../components/CounterButton";
 import DataRow from "../../components/DataRow";
-import OptionRow from "../../components/optionRow";
+
 import TextInput from "../../components/TextInput";
-import Timer from "../../components/Timer";
-import ToggleButtons from "../../components/ToggleButtons";
 import { battellePraiseRatio } from "../../utils/dataUtils";
 import { getPercent } from "../../utils/utils";
+import DataTitleCard from "../../components/data/DataTitleCard";
 
 type Correctness = "correct" | "incorrect";
 type PraiseKey = "general" | "academic";
@@ -42,7 +41,6 @@ const ButtonWrapperMixin = css`
 export function DataBattelle(props: DataProps<IBattelleObservation>) {
   const dispatch = useAppDispatch();
   const data = useAppSelector(props.data.selector);
-  const formInfo = useAppSelector(selectFormInfo);
 
   if (data.currentForm !== formOptions.battelle) return <div></div>;
 
@@ -95,17 +93,7 @@ export function DataBattelle(props: DataProps<IBattelleObservation>) {
 
   return (
     <PageContent>
-      <Card
-        title={props.title}
-        containerStyles={cardContainerStyles}
-        titleStyles={css`
-          font-size: 2rem;
-        `}
-      />
-      {/*
-      <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={props.timer} resetCallback={props.resetCallback} />
-      </Card> */}
+      <DataTitleCard title={props.title} undo={props.data.actions.undo} />
 
       <DataRow
         displayData={[

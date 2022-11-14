@@ -10,6 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import undoable, { includeAction } from "redux-undo";
 
 import currentForm from "./currentForm";
 import formInfoReducer from "./slices/formInfoSlice";
@@ -19,11 +20,7 @@ import notebookChecksReducer from "./slices/notebookChecksSlice";
 import checklistReducer from "./slices/checklistSlice";
 import questionsReducer from "./slices/questionsSlice";
 import { dataReducer1, dataReducer2 } from "./slices/dataSlice";
-import {
-  timerReducer1,
-  timerReducer2,
-  timerReducer3,
-} from "./slices/timersSlice";
+import { timerReducer1, timerReducer2, timerReducer3 } from "./slices/timersSlice";
 
 const reducers = combineReducers({
   formInfo: formInfoReducer,
@@ -33,8 +30,12 @@ const reducers = combineReducers({
   timer1: timerReducer1,
   timer2: timerReducer2,
   timer3: timerReducer3,
-  data1: dataReducer1,
-  data2: dataReducer2,
+  data1: undoable(dataReducer1, {
+    undoType: "data1/undo",
+  }),
+  data2: undoable(dataReducer2, {
+    undoType: "data2/undo",
+  }),
   checklist: checklistReducer,
   questions: questionsReducer,
 });

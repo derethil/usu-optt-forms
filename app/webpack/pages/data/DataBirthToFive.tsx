@@ -17,6 +17,7 @@ import { ButtonsWrapper, cardContainerStyles } from "../../styledComponents/styl
 import DataProps from "./DataProps";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { formOptions } from "../../currentForm";
+import DataTitleCard from "../../components/data/DataTitleCard";
 
 const DataBirthToFive = (props: DataProps<IBirthToFiveData>) => {
   const timerState = useAppSelector(props.timer.selector);
@@ -63,13 +64,7 @@ const DataBirthToFive = (props: DataProps<IBirthToFiveData>) => {
 
   return (
     <Styles.PageContent>
-      <Card
-        title={props.title}
-        containerStyles={cardContainerStyles}
-        titleStyles={css`
-          font-size: 2rem;
-        `}
-      ></Card>
+      <DataTitleCard title={props.title} undo={props.data.actions.undo} />
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={props.timer} resetCallback={props.resetCallback} />

@@ -1,17 +1,6 @@
-// const setData = (sequenceKey: string, groupKey: string, newValue: object) => {
-//   props.setData({
-//     [sequenceKey]: {
-//       ...props.data[sequenceKey],
-//       [groupKey]: {
-//         ...props.data[sequenceKey][groupKey],
-//         ...newValue,
-//       },
-//     },
-//   });
-// };
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import currentForm, { formOptions } from "../currentForm";
+
+import currentForm from "../currentForm";
 import FormData from "../FormData";
 import { RootState } from "../store";
 import { DataSchema } from "../types/dataTypes";
@@ -29,13 +18,14 @@ function createDataSlice(sliceName: string) {
       setData: (state, action) => {
         return { ...state, ...action.payload };
       },
+      undo: (state) => {
+        return state;
+      },
     },
   });
 
-  const selectData: (state: RootState) => typeof initialState = (
-    state: RootState
-  ) => {
-    return (state as any)[sliceName];
+  const selectData: (state: RootState) => typeof initialState = (state: RootState) => {
+    return (state as any)[sliceName].present;
   };
 
   return {

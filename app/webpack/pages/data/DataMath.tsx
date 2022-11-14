@@ -16,6 +16,7 @@ import OTRRow from "../../components/data/OTRRow";
 import { timer1 } from "../../slices/timersSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { formOptions } from "../../currentForm";
+import DataTitleCard from "../../components/data/DataTitleCard";
 
 const DataMath = (props: DataProps<IMathData>) => {
   const data = useAppSelector(props.data.selector);
@@ -27,13 +28,7 @@ const DataMath = (props: DataProps<IMathData>) => {
 
   return (
     <Styles.PageContent>
-      <Card
-        title={props.title}
-        containerStyles={cardContainerStyles}
-        titleStyles={css`
-          font-size: 2rem;
-        `}
-      ></Card>
+      <DataTitleCard title={props.title} undo={props.data.actions.undo} />
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={timer1} resetCallback={props.resetCallback} />

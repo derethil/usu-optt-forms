@@ -17,6 +17,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { formOptions } from "../../currentForm";
 import SignalSequenceRow from "../../components/data/SignalSequence";
 import ErrorCorrectionRow from "../../components/data/ErrorCorrection";
+import DataTitleCard from "../../components/data/DataTitleCard";
 
 type Props = DataProps<ISeverePracticumData | IReadingData> & {
   includeIncorrect?: boolean;
@@ -52,13 +53,7 @@ const DataSPR = (props: Props) => {
 
   return (
     <Styles.PageContent>
-      <Card
-        title={props.title}
-        containerStyles={cardContainerStyles}
-        titleStyles={css`
-          font-size: 2rem;
-        `}
-      ></Card>
+      <DataTitleCard title={props.title} undo={props.data.actions.undo} />
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
         <Timer timer={props.timer} resetCallback={props.resetCallback} />
