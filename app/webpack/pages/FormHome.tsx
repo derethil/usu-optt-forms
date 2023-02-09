@@ -23,6 +23,7 @@ const FormHome = () => {
   const dispatch = useAppDispatch();
 
   const resetAll = (): void => {
+    localStorage.removeItem(`persist:${currentForm}`);
     dispatch(slices.resetRubric());
     dispatch(slices.data1.actions.resetData());
     dispatch(slices.data2.actions.resetData());
@@ -53,7 +54,7 @@ const FormHome = () => {
 
       {currentForm !== formOptions.OPTTChecklist ? (
         <Card title="Scores">
-          <ScoreTotals />
+          <ScoreTotals displayTotal={false} />
         </Card>
       ) : (
         <Card title="Practicum Content Areas">

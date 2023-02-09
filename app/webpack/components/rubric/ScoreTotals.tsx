@@ -13,6 +13,7 @@ import currentForm, { formOptions } from "../../currentForm";
 
 type ScoreTotalProps = {
   displaySections?: boolean;
+  displayTotal?: boolean;
 };
 
 const ScoreTotals = ({ displaySections = true }: ScoreTotalProps) => {
@@ -34,21 +35,22 @@ const ScoreTotals = ({ displaySections = true }: ScoreTotalProps) => {
     <DataWrapper>
       {displaySections && subtotals}
 
-      {currentForm != formOptions.studentTeachingRubric && (
-        <>
-          <DataRow style={{ marginTop: displaySections ? "2em" : "0" }}>
-            <DataCell>Total Score:</DataCell>
-            <DataCell>
-              {score} / {possible}
-            </DataCell>
-          </DataRow>
+      {currentForm !== formOptions.studentTeachingRubric &&
+        currentForm !== formOptions.teacherCandidate && (
+          <>
+            <DataRow style={{ marginTop: displaySections ? "2em" : "0" }}>
+              <DataCell>Total Score:</DataCell>
+              <DataCell>
+                {score} / {possible}
+              </DataCell>
+            </DataRow>
 
-          <DataRow>
-            <DataCell>Percentage:</DataCell>
-            <DataCell>{getPercent(score, possible)}</DataCell>
-          </DataRow>
-        </>
-      )}
+            <DataRow>
+              <DataCell>Percentage:</DataCell>
+              <DataCell>{getPercent(score, possible)}</DataCell>
+            </DataRow>
+          </>
+        )}
     </DataWrapper>
   );
 };

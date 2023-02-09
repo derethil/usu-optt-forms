@@ -21,6 +21,6 @@ export enum formOptions {
   teacherCandidate = "teacherCandidate",
 }
 
-const currentForm: formOptions = formOptions.battelle;
+const currentForm: formOptions = formOptions.teacherCandidate;
 
 export default currentForm;
