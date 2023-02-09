@@ -10,8 +10,12 @@
             "score": 6
           },
           {
-            "content": "Incomplete, inconsistencies, or unclear lesson plan, not available at time of observation (not printed)",
+            "content": "Complete lesson plan. Some instructional details need to be clarified. Plan needs minor revisions.",
             "score": 4
+          },
+          {
+            "content": "Incomplete or unclear lesson plan requiring extensive revisions. Unclear expectations and/or objectives.",
+            "score": 2
           },
           {
             "content": "No lesson plan",
