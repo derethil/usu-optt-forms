@@ -7,6 +7,7 @@ from shutil import copyfile, make_archive, move
 from rich.live import Live
 from rich.table import Table
 from rich.text import Text
+from rich.console import Console
 from dotenv import load_dotenv
 
 
@@ -43,6 +44,7 @@ class Builder:
         Builds the current form and copies the main.js file to the dist folder.
         """
         if process is None:
+            # process = sp.Popen(["sleep", "0.1"], stdout=sp.PIPE, stderr=sp.PIPE)
             process = sp.Popen(["npm", "run", "build"], stdout=sp.PIPE, stderr=sp.PIPE)
             self.PROCESS_LIST.append(process)
 
@@ -66,10 +68,8 @@ class Builder:
         """
         self.iteration += 1
 
-        table = Table(
-            title="Building Forms...", header_style="bold", title_justify="left"
-        )
-        table.add_column("Form", justify="left", no_wrap=True)
+        table = Table(header_style="bold")
+        table.add_column("Building Forms...", justify="left", no_wrap=True)
         table.add_column("Status", justify="left", style="magenta", min_width=7)
 
         for index, form in enumerate(self.forms):
@@ -112,7 +112,7 @@ class Builder:
             file.write(new_content)
             file.truncate()
 
-    def __call__(self, live: Live):
+    def __call__(self, live: Live, final=False):
         """
         Builds a single form and updates the live table.
         """
@@ -120,7 +120,7 @@ class Builder:
         while True:
             process = self.__build_current(process)
             time.sleep(0.25)
-            live.update(self.table())
+            live.update(self.table(final))
 
             match process.poll():
                 case 0:
@@ -145,27 +145,6 @@ class SFTPConfig:
         self.user = os.getenv("SFTP_USER")
         self.password = os.getenv("SFTP_PASSWORD")
         self.port = os.getenv("SFTP_PORT")
-
-
-def deploy(forms, process=None):
-    """
-    Deploys the forms to the production server.
-    """
-    config = SFTPConfig()
-    url = f"sftp://{config.host}:{config.port}/public_html/{{{','.join(forms)}}}/"
-    to_upload = " ".join(f'-T "./dist/public_html/{form}/main.js"' for form in forms)
-
-    process = sp.Popen(
-        f"curl -u {config.user}:{config.password} {url} {to_upload}",
-        shell=True,
-        stdout=sp.PIPE,
-        stderr=sp.PIPE,
-    )
-
-    if process.wait() != 0:
-        raise RuntimeError("Error deploying forms. Exiting...")
-    else:
-        print("Forms deployed successfully!")
 
 
 class Deployer:
@@ -255,10 +234,12 @@ def archive_forms(path):
     """
     Archives all forms into a zip file and moves it to the dist folder.
     """
-    print(f"Archiving forms to {path}/production.zip...")
 
     make_archive("production", "zip", f"{path}/structure")
     move("production.zip", f"{path}/production.zip")
+
+    console = Console()
+    console.print(Text(f"Archived forms to {path}/production.zip!", style="green"))
 
 
 def main():
@@ -266,25 +247,27 @@ def main():
     Main function for deploying
     """
     builder = Builder(read_forms())
+    deployer = Deployer(builder.forms)
 
-    with Live(builder.table()) as live:
+    with Live(builder.table()) as builder_live:
         for _ in builder.forms:
-            builder(live)
-        builder(live, final=True)
+            builder(builder_live)
+        builder(builder_live, final=True)
 
     archive_forms(builder.DIST_PATH)
 
-    deployer = Deployer(builder.forms)
-
-    with Live(deployer.loader()) as live:
-        deployer(live)
-        live.update(Text("Deployed successfully!", style="green"))
+    with Live(deployer.loader()) as deployer_live:
+        deployer(deployer_live)
+        deployer_live.update(Text("Deployed successfully!", style="green"))
 
 
 if __name__ == "__main__":
     try:
         main()
-    except:
+    except KeyboardInterrupt
         # Kill all current processes
         for process in Builder.PROCESS_LIST:
+            process.kill()
+
+        for process in Deployer.PROCESS_LIST:
             process.kill()
