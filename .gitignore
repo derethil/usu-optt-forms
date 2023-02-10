@@ -1,9 +1,8 @@
 .venv
 node_modules
 __pycache__
-dist/structure/*/main.js
-dist/production.zip
 app/static/js/main.js
-
 site
 .vscode/
+.env
+dist*
