@@ -264,7 +264,7 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-    except KeyboardInterrupt
+    except KeyboardInterrupt:
         # Kill all current processes
         for process in Builder.PROCESS_LIST:
             process.kill()
