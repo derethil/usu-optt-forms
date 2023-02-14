@@ -28,10 +28,14 @@ const DataMath = (props: DataProps<IMathData>) => {
 
   return (
     <Styles.PageContent>
-      <DataTitleCard title={props.title} undo={props.data.actions.undo} />
+      <DataTitleCard title={props.title} undo={props.data.actions.undo}>
+        <Styles.Title fontSize="1.2rem">Instructions</Styles.Title>
+        Collect data for a total of 5 minutes (may be spread across 2 timings) during the
+        new material and/or guided practice portion of the lesson.
+      </DataTitleCard>
 
       <Card title="Timer" containerStyles={cardContainerStyles}>
-        <Timer timer={timer1} resetCallback={props.resetCallback} />
+        <Timer timer={props.timer} resetCallback={props.resetCallback} />
       </Card>
 
       <DataRow

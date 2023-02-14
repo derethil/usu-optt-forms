@@ -121,12 +121,20 @@ export default function App() {
     ],
     // ------ MATH ------
     [formOptions.mmMath]: [
-      <Route path="/new_material" key={(title = "New Material - Guided Practice")}>
+      <Route path="/data1" key={(title = "Data 1")}>
         <DataMath
           data={data1}
-          timer={timer3}
+          timer={timer1}
           title={title}
           resetCallback={() => dispatch(data1.actions.resetData())}
+        />
+      </Route>,
+      <Route path="/data2" key={(title = "Data 2")}>
+        <DataMath
+          data={data2}
+          timer={timer2}
+          title={title}
+          resetCallback={() => dispatch(data2.actions.resetData())}
         />
       </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>

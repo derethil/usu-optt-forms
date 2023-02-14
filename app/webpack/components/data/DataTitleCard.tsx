@@ -10,6 +10,7 @@ import Card from "../Card";
 interface DataTitleCardProps {
   title: string;
   undo: ActionCreatorWithoutPayload;
+  children?: React.ReactNode;
 }
 
 const TitleWrapper = styled.div`
@@ -53,6 +54,8 @@ export default function DataTitleCard(props: DataTitleCardProps) {
       titleStyles={css`
         font-size: 2rem;
       `}
-    />
+    >
+      {props.children}
+    </Card>
   );
 }

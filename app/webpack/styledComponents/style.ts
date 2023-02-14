@@ -20,10 +20,14 @@ export const PageHeader = styled.header`
   font-size: 1.3em;
 `;
 
-export const Title = styled.div`
+interface TitleProps {
+  fontSize?: string;
+}
+
+export const Title = styled.div<TitleProps>`
   margin: 0;
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "1.8em")};
 `;
 
 export const CenteredIconContainer = styled.div`
