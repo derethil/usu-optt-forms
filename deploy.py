@@ -2,6 +2,7 @@ import time
 import re
 import subprocess as sp
 import os
+from typing import Optional
 from shutil import copyfile, make_archive, move
 
 from rich.live import Live
@@ -24,7 +25,7 @@ class Builder:
     DIST_PATH = "./dist"
     PROCESS_LIST: list[sp.Popen] = []
 
-    def __init__(self, forms):
+    def __init__(self, forms: list[str]):
         self.forms = forms
         self.iteration = 0
         self.current_index = 0
@@ -32,14 +33,14 @@ class Builder:
         self.set_ts_form(self.current_form)
 
     @property
-    def current_form(self):
+    def current_form(self) -> str:
         return self.forms[self.current_index]
 
     """
     Private Methods
     """
 
-    def __build_current(self, process=None) -> sp.Popen:
+    def __build_current(self, process: Optional[sp.Popen]) -> sp.Popen:
         """
         Builds the current form and copies the main.js file to the dist folder.
         """
@@ -101,7 +102,7 @@ class Builder:
 
         self.set_ts_form(self.current_form)
 
-    def set_ts_form(self, form):
+    def set_ts_form(self, form: str):
         """
         Updates the current form in the currentForm.ts file.
         """
@@ -116,7 +117,7 @@ class Builder:
         """
         Builds a single form and updates the live table.
         """
-        process = None
+        process: Optional[sp.Popen] = None
         while True:
             process = self.__build_current(process)
             time.sleep(0.25)
@@ -167,7 +168,7 @@ class Deployer:
     Private Methods
     """
 
-    def __deploy(self, process=None):
+    def __deploy(self, process: Optional[sp.Popen]) -> sp.Popen:
         """
         Creates a curl command to send the new forms to the production server.
         """
@@ -195,7 +196,7 @@ class Deployer:
     Public Methods
     """
 
-    def loader(self):
+    def loader(self) -> Text:
         """
         Creates a loading animation.
         """
@@ -206,20 +207,24 @@ class Deployer:
         """
         Deploys a single form and updates the live table.
         """
-        process = None
+        process: Optional[sp.Popen] = None
         while True:
             process = self.__deploy(process)
             time.sleep(0.25)
             live.update(self.loader())
 
             match process.poll():
+                case None:
+                    continue
                 case 0:
                     break
-                case 1:
-                    raise RuntimeError(f"Error deploying forms. form. Exiting...")
+                case _ as return_code:
+                    raise RuntimeError(
+                        f"Error deploying forms (curl exitcode {return_code}). Exiting..."
+                    )
 
 
-def read_forms():
+def read_forms() -> list[str]:
     """
     Reads the currentForm.ts file and returns a list of forms.
     """
@@ -230,7 +235,7 @@ def read_forms():
     return forms
 
 
-def archive_forms(path):
+def archive_forms(path: str) -> None:
     """
     Archives all forms into a zip file and moves it to the dist folder.
     """
@@ -242,7 +247,7 @@ def archive_forms(path):
     console.print(Text(f"Archived forms to {path}/production.zip!", style="green"))
 
 
-def main():
+def main() -> None:
     """
     Main function for deploying
     """

@@ -12,7 +12,7 @@ export enum formOptions {
   // Birth to Five
   birthToFive = "birthToFive",
   earlyIntervention = "earlyIntervention",
-  EICooperatingProviderChecklist = "EICooperatingProviderChecklist",
+  EICooperatingProviderChecklist = "EICooperatingProviderChecklis",
   battelle = "battelle",
   birthToFiveCooperatingTeacherChecklist = "birthToFiveCooperatingTeacherChecklist",
   // Other
@@ -21,6 +21,6 @@ export enum formOptions {
   teacherCandidate = "teacherCandidate",
 }
 
-const currentForm: formOptions = formOptions.severeMathLifeSkills;
+const currentForm: formOptions = formOptions.studentTeaching;
 
 export default currentForm;
