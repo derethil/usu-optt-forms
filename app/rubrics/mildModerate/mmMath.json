@@ -17,24 +17,6 @@
         ]
       },
       {
-        "area": "Opening Time",
-        "options": [
-          {
-            "content": "Spent 10-20% on opening",
-            "score": 2
-          },
-          {
-            "content": "Spent 20-40% or 4-10% on opening",
-            "score": 1
-          },
-          {
-            "content": "No opening or spent >40% on opening",
-            "score": 0,
-            "default": true
-          }
-        ]
-      },
-      {
         "area": "Opening Materials",
         "options": [
           {
@@ -46,7 +28,7 @@
             "score": 1
           },
           {
-            "content":  "No new material",
+            "content": "No new material",
             "score": 0,
             "default": true
           }
@@ -160,7 +142,7 @@
       },
       {
         "area": "Lesson Plan",
-        "info": "1. Has detailed and simplified script in lesson plan<br>2. Follows NM and GP lesson plan unless pupil responses demonstrate a need to deviate<br>3. Problems aligned to instructional target<br>4. Sufficient problems (including problems and answers in lesson plan or specified page number of text for where to find problems and answers)",
+        "info": "1. Student provides lesson plan or specific pgs/section of math program to coach/supervisor<br>2. Student follows planned lesson unless pupil responses demonstrate a need to deviate<br>3. Lesson includes sufficient problems that are aligned with instructional target(s)",
         "options": [
           {
             "content": "All 3 criteria met",
@@ -295,14 +277,22 @@
         ]
       },
       {
-        "area": "Time",
+        "area": "Modeling",
         "options": [
           {
-            "content": "Spent 30-70% of time on NM / GP",
+            "content": "Teacher provides clear and explicit modeling of material that actively involves students through opportunities to respond",
+            "score": 3
+          },
+          {
+            "content": "Teacher provides clear and explicit modeling but needs to include more opportunities to respond",
             "score": 2
           },
           {
-            "content": "Spent <30% or >70% of time on NM / GP",
+            "content": "Teacher provides modeling, but modeling isn't clear and/or doesn't include any opportunities to respond",
+            "score": 1
+          },
+          {
+            "content": "No modeling provided",
             "score": 0,
             "default": true
           }
@@ -317,15 +307,15 @@
         "area": "Directions",
         "options": [
           {
-            "content": "Description of assignment included, completion time and follow-up (WA)",
+            "content": "Clear expectations provided for independent practice/individual turns",
             "score": 2
           },
           {
-            "content": "Description of assignment included completion time, but there was no follow-up",
+            "content": "Somewhat clear expectations provided for independent practice/individual turns",
             "score": 1
           },
           {
-            "content": "No description of assignment provided",
+            "content": "No expectations provided for independent practice/individual turns",
             "score": 0,
             "default": true
           }
@@ -335,15 +325,23 @@
         "area": "Problems",
         "options": [
           {
-            "content": "IP Problems were aligned to GP; varied problems and / or maintenance problems provided (included problems and answers in lesson plan or specified page numbers of text for where to find problems and answers)",
+            "content": "Independent problems aligned to problems taught in lesson or student's IEP goals; problems are appropriate level of difficulty; sufficient number of problems included",
             "score": 4
           },
           {
-            "content": "IP Problems were appropriate, no problem variety or maintenance problems provided",
+            "content": "Independent problems aligned to problems taught in lesson or student's IEP goals; sufficient number of problems included; problems are too easy or too difficult",
+            "score": 3
+          },
+          {
+            "content": "Independent problems aligned to problems taught in lesson or student's IEP goals; not enough problems included; problems are too easy or too difficult",
             "score": 2
           },
           {
-            "content": "IP problems were inappropriate, and no problem variety or maintenance problems provided",
+            "content": "Independent problems somewhat aligned to problems taught in lesson or student's IEP goals; not enough problems included; problems are too easy or too difficult",
+            "score": 1
+          },
+          {
+            "content": "Independent problems included but were not aligned to lesson or IEP goals",
             "score": 0,
             "default": true
           }
@@ -371,29 +369,11 @@
             "default": true
           }
         ]
-      },
-      {
-        "area":"Time",
-        "options": [
-          {
-            "content": "Spent 20-30% of time on IP for the majority of pupils",
-            "score": 2
-          },
-          {
-            "content": "Spent 30-50% or 10-20% of time on IP for the majority of pupils",
-            "score": 1
-          },
-          {
-            "content": "Spent >50% or <10% of time on IP for the majority of pupils",
-            "score": 0,
-            "default": true
-          }
-        ]
       }
     ]
   },
   {
-    "sectionTitle": "Feedback and Monitoring",
+    "sectionTitle": "Pacing, Feedback, and Monitoring",
     "rows": [
       {
         "area": "Praise Appropriateness",
@@ -500,6 +480,28 @@
           },
           {
             "content": "Student does not follow behavior management plan",
+            "score": 0,
+            "default": true
+          }
+        ]
+      },
+      {
+        "area": "Pacing",
+        "options": [
+          {
+            "content": "Teacher is on-task and pacing is appropriately brisk (not too fast or too slow), entirety of planned lesson taught (unless deviations determined necessary based on pupil responses)",
+            "score": 3
+          },
+          {
+            "content": "Teacher's pace could be improved (either too slow or too fast) by reducing teacher talk or improving transitions",
+            "score": 2
+          },
+          {
+            "content": "Pacing is inappropriate (too fast or too slow) and teacher is easily distracted (e.g., too much teacher talk, off-topic conversations)",
+            "score": 1
+          },
+          {
+            "content": "Teacher appears to be unaware of pacing and place in lesson",
             "score": 0,
             "default": true
           }

@@ -41,7 +41,7 @@ export default function App() {
 
   const sharedRoutes = [
     <Route path="/rubric" key="Rubric">
-      <Rubric timer1={timer1} timer2={timer2} />
+      <Rubric />
     </Route>,
     <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
   ];
@@ -137,10 +137,13 @@ export default function App() {
           resetCallback={() => dispatch(data2.actions.resetData())}
         />
       </Route>,
+      <Route path="/rubric" key="Rubric">
+        <Rubric />
+      </Route>,
       <Route path="/notebook_check" key={(title = "Notebook Check")}>
         <NotebookCheck />
       </Route>,
-      ...sharedRoutes,
+      <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
     // ------ PRACTICUM CHECKLIST ------
     [formOptions.OPTTChecklist]: [
@@ -176,18 +179,18 @@ export default function App() {
     ],
     [formOptions.teacherCandidate]: [
       <Route path="/rubric" key="Rubric">
-        <Rubric timer1={timer1} timer2={timer2} disableCommentBoxes alternateInfoStyle />
+        <Rubric disableCommentBoxes alternateInfoStyle />
       </Route>,
       <Route path="/feedback" key="Feedback" component={FeedbackPage} />,
     ],
     [formOptions.cooperatingTeacherChecklist]: [
       <Route path="/rubric" key="Rubric">
-        <Rubric timer1={timer1} timer2={timer2} />
+        <Rubric />
       </Route>,
     ],
     [formOptions.earlyIntervention]: [
       <Route path="/rubric" key="Rubric">
-        <Rubric timer1={timer1} timer2={timer2} />
+        <Rubric />
       </Route>,
     ],
     [formOptions.EICooperatingProviderChecklist]: [...sharedRoutes],

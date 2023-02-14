@@ -23,8 +23,6 @@ import { ITimer } from "../slices/timersSlice";
 import RubricAreaTitle from "../components/RubricAreaTitle";
 
 type RubricProps = {
-  timer1: ITimer;
-  timer2: ITimer;
   disableCommentBoxes?: boolean;
   alternateInfoStyle?: boolean;
 };
@@ -46,18 +44,6 @@ const contentStyles = css`
 const timerContentStyles = css`
   margin-top: 0.5em;
 `;
-
-function needTimer(section: Section): boolean {
-  if (currentForm !== formOptions.mmMath) return false;
-
-  switch (section.sectionTitle) {
-    case "Independent Practice":
-    case "Opening":
-      return true;
-    default:
-      return false;
-  }
-}
 
 const Rubric = (props: RubricProps) => {
   const dispatch = useAppDispatch();
@@ -137,24 +123,6 @@ const Rubric = (props: RubricProps) => {
 
     return (
       <div key={sectionIdx}>
-        {needTimer(section) && ( // The Math form has timers on the rubric page itself, so check for that here
-          <Card
-            title={
-              <RubricTitleContent>{`${section.sectionTitle} Timer`}</RubricTitleContent>
-            }
-            titleStyles={cardTitleStyles}
-            contentStyles={contentStyles && timerContentStyles}
-            containerStyles={cardContainerStyles}
-          >
-            <Timer
-              timer={
-                // Ensure Opening has timer1 and Independent Practice has timer2
-                section.sectionTitle === "Opening" ? props.timer1 : props.timer2
-              }
-            />
-          </Card>
-        )}
-
         <Card
           title={RubricAreaTitle(section, summary[sectionIdx][1])}
           titleStyles={cardTitleStyles}
