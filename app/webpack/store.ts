@@ -2,12 +2,15 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
+  createMigrate,
   FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  MigrationManifest,
+  PersistedState,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import undoable, { includeAction } from "redux-undo";
@@ -21,8 +24,9 @@ import checklistReducer from "./slices/checklistSlice";
 import questionsReducer from "./slices/questionsSlice";
 import { dataReducer1, dataReducer2 } from "./slices/dataSlice";
 import { timerReducer1, timerReducer2, timerReducer3 } from "./slices/timersSlice";
+import { migrate } from "./migrations";
 
-const reducers = combineReducers({
+const allReducers = combineReducers({
   formInfo: formInfoReducer,
   rubric: rubricReducer,
   feedback: feedbackReducer,
@@ -40,12 +44,16 @@ const reducers = combineReducers({
   questions: questionsReducer,
 });
 
+const persistVersion = 0;
+
 const persistConfig = {
   key: currentForm,
   storage,
+  version: persistVersion,
+  migrate,
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, allReducers);
 
 const store = configureStore({
   reducer: persistedReducer,

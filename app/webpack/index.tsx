@@ -10,7 +10,7 @@ import App from "./App";
 const RootComponent = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<p>Loading</p>} persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>
