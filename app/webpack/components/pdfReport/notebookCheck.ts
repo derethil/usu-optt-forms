@@ -8,8 +8,9 @@ export default function generate(generator: PDFGenerator, data: IData) {
       1: { cellWidth: 50, halign: "center" },
     },
     head: [`Notebook Check #${data.formInfo.observation}`, "                   Score"],
-    body: data.checks.map(({ score, content }) => {
-      return [content, String(score)];
+    body: data.checks.map(({ score, content, maxScore, isNA }) => {
+      if (isNA) return [content, "N/A"];
+      return [content, `${score} / ${maxScore}`];
     }),
   });
 }

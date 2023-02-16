@@ -31,7 +31,6 @@ export const defaultFormInfo: IFormInfo = {
 };
 
 export const defaultNotebookCheck = getNotebookCheck(Location.logan, "1");
-
 // -------- PRACTICUM CHECKLIST --------
 
 const defaultChecklistRow = {

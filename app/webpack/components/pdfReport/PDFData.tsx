@@ -10,7 +10,7 @@ import FormData from "../../FormData";
 import { useSelectAll } from "../../hooks/hooks";
 import { getLetterGrade } from "../../utils/pdfUtils";
 import { getPercent } from "../../utils/utils";
-import { generateScoreData } from "../../utils/scoreUtils";
+import { generateScoreData, notebookCheckTotal } from "../../utils/scoreUtils";
 import currentForm, { formOptions } from "../../currentForm";
 
 import generateRubric from "./rubric";
@@ -56,9 +56,15 @@ const PDFData = () => {
     generateFormInfo(generator, data);
 
     // Area Scores
+
+    const summaryBody =
+      currentForm === formOptions.mmMath
+        ? [...summary, notebookCheckTotal(data.formInfo.observation, data.checks)]
+        : summary;
+
     generator.table({
       head: ["Performance Summary", "Score"],
-      body: summary,
+      body: summaryBody,
     });
 
     // Total Score

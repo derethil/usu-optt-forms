@@ -1,5 +1,6 @@
 import currentForm from "../currentForm";
 import FormData from "../FormData";
+import { CheckRow } from "../types/dataTypes";
 import { ScoresState, Section } from "../types/types";
 import { findMaxScore } from "./utils";
 
@@ -64,4 +65,20 @@ export const generateScoreData = (scores: ScoresState) => {
   });
 
   return { score, possible, summary };
+};
+
+export const notebookCheckTotal = (observation: string, checks: CheckRow[]) => {
+  const total = checks.reduce((total, { score, maxScore, isNA }) => {
+    if (isNA) return total;
+    return total + Number(score);
+  }, 0);
+
+  const maxTotal = checks.reduce((total, { maxScore, isNA }) => {
+    if (isNA) return total;
+    return total + Number(maxScore);
+  }, 0);
+
+  const rowTitle = `Notebook Check #${observation}`;
+
+  return [rowTitle, `${total} / ${maxTotal}`];
 };

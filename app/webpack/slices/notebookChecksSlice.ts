@@ -9,7 +9,8 @@ import { setFormInfo, setLocationOrObservation } from "./formInfoSlice";
 const initialState: INotebookCheck = defaultNotebookCheck;
 
 type ActionType = PayloadAction<{
-  score: number;
+  score: string;
+  isNA: boolean;
   index: number;
 }>;
 
@@ -18,8 +19,8 @@ export const notebookChecksSlice = createSlice({
   initialState,
   reducers: {
     setNotebookChecks: (state, action: ActionType) => {
-      const { score, index } = action.payload;
-      state[index] = { ...state[index], score };
+      const { score, index, isNA } = action.payload;
+      state[index] = { ...state[index], score, isNA };
     },
     resetNotebookChecks: () => {
       return initialState;

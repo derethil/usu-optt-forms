@@ -169,8 +169,9 @@ export type DataSchema =
 
 export interface CheckRow {
   content: string;
-  score: number;
+  score: string;
   maxScore: number;
+  isNA: boolean;
 }
 
 export type INotebookCheck = CheckRow[];

@@ -15,8 +15,9 @@ export default function getNotebookCheck(
   notebookChecks.forEach((check) => {
     if (check[location] && check[location]![observation]) {
       rows.push({
+        isNA: false,
         content: check.content,
-        score: 0,
+        score: "0",
         maxScore: check[location]![observation]!,
       });
     }

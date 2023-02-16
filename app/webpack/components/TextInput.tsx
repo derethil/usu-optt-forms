@@ -1,11 +1,6 @@
 import React from "react";
 import { FlattenSimpleInterpolation } from "styled-components";
-import {
-  Label,
-  InputContainer,
-  Input,
-  InputTA,
-} from "../styledComponents/input";
+import { Label, InputContainer, Input, InputTA } from "../styledComponents/input";
 import { NewValues } from "../types/types";
 
 // Custom text input component
@@ -20,6 +15,7 @@ type TextInputProps = {
   textArea?: boolean;
   containerStyles?: FlattenSimpleInterpolation;
   inputStyles?: FlattenSimpleInterpolation;
+  disabled?: boolean;
 };
 
 const TextInput = (props: TextInputProps) => {
@@ -32,14 +28,13 @@ const TextInput = (props: TextInputProps) => {
       props.updateForm({ [props.field]: e.target.value }),
     id: props.field,
     placeholder: props.placeholder,
+    disabled: props.disabled,
   };
 
   return (
     <InputContainer mixin={props.containerStyles}>
       {!props.noLabel && (
-        <Label htmlFor={props.field}>
-          {props.title ? props.title : titleCased}
-        </Label>
+        <Label htmlFor={props.field}>{props.title ? props.title : titleCased}</Label>
       )}
       {props.textArea ? (
         <InputTA {...inputProps} mixin={props.inputStyles} />

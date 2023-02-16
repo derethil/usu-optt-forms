@@ -19,6 +19,8 @@ import {
   selectNotebookChecks,
   setNotebookChecks,
 } from "../../slices/notebookChecksSlice";
+import CheckRow from "../../components/CheckRow";
+import { cardTitleStyles } from "../Rubric";
 
 export default function NotebookCheck() {
   const { location, observation } = useAppSelector(selectCheckInfo);
@@ -52,6 +54,7 @@ export default function NotebookCheck() {
       <Card
         title={<RubricTitleContent>Notebook Check Info</RubricTitleContent>}
         containerStyles={cardContainerStyles}
+        titleStyles={cardTitleStyles}
       >
         <OptionRow
           title="Location"
@@ -93,24 +96,22 @@ export default function NotebookCheck() {
         }
         containerStyles={cardContainerStyles}
       >
-        {checks.map((content, index) => {
-          return (
-            <QuestionRow
-              content={content.content}
-              score={content.score}
-              scoreOptions={[...Array(6)].map((_, i) => i * 2)}
-              key={index}
-              updateScore={(score) => {
-                dispatch(
-                  setNotebookChecks({
-                    score: Number(score),
-                    index,
-                  })
-                );
-              }}
-            />
-          );
-        })}
+        {checks.map((content, index) => (
+          <CheckRow
+            {...content}
+            key={index}
+            last={index === checks.length - 1}
+            updateCheck={(score, isNA) => {
+              dispatch(
+                setNotebookChecks({
+                  score,
+                  index,
+                  isNA: Boolean(isNA),
+                })
+              );
+            }}
+          />
+        ))}
       </Card>
     </PageContent>
   );

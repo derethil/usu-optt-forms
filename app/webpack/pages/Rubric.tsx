@@ -27,12 +27,12 @@ type RubricProps = {
   alternateInfoStyle?: boolean;
 };
 
-const cardTitleStyles = css`
+export const cardTitleStyles = css`
   padding-left: 1em;
   padding-right: 1em;
 `;
 
-const rowTitleStyles = css`
+export const rowTitleStyles = css`
   font-size: 1.33rem;
   color: ${Color.neutrals.grayDarker};
 `;

@@ -57,9 +57,7 @@ const OptionRow = (props: OptionRowProps) => {
     useEffect(() => {
       // If override is found in comment, override the score
       if (overrideRegex.test(props.comment!)) {
-        props.updateSelection(
-          props.comment!.match(overrideRegex)![0].match(/\d+/gi)![0]
-        );
+        props.updateSelection(props.comment!.match(overrideRegex)![0].match(/\d+/gi)![0]);
         setOverride(true);
       }
 
