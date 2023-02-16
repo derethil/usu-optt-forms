@@ -44,7 +44,7 @@ const allReducers = combineReducers({
   questions: questionsReducer,
 });
 
-const persistVersion = 0;
+const persistVersion = 1;
 
 const persistConfig = {
   key: currentForm,
