@@ -3,7 +3,7 @@ import { defaultNotebookCheck } from "../defaults/defaults";
 import { RootState } from "../store";
 import { INotebookCheck } from "../types/dataTypes";
 import { Location } from "../types/types";
-import getNotebookCheck from "../utils/notebookCheckUtils";
+import getNotebookCheck, { ObservationKey } from "../utils/notebookCheckUtils";
 import { setFormInfo, setLocationOrObservation } from "./formInfoSlice";
 
 const initialState: INotebookCheck = defaultNotebookCheck;
@@ -11,7 +11,6 @@ const initialState: INotebookCheck = defaultNotebookCheck;
 type ActionType = PayloadAction<{
   score: number;
   index: number;
-  key: keyof INotebookCheck;
 }>;
 
 export const notebookChecksSlice = createSlice({
@@ -19,8 +18,8 @@ export const notebookChecksSlice = createSlice({
   initialState,
   reducers: {
     setNotebookChecks: (state, action: ActionType) => {
-      const { score, index, key } = action.payload;
-      state[key][index] = { content: state[key][index].content, score };
+      const { score, index } = action.payload;
+      state[index] = { ...state[index], score };
     },
     resetNotebookChecks: () => {
       return initialState;
@@ -30,19 +29,14 @@ export const notebookChecksSlice = createSlice({
     builder.addCase(setLocationOrObservation, (state, action) => {
       const { location, observation } = action.payload;
 
-      const numbered = getNotebookCheck(
-        location === Location.logan,
-        observation
-      );
-      const final = getNotebookCheck(location === Location.logan);
+      const notebookCheck = getNotebookCheck(location, observation as ObservationKey);
 
-      return { numbered, final };
+      return notebookCheck;
     });
   },
 });
 
-export const { setNotebookChecks, resetNotebookChecks } =
-  notebookChecksSlice.actions;
+export const { setNotebookChecks, resetNotebookChecks } = notebookChecksSlice.actions;
 
 export const selectNotebookChecks = (state: RootState) => state.notebookChecks;
 

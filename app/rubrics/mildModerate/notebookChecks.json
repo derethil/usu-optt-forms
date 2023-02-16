@@ -1,47 +1,144 @@
 [
   {
-    "logan": [1],
-    "nonLogan": [1],
-    "content": "Screening assessment copy with answer key included"
+    "content": "Math Curriculum notebook is set up and accessible to coach and Kaitlin Bundock. Notebook is in box.com, or similar cloud document sharing platform.",
+    "5312": {
+      "1": 10
+    },
+    "5420": {
+      "1": 10
+    }
   },
   {
-    "logan": [1],
-    "nonLogan": [1],
-    "content": "Screening assessment scores are entered for each item and each student in the same excel format as demonstrated in class. Instructional level is also included"
+    "content": "Lesson Plans are typed and up to date, and include: lesson objective, opening problems/activity, at least one scripted new material problem, guided practice with clear evidence of scaffolding, independent practice description, and closing. Problems for each section of the lesson should be included or referenced.",
+    "5312": {
+      "1": 15,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10
+    },
+    "5420": {
+      "1": 15,
+      "2": 10,
+      "3": 10,
+      "4": 10,
+      "5": 10
+    }
   },
   {
-    "logan": [1, 2, 3, 4, 5, -1],
-    "nonLogan": [1, 2, 3, 4, 5, -1],
-    "content": "Lesson Plans are typed and up to date, and include: lesson objective, learning set, new material, guided practice, independent practice, and data-based decision making."
+    "content": "Data are entered daily (source, # questions, % score, obj.) for at least 2 students for at least 2 days per week, and are up to date.",
+    "5312": {
+      "1": 15,
+      "2": 5,
+      "3": 10,
+      "4": 10,
+      "5": 10
+    },
+    "5420": {
+      "1": 15,
+      "2": 5,
+      "3": 10,
+      "4": 10,
+      "5": 10
+    }
   },
   {
-    "logan": [1, 2, 3, 4, 5, -1],
-    "nonLogan": [1, 2, 3, 4, 5, -1],
-    "content": "Data are entered daily (source, # questions, % score, obj.) for all students, and are up to date."
+    "content": "Initial assessment copy with answer key included",
+    "5312": {
+      "2": 2
+    },
+    "5420": {
+      "2": 2
+    }
   },
   {
-    "logan": [1, 2, 3, 4, 5, -1],
-    "nonLogan": [],
-    "content": "Peer coaching observations and reflection records are up to date (in binder in the classroom, not in google notebook)"
+    "content": "Initial assessment scores are entered for each item and each student in the same excel format as demonstrated in class. Instructional level is also included",
+    "5312": {
+      "2": 3
+    },
+    "5420": {
+      "2": 3
+    }
   },
   {
-    "logan": [2, 3],
-    "nonLogan": [2, 3],
-    "content": "Goals and objectives are included. Objectives include conditions, observable behaviors, criteria for acceptable performance, and evaluation procedures."
+    "content": "Goals and objectives are included. Objectives include conditions, observable behaviors, criteria for acceptable performance, and evaluation procedures.",
+    "5312": {
+      "2": 10
+    },
+    "5420": {
+      "2": 10
+    }
   },
   {
-    "logan": [2],
-    "nonLogan": [2],
-    "content": "A sample progress monitoring assessment that will be used is included"
+    "content": "Written intervention plan, specifying frequency of implementation, instructional strategies, procedural checklist, intervention log (ok if intervention not yet implemented, based on objectives/unit targeted for intervention)",
+    "5312": {
+      "2": 10
+    },
+    "5420": {
+      "2": 10
+    }
   },
   {
-    "logan": [2, 3, 4, 5, -1],
-    "nonLogan": [2, 3, 4, 5, -1],
-    "content": "Progress Monitoring data entered for one assessment (for whole class)"
+    "content": "A sample progress monitoring assessment that will be used is included",
+    "5312": {
+      "2": 2
+    },
+    "5420": {
+      "2": 2
+    }
   },
   {
-    "logan": [-1],
-    "nonLogan": [-1],
-    "content": "End of semester summary of progress is included: 20 points for reflection on teaching practices, 30 points for reflection on student progress (15 points daily data, 15 points progress monitoring data)."
+    "content": "Progress Monitoring data entered for one assessment (for whole class)",
+    "5312": {
+      "2": 3
+    },
+    "5420": {
+      "2": 3
+    }
+  },
+  {
+    "content": "Intervention log is up to date (intervention should span at least 10 instructional days, but might not be implemented in the time period that aligns with this observation. If that is the case, it should be noted in the intervention log, along with planned/actual start & end dates).",
+    "5312": {
+      "3": 10,
+      "4": 5,
+      "5": 5
+    },
+    "5420": {
+      "3": 10,
+      "4": 5,
+      "5": 5
+    }
+  },
+  {
+    "content": "Progress Monitoring data entered for one assessment (for whole class). Progress monitoring data will only be collected once intervention plan starts, and until a minimum of 4 data points (including initial assessment data) are collected. If intervention plan has not yet been implemented, these points should be marked Not Applicable (NA) and the points should be deducted from the total so as to not affect the score on this notebook check.",
+    "5312": {
+      "3": 5,
+      "4": 5,
+      "5": 5
+    },
+    "5420": {
+      "3": 5,
+      "4": 5,
+      "5": 5
+    }
+  },
+  {
+    "content": "End of semester summary of progress is included: 20 points for reflection on teaching practices, 30 points for reflection on student progress (15 points daily data, 15 points progress monitoring data).",
+    "5312": {
+      "5": 50
+    },
+    "5420": {
+      "5": 50
+    }
+  },
+  {
+    "content": "Peer coaching observations are up to date (one per student per week). Students should include notes if number is fewer than one per student per week.",
+    "5420": {
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "4": 5,
+      "5": 5
+    }
   }
 ]

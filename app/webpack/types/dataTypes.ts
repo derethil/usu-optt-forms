@@ -1,5 +1,6 @@
 // ---- GENERAL ----
 import { formOptions } from "../currentForm";
+import { Location } from "./types";
 
 export interface IPraiseData {
   praise: {
@@ -169,17 +170,23 @@ export type DataSchema =
 export interface CheckRow {
   content: string;
   score: number;
+  maxScore: number;
 }
 
-export interface INotebookCheck {
-  numbered: CheckRow[];
-  final: CheckRow[];
+export type INotebookCheck = CheckRow[];
+
+export interface LocationCheckData {
+  "1"?: number;
+  "2"?: number;
+  "3"?: number;
+  "4"?: number;
+  "5"?: number;
 }
 
 export interface NotebookCheckContent {
-  logan: number[];
-  nonLogan: number[];
   content: string;
+  [Location.logan]?: LocationCheckData;
+  [Location.optt]?: LocationCheckData;
 }
 
 // ------ PRACTICUM CHECKLIST ------

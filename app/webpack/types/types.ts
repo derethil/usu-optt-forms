@@ -49,8 +49,8 @@ export interface ITimer {
 }
 
 export enum Location {
-  logan = "Logan",
-  optt = "OPTT",
+  logan = "5420",
+  optt = "5312",
 }
 
 export interface IFormInfo {

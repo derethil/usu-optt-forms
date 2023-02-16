@@ -30,10 +30,7 @@ export const defaultFormInfo: IFormInfo = {
   subdomain: [],
 };
 
-export const defaultNotebookCheck = {
-  numbered: getNotebookCheck(true, "1"),
-  final: getNotebookCheck(true),
-};
+export const defaultNotebookCheck = getNotebookCheck(Location.logan, "1");
 
 // -------- PRACTICUM CHECKLIST --------
 

@@ -1,15 +1,26 @@
-import notebookChecks from "../../rubrics/mildModerate/notebookChecks.json";
-import { NotebookCheckContent } from "../types/dataTypes";
+import NotebookChecks from "../../rubrics/mildModerate/notebookChecks.json";
+import { CheckRow, NotebookCheckContent } from "../types/dataTypes";
+import { Location } from "../types/types";
 
-export default function getNotebookCheck(locationIsLogan: boolean, observation?: string) {
-  const NotebookChecks: NotebookCheckContent[] = notebookChecks;
+export type ObservationKey = "1" | "2" | "3" | "4" | "5";
 
-  return NotebookChecks.filter((obj) =>
-    // -1 is searched for when an obsNum isn't provided, i.e. when we want the "Final" notebook check
-    (locationIsLogan ? obj.logan : obj.nonLogan).includes(
-      Number(observation) ? Number(observation) : -1
-    )
-  ).map((obj) => {
-    return { score: 0, content: obj.content };
+export default function getNotebookCheck(
+  location: Location,
+  observation: ObservationKey
+): CheckRow[] {
+  const notebookChecks: NotebookCheckContent[] = NotebookChecks;
+
+  const rows: CheckRow[] = [];
+
+  notebookChecks.forEach((check) => {
+    if (check[location] && check[location]![observation]) {
+      rows.push({
+        content: check.content,
+        score: 0,
+        maxScore: check[location]![observation]!,
+      });
+    }
   });
+
+  return rows;
 }

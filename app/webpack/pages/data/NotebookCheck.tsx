@@ -37,6 +37,16 @@ export default function NotebookCheck() {
     );
   };
 
+  const handleUpdateSelection = (newSelection: string) => {
+    const location = newSelection === "Logan" ? Location.logan : Location.optt;
+    updateRelevantFormInfo({
+      location,
+      observation,
+    });
+  };
+
+  const locationToDisplay = location === Location.logan ? "Logan" : "OPTT";
+
   return (
     <PageContent>
       <Card
@@ -45,14 +55,9 @@ export default function NotebookCheck() {
       >
         <OptionRow
           title="Location"
-          currSelection={location}
-          options={[{ content: Location.logan }, { content: Location.optt }]}
-          updateSelection={(newSelection) =>
-            updateRelevantFormInfo({
-              location: newSelection as Location,
-              observation,
-            })
-          }
+          currSelection={locationToDisplay}
+          options={[{ content: "Logan" }, { content: "OPTT" }]}
+          updateSelection={(newSelection) => handleUpdateSelection(newSelection)}
           titleStyles={css`
             color: ${Color.neutrals.grayDark};
           `}
@@ -88,7 +93,7 @@ export default function NotebookCheck() {
         }
         containerStyles={cardContainerStyles}
       >
-        {checks.numbered.map((content, index) => {
+        {checks.map((content, index) => {
           return (
             <QuestionRow
               content={content.content}
@@ -100,40 +105,6 @@ export default function NotebookCheck() {
                   setNotebookChecks({
                     score: Number(score),
                     index,
-                    key: "numbered",
-                  })
-                );
-              }}
-            />
-          );
-        })}
-      </Card>
-
-      <Card
-        title={
-          <IconTitle
-            content="Final Notebook Check"
-            tooltipContent="Completed by course instructor"
-            iconStyles={css`
-              color: ${Color.lights.grayLighter};
-            `}
-          />
-        }
-        containerStyles={cardContainerStyles}
-      >
-        {checks.final.map((content, index) => {
-          return (
-            <QuestionRow
-              content={content.content}
-              score={content.score}
-              key={index}
-              scoreOptions={[...Array(6)].map((_, i) => i * 2)}
-              updateScore={(score) => {
-                dispatch(
-                  setNotebookChecks({
-                    score: Number(score),
-                    index,
-                    key: "final",
                   })
                 );
               }}

@@ -3,7 +3,7 @@ import { RootState } from "./store";
 
 type MigratingState = PersistedState & RootState;
 
-const migrations = {
+const migrations: MigrationManifest = {
   // 2/14/2023 (v0): Implemented initial migration
   // Rename "Feedback and Monitoring" to "Pacing, Feedback, and Monitoring"
   // Add rubric item "Modeling" to "New Material - Guided Practice"
@@ -30,6 +30,6 @@ const migrations = {
       },
     };
   },
-};
+} as any as MigrationManifest;
 
-export const migrate = createMigrate(migrations as any as MigrationManifest);
+export const migrate = createMigrate(migrations, { debug: false });
