@@ -38,6 +38,11 @@ const migrations: MigrationManifest = {
     return {
       ...state,
       notebookChecks: getNotebookCheck(Location.logan, "1"),
+      formInfo: {
+        ...state.formInfo,
+        location: Location.logan,
+        observation: "1",
+      },
     };
   },
 } as any as MigrationManifest;

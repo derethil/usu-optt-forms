@@ -5,6 +5,8 @@ import os
 from typing import Optional
 from shutil import copyfile, make_archive, move
 
+from argparse import ArgumentParser
+
 from rich.live import Live
 from rich.table import Table
 from rich.text import Text
@@ -42,7 +44,7 @@ class Builder:
 
     def __build_current(self, process: Optional[sp.Popen]) -> sp.Popen:
         """
-        Builds the current form and copies the main.js file to the dist folder.
+        Builds the current form.
         """
         if process is None:
             # process = sp.Popen(["sleep", "0.1"], stdout=sp.PIPE, stderr=sp.PIPE)
@@ -51,11 +53,6 @@ class Builder:
 
         if process.poll() is None:
             return process
-
-        copyfile(
-            f"{self.STATIC_PATH}/js/main.js",
-            f"{self.DIST_PATH}/structure/{self.current_form}/main.js",
-        )
 
         return process
 
@@ -115,7 +112,7 @@ class Builder:
 
     def __call__(self, live: Live, final=False):
         """
-        Builds a single form and updates the live table.
+        Builds a single form, copies its main.js to dist, and updates the live table.
         """
         process: Optional[sp.Popen] = None
         while True:
@@ -125,6 +122,10 @@ class Builder:
 
             match process.poll():
                 case 0:
+                    copyfile(
+                        f"{self.STATIC_PATH}/js/main.js",
+                        f"{self.DIST_PATH}/public_html/{self.current_form}/main.js",
+                    )
                     break
                 case 1:
                     raise RuntimeError(
@@ -247,28 +248,38 @@ def archive_forms(path: str) -> None:
     console.print(Text(f"Archived forms to {path}/production.zip!", style="green"))
 
 
-def main() -> None:
+def main(build: bool, deploy: bool) -> None:
     """
     Main function for deploying
     """
     builder = Builder(read_forms())
     deployer = Deployer(builder.forms)
 
-    with Live(builder.table()) as builder_live:
-        for _ in builder.forms:
-            builder(builder_live)
-        builder(builder_live, final=True)
+    if build:
+        with Live(builder.table()) as builder_live:
+            for _ in builder.forms:
+                builder(builder_live)
+            builder(builder_live, final=True)
 
     archive_forms(builder.DIST_PATH)
 
-    with Live(deployer.loader()) as deployer_live:
-        deployer(deployer_live)
-        deployer_live.update(Text("Deployed successfully!", style="green"))
+    if deploy:
+        with Live(deployer.loader()) as deployer_live:
+            deployer(deployer_live)
+            deployer_live.update(Text("Deployed successfully!", style="green"))
 
 
 if __name__ == "__main__":
     try:
-        main()
+        parser = ArgumentParser()
+
+        parser.add_argument("-sb", "--skip-build", action="store_false")
+        parser.add_argument("-sd", "--skip-deploy", action="store_false")
+
+        match vars(parser.parse_args()):
+            case {"skip_build": should_build, "skip_deploy": should_deploy}:
+                main(build=should_build, deploy=should_deploy)
+
     except KeyboardInterrupt:
         # Kill all current processes
         for process in Builder.PROCESS_LIST:
