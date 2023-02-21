@@ -4,7 +4,7 @@ A collection of online web forms to faciliate easy record keeping on USU OPTT st
 
 ## Requirements
 
-This project is built using [Node](https://nodejs.org/en/) via `npm`. Make sure you have this installed, then run
+This project is built using [Node](https://nodejs.org/en/) via `npm`.
 
 ```
 git clone https://github.com/jarenglenn/usu-optt-forms.git
@@ -20,16 +20,20 @@ To start up a development server, run
 npm run dev
 ```
 
-Then open `app/index.html` to view your changes.
+Then open `http://localhost:8080/` to view your changes.
 
 ## Deployment
 
-To build the project, run the `prepareDist` deployment script.
+To deploy the project, first install the dependencies in `requirements.txt` using `pip`. This can be done either globally or in a virtual environment.
+
+After the dependencies are installed, run `deploy.py`.
 
 ```
-python prepareDist.py
+python deploy.py
 ```
 
-_Note: This script runs switches to each form using `app/webpack/currentForm.ts` and builds the project for each one via `npm run build`. Additionally it creates a `production.zip` archive for ease of use._
+_Note: You must have access to USU's servers when deploying this application. This means you need to be on campus or have an open VPN connection to the network._
 
-You'll then need to SSH into USU's servers and replace the current files with the new versions stored in `dist/structure`. Contact your supervisor to get access.
+## Documentation
+
+More detailed documentation can be found on the documentation site at [https://jarenglenn.github.io/usu-optt-forms](https://jarenglenn.github.io/usu-optt-forms).

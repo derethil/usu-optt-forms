@@ -2,31 +2,31 @@ This page serves as a guide to the tools and packages used to create the forms. 
 
 ## Language
 
-This project was built from the ground up in [TypeScript](https://www.typescriptlang.org/) rather than JavaScript. This makes some aspects of development more tedious, but as projects grow larger they become easier to deal with especially when it comes to state management. Most other packages used in this project have great Typescript support (with the exception of `jspdf`).
+TypeScript was chosen to build this project with over JavaScript since it solves SO many type issues. It's not too different than JavaScript, but it requires more thinking.
 
 ## Framework
 
-This project uses [React](https://reactjs.org/) which is a fantastic framework that is well suited to this type of application. These fairly complex data-heavy forms are extremely easy to manage with React's state management system.
+[React](https://reactjs.org/) is used as the major framework for this application.
 
 ### Datepicker
 
-Note that [React Datepicker](https://reactdatepicker.com/) provides the date selection component used on the Home page.
+[React Datepicker](https://reactdatepicker.com/) provides the date selection component.
 
 ## State Management
 
-[Redux Toolkit](https://redux-toolkit.js.org/) is used for almost all state management for this project. The main motivation behind this was to avoid passing many, many props throughout the application. In this sort of application it simplifies things a lot when compared to the normal React Hooks.
+[Redux Toolkit](https://redux-toolkit.js.org/) is used for almost all state management for this project.
 
 ## Styling
 
-[Styled Components](https://styled-components.com/) make it very easy to style React applications in a more modular fashion and allow easier control over styles via JavaScript/TypeScript. Some regular `css` files are imported to `index.html` but those are mostly externally provided. For instance for `react-datepicker` to work properly they need to import one; Google Fonts and Font Awesome both require importing one as well to work offline.
+[Styled Components](https://styled-components.com/) is used in most cases to style the application. Some regular `css` files are imported to `index.html` but these are mostly externally provided. For instance for `react-datepicker` to work properly they need to import one; Google Fonts and Font Awesome both require importing one as well to work offline.
 
 ### Icons
 
-[Font Awesome](https://fontawesome.com/) is a fantastic resource for icons and while not many are actually used in this project it comes in handy.
+[Font Awesome](https://fontawesome.com/) is used for the few icons this project uses.
 
 ## Routing
 
-[React Router](https://reactrouter.com/) is used for routing between "pages", making the project a single web page React application. Passing data around between multiple pages would be much more complex. In addition React Router has the [HashRouter](https://v5.reactrouter.com/web/api/HashRouter) which, while not being as advanced as the default `BrowserRouter`, makes it possible to use the forms as static files. This is needed for the offline version of the forms.
+[React Router](https://reactrouter.com/) is used for routing between "pages". We use React Router's [HashRouter](https://v5.reactrouter.com/web/api/HashRouter) which, while not being as advanced as the default `BrowserRouter`, makes it possible to use the forms as static files. This is needed for the offline version of the forms.
 
 ## PDF Generation
 

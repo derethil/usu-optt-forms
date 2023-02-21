@@ -1,4 +1,4 @@
-The `.json` files stored in `rubrics` serve as a way to store large amounts of data without simply just putting into React itself.
+The `.json` files stored in `rubrics` serve as a way to store large amounts of data without entering it into React itself.
 
 ## Rubrics
 
