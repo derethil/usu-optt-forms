@@ -1,3 +1,5 @@
+#!./.venv/bin/python
+
 import time
 import re
 import subprocess as sp
