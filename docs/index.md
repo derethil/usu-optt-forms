@@ -22,6 +22,8 @@ npm run dev
 
 Then open `http://localhost:8080/` to view your changes.
 
+**Should you make any changes to the data structure stored in LocalStorage, you must write a [migration](docs/stateManagement.md#migrations) in order to prevent a crash when existing users open the new version.**
+
 ## Deployment
 
 To deploy the project, first install the dependencies in `requirements.txt` using `pip`. This can be done either globally or in a virtual environment.
